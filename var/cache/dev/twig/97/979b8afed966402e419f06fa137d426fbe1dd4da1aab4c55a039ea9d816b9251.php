@@ -204,6 +204,6 @@ class __TwigTemplate_b35756abc7decb1accd739218954f98b099e65ce30136d01add32853366
         })|raw }}
     </div>
 {% endif %}
-", "@Twig/Exception/trace.html.twig", "/Users/arnaud/Desktop/DevWebProjet/App/vendor/symfony/twig-bundle/Resources/views/Exception/trace.html.twig");
+", "@Twig/Exception/trace.html.twig", "/Users/arnaud/Documents/GitHub/DevWebProjet/vendor/symfony/twig-bundle/Resources/views/Exception/trace.html.twig");
     }
 }

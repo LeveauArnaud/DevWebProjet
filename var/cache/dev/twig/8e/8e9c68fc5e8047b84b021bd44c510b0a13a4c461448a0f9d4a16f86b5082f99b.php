@@ -63,6 +63,6 @@ class __TwigTemplate_02092980d62599972534bb7a8a0fc77ea0df675cf0aac390122bf9e1dba
     public function getSourceContext()
     {
         return new Source("<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path fill=\"#AAA\" d=\"M21 20.4V22H3v-1.6c0-3.7 2.4-6.9 5.8-8-1.7-1.1-2.9-3-2.9-5.2 0-3.4 2.7-6.1 6.1-6.1s6.1 2.7 6.1 6.1c0 2.2-1.2 4.1-2.9 5.2 3.4 1.1 5.8 4.3 5.8 8z\"/></svg>
-", "@Security/Collector/icon.svg", "/Users/arnaud/Desktop/DevWebProjet/App/vendor/symfony/security-bundle/Resources/views/Collector/icon.svg");
+", "@Security/Collector/icon.svg", "/Users/arnaud/Documents/GitHub/DevWebProjet/vendor/symfony/security-bundle/Resources/views/Collector/icon.svg");
     }
 }

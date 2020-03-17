@@ -471,6 +471,6 @@ class __TwigTemplate_36137913a070a6bbf27fd22fe81f337ca1493bf6a08d6377ddb9d70265a
         </div>
     {% endif %}
 {% endblock %}
-", "@WebProfiler/Collector/twig.html.twig", "/Users/arnaud/Desktop/DevWebProjet/App/vendor/symfony/web-profiler-bundle/Resources/views/Collector/twig.html.twig");
+", "@WebProfiler/Collector/twig.html.twig", "/Users/arnaud/Documents/GitHub/DevWebProjet/vendor/symfony/web-profiler-bundle/Resources/views/Collector/twig.html.twig");
     }
 }

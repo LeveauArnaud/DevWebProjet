@@ -227,6 +227,6 @@ class __TwigTemplate_e6564b694b62265db4cda34f07b457d0fee78d1e82512573c4c2ebc9cf9
         </div>
     </form>
 </div>
-", "@WebProfiler/Profiler/search.html.twig", "/Users/arnaud/Desktop/DevWebProjet/App/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/search.html.twig");
+", "@WebProfiler/Profiler/search.html.twig", "/Users/arnaud/Documents/GitHub/DevWebProjet/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/search.html.twig");
     }
 }
