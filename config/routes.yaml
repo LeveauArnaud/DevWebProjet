@@ -1,3 +1,16 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+client:
+  path:       /client
+  controller: App\Controller\ClientController::index
+
+
+stock:
+  path:       /stock
+  controller: App\Controller\StockController::index
+
+commandes:
+  path:       /commandes
+  controller: App\Controller\CommandesController::index
