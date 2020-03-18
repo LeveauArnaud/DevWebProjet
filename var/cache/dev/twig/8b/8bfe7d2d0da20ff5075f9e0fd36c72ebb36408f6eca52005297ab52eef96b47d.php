@@ -189,6 +189,6 @@ class __TwigTemplate_8017fd2e10e62cdb75fb2fc9a226afa96d22daa2a010ee7b4840e50f2d9
 .timeline-graph .timeline-period {
     stroke-width: 0;
 }
-", "@WebProfiler/Collector/time.css.twig", "/Users/arnaud/Documents/GitHub/DevWebProjet/vendor/symfony/web-profiler-bundle/Resources/views/Collector/time.css.twig");
+", "@WebProfiler/Collector/time.css.twig", "/Applications/MAMP/htdocs/DevWebProjet/vendor/symfony/web-profiler-bundle/Resources/views/Collector/time.css.twig");
     }
 }

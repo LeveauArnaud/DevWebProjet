@@ -83,6 +83,6 @@ class __TwigTemplate_3fd2f3806c8d5238a2a4c893394dc73a656348a6ac6a360ecacea034ba8
 {{ status_code }} {{ status_text }}
 
 */
-", "@Twig/Exception/error.css.twig", "/Users/arnaud/Documents/GitHub/DevWebProjet/vendor/symfony/twig-bundle/Resources/views/Exception/error.css.twig");
+", "@Twig/Exception/error.css.twig", "/Applications/MAMP/htdocs/DevWebProjet/vendor/symfony/twig-bundle/Resources/views/Exception/error.css.twig");
     }
 }

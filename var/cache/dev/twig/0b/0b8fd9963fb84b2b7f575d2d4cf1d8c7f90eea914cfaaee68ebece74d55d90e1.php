@@ -212,6 +212,6 @@ class __TwigTemplate_834c8010f26875ee42aeb8ab45af8393b7e2e492aedce7b816c3682ef48
     {% endfor %}
     </tbody>
 </table>
-", "@Twig/Exception/logs.html.twig", "/Users/arnaud/Documents/GitHub/DevWebProjet/vendor/symfony/twig-bundle/Resources/views/Exception/logs.html.twig");
+", "@Twig/Exception/logs.html.twig", "/Applications/MAMP/htdocs/DevWebProjet/vendor/symfony/twig-bundle/Resources/views/Exception/logs.html.twig");
     }
 }

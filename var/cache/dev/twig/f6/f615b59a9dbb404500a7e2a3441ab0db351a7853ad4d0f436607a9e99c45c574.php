@@ -99,6 +99,6 @@ class __TwigTemplate_22ffa9610c745fc13274b446bf4e38ad840924e3a40262005293f37cc91
             </trace>
 {% endfor %}
         </traces>
-", "@Twig/Exception/traces.xml.twig", "/Users/arnaud/Documents/GitHub/DevWebProjet/vendor/symfony/twig-bundle/Resources/views/Exception/traces.xml.twig");
+", "@Twig/Exception/traces.xml.twig", "/Applications/MAMP/htdocs/DevWebProjet/vendor/symfony/twig-bundle/Resources/views/Exception/traces.xml.twig");
     }
 }

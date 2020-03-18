@@ -12,7 +12,7 @@ namespace PackageVersions;
  */
 final class Versions
 {
-    public const ROOT_PACKAGE_NAME = 'symfony/website-skeleton';
+    public const ROOT_PACKAGE_NAME = '__root__';
     public const VERSIONS          = array (
   'doctrine/annotations' => 'v1.8.0@904dca4eb10715b92569fbcd79e201d5c349b6bc',
   'doctrine/cache' => '1.10.0@382e7f4db9a12dc6c19431743a2b096041bcdd62',
@@ -105,6 +105,8 @@ final class Versions
   'webmozart/assert' => '1.7.0@aed98a490f9a8f78468232db345ab9cf606cf598',
   'zendframework/zend-code' => '3.4.1@268040548f92c2bfcba164421c1add2ba43abaaa',
   'zendframework/zend-eventmanager' => '3.2.1@a5e2583a211f73604691586b8406ff7296a946dd',
+  'doctrine/data-fixtures' => '1.3.3@f0ee99c64922fc3f863715232b615c478a61b0a3',
+  'doctrine/doctrine-fixtures-bundle' => '3.3.0@8f07fcfdac7f3591f3c4bf13a50cbae05f65ed70',
   'easycorp/easy-log-handler' => 'v1.0.9@224e1dfcf9455aceee89cd0af306ac097167fac1',
   'nikic/php-parser' => 'v4.3.0@9a9981c347c5c49d6dfe5cf826bb882b824080dc',
   'symfony/browser-kit' => 'v4.4.5@090ce406505149d6852a7c03b0346dec3b8cf612',
@@ -117,13 +119,13 @@ final class Versions
   'symfony/profiler-pack' => 'v1.0.4@99c4370632c2a59bb0444852f92140074ef02209',
   'symfony/test-pack' => 'v1.0.6@ff87e800a67d06c423389f77b8209bc9dc469def',
   'symfony/web-profiler-bundle' => 'v4.4.5@76c21d0137f0b9c6bbbc93ac2672cadfdf2e625a',
-  'paragonie/random_compat' => '2.*@',
-  'symfony/polyfill-ctype' => '*@',
-  'symfony/polyfill-iconv' => '*@',
-  'symfony/polyfill-php71' => '*@',
-  'symfony/polyfill-php70' => '*@',
-  'symfony/polyfill-php56' => '*@',
-  'symfony/website-skeleton' => 'v4.4.99@',
+  'paragonie/random_compat' => '2.*@5fb702f1b001234e6a93c7e7b8ea5fa2b4a6db47',
+  'symfony/polyfill-ctype' => '*@5fb702f1b001234e6a93c7e7b8ea5fa2b4a6db47',
+  'symfony/polyfill-iconv' => '*@5fb702f1b001234e6a93c7e7b8ea5fa2b4a6db47',
+  'symfony/polyfill-php71' => '*@5fb702f1b001234e6a93c7e7b8ea5fa2b4a6db47',
+  'symfony/polyfill-php70' => '*@5fb702f1b001234e6a93c7e7b8ea5fa2b4a6db47',
+  'symfony/polyfill-php56' => '*@5fb702f1b001234e6a93c7e7b8ea5fa2b4a6db47',
+  '__root__' => 'dev-Arnaud@5fb702f1b001234e6a93c7e7b8ea5fa2b4a6db47',
 );
 
     private function __construct()

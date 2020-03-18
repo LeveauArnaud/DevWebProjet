@@ -275,6 +275,6 @@ class __TwigTemplate_a018244b3f80b2b55d6fcc9f8c4b85f10641c644b3269bac15e4445d0de
     </body>
 </html>
 {% block after_html %}{% endblock %}
-", "@Twig/layout.html.twig", "/Users/arnaud/Documents/GitHub/DevWebProjet/vendor/symfony/twig-bundle/Resources/views/layout.html.twig");
+", "@Twig/layout.html.twig", "/Applications/MAMP/htdocs/DevWebProjet/vendor/symfony/twig-bundle/Resources/views/layout.html.twig");
     }
 }
