@@ -15,8 +15,9 @@ return [
     '_profiler_router' => [['token'], ['_controller' => 'web_profiler.controller.router::panelAction'], [], [['text', '/router'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
-    'index' => [[], ['_controller' => 'App\\Controller\\ClientController::index'], [], [['text', '/']], [], []],
     'client' => [[], ['_controller' => 'App\\Controller\\ClientController::index'], [], [['text', '/client']], [], []],
+    'commande' => [[], ['_controller' => 'App\\Controller\\CommandeController::index'], [], [['text', '/commande']], [], []],
+    'parametre' => [[], ['_controller' => 'App\\Controller\\ParametreController::index'], [], [['text', '/parametre']], [], []],
     'stock' => [[], ['_controller' => 'App\\Controller\\StockController::index'], [], [['text', '/stock']], [], []],
-    'commandes' => [[], ['_controller' => 'App\\Controller\\CommandesController::index'], [], [['text', '/commandes']], [], []],
+    'index' => [[], ['_controller' => 'App\\Controller\\ClientController::index'], [], [['text', '/']], [], []],
 ];

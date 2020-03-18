@@ -52,19 +52,51 @@ class __TwigTemplate_c5455cd18affc30b55c640902fe775cbfc12b0f9c0fcaed20f43e5dfe40
         // line 5
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
+        <link rel=\"stylesheet\" href=\"https://bootswatch.com/4/flatly/bootstrap.css\">
         ";
-        // line 6
-        $this->displayBlock('stylesheets', $context, $blocks);
         // line 7
+        $this->displayBlock('stylesheets', $context, $blocks);
+        // line 8
         echo "    </head>
     <body>
-        ";
-        // line 9
+        <nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">
+            <a class=\"navbar-brand\" href=\"/\">DevWebProjet</a>
+            <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor01\" aria-controls=\"navbarColor01\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+                <span class=\"navbar-toggler-icon\"></span>
+            </button>
+
+            <div class=\"collapse navbar-collapse\" id=\"navbarColor01\">
+                <ul class=\"navbar-nav mr-auto\">
+                    <li class=\"nav-item dropdown\">
+                        <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"/client\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Client</a>
+                        <div class=\"dropdown-menu\" style=\"\">
+                            <a class=\"dropdown-item\" href=\"#\">Nouveau client</a>
+                            <a class=\"dropdown-item\" href=\"#\">Recherche client</a>
+                        </div>
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"/stock\">Stock</a>
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"/commande\">Commandes</a>
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"/parametre\">Paramètre</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class=\"container\">
+            ";
+        // line 38
         $this->displayBlock('body', $context, $blocks);
-        // line 10
-        echo "        ";
+        // line 39
+        echo "        </div>
+
+        ";
+        // line 41
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 11
+        // line 42
         echo "    </body>
 </html>
 ";
@@ -95,7 +127,7 @@ class __TwigTemplate_c5455cd18affc30b55c640902fe775cbfc12b0f9c0fcaed20f43e5dfe40
 
     }
 
-    // line 6
+    // line 7
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -113,7 +145,7 @@ class __TwigTemplate_c5455cd18affc30b55c640902fe775cbfc12b0f9c0fcaed20f43e5dfe40
 
     }
 
-    // line 9
+    // line 38
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -131,7 +163,7 @@ class __TwigTemplate_c5455cd18affc30b55c640902fe775cbfc12b0f9c0fcaed20f43e5dfe40
 
     }
 
-    // line 10
+    // line 41
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -156,7 +188,7 @@ class __TwigTemplate_c5455cd18affc30b55c640902fe775cbfc12b0f9c0fcaed20f43e5dfe40
 
     public function getDebugInfo()
     {
-        return array (  135 => 10,  117 => 9,  99 => 6,  80 => 5,  68 => 11,  65 => 10,  63 => 9,  59 => 7,  57 => 6,  53 => 5,  47 => 1,);
+        return array (  167 => 41,  149 => 38,  131 => 7,  112 => 5,  100 => 42,  98 => 41,  94 => 39,  92 => 38,  60 => 8,  58 => 7,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -166,13 +198,44 @@ class __TwigTemplate_c5455cd18affc30b55c640902fe775cbfc12b0f9c0fcaed20f43e5dfe40
     <head>
         <meta charset=\"UTF-8\">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel=\"stylesheet\" href=\"https://bootswatch.com/4/flatly/bootstrap.css\">
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">
+            <a class=\"navbar-brand\" href=\"/\">DevWebProjet</a>
+            <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor01\" aria-controls=\"navbarColor01\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+                <span class=\"navbar-toggler-icon\"></span>
+            </button>
+
+            <div class=\"collapse navbar-collapse\" id=\"navbarColor01\">
+                <ul class=\"navbar-nav mr-auto\">
+                    <li class=\"nav-item dropdown\">
+                        <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"/client\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Client</a>
+                        <div class=\"dropdown-menu\" style=\"\">
+                            <a class=\"dropdown-item\" href=\"#\">Nouveau client</a>
+                            <a class=\"dropdown-item\" href=\"#\">Recherche client</a>
+                        </div>
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"/stock\">Stock</a>
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"/commande\">Commandes</a>
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"/parametre\">Paramètre</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class=\"container\">
+            {% block body %}{% endblock %}
+        </div>
+
         {% block javascripts %}{% endblock %}
     </body>
 </html>
-", "base.html.twig", "/Users/arnaud/Documents/GitHub/DevWebProjet/templates/base.html.twig");
+", "base.html.twig", "/Applications/MAMP/htdocs/DevWebProjet/templates/base.html.twig");
     }
 }

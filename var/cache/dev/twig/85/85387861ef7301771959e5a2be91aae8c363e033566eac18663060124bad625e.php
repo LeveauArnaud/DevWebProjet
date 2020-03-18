@@ -174,6 +174,6 @@ class __TwigTemplate_e89ab140a004b59c7a2303c5d15c6d3c4fee4103e3e5f6d1bbf9b18a2e1
         {% endif %}
     </div>
 {% endblock %}
-", "@WebProfiler/Profiler/open.html.twig", "/Users/arnaud/Documents/GitHub/DevWebProjet/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/open.html.twig");
+", "@WebProfiler/Profiler/open.html.twig", "/Applications/MAMP/htdocs/DevWebProjet/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/open.html.twig");
     }
 }
