@@ -3,6 +3,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Client;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
@@ -14,4 +15,7 @@ class ClientController
 
         return new Response($content);
     }
+
+    
+
 }
