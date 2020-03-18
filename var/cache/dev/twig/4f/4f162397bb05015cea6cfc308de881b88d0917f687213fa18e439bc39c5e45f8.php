@@ -86,6 +86,73 @@ class __TwigTemplate_1619ffe29575185542c818658e8fee1cd11b924a7f2267f225fab3ff938
 
         // line 6
         echo "    <h1>Partie Stock</h1>
+    <div class=\"container\">
+        <div class=\"row\">
+            <div class=\"col-sm-12 mb-3\">
+                <table class=\"table table-hover\">
+                    <thead>
+                    <tr>
+                        <th scope=\"col\">Id</th>
+                        <th scope=\"col\">Magasin</th>
+                        <th scope=\"col\">Produits</th>
+                        <th scope=\"col\">Marque</th>
+                        <th scope=\"col\">Model</th>
+                        <th scope=\"col\">Couleur</th>
+                        <th scope=\"col\">Taille</th>
+                        <th scope=\"col\">Prix</th>
+                        <th scope=\"col\">Quantité</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope=\"row\">Default</th>
+                        <td>###</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>000.00 €</td>
+                        <td>Column content</td>
+                    </tr>
+                    <tr>
+                        <th scope=\"row\">Default</th>
+                        <td>###</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>000.00 €</td>
+                        <td>Column content</td>
+                    </tr>
+                    <tr>
+                        <th scope=\"row\">Default</th>
+                        <td>###</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>000.00 €</td>
+                        <td>Column content</td>
+                    </tr>
+                    <tr>
+                        <th scope=\"row\">Default</th>
+                        <td>###</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>000.00 €</td>
+                        <td>Column content</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -118,6 +185,73 @@ class __TwigTemplate_1619ffe29575185542c818658e8fee1cd11b924a7f2267f225fab3ff938
 
 {% block body %}
     <h1>Partie Stock</h1>
+    <div class=\"container\">
+        <div class=\"row\">
+            <div class=\"col-sm-12 mb-3\">
+                <table class=\"table table-hover\">
+                    <thead>
+                    <tr>
+                        <th scope=\"col\">Id</th>
+                        <th scope=\"col\">Magasin</th>
+                        <th scope=\"col\">Produits</th>
+                        <th scope=\"col\">Marque</th>
+                        <th scope=\"col\">Model</th>
+                        <th scope=\"col\">Couleur</th>
+                        <th scope=\"col\">Taille</th>
+                        <th scope=\"col\">Prix</th>
+                        <th scope=\"col\">Quantité</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope=\"row\">Default</th>
+                        <td>###</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>000.00 €</td>
+                        <td>Column content</td>
+                    </tr>
+                    <tr>
+                        <th scope=\"row\">Default</th>
+                        <td>###</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>000.00 €</td>
+                        <td>Column content</td>
+                    </tr>
+                    <tr>
+                        <th scope=\"row\">Default</th>
+                        <td>###</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>000.00 €</td>
+                        <td>Column content</td>
+                    </tr>
+                    <tr>
+                        <th scope=\"row\">Default</th>
+                        <td>###</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>Column content</td>
+                        <td>000.00 €</td>
+                        <td>Column content</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 ", "stock/index.html.twig", "/Applications/MAMP/htdocs/DevWebProjet/templates/stock/index.html.twig");
     }
