@@ -135,6 +135,6 @@ class __TwigTemplate_cfc0c72246033e6631d059c053df26959d44f850f8796b4d474a17747c2
         </div>
     </body>
 </html>
-", "@Twig/Exception/error.html.twig", "/Users/arnaud/Documents/GitHub/DevWebProjet/vendor/symfony/twig-bundle/Resources/views/Exception/error.html.twig");
+", "@Twig/Exception/error.html.twig", "/Applications/MAMP/htdocs/DevWebProjet/vendor/symfony/twig-bundle/Resources/views/Exception/error.html.twig");
     }
 }

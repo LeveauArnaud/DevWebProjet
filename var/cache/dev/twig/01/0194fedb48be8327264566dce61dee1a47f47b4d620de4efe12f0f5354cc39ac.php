@@ -112,6 +112,6 @@ class __TwigTemplate_b24dc36074323e4f59cb97e5ee11bf48b614675900b38c9005d52fcd64a
     </exception>
 {% endfor %}
 </error>
-", "@Twig/Exception/exception.xml.twig", "/Users/arnaud/Documents/GitHub/DevWebProjet/vendor/symfony/twig-bundle/Resources/views/Exception/exception.xml.twig");
+", "@Twig/Exception/exception.xml.twig", "/Applications/MAMP/htdocs/DevWebProjet/vendor/symfony/twig-bundle/Resources/views/Exception/exception.xml.twig");
     }
 }

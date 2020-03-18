@@ -4,4 +4,24 @@
 
 {% block body %}
 <h1>Partie Client</h1>
+    <h4>Liste des clients</h4>
+{% for client in clients %}
+    <article>
+        <div>
+            <img src="{{ client.photo }}" alt="photo du client">
+        </div>
+        <div>
+            <p>Sexe : {{ client.sexe }}</p>
+            <p>Nom : {{ client.nom }}</p>
+            <p>Prenom : {{ client.prenom }}</p>
+            <p>Date de naissance : {{ client.dateNaissance | date('d/m/Y') }}</p>
+            <p>Rue : {{ client.rue }}</p>
+            <p>Ville : {{ client.ville }}</p>
+            <p>Pays : {{ client.pays }}</p>
+            <p>Email : {{ client.email }}</p>
+        </div>
+
+    </article>
+
+{% endfor %}
 {% endblock %}

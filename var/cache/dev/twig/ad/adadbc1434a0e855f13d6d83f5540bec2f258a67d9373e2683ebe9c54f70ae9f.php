@@ -843,6 +843,6 @@ class __TwigTemplate_8132d8b921177874445459b44237dce99e94f6561df3353c5cfa435aae0
     </table>
     {% endfor %}
 {% endmacro %}
-", "@WebProfiler/Collector/messenger.html.twig", "/Users/arnaud/Documents/GitHub/DevWebProjet/vendor/symfony/web-profiler-bundle/Resources/views/Collector/messenger.html.twig");
+", "@WebProfiler/Collector/messenger.html.twig", "/Applications/MAMP/htdocs/DevWebProjet/vendor/symfony/web-profiler-bundle/Resources/views/Collector/messenger.html.twig");
     }
 }
