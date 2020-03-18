@@ -38,3 +38,4 @@ e99afb,::1,GET,https://localhost:8000/commandes,1584527135,,200
 951103,::1,GET,https://localhost:8000/stock,1584527135,,200
 8ce6dd,::1,GET,https://localhost:8000/client,1584527136,,200
 688a0a,::1,GET,https://localhost:8000/client,1584527232,,200
+ad014d,::1,GET,https://localhost:8000/client,1584530167,,200
