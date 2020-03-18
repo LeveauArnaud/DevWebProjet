@@ -1,21 +1,19 @@
 <?php
-// src/Controller/ClientController.php
 
 namespace App\Controller;
 
-use App\Entity\Client;
-use Symfony\Component\HttpFoundation\Response;
-use Twig\Environment;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Routing\Annotation\Route;
 
-class ClientController
+class ClientController extends AbstractController
 {
-    public function index(Environment $twig)
+    /**
+     * @Route("/client", name="client")
+     */
+    public function index()
     {
-        $content = $twig->render('Client/index.html.twig', ['name' => 'client']);
-
-        return new Response($content);
+        return $this->render('client/index.html.twig', [
+            'controller_name' => 'ClientController',
+        ]);
     }
-
-    
-
 }

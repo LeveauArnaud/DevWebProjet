@@ -1,17 +1,19 @@
 <?php
-// src/Controller/StockController.php
 
 namespace App\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
-use Twig\Environment;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Routing\Annotation\Route;
 
-class StockController
+class StockController extends AbstractController
 {
-    public function index(Environment $twig)
+    /**
+     * @Route("/stock", name="stock")
+     */
+    public function index()
     {
-        $content = $twig->render('Stock/index.html.twig', ['name' => 'stock']);
-
-        return new Response($content);
+        return $this->render('stock/index.html.twig', [
+            'controller_name' => 'StockController',
+        ]);
     }
 }
