@@ -86,6 +86,42 @@ class __TwigTemplate_ffc738f5b957830175e71c48b322c04c4c5697018139278e81f849b6a98
 
         // line 6
         echo "    <h1>Partie Commande</h1>
+    <div class=\"container\">
+        <div class=\"row\">
+            <div class=\"col-sm-12 mb-3\">
+                <table class=\"table table-hover\">
+                    <thead>
+                    <tr>
+                        <th scope=\"col\">Id</th>
+                        <th scope=\"col\">Nom du Client</th>
+                        <th scope=\"col\">Produits</th>
+                        <th scope=\"col\">Etat</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope=\"row\">Default</th>
+                        <td>###</td>
+                        <td>Column content</td>
+                        <td class=\"bg-warning mb-3\">En commande</td>
+                    </tr>
+                    <tr>
+                        <th scope=\"row\">Default</th>
+                        <td>###</td>
+                        <td>Column content</td>
+                        <td class=\"bg-success mb-3\" >Reçu</td>
+                    </tr>
+                    <tr>
+                        <th scope=\"row\">Default</th>
+                        <td>###</td>
+                        <td>Column content</td>
+                        <td class=\"bg-warning mb-3\">En commande</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -118,6 +154,42 @@ class __TwigTemplate_ffc738f5b957830175e71c48b322c04c4c5697018139278e81f849b6a98
 
 {% block body %}
     <h1>Partie Commande</h1>
+    <div class=\"container\">
+        <div class=\"row\">
+            <div class=\"col-sm-12 mb-3\">
+                <table class=\"table table-hover\">
+                    <thead>
+                    <tr>
+                        <th scope=\"col\">Id</th>
+                        <th scope=\"col\">Nom du Client</th>
+                        <th scope=\"col\">Produits</th>
+                        <th scope=\"col\">Etat</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope=\"row\">Default</th>
+                        <td>###</td>
+                        <td>Column content</td>
+                        <td class=\"bg-warning mb-3\">En commande</td>
+                    </tr>
+                    <tr>
+                        <th scope=\"row\">Default</th>
+                        <td>###</td>
+                        <td>Column content</td>
+                        <td class=\"bg-success mb-3\" >Reçu</td>
+                    </tr>
+                    <tr>
+                        <th scope=\"row\">Default</th>
+                        <td>###</td>
+                        <td>Column content</td>
+                        <td class=\"bg-warning mb-3\">En commande</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 ", "commande/index.html.twig", "/Applications/MAMP/htdocs/DevWebProjet/templates/commande/index.html.twig");
     }
