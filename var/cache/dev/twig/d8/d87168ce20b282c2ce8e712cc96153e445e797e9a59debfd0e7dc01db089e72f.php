@@ -85,7 +85,19 @@ class __TwigTemplate_c3ba08e975a4f6efd61ec948c65daa71d378dc28e56b86bd3f631b29e05
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <h1>Partie Parametre</h1>
+        echo "    <nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">
+        <div class=\"collapse navbar-collapse\" id=\"navbarColor01\">
+            <ul class=\"navbar-nav mr-auto\">
+                <li class=\"nav-item\">
+                    <a class=\"dropdown-item\" href=\"/parametre/precripteur\">Prescripteur</a>
+                </li>
+                <li class=\"nav-item\">
+                    <a class=\"dropdown-item\" href=\"/parametre/inami\">INAMI</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <h1>Partie Parametre</h1>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -117,6 +129,18 @@ class __TwigTemplate_c3ba08e975a4f6efd61ec948c65daa71d378dc28e56b86bd3f631b29e05
 {% block title %}Hello ParametreController!{% endblock %}
 
 {% block body %}
+    <nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">
+        <div class=\"collapse navbar-collapse\" id=\"navbarColor01\">
+            <ul class=\"navbar-nav mr-auto\">
+                <li class=\"nav-item\">
+                    <a class=\"dropdown-item\" href=\"/parametre/precripteur\">Prescripteur</a>
+                </li>
+                <li class=\"nav-item\">
+                    <a class=\"dropdown-item\" href=\"/parametre/inami\">INAMI</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <h1>Partie Parametre</h1>
 {% endblock %}
 ", "parametre/index.html.twig", "/Applications/MAMP/htdocs/DevWebProjet/templates/parametre/index.html.twig");

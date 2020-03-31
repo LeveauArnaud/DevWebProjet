@@ -85,56 +85,68 @@ class __TwigTemplate_9e5044eb59fbaa09225cfb3e5398c57e7fcd88c5fe259888cf38757f26b
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "<h1>Partie Client</h1>
+        echo "    <nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">
+        <div class=\"collapse navbar-collapse\" id=\"navbarColor01\">
+            <ul class=\"navbar-nav mr-auto\">
+                <li class=\"nav-item\">
+                    <a class=\"dropdown-item\" href=\"#\">Recherche client</a>
+                </li>
+                <li class=\"nav-item\">
+                    <a class=\"dropdown-item\" href=\"#\">Nouveau client</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+<h1>Partie Client</h1>
     <div class=\"container\">
         <div class=\"row\">
             <div class=\"col-sm-4 bg-danger mb-3\">
                 <h4>Liste des clients</h4>
     ";
-        // line 11
+        // line 23
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["clients"]) || array_key_exists("clients", $context) ? $context["clients"] : (function () { throw new RuntimeError('Variable "clients" does not exist.', 11, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["clients"]) || array_key_exists("clients", $context) ? $context["clients"] : (function () { throw new RuntimeError('Variable "clients" does not exist.', 23, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["client"]) {
-            // line 12
+            // line 24
             echo "        <div class=\"card text-white bg-danger mb-3\">
             <div class=\"card-Header\">
                 <img src=\"";
-            // line 14
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "photo", [], "any", false, false, false, 14), "html", null, true);
+            // line 26
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "photo", [], "any", false, false, false, 26), "html", null, true);
             echo "\" alt=\"photo du client\">
             </div>
             <div class=\"card-body\">
                 <p>Sexe : ";
-            // line 17
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "sexe", [], "any", false, false, false, 17), "html", null, true);
+            // line 29
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "sexe", [], "any", false, false, false, 29), "html", null, true);
             echo "</p>
                 <p>Nom : ";
-            // line 18
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "nom", [], "any", false, false, false, 18), "html", null, true);
+            // line 30
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "nom", [], "any", false, false, false, 30), "html", null, true);
             echo "</p>
                 <p>Prenom : ";
-            // line 19
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "prenom", [], "any", false, false, false, 19), "html", null, true);
+            // line 31
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "prenom", [], "any", false, false, false, 31), "html", null, true);
             echo "</p>
                 <p>Date de naissance : ";
-            // line 20
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "dateNaissance", [], "any", false, false, false, 20), "d/m/Y"), "html", null, true);
+            // line 32
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "dateNaissance", [], "any", false, false, false, 32), "d/m/Y"), "html", null, true);
             echo "</p>
                 <p>Rue : ";
-            // line 21
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "rue", [], "any", false, false, false, 21), "html", null, true);
+            // line 33
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "rue", [], "any", false, false, false, 33), "html", null, true);
             echo "</p>
                 <p>Ville : ";
-            // line 22
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "ville", [], "any", false, false, false, 22), "html", null, true);
+            // line 34
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "ville", [], "any", false, false, false, 34), "html", null, true);
             echo "</p>
                 <p>Pays : ";
-            // line 23
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "pays", [], "any", false, false, false, 23), "html", null, true);
+            // line 35
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "pays", [], "any", false, false, false, 35), "html", null, true);
             echo "</p>
                 <p>Email : ";
-            // line 24
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "email", [], "any", false, false, false, 24), "html", null, true);
+            // line 36
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "email", [], "any", false, false, false, 36), "html", null, true);
             echo "</p>
             </div>
 
@@ -145,7 +157,7 @@ class __TwigTemplate_9e5044eb59fbaa09225cfb3e5398c57e7fcd88c5fe259888cf38757f26b
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['client'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 30
+        // line 42
         echo "            </div>
         <div class=\"col-sm-8\">
         <div class=\"card text-white bg-success mb-3\">
@@ -205,7 +217,7 @@ class __TwigTemplate_9e5044eb59fbaa09225cfb3e5398c57e7fcd88c5fe259888cf38757f26b
 
     public function getDebugInfo()
     {
-        return array (  149 => 30,  137 => 24,  133 => 23,  129 => 22,  125 => 21,  121 => 20,  117 => 19,  113 => 18,  109 => 17,  103 => 14,  99 => 12,  95 => 11,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  161 => 42,  149 => 36,  145 => 35,  141 => 34,  137 => 33,  133 => 32,  129 => 31,  125 => 30,  121 => 29,  115 => 26,  111 => 24,  107 => 23,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -215,6 +227,18 @@ class __TwigTemplate_9e5044eb59fbaa09225cfb3e5398c57e7fcd88c5fe259888cf38757f26b
 {% block title %}Hello ClientController!{% endblock %}
 
 {% block body %}
+    <nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">
+        <div class=\"collapse navbar-collapse\" id=\"navbarColor01\">
+            <ul class=\"navbar-nav mr-auto\">
+                <li class=\"nav-item\">
+                    <a class=\"dropdown-item\" href=\"#\">Recherche client</a>
+                </li>
+                <li class=\"nav-item\">
+                    <a class=\"dropdown-item\" href=\"#\">Nouveau client</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 <h1>Partie Client</h1>
     <div class=\"container\">
         <div class=\"row\">
