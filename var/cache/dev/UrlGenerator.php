@@ -17,6 +17,7 @@ return [
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
     'client' => [[], ['_controller' => 'App\\Controller\\ClientController::index'], [], [['text', '/client']], [], []],
     'commande' => [[], ['_controller' => 'App\\Controller\\CommandeController::index'], [], [['text', '/commande']], [], []],
+    'login' => [[], ['_controller' => 'App\\Controller\\LoginController::index'], [], [['text', '/login']], [], []],
     'parametre' => [[], ['_controller' => 'App\\Controller\\ParametreController::index'], [], [['text', '/parametre']], [], []],
     'stock' => [[], ['_controller' => 'App\\Controller\\StockController::index'], [], [['text', '/stock']], [], []],
     'index' => [[], ['_controller' => 'App\\Controller\\ClientController::index'], [], [['text', '/']], [], []],

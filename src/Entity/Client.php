@@ -57,7 +57,7 @@ class Client
     private $sexe;
 
     /**
-     * @ORM\Column(type="blob", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $photo;
 

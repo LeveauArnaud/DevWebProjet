@@ -88,6 +88,11 @@ class __TwigTemplate_1619ffe29575185542c818658e8fee1cd11b924a7f2267f225fab3ff938
         echo "    <h1>Partie Stock</h1>
     <div class=\"container\">
         <div class=\"row\">
+            <div class=\"col-sm-4 mb-3\">
+                <button type=\"button\" class=\"btn btn-primary\">Ajouter une monture</button>
+            </div>
+        </div>
+        <div class=\"row\">
             <div class=\"col-sm-12 mb-3\">
                 <table class=\"table table-hover\">
                     <thead>
@@ -186,6 +191,11 @@ class __TwigTemplate_1619ffe29575185542c818658e8fee1cd11b924a7f2267f225fab3ff938
 {% block body %}
     <h1>Partie Stock</h1>
     <div class=\"container\">
+        <div class=\"row\">
+            <div class=\"col-sm-4 mb-3\">
+                <button type=\"button\" class=\"btn btn-primary\">Ajouter une monture</button>
+            </div>
+        </div>
         <div class=\"row\">
             <div class=\"col-sm-12 mb-3\">
                 <table class=\"table table-hover\">

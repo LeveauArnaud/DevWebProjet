@@ -67,12 +67,8 @@ class __TwigTemplate_c5455cd18affc30b55c640902fe775cbfc12b0f9c0fcaed20f43e5dfe40
 
             <div class=\"collapse navbar-collapse\" id=\"navbarColor01\">
                 <ul class=\"navbar-nav mr-auto\">
-                    <li class=\"nav-item dropdown\">
-                        <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"/client\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Client</a>
-                        <div class=\"dropdown-menu\" style=\"\">
-                            <a class=\"dropdown-item\" href=\"#\">Nouveau client</a>
-                            <a class=\"dropdown-item\" href=\"#\">Recherche client</a>
-                        </div>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"/client\">Client</a>
                     </li>
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"/stock\">Stock</a>
@@ -84,19 +80,24 @@ class __TwigTemplate_c5455cd18affc30b55c640902fe775cbfc12b0f9c0fcaed20f43e5dfe40
                         <a class=\"nav-link\" href=\"/parametre\">Paramètre</a>
                     </li>
                 </ul>
+                <ul>
+                    <li class=\"navbar-nav navbar-right\">
+                        <a class=\"nav-link\" href=\"/login\">Deconnexion</a>
+                    </li>
+                </ul>
             </div>
         </nav>
         <div class=\"container\">
             ";
-        // line 38
-        $this->displayBlock('body', $context, $blocks);
         // line 39
+        $this->displayBlock('body', $context, $blocks);
+        // line 40
         echo "        </div>
 
         ";
-        // line 41
-        $this->displayBlock('javascripts', $context, $blocks);
         // line 42
+        $this->displayBlock('javascripts', $context, $blocks);
+        // line 43
         echo "    </body>
 </html>
 ";
@@ -145,7 +146,7 @@ class __TwigTemplate_c5455cd18affc30b55c640902fe775cbfc12b0f9c0fcaed20f43e5dfe40
 
     }
 
-    // line 38
+    // line 39
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -163,7 +164,7 @@ class __TwigTemplate_c5455cd18affc30b55c640902fe775cbfc12b0f9c0fcaed20f43e5dfe40
 
     }
 
-    // line 41
+    // line 42
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -188,7 +189,7 @@ class __TwigTemplate_c5455cd18affc30b55c640902fe775cbfc12b0f9c0fcaed20f43e5dfe40
 
     public function getDebugInfo()
     {
-        return array (  167 => 41,  149 => 38,  131 => 7,  112 => 5,  100 => 42,  98 => 41,  94 => 39,  92 => 38,  60 => 8,  58 => 7,  53 => 5,  47 => 1,);
+        return array (  168 => 42,  150 => 39,  132 => 7,  113 => 5,  101 => 43,  99 => 42,  95 => 40,  93 => 39,  60 => 8,  58 => 7,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -210,12 +211,8 @@ class __TwigTemplate_c5455cd18affc30b55c640902fe775cbfc12b0f9c0fcaed20f43e5dfe40
 
             <div class=\"collapse navbar-collapse\" id=\"navbarColor01\">
                 <ul class=\"navbar-nav mr-auto\">
-                    <li class=\"nav-item dropdown\">
-                        <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"/client\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Client</a>
-                        <div class=\"dropdown-menu\" style=\"\">
-                            <a class=\"dropdown-item\" href=\"#\">Nouveau client</a>
-                            <a class=\"dropdown-item\" href=\"#\">Recherche client</a>
-                        </div>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"/client\">Client</a>
                     </li>
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"/stock\">Stock</a>
@@ -225,6 +222,11 @@ class __TwigTemplate_c5455cd18affc30b55c640902fe775cbfc12b0f9c0fcaed20f43e5dfe40
                     </li>
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"/parametre\">Paramètre</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class=\"navbar-nav navbar-right\">
+                        <a class=\"nav-link\" href=\"/login\">Deconnexion</a>
                     </li>
                 </ul>
             </div>
