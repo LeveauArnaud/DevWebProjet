@@ -1,0 +1,32 @@
+CREATE DATABASE projetdb;
+use projetdb;
+
+create table verre_D (
+id integer not null,
+sph char(5),
+cyl char(5),
+axe char(5),
+ade char(5),
+primary key (id)
+);
+
+create table verre_G (
+id integer not null,
+sph char(5),
+cyl char(5),
+axe char(5),
+ade char(5),
+primary key (id)
+);
+
+
+create table client (
+id integer not null,
+prenom char(50),
+nom char(50),
+addresse char(50),
+primary key (id),
+constraint fk_clients_veD FOREIGN key (id)references DBA.verre_D(id),
+constraint fk_clients_veG FOREIGN key (id)references DBA.verre_G(id)
+);
+
