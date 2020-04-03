@@ -86,10 +86,23 @@ class __TwigTemplate_06a90650a347ac3bddb302b9d3d0dd9dee4a879bd8e93e4e3d2d3bd197b
 
         // line 6
         echo "
-    <h1>";
-        // line 7
-        echo twig_escape_filter($this->env, (isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new RuntimeError('Variable "message" does not exist.', 7, $this->source); })()), "html", null, true);
-        echo "</h1>
+    <div class=\"container\">
+        <div class=\"row\">
+            <div class=\"col-sm-8\">
+                <div class=\"card text-white bg-success mb-3\">
+                    <div class=\"card-Header\">
+                        <h1>Confirmation</h1>
+                    </div>
+                    <div class=\"card-body\">
+                        <p>";
+        // line 15
+        echo twig_escape_filter($this->env, (isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new RuntimeError('Variable "message" does not exist.', 15, $this->source); })()), "html", null, true);
+        echo "</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 ";
         
@@ -112,7 +125,7 @@ class __TwigTemplate_06a90650a347ac3bddb302b9d3d0dd9dee4a879bd8e93e4e3d2d3bd197b
 
     public function getDebugInfo()
     {
-        return array (  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  99 => 15,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -123,7 +136,20 @@ class __TwigTemplate_06a90650a347ac3bddb302b9d3d0dd9dee4a879bd8e93e4e3d2d3bd197b
 
 {% block body %}
 
-    <h1>{{ message }}</h1>
+    <div class=\"container\">
+        <div class=\"row\">
+            <div class=\"col-sm-8\">
+                <div class=\"card text-white bg-success mb-3\">
+                    <div class=\"card-Header\">
+                        <h1>Confirmation</h1>
+                    </div>
+                    <div class=\"card-body\">
+                        <p>{{ message }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}", "client/clientDelete.html.twig", "/Applications/MAMP/htdocs/DevWebProjet/templates/client/clientDelete.html.twig");
     }

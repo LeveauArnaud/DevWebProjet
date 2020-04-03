@@ -48,6 +48,7 @@ class APIController extends AbstractController
     /**
      * @Route("/client/liste", name="get_client_liste", methods={"GET"})
      */
+
     public function liste(ClientRepository $clientsRepo)
     {
         // On récupère la liste des articles
@@ -61,8 +62,9 @@ class APIController extends AbstractController
 
 
     /**
-     * @Route("/client/{id}", name="get_client_id", methods={"GET"})
+     * @Route("/client/get/{id}", name="get_client_id", methods={"GET"})
      */
+
     public function clientById($id)
     {
         $client = $this->getDoctrine()
@@ -84,6 +86,7 @@ class APIController extends AbstractController
     /**
      * @Route("/client/param", name="get_client_param", methods={"GET"})
      */
+
     public function clientByParam()
     {
         $client = $this->getDoctrine()
@@ -109,6 +112,7 @@ class APIController extends AbstractController
     /**
      * @Route("/client/delete/{id}", name="delete_client_id")
      */
+
     public function clientDelete($id)
     {
         $entityManager = $this->getDoctrine()->getManager();
@@ -120,9 +124,46 @@ class APIController extends AbstractController
             );
         }
 
+        //mémorise les infos pour message de confirmation
+        $entityManager->persist($client);
+        //prépare la requête remove
         $entityManager->remove($client);
+        //execute la requête
         $entityManager->flush();
 
-        return $this->redirectToRoute('client_delete' );
+        /*return $this->render('client/clientDelete.html.twig', [
+            'message' => 'le client portant le nom '.$client->getNom().' '.$client->getPrenom().' à bien été supprimé'
+        ]);*/
+        return new Response('le client portant le nom '.$client->getNom().' '.$client->getPrenom().' à bien été supprimé');
     }
+
+    /**
+     * @Route("/client/create", name="create_client")
+     */
+
+    public function createProduct(): Response
+    {
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $client = new Client();
+        $client->setNom("Famille")
+            ->setPrenom("prenom")
+            ->setSexe("M")
+            ->setDateNaissance(new \DateTime())
+            ->setRue("Rue de l'église 2")
+            ->setVille("Villes")
+            ->setPays("Pays")
+            ->setEmail("email")
+            ->setPhoto("https://placeholder.com/150");
+
+        //mémorise les infos pour message de confirmation
+        $entityManager->persist($client);
+
+        //execute la requête)
+        $entityManager->flush();
+
+        return new Response('Nouveau client avec l\'id '.$client->getId());
+    }
+
 }
