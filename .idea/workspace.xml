@@ -3,18 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="8a0d6d03-21cf-4848-aa7c-959bdba867e8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Client.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/client/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/client/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/parametre/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/parametre/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/stock/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/stock/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerQQb886x.legacy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerQQb886x/removed-ids.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerQQb886x/srcApp_KernelDevDebugContainer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/Container2SDZM5E.legacy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/Container2SDZM5E/removed-ids.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/Container2SDZM5E/srcApp_KernelDevDebugContainer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerXxVneDR/removed-ids.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerXxVneDR/srcApp_KernelDevDebugContainer.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/UrlGenerator.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/UrlGenerator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/UrlGenerator.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/UrlGenerator.php.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/UrlMatcher.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/UrlMatcher.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/UrlMatcher.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/UrlMatcher.php.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/+/O/YljIpy4jYBRjuRTY5zvg" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/+/O/YljIpy4jYBRjuRTY5zvg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/1/P/ChKAH+myDWop5P3VE8BQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/1/P/ChKAH+myDWop5P3VE8BQ" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/5/O/NyAgKwhlhN91VNRPG1Ow" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/5/O/NyAgKwhlhN91VNRPG1Ow" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/6/Y/pPKGKlXMckiULMtZcTSw" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/6/Y/pPKGKlXMckiULMtZcTSw" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/8/9/XFM-YLIxUYG6SmR071ug" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/8/9/XFM-YLIxUYG6SmR071ug" afterDir="false" />
@@ -22,7 +21,6 @@
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/C/E/Duq2eAiaI+u2acPOv0kQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/C/E/Duq2eAiaI+u2acPOv0kQ" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/G/U/Nj6TR44WbgAcObuOytVA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/G/U/Nj6TR44WbgAcObuOytVA" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/I/4/4Bg2bqbrKvnmLvU71vJw" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/I/4/4Bg2bqbrKvnmLvU71vJw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/K/N/1ANcUXIkRa+J8TtI7OBQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/K/N/1ANcUXIkRa+J8TtI7OBQ" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/S/J/E6mvYgfxJIi2MHonpejQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/S/J/E6mvYgfxJIi2MHonpejQ" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/V/T/OyQNwHt-aGyy4-tkeY6g" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/V/T/OyQNwHt-aGyy4-tkeY6g" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Y/6/hmbTbIXzRvOfY6YWGlVA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Y/6/hmbTbIXzRvOfY6YWGlVA" afterDir="false" />
@@ -34,10 +32,6 @@
       <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainerCompiler.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainerCompiler.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/4f/4f162397bb05015cea6cfc308de881b88d0917f687213fa18e439bc39c5e45f8.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/4f/4f162397bb05015cea6cfc308de881b88d0917f687213fa18e439bc39c5e45f8.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/b9/b9a7b553bf2a610c02980d6e006328ebf6f4f68ec872bf0de290065a3e23607e.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/b9/b9a7b553bf2a610c02980d6e006328ebf6f4f68ec872bf0de290065a3e23607e.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/c9/c9e09215f6310159613db6eb40957879ffdc4ce9d210c894411a2f7fdb88ad75.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/c9/c9e09215f6310159613db6eb40957879ffdc4ce9d210c894411a2f7fdb88ad75.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/d8/d87168ce20b282c2ce8e712cc96153e445e797e9a59debfd0e7dc01db089e72f.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/d8/d87168ce20b282c2ce8e712cc96153e445e797e9a59debfd0e7dc01db089e72f.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/log/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/log/dev.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/ClientController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="255">
+              <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
               <folding>
                 <element signature="e#34#99#0#PHP" expanded="true" />
               </folding>
@@ -64,33 +58,25 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/client/index.html.twig">
+        <entry file="file://$PROJECT_DIR$/src/Controller/APIController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+            <state relative-caret-position="396">
+              <caret line="87" column="76" selection-start-line="87" selection-start-column="76" selection-end-line="87" selection-end-column="76" />
+              <folding>
+                <element signature="e#34#99#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+        <entry file="file://$PROJECT_DIR$/src/Repository/ClientRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/login/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/parametre/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="180">
+              <caret line="12" column="29" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="29" />
+              <folding>
+                <element signature="e#34#56#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -115,6 +101,8 @@
         <option value="$PROJECT_DIR$/templates/base.html.twig" />
         <option value="$PROJECT_DIR$/templates/login/index.html.twig" />
         <option value="$PROJECT_DIR$/templates/parametre/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Repository/ClientRepository.php" />
+        <option value="$PROJECT_DIR$/src/Controller/APIController.php" />
       </list>
     </option>
   </component>
@@ -228,9 +216,9 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="96" />
-    <option name="y" value="28" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="265" />
+    <option name="y" value="23" />
     <option name="width" value="1452" />
     <option name="height" value="990" />
   </component>
@@ -277,13 +265,7 @@
               <item name="DevWebProjet" type="b2602c69:ProjectViewProjectNode" />
               <item name="DevWebProjet" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DevWebProjet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DevWebProjet" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Migrations" type="462c0819:PsiDirectoryNode" />
+              <item name="DataFixtures" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DevWebProjet" type="b2602c69:ProjectViewProjectNode" />
@@ -359,12 +341,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20896000" />
+    <option name="totallyTimeSpent" value="25650000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="96" y="28" width="1452" height="990" extended-state="1" />
+    <frame x="265" y="23" width="1452" height="990" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21985815" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22269504" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -377,7 +359,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32962137" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32962137" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -435,13 +417,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -452,38 +427,8 @@
     <entry file="file://$PROJECT_DIR$/config/services.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataFixtures/ClientFixtures.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="59" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="59" />
-          <folding>
-            <element signature="e#36#79#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Client.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="59" column="31" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Migrations/Version20200318125800.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/ClientRepository.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ClientController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="e#34#99#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
@@ -502,10 +447,67 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/bundles.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="65" selection-start-line="7" selection-start-column="65" selection-end-line="7" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/client/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataFixtures/ClientFixtures.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="e#36#79#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/ClientRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="29" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="29" />
+          <folding>
+            <element signature="e#34#56#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ClientController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+          <folding>
+            <element signature="e#34#99#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/APIController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="87" column="76" selection-start-line="87" selection-start-column="76" selection-end-line="87" selection-end-column="76" />
+          <folding>
+            <element signature="e#34#99#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
