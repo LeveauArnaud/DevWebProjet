@@ -21,4 +21,15 @@ class ClientController extends AbstractController
             'controller_name' => 'ClientController', 'clients' => $clients,
         ]);
     }
+
+    /**
+     * @Route("/client_delete", name="client_delete")
+     */
+    public function clientDelete()
+    {
+
+        return $this->render('client/clientDelete.html.twig', [
+            'message' => 'le client à bien été supprimé'
+        ]);
+    }
 }

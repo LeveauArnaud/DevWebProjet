@@ -6,7 +6,7 @@
 use Symfony\Component\DependencyInjection\Dumper\Preloader;
 
 require dirname(__DIR__, 3).'/vendor/autoload.php';
-require __DIR__.'/ContainerUhAxTml/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/Container7ICUFrj/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'App\Kernel';
@@ -30,8 +30,8 @@ $classes[] = 'Symfony\Component\Config\ResourceCheckerConfigCacheFactory';
 $classes[] = 'Symfony\Component\HttpKernel\EventListener\LocaleAwareListener';
 $classes[] = 'Symfony\Component\Cache\Adapter\TraceableAdapter';
 $classes[] = 'Symfony\Component\Cache\Adapter\FilesystemAdapter';
-$classes[] = 'Symfony\Component\Cache\Marshaller\DefaultMarshaller';
 $classes[] = 'Symfony\Component\Cache\Adapter\AbstractAdapter';
+$classes[] = 'Symfony\Component\Cache\Marshaller\DefaultMarshaller';
 $classes[] = 'Symfony\Component\HttpKernel\EventListener\SessionListener';
 $classes[] = 'Symfony\Component\DependencyInjection\ServiceLocator';
 $classes[] = 'Symfony\Component\Mailer\EventListener\MessageLoggerListener';
@@ -60,6 +60,7 @@ $classes[] = 'Symfony\Bundle\SecurityBundle\DataCollector\SecurityDataCollector'
 $classes[] = 'Symfony\Bridge\Twig\DataCollector\TwigDataCollector';
 $classes[] = 'Symfony\Component\HttpClient\DataCollector\HttpClientDataCollector';
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\DataCollector\DoctrineDataCollector';
+$classes[] = 'Symfony\Component\Messenger\DataCollector\MessengerDataCollector';
 $classes[] = 'Symfony\Component\Mailer\DataCollector\MessageDataCollector';
 $classes[] = 'Symfony\Component\HttpKernel\DataCollector\ConfigDataCollector';
 $classes[] = 'Symfony\Component\HttpKernel\EventListener\ProfilerListener';
@@ -166,6 +167,8 @@ $classes[] = 'Symfony\Component\VarDumper\Dumper\ContextProvider\RequestContextP
 $classes[] = 'Symfony\Component\VarDumper\Dumper\ContextProvider\CliContextProvider';
 $classes[] = 'Symfony\Component\HttpClient\TraceableHttpClient';
 $classes[] = 'Symfony\Component\HttpClient\HttpClient';
+$classes[] = 'Symfony\Component\Messenger\TraceableMessageBus';
+$classes[] = 'Symfony\Component\Messenger\MessageBus';
 $classes[] = 'Symfony\Component\Translation\DataCollectorTranslator';
 $classes[] = 'Symfony\Bundle\FrameworkBundle\Routing\Router';
 $classes[] = 'Symfony\Component\Validator\Validator\TraceableValidator';

@@ -17,13 +17,7 @@ use App\Entity\Client;
 class APIController extends AbstractController
 {
 
-    /**
-     * @Route("/client/liste", name="liste", methods={"GET"})
-     */
-    public function liste(ClientRepository $clientsRepo)
-    {
-        // On récupère la liste des articles
-        $clients = $clientsRepo->findAll();
+    public function toJson($entite){
 
         // On spécifie qu'on utilise l'encodeur JSON
         $encoders = [new JsonEncoder()];
@@ -35,7 +29,7 @@ class APIController extends AbstractController
         $serializer = new Serializer($normalizers, $encoders);
 
         // On convertit en json
-        $jsonContent = $serializer->serialize($clients, 'json', [
+        $jsonContent = $serializer->serialize($entite, 'json', [
             'circular_reference_handler' => function ($object) {
                 return $object->getId();
             }
@@ -49,31 +43,27 @@ class APIController extends AbstractController
 
         // On envoie la réponse
         return $response;
-
     }
 
     /**
-     * @Route("/client?id={id}", name="article", methods={"GET"})
+     * @Route("/client/liste", name="get_client_liste", methods={"GET"})
      */
-    public function getArticle(Client $client)
+    public function liste(ClientRepository $clientsRepo)
     {
-        $encoders = [new JsonEncoder()];
-        $normalizers = [new ObjectNormalizer()];
-        $serializer = new Serializer($normalizers, $encoders);
-        $jsonContent = $serializer->serialize($client, 'json', [
-            'circular_reference_handler' => function ($object) {
-                return $object->getId();
-            }
-        ]);
-        $response = new Response($jsonContent);
-        $response->headers->set('Content-Type', 'application/json');
+        // On récupère la liste des articles
+        $clients = $clientsRepo->findAll();
+
+        $response = $this->toJson($clients);
         return $response;
+
     }
 
+
+
     /**
-     * @Route("/product/{id}", name="product_show")
+     * @Route("/client/{id}", name="get_client_id", methods={"GET"})
      */
-    public function show($id)
+    public function clientById($id)
     {
         $client = $this->getDoctrine()
             ->getRepository(Client::class)
@@ -85,11 +75,54 @@ class APIController extends AbstractController
             );
         }
 
-        return new Response('Check out this great product: '.$client->getNom());
+        $response = $this->toJson($client);
+        return $response;
 
-        // or render a template
-        // in the template, print things with {{ product.name }}
-        // return $this->render('product/show.html.twig', ['product' => $product]);
+
     }
 
+    /**
+     * @Route("/client/param", name="get_client_param", methods={"GET"})
+     */
+    public function clientByParam()
+    {
+        $client = $this->getDoctrine()
+            ->getRepository(Client::class)
+            ->findBy([
+                "prenom" => $prenom,
+                "nom" => $nom,
+            ]);
+
+        if (!$client) {
+            throw $this->createNotFoundException(
+                'No product found for id '.$id
+            );
+        }
+
+        $response = $this->toJson($client);
+        return $response;
+
+
+    }
+
+
+    /**
+     * @Route("/client/delete/{id}", name="delete_client_id")
+     */
+    public function clientDelete($id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $client = $entityManager->getRepository(Client::class)->find($id);
+
+        if (!$client) {
+            throw $this->createNotFoundException(
+                'No product found for id '.$id
+            );
+        }
+
+        $entityManager->remove($client);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('client_delete' );
+    }
 }
