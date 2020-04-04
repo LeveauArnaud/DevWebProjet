@@ -19,7 +19,7 @@ return [
     'api_get_client_id' => [['id'], ['_controller' => 'App\\Controller\\APIController::clientById'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/api/client/get']], [], []],
     'api_get_client_param' => [[], ['_controller' => 'App\\Controller\\APIController::clientByParam'], [], [['text', '/api/client/param']], [], []],
     'api_delete_client_id' => [['id'], ['_controller' => 'App\\Controller\\APIController::clientDelete'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/api/client/delete']], [], []],
-    'api_create_client' => [[], ['_controller' => 'App\\Controller\\APIController::createProduct'], [], [['text', '/api/client/create']], [], []],
+    'api_create_client' => [[], ['_controller' => 'App\\Controller\\APIController::createClient'], [], [['text', '/api/client/create']], [], []],
     'client' => [[], ['_controller' => 'App\\Controller\\ClientController::index'], [], [['text', '/client']], [], []],
     'client_delete' => [[], ['_controller' => 'App\\Controller\\ClientController::clientDelete'], [], [['text', '/client_delete']], [], []],
     'commande' => [[], ['_controller' => 'App\\Controller\\CommandeController::index'], [], [['text', '/commande']], [], []],

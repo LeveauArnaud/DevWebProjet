@@ -9,6 +9,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Serializer\SerializerInterface;
 use App\Entity\Client;
 
 /**
@@ -87,8 +91,9 @@ class APIController extends AbstractController
      * @Route("/client/param", name="get_client_param", methods={"GET"})
      */
 
-    public function clientByParam()
+    public function clientByParam(Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager)
     {
+        
         $client = $this->getDoctrine()
             ->getRepository(Client::class)
             ->findBy([
@@ -103,7 +108,11 @@ class APIController extends AbstractController
         }
 
         $response = $this->toJson($client);
-        return $response;
+        $data = [
+            'status' => 201,
+            'message' => $response
+        ];
+        return new JsonResponse($data, 201);
 
 
     }
@@ -134,36 +143,26 @@ class APIController extends AbstractController
         /*return $this->render('client/clientDelete.html.twig', [
             'message' => 'le client portant le nom '.$client->getNom().' '.$client->getPrenom().' à bien été supprimé'
         ]);*/
-        return new Response('le client portant le nom '.$client->getNom().' '.$client->getPrenom().' à bien été supprimé');
+        $data = [
+            'status' => 201,
+            'message' => 'Le client '.$client->getNom().' '.$client->getPrenom().' avec l\'id'.$client->getId().' a bien été supprimé '
+        ];
+        return new JsonResponse($data, 201);
     }
+
 
     /**
-     * @Route("/client/create", name="create_client")
+     * @Route("/client/create", name="create_client", methods={"POST"})
      */
-
-    public function createProduct(): Response
+    public function createClient(Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager)
     {
-
-        $entityManager = $this->getDoctrine()->getManager();
-
-        $client = new Client();
-        $client->setNom("Famille")
-            ->setPrenom("prenom")
-            ->setSexe("M")
-            ->setDateNaissance(new \DateTime())
-            ->setRue("Rue de l'église 2")
-            ->setVille("Villes")
-            ->setPays("Pays")
-            ->setEmail("email")
-            ->setPhoto("https://placeholder.com/150");
-
-        //mémorise les infos pour message de confirmation
+        $client = $serializer->deserialize($request->getContent(), Client::class, 'json');
         $entityManager->persist($client);
-
-        //execute la requête)
         $entityManager->flush();
-
-        return new Response('Nouveau client avec l\'id '.$client->getId());
+        $data = [
+            'status' => 201,
+            'message' => 'Le client '.$client->getNom().' '.$client->getPrenom().' a bien été ajouté avec l\'id'.$client->getId()
+        ];
+        return new JsonResponse($data, 201);
     }
-
 }

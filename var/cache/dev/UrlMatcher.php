@@ -15,7 +15,7 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/api/client/liste' => [[['_route' => 'api_get_client_liste', '_controller' => 'App\\Controller\\APIController::liste'], null, ['GET' => 0], null, false, false, null]],
         '/api/client/param' => [[['_route' => 'api_get_client_param', '_controller' => 'App\\Controller\\APIController::clientByParam'], null, ['GET' => 0], null, false, false, null]],
-        '/api/client/create' => [[['_route' => 'api_create_client', '_controller' => 'App\\Controller\\APIController::createProduct'], null, null, null, false, false, null]],
+        '/api/client/create' => [[['_route' => 'api_create_client', '_controller' => 'App\\Controller\\APIController::createClient'], null, ['POST' => 0], null, false, false, null]],
         '/client' => [[['_route' => 'client', '_controller' => 'App\\Controller\\ClientController::index'], null, null, null, false, false, null]],
         '/client_delete' => [[['_route' => 'client_delete', '_controller' => 'App\\Controller\\ClientController::clientDelete'], null, null, null, false, false, null]],
         '/commande' => [[['_route' => 'commande', '_controller' => 'App\\Controller\\CommandeController::index'], null, null, null, false, false, null]],
