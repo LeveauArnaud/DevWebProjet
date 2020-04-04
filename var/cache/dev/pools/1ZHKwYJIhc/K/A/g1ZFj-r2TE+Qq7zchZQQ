@@ -2,7 +2,9 @@
 
 return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
     $o = [
-        clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
+        clone ($p['Swagger\\Annotations\\Response'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Swagger\\Annotations\\Response')),
+        clone ($p['Swagger\\Context'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Swagger\\Context')),
     ],
     null,
     [
@@ -19,9 +21,41 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 ],
             ],
         ],
+        'stdClass' => [
+            'response' => [
+                1 => 200,
+            ],
+            'description' => [
+                1 => 'retrourne une liste des utilisateurs',
+            ],
+            '_context' => [
+                1 => $o[2],
+            ],
+            'filename' => [
+                2 => '/Applications/MAMP/htdocs/DevWebProjet/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/DocParser.php',
+            ],
+            'line' => [
+                2 => 825,
+            ],
+            'method' => [
+                2 => 'Annotation',
+            ],
+            'class' => [
+                2 => 'DocParser',
+            ],
+            'namespace' => [
+                2 => 'Doctrine\\Common\\Annotations',
+            ],
+            'annotations' => [
+                2 => [
+                    $o[1],
+                ],
+            ],
+        ],
     ],
     [
         $o[0],
+        $o[1],
     ],
     []
 ); }];

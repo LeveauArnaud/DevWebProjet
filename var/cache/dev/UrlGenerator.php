@@ -26,5 +26,6 @@ return [
     'login' => [[], ['_controller' => 'App\\Controller\\LoginController::index'], [], [['text', '/login']], [], []],
     'parametre' => [[], ['_controller' => 'App\\Controller\\ParametreController::index'], [], [['text', '/parametre']], [], []],
     'stock' => [[], ['_controller' => 'App\\Controller\\StockController::index'], [], [['text', '/stock']], [], []],
+    'app.swagger_ui' => [[], ['_controller' => 'nelmio_api_doc.controller.swagger_ui'], [], [['text', '/api/doc']], [], []],
     'index' => [[], ['_controller' => 'App\\Controller\\ClientController::index'], [], [['text', '/']], [], []],
 ];

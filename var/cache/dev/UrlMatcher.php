@@ -22,6 +22,7 @@ return [
         '/login' => [[['_route' => 'login', '_controller' => 'App\\Controller\\LoginController::index'], null, null, null, false, false, null]],
         '/parametre' => [[['_route' => 'parametre', '_controller' => 'App\\Controller\\ParametreController::index'], null, null, null, false, false, null]],
         '/stock' => [[['_route' => 'stock', '_controller' => 'App\\Controller\\StockController::index'], null, null, null, false, false, null]],
+        '/api/doc' => [[['_route' => 'app.swagger_ui', '_controller' => 'nelmio_api_doc.controller.swagger_ui'], null, ['GET' => 0], null, false, false, null]],
         '/' => [[['_route' => 'index', '_controller' => 'App\\Controller\\ClientController::index'], null, null, null, false, false, null]],
     ],
     [ // $regexpList

@@ -13,6 +13,9 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Serializer\SerializerInterface;
+use Nelmio\ApiDocBundle\Annotation\Model;
+use Nelmio\ApiDocBundle\Annotation\Security;
+use Swagger\Annotations as SWG;
 use App\Entity\Client;
 
 /**
@@ -51,6 +54,11 @@ class APIController extends AbstractController
 
     /**
      * @Route("/client/liste", name="get_client_liste", methods={"GET"})
+     * @SWG\Response(
+     *     response=200,
+     *     description="retrourne une liste des utilisateurs",
+     * )
+     *
      */
 
     public function liste(ClientRepository $clientsRepo)
@@ -93,7 +101,7 @@ class APIController extends AbstractController
 
     public function clientByParam(Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager)
     {
-        
+
         $client = $this->getDoctrine()
             ->getRepository(Client::class)
             ->findBy([

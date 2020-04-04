@@ -61,3 +61,14 @@ f637ec,::1,GET,https://localhost:8000/api/client/get/22,1585962288,,404
 b52be8,::1,GET,https://localhost:8000/api/client/get/20,1585962298,,201
 3012ac,::1,GET,https://localhost:8000/api/client/get/18,1585962322,,201
 acb33a,::1,GET,https://localhost:8000/api/client/get/18,1585962362,,200
+71ce6d,::1,GET,https://localhost:8000/api/doc,1585997474,,200
+0c1161,::1,GET,https://localhost:8000/api/client/liste,1585997625,,200
+1efcca,::1,GET,https://localhost:8000/api/doc,1585997811,,200
+9e2c10,::1,GET,https://localhost:8000/api/doc,1585998076,b9f6ef,500
+b9f6ef,::1,GET,https://localhost:8000/api/doc,1585998076,,500
+3d98c3,::1,GET,https://localhost:8000/api/doc,1585998120,44f9f7,500
+44f9f7,::1,GET,https://localhost:8000/api/doc,1585998120,,500
+0c2366,::1,GET,https://localhost:8000/api/doc,1585998147,,200
+29b29d,::1,GET,https://localhost:8000/api/doc,1585998204,13459f,500
+13459f,::1,GET,https://localhost:8000/api/doc,1585998204,,500
+f9a5f0,::1,GET,https://localhost:8000/api/doc,1585998214,,200
