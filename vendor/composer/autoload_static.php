@@ -14,6 +14,7 @@ class ComposerStaticInit0f1024ffc75a8e26b794ac1cccd477dd
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '6a47392539ca2329373e0d33e1dba053' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/bootstrap.php',
+        '0ccdf99b8f62f02c52cba55802e0c2e7' => __DIR__ . '/..' . '/zircote/swagger-php/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -99,6 +100,7 @@ class ComposerStaticInit0f1024ffc75a8e26b794ac1cccd477dd
             'Symfony\\Bridge\\PhpUnit\\' => 23,
             'Symfony\\Bridge\\Monolog\\' => 23,
             'Symfony\\Bridge\\Doctrine\\' => 24,
+            'Swagger\\' => 8,
             'Sensio\\Bundle\\FrameworkExtraBundle\\' => 35,
         ),
         'P' => 
@@ -110,6 +112,10 @@ class ComposerStaticInit0f1024ffc75a8e26b794ac1cccd477dd
             'PhpParser\\' => 10,
             'PackageVersions\\' => 16,
         ),
+        'N' => 
+        array (
+            'Nelmio\\ApiDocBundle\\' => 20,
+        ),
         'M' => 
         array (
             'Monolog\\' => 8,
@@ -118,6 +124,7 @@ class ComposerStaticInit0f1024ffc75a8e26b794ac1cccd477dd
         array (
             'Egulias\\EmailValidator\\' => 23,
             'EasyCorp\\EasyLog\\' => 17,
+            'EXSyst\\Component\\Swagger\\' => 25,
         ),
         'D' => 
         array (
@@ -419,6 +426,10 @@ class ComposerStaticInit0f1024ffc75a8e26b794ac1cccd477dd
         array (
             0 => __DIR__ . '/..' . '/symfony/doctrine-bridge',
         ),
+        'Swagger\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zircote/swagger-php/src',
+        ),
         'Sensio\\Bundle\\FrameworkExtraBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/sensio/framework-extra-bundle/src',
@@ -447,6 +458,10 @@ class ComposerStaticInit0f1024ffc75a8e26b794ac1cccd477dd
         array (
             0 => __DIR__ . '/..' . '/ocramius/package-versions/src/PackageVersions',
         ),
+        'Nelmio\\ApiDocBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nelmio/api-doc-bundle',
+        ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
@@ -458,6 +473,10 @@ class ComposerStaticInit0f1024ffc75a8e26b794ac1cccd477dd
         'EasyCorp\\EasyLog\\' => 
         array (
             0 => __DIR__ . '/..' . '/easycorp/easy-log-handler/src',
+        ),
+        'EXSyst\\Component\\Swagger\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/exsyst/swagger/src',
         ),
         'Doctrine\\Persistence\\' => 
         array (

@@ -60,7 +60,10 @@ class __TwigTemplate_c5455cd18affc30b55c640902fe775cbfc12b0f9c0fcaed20f43e5dfe40
         echo "    </head>
     <body>
         <nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">
-            <a class=\"navbar-brand\" href=\"/\">DevWebProjet</a>
+            <a class=\"navbar-brand\" href=\"/\"><img src=\"";
+        // line 11
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/logo.png"), "html", null, true);
+        echo "\" height=\"30\" class=\"d-inline-block align-top\"alt=\"My picture\"></a>
             <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor01\" aria-controls=\"navbarColor01\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
                 <span class=\"navbar-toggler-icon\"></span>
             </button>
@@ -187,9 +190,14 @@ class __TwigTemplate_c5455cd18affc30b55c640902fe775cbfc12b0f9c0fcaed20f43e5dfe40
         return "base.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  168 => 42,  150 => 39,  132 => 7,  113 => 5,  101 => 43,  99 => 42,  95 => 40,  93 => 39,  60 => 8,  58 => 7,  53 => 5,  47 => 1,);
+        return array (  171 => 42,  153 => 39,  135 => 7,  116 => 5,  104 => 43,  102 => 42,  98 => 40,  96 => 39,  65 => 11,  60 => 8,  58 => 7,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -204,7 +212,7 @@ class __TwigTemplate_c5455cd18affc30b55c640902fe775cbfc12b0f9c0fcaed20f43e5dfe40
     </head>
     <body>
         <nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">
-            <a class=\"navbar-brand\" href=\"/\">DevWebProjet</a>
+            <a class=\"navbar-brand\" href=\"/\"><img src=\"{{ asset('img/logo.png') }}\" height=\"30\" class=\"d-inline-block align-top\"alt=\"My picture\"></a>
             <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor01\" aria-controls=\"navbarColor01\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
                 <span class=\"navbar-toggler-icon\"></span>
             </button>
