@@ -97,6 +97,12 @@ class CommandeVerre
      */
     private $idClient;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Verres")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $idVerre;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -290,6 +296,18 @@ class CommandeVerre
     public function setIdClient(?Client $idClient): self
     {
         $this->idClient = $idClient;
+
+        return $this;
+    }
+
+    public function getIdVerre(): ?Verres
+    {
+        return $this->idVerre;
+    }
+
+    public function setIdVerre(?Verres $idVerre): self
+    {
+        $this->idVerre = $idVerre;
 
         return $this;
     }
