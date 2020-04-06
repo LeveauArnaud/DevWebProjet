@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -17,7 +19,7 @@ class Client
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255 , unique=true)
+     * @ORM\Column(type="string", length=255 )
      */
     private $nom;
 
@@ -42,24 +44,39 @@ class Client
     private $ville;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=100)
      */
     private $pays;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=1)
      */
     private $sexe;
 
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $photo;
+
+    /**
+     * @ORM\Column(type="integer", length=4)
+     */
+    private $codePostale;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Correction", mappedBy="idClient")
+     */
+    private $corrections;
+
+    public function __construct()
+    {
+        $this->corrections = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -170,6 +187,49 @@ class Client
     public function setPhoto($photo): self
     {
         $this->photo = $photo;
+
+        return $this;
+    }
+
+    public function getCodePostale(): ?int
+    {
+        return $this->codePostale;
+    }
+
+    public function setCodePostale(int $codePostale): self
+    {
+        $this->codePostale = $codePostale;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Correction[]
+     */
+    public function getCorrections(): Collection
+    {
+        return $this->corrections;
+    }
+
+    public function addCorrection(Correction $correction): self
+    {
+        if (!$this->corrections->contains($correction)) {
+            $this->corrections[] = $correction;
+            $correction->setIdClient($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCorrection(Correction $correction): self
+    {
+        if ($this->corrections->contains($correction)) {
+            $this->corrections->removeElement($correction);
+            // set the owning side to null (unless already changed)
+            if ($correction->getIdClient() === $this) {
+                $correction->setIdClient(null);
+            }
+        }
 
         return $this;
     }

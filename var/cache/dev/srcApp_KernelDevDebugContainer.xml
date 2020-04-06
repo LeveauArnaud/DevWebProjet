@@ -381,6 +381,34 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\CorrectionRepository" class="App\Repository\CorrectionRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\DateRepository" class="App\Repository\DateRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\MagasinRepository" class="App\Repository\MagasinRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\MontureRepository" class="App\Repository\MontureRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\PrescripteurRepository" class="App\Repository\PrescripteurRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\StockRepository" class="App\Repository\StockRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\VerresRepository" class="App\Repository\VerresRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id=".legacy_controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
       <argument type="service" id="kernel"/>
@@ -3700,7 +3728,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.p2Ns3Sr"/>
+      <argument type="service" id=".service_locator.Bs6Cflx"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5047,6 +5075,20 @@
     <service id=".abstract.instanceof.App\DataFixtures\ClientFixtures" class="App\DataFixtures\ClientFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ClientRepository" class="App\Repository\ClientRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ClientRepository" class="App\Repository\ClientRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CorrectionRepository" class="App\Repository\CorrectionRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\CorrectionRepository" class="App\Repository\CorrectionRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\DateRepository" class="App\Repository\DateRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\DateRepository" class="App\Repository\DateRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MagasinRepository" class="App\Repository\MagasinRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\MagasinRepository" class="App\Repository\MagasinRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MontureRepository" class="App\Repository\MontureRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\MontureRepository" class="App\Repository\MontureRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\PrescripteurRepository" class="App\Repository\PrescripteurRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\PrescripteurRepository" class="App\Repository\PrescripteurRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\StockRepository" class="App\Repository\StockRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\StockRepository" class="App\Repository\StockRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\VerresRepository" class="App\Repository\VerresRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\VerresRepository" class="App\Repository\VerresRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.CmORmuK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5367,10 +5409,17 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.p2Ns3Sr" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.Bs6Cflx" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\ClientRepository" type="service" id="App\Repository\ClientRepository"/>
+        <argument key="App\Repository\CorrectionRepository" type="service" id="App\Repository\CorrectionRepository"/>
+        <argument key="App\Repository\DateRepository" type="service" id="App\Repository\DateRepository"/>
+        <argument key="App\Repository\MagasinRepository" type="service" id="App\Repository\MagasinRepository"/>
+        <argument key="App\Repository\MontureRepository" type="service" id="App\Repository\MontureRepository"/>
+        <argument key="App\Repository\PrescripteurRepository" type="service" id="App\Repository\PrescripteurRepository"/>
+        <argument key="App\Repository\StockRepository" type="service" id="App\Repository\StockRepository"/>
+        <argument key="App\Repository\VerresRepository" type="service" id="App\Repository\VerresRepository"/>
       </argument>
     </service>
     <service id="debug.security.voter.security.access.authenticated_voter" class="Symfony\Component\Security\Core\Authorization\Voter\TraceableVoter">

@@ -20,7 +20,7 @@ class ClientFixtures extends Fixture
                     ->setVille("Villes$i")
                     ->setPays("Pays$i")
                     ->setEmail("email$i")
-                    ->setPhoto("https://placeholder.com/150");
+                    ->setPhoto("https://via.placeholder.com/150");
 
             $manager->persist($client);
 

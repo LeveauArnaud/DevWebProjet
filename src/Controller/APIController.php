@@ -153,7 +153,7 @@ class APIController extends AbstractController
         ]);*/
         $data = [
             'status' => 201,
-            'message' => 'Le client '.$client->getNom().' '.$client->getPrenom().' avec l\'id'.$client->getId().' a bien été supprimé '
+            'message' => 'Le client '.$client->getNom().' '.$client->getPrenom().' avec l id'.$client->getId().' a bien été supprimé '
         ];
         return new JsonResponse($data, 201);
     }
@@ -169,7 +169,7 @@ class APIController extends AbstractController
         $entityManager->flush();
         $data = [
             'status' => 201,
-            'message' => 'Le client '.$client->getNom().' '.$client->getPrenom().' a bien été ajouté avec l\'id'.$client->getId()
+            'message' => 'Le client '.$client->getNom().' '.$client->getPrenom().' a bien été ajouté avec l id '.$client->getId()
         ];
         return new JsonResponse($data, 201);
     }
