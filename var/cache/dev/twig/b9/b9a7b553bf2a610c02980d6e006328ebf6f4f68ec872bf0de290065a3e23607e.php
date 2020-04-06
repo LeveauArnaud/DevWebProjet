@@ -100,99 +100,118 @@ class __TwigTemplate_9e5044eb59fbaa09225cfb3e5398c57e7fcd88c5fe259888cf38757f26b
 <h1>Partie Client</h1>
     <div class=\"container\">
         <div class=\"row\">
-            <div class=\"col-sm-4 bg-danger mb-3\">
-                <h4>Liste des clients</h4>
-    ";
-        // line 23
+            <div class=\"col-sm-4\">
+                <div class=\"card text-white bg-danger mb-3\">
+                    <div class=\"card-Header\">
+                        <h1>Espace clients</h1>
+                    </div>
+                    <div class=\"card-body\">
+                        ";
+        // line 27
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["clients"]) || array_key_exists("clients", $context) ? $context["clients"] : (function () { throw new RuntimeError('Variable "clients" does not exist.', 23, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["clients"]) || array_key_exists("clients", $context) ? $context["clients"] : (function () { throw new RuntimeError('Variable "clients" does not exist.', 27, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["client"]) {
-            // line 24
-            echo "        <div class=\"card text-white bg-danger mb-3\">
-            <div class=\"card-Header\">
-                <img src=\"";
-            // line 26
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "photo", [], "any", false, false, false, 26), "html", null, true);
-            echo "\" alt=\"photo du client\">
-            </div>
-            <div class=\"card-body\">
-                <p>Sexe : ";
-            // line 29
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "sexe", [], "any", false, false, false, 29), "html", null, true);
-            echo "</p>
-                <p>Nom : ";
+            // line 28
+            echo "                        <div class=\"card text-white bg-danger mb-3\">
+                        <div class=\"card-Header\">
+                            <img src=\"";
             // line 30
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "nom", [], "any", false, false, false, 30), "html", null, true);
-            echo "</p>
-                <p>Prenom : ";
-            // line 31
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "prenom", [], "any", false, false, false, 31), "html", null, true);
-            echo "</p>
-                <p>Date de naissance : ";
-            // line 32
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "dateNaissance", [], "any", false, false, false, 32), "d/m/Y"), "html", null, true);
-            echo "</p>
-                <p>Rue : ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "photo", [], "any", false, false, false, 30), "html", null, true);
+            echo "\" alt=\"photo du client\" class=\"\">
+                        </div>
+                        <div class=\"card-body\">
+                            <p>Sexe : ";
             // line 33
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "rue", [], "any", false, false, false, 33), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "sexe", [], "any", false, false, false, 33), "html", null, true);
             echo "</p>
-                <p>Ville : ";
+                            <p>Nom : ";
             // line 34
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "ville", [], "any", false, false, false, 34), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "nom", [], "any", false, false, false, 34), "html", null, true);
             echo "</p>
-                <p>Pays : ";
+                            <p>Prenom : ";
             // line 35
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "pays", [], "any", false, false, false, 35), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "prenom", [], "any", false, false, false, 35), "html", null, true);
             echo "</p>
-                <p>Email : ";
+                            <p>Date de naissance : ";
             // line 36
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "email", [], "any", false, false, false, 36), "html", null, true);
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "dateNaissance", [], "any", false, false, false, 36), "d/m/Y"), "html", null, true);
             echo "</p>
-            </div>
+                            <p>Rue : ";
+            // line 37
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "rue", [], "any", false, false, false, 37), "html", null, true);
+            echo "</p>
+                            <p>Ville : ";
+            // line 38
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "ville", [], "any", false, false, false, 38), "html", null, true);
+            echo "</p>
+                            <p>Pays : ";
+            // line 39
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "pays", [], "any", false, false, false, 39), "html", null, true);
+            echo "</p>
+                            <p>Email : ";
+            // line 40
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "email", [], "any", false, false, false, 40), "html", null, true);
+            echo "</p>
+                        </div>
 
-        </div>
-
-    ";
+                    </div>
+                        ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['client'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 42
-        echo "            </div>
-        <div class=\"col-sm-8\">
-        <div class=\"card text-white bg-success mb-3\">
-            <div class=\"card-Header\">
-                <h1>Espace correction</h1>
+        // line 45
+        echo "                    </div>
+                </div>
             </div>
-            <div class=\"card-body\">
-                <p>
-                    Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant
-                    impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un
-                    imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.
-                    Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son
-                    contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant
-                    des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte,
-                    comme Aldus PageMaker.
-                </p>
-            </div>
-        </div>
-        <div class=\"card text-white bg-info mb-3\">
-            <div class=\"card-Header\">
-                <h1>Espace verres-montures</h1>
-            </div>
-            <div class=\"card-body\">
-                <p>
-                    Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant
-                    impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un
-                    imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.
-                    Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son
-                    contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant
-                    des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte,
-                    comme Aldus PageMaker.
-                </p>
-            </div>
+            <div class=\"col-sm-8\">
+                <div class=\"card text-white bg-success mb-3\">
+                    <div class=\"card-Header\">
+                        <h1>Espace correction</h1>
+                    </div>
+                    <div class=\"card-body\">
+                        <p>
+                            Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant
+                            impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un
+                            imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.
+                            Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son
+                            contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant
+                            des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte,
+                            comme Aldus PageMaker.
+                        </p>
+                    </div>
+                </div>
+                <div class=\"card text-white bg-info mb-3\">
+                    <div class=\"card-Header\">
+                        <h1>Espace verres</h1>
+                    </div>
+                    <div class=\"card-body\">
+                        <p>
+                            Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant
+                            impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un
+                            imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.
+                            Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son
+                            contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant
+                            des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte,
+                            comme Aldus PageMaker.
+                        </p>
+                    </div>
+                    <div class=\"card-Header\">
+                        <h1>Espace montures</h1>
+                    </div>
+                    <div class=\"card-body\">
+                        <p>
+                            Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant
+                            impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un
+                            imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.
+                            Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son
+                            contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant
+                            des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte,
+                            comme Aldus PageMaker.
+                        </p>
+                    </div>
 
-        </div>
+                </div>
         </div>
         </div>
     </div>
@@ -217,7 +236,7 @@ class __TwigTemplate_9e5044eb59fbaa09225cfb3e5398c57e7fcd88c5fe259888cf38757f26b
 
     public function getDebugInfo()
     {
-        return array (  161 => 42,  149 => 36,  145 => 35,  141 => 34,  137 => 33,  133 => 32,  129 => 31,  125 => 30,  121 => 29,  115 => 26,  111 => 24,  107 => 23,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  164 => 45,  153 => 40,  149 => 39,  145 => 38,  141 => 37,  137 => 36,  133 => 35,  129 => 34,  125 => 33,  119 => 30,  115 => 28,  111 => 27,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -242,62 +261,81 @@ class __TwigTemplate_9e5044eb59fbaa09225cfb3e5398c57e7fcd88c5fe259888cf38757f26b
 <h1>Partie Client</h1>
     <div class=\"container\">
         <div class=\"row\">
-            <div class=\"col-sm-4 bg-danger mb-3\">
-                <h4>Liste des clients</h4>
-    {% for client in clients %}
-        <div class=\"card text-white bg-danger mb-3\">
-            <div class=\"card-Header\">
-                <img src=\"{{ client.photo }}\" alt=\"photo du client\">
-            </div>
-            <div class=\"card-body\">
-                <p>Sexe : {{ client.sexe }}</p>
-                <p>Nom : {{ client.nom }}</p>
-                <p>Prenom : {{ client.prenom }}</p>
-                <p>Date de naissance : {{ client.dateNaissance | date('d/m/Y') }}</p>
-                <p>Rue : {{ client.rue }}</p>
-                <p>Ville : {{ client.ville }}</p>
-                <p>Pays : {{ client.pays }}</p>
-                <p>Email : {{ client.email }}</p>
-            </div>
+            <div class=\"col-sm-4\">
+                <div class=\"card text-white bg-danger mb-3\">
+                    <div class=\"card-Header\">
+                        <h1>Espace clients</h1>
+                    </div>
+                    <div class=\"card-body\">
+                        {% for client in clients %}
+                        <div class=\"card text-white bg-danger mb-3\">
+                        <div class=\"card-Header\">
+                            <img src=\"{{ client.photo }}\" alt=\"photo du client\" class=\"\">
+                        </div>
+                        <div class=\"card-body\">
+                            <p>Sexe : {{ client.sexe }}</p>
+                            <p>Nom : {{ client.nom }}</p>
+                            <p>Prenom : {{ client.prenom }}</p>
+                            <p>Date de naissance : {{ client.dateNaissance | date('d/m/Y') }}</p>
+                            <p>Rue : {{ client.rue }}</p>
+                            <p>Ville : {{ client.ville }}</p>
+                            <p>Pays : {{ client.pays }}</p>
+                            <p>Email : {{ client.email }}</p>
+                        </div>
 
-        </div>
+                    </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class=\"col-sm-8\">
+                <div class=\"card text-white bg-success mb-3\">
+                    <div class=\"card-Header\">
+                        <h1>Espace correction</h1>
+                    </div>
+                    <div class=\"card-body\">
+                        <p>
+                            Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant
+                            impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un
+                            imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.
+                            Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son
+                            contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant
+                            des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte,
+                            comme Aldus PageMaker.
+                        </p>
+                    </div>
+                </div>
+                <div class=\"card text-white bg-info mb-3\">
+                    <div class=\"card-Header\">
+                        <h1>Espace verres</h1>
+                    </div>
+                    <div class=\"card-body\">
+                        <p>
+                            Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant
+                            impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un
+                            imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.
+                            Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son
+                            contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant
+                            des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte,
+                            comme Aldus PageMaker.
+                        </p>
+                    </div>
+                    <div class=\"card-Header\">
+                        <h1>Espace montures</h1>
+                    </div>
+                    <div class=\"card-body\">
+                        <p>
+                            Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant
+                            impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un
+                            imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.
+                            Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son
+                            contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant
+                            des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte,
+                            comme Aldus PageMaker.
+                        </p>
+                    </div>
 
-    {% endfor %}
-            </div>
-        <div class=\"col-sm-8\">
-        <div class=\"card text-white bg-success mb-3\">
-            <div class=\"card-Header\">
-                <h1>Espace correction</h1>
-            </div>
-            <div class=\"card-body\">
-                <p>
-                    Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant
-                    impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un
-                    imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.
-                    Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son
-                    contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant
-                    des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte,
-                    comme Aldus PageMaker.
-                </p>
-            </div>
-        </div>
-        <div class=\"card text-white bg-info mb-3\">
-            <div class=\"card-Header\">
-                <h1>Espace verres-montures</h1>
-            </div>
-            <div class=\"card-body\">
-                <p>
-                    Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant
-                    impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un
-                    imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.
-                    Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son
-                    contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant
-                    des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte,
-                    comme Aldus PageMaker.
-                </p>
-            </div>
-
-        </div>
+                </div>
         </div>
         </div>
     </div>
