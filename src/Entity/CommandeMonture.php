@@ -31,6 +31,18 @@ class CommandeMonture
      */
     private $etat;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Client", inversedBy="commandeMontures")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $idClient;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Monture")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $idMonture;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +80,30 @@ class CommandeMonture
     public function setEtat(string $etat): self
     {
         $this->etat = $etat;
+
+        return $this;
+    }
+
+    public function getIdClient(): ?Client
+    {
+        return $this->idClient;
+    }
+
+    public function setIdClient(?Client $idClient): self
+    {
+        $this->idClient = $idClient;
+
+        return $this;
+    }
+
+    public function getIdMonture(): ?Monture
+    {
+        return $this->idMonture;
+    }
+
+    public function setIdMonture(?Monture $idMonture): self
+    {
+        $this->idMonture = $idMonture;
 
         return $this;
     }

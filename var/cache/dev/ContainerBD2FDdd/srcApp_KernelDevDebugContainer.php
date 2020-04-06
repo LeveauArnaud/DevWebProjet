@@ -1,6 +1,6 @@
 <?php
 
-namespace ContainerOxiKxwC;
+namespace ContainerBD2FDdd;
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -997,6 +997,7 @@ class srcApp_KernelDevDebugContainer extends Container
         $a->setEntityListenerResolver(new \Doctrine\Bundle\DoctrineBundle\Mapping\ContainerEntityListenerResolver($this));
         $a->setRepositoryFactory(new \Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory(new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
             'App\\Repository\\ClientRepository' => ['privates', 'App\\Repository\\ClientRepository', 'getClientRepositoryService', false],
+            'App\\Repository\\CommandeMontureRepository' => ['privates', 'App\\Repository\\CommandeMontureRepository', 'getCommandeMontureRepositoryService', false],
             'App\\Repository\\CorrectionRepository' => ['privates', 'App\\Repository\\CorrectionRepository', 'getCorrectionRepositoryService', false],
             'App\\Repository\\DateRepository' => ['privates', 'App\\Repository\\DateRepository', 'getDateRepositoryService', false],
             'App\\Repository\\MagasinRepository' => ['privates', 'App\\Repository\\MagasinRepository', 'getMagasinRepositoryService', false],
@@ -1006,6 +1007,7 @@ class srcApp_KernelDevDebugContainer extends Container
             'App\\Repository\\VerresRepository' => ['privates', 'App\\Repository\\VerresRepository', 'getVerresRepositoryService', false],
         ], [
             'App\\Repository\\ClientRepository' => '?',
+            'App\\Repository\\CommandeMontureRepository' => '?',
             'App\\Repository\\CorrectionRepository' => '?',
             'App\\Repository\\DateRepository' => '?',
             'App\\Repository\\MagasinRepository' => '?',
@@ -2072,6 +2074,23 @@ class srcApp_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'/src/Repository/ClientRepository.php';
 
         return $this->privates['App\\Repository\\ClientRepository'] = new \App\Repository\ClientRepository(($this->services['doctrine'] ?? $this->getDoctrineService()));
+    }
+
+    /**
+     * Gets the private 'App\Repository\CommandeMontureRepository' shared autowired service.
+     *
+     * @return \App\Repository\CommandeMontureRepository
+     */
+    protected function getCommandeMontureRepositoryService()
+    {
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/persistence/lib/Doctrine/Persistence/ObjectRepository.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/collections/lib/Doctrine/Common/Collections/Selectable.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/orm/lib/Doctrine/ORM/EntityRepository.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/doctrine-bundle/Repository/ServiceEntityRepositoryInterface.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/doctrine-bundle/Repository/ServiceEntityRepository.php';
+        include_once \dirname(__DIR__, 4).'/src/Repository/CommandeMontureRepository.php';
+
+        return $this->privates['App\\Repository\\CommandeMontureRepository'] = new \App\Repository\CommandeMontureRepository(($this->services['doctrine'] ?? $this->getDoctrineService()));
     }
 
     /**

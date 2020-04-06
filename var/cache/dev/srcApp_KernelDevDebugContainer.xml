@@ -381,6 +381,14 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\CommandeMontureRepository" class="App\Repository\CommandeMontureRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\CommandeVerreRepository" class="App\Repository\CommandeVerreRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\CorrectionRepository" class="App\Repository\CorrectionRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -3728,7 +3736,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.Bs6Cflx"/>
+      <argument type="service" id=".service_locator.TGN6TYh"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5075,6 +5083,10 @@
     <service id=".abstract.instanceof.App\DataFixtures\ClientFixtures" class="App\DataFixtures\ClientFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ClientRepository" class="App\Repository\ClientRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ClientRepository" class="App\Repository\ClientRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CommandeMontureRepository" class="App\Repository\CommandeMontureRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\CommandeMontureRepository" class="App\Repository\CommandeMontureRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CommandeVerreRepository" class="App\Repository\CommandeVerreRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\CommandeVerreRepository" class="App\Repository\CommandeVerreRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CorrectionRepository" class="App\Repository\CorrectionRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CorrectionRepository" class="App\Repository\CorrectionRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\DateRepository" class="App\Repository\DateRepository" autowire="true" abstract="true"/>
@@ -5409,10 +5421,12 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.Bs6Cflx" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.TGN6TYh" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\ClientRepository" type="service" id="App\Repository\ClientRepository"/>
+        <argument key="App\Repository\CommandeMontureRepository" type="service" id="App\Repository\CommandeMontureRepository"/>
+        <argument key="App\Repository\CommandeVerreRepository" type="service" id="App\Repository\CommandeVerreRepository"/>
         <argument key="App\Repository\CorrectionRepository" type="service" id="App\Repository\CorrectionRepository"/>
         <argument key="App\Repository\DateRepository" type="service" id="App\Repository\DateRepository"/>
         <argument key="App\Repository\MagasinRepository" type="service" id="App\Repository\MagasinRepository"/>
