@@ -397,6 +397,10 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\EtatCommandeRepository" class="App\Repository\EtatCommandeRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\MagasinRepository" class="App\Repository\MagasinRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -3736,7 +3740,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.TGN6TYh"/>
+      <argument type="service" id=".service_locator.J71mngf"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5091,6 +5095,8 @@
     <service id=".abstract.instanceof.App\Repository\CorrectionRepository" class="App\Repository\CorrectionRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\DateRepository" class="App\Repository\DateRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\DateRepository" class="App\Repository\DateRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\EtatCommandeRepository" class="App\Repository\EtatCommandeRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\EtatCommandeRepository" class="App\Repository\EtatCommandeRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MagasinRepository" class="App\Repository\MagasinRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\MagasinRepository" class="App\Repository\MagasinRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MontureRepository" class="App\Repository\MontureRepository" autowire="true" abstract="true"/>
@@ -5421,7 +5427,7 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.TGN6TYh" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.J71mngf" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\ClientRepository" type="service" id="App\Repository\ClientRepository"/>
@@ -5429,6 +5435,7 @@
         <argument key="App\Repository\CommandeVerreRepository" type="service" id="App\Repository\CommandeVerreRepository"/>
         <argument key="App\Repository\CorrectionRepository" type="service" id="App\Repository\CorrectionRepository"/>
         <argument key="App\Repository\DateRepository" type="service" id="App\Repository\DateRepository"/>
+        <argument key="App\Repository\EtatCommandeRepository" type="service" id="App\Repository\EtatCommandeRepository"/>
         <argument key="App\Repository\MagasinRepository" type="service" id="App\Repository\MagasinRepository"/>
         <argument key="App\Repository\MontureRepository" type="service" id="App\Repository\MontureRepository"/>
         <argument key="App\Repository\PrescripteurRepository" type="service" id="App\Repository\PrescripteurRepository"/>

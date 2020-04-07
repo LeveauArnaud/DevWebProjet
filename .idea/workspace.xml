@@ -1,7 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a0d6d03-21cf-4848-aa7c-959bdba867e8" name="Default Changelist" comment="" />
+    <list default="true" id="8a0d6d03-21cf-4848-aa7c-959bdba867e8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/CommandeMonture.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/CommandeMonture.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/CommandeVerre.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/CommandeVerre.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Stock.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Stock.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerBD2FDdd.legacy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerBD2FDdd/removed-ids.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerBD2FDdd/srcApp_KernelDevDebugContainer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/8/R/KLI+mMKq110bvlgSLzug" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/8/R/KLI+mMKq110bvlgSLzug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/8/Y/lycZp8SOx5EgqS-5fy4A" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/8/Y/lycZp8SOx5EgqS-5fy4A" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/D/8/U074Mmn9nQTvrIPzTthw" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/D/8/U074Mmn9nQTvrIPzTthw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/D/T/6q0KVNG9ad+VVE5bfTjA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/D/T/6q0KVNG9ad+VVE5bfTjA" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/I/Y/2TCgDluuMwKFPlUV8k2w" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/I/Y/2TCgDluuMwKFPlUV8k2w" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/R/C/IsVmodkolOWBhFcALkDg" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/R/C/IsVmodkolOWBhFcALkDg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/T/N/FoFT1zxvHT9TpNzIYu+g" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/T/N/FoFT1zxvHT9TpNzIYu+g" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/U/3/cqBX1im4wHpirmSme4JA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/U/3/cqBX1im4wHpirmSme4JA" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/W/X/J6HPUY296c+RF64yI0wg" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/W/X/J6HPUY296c+RF64yI0wg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Y/A/2nPGnu98WWORTO5reb0Q" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Y/A/2nPGnu98WWORTO5reb0Q" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Y/I/uQHcFx9Zv3vm0TfEklIA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Y/I/uQHcFx9Zv3vm0TfEklIA" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Z/0/phiuV42A09TnjNTq5Sgw" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Z/0/phiuV42A09TnjNTq5Sgw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.php.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.preload.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.preload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainerCompiler.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainerCompiler.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/log/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/log/dev.log" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,11 +56,38 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entity/Client.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-11">
+            <state relative-caret-position="-2012">
               <caret line="74" selection-start-line="74" selection-end-line="74" />
               <folding>
                 <element signature="e#30#78#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/CommandeMonture.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="75" selection-start-line="75" selection-end-line="75" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/Stock.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="282">
+              <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Entity/CommandeVerre.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="278">
+              <caret line="310" column="19" selection-start-line="310" selection-start-column="19" selection-end-line="310" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -70,11 +125,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/APIController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="28">
-              <caret line="130" column="7" lean-forward="true" selection-start-line="130" selection-start-column="7" selection-end-line="130" selection-end-column="7" />
+              <caret line="130" column="7" selection-start-line="130" selection-start-column="7" selection-end-line="130" selection-end-column="7" />
               <folding>
                 <element signature="e#34#99#0#PHP" expanded="true" />
               </folding>
@@ -125,6 +180,9 @@
         <option value="$PROJECT_DIR$/src/DataFixtures/ClientFixtures.php" />
         <option value="$PROJECT_DIR$/templates/base.html.twig" />
         <option value="$PROJECT_DIR$/templates/client/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Entity/CommandeMonture.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Stock.php" />
+        <option value="$PROJECT_DIR$/src/Entity/CommandeVerre.php" />
       </list>
     </option>
   </component>
@@ -400,12 +458,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49805000" />
+    <option name="totallyTimeSpent" value="50909000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="39" y="30" width="1452" height="838" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22269504" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22269504" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -419,7 +478,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.34316355" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.34316355" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -430,9 +489,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/packages/framework.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/.env.test">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -624,16 +680,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Client.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11">
-          <caret line="74" selection-start-line="74" selection-end-line="74" />
-          <folding>
-            <element signature="e#30#78#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ClientController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="334">
@@ -657,10 +703,61 @@
     <entry file="file://$PROJECT_DIR$/src/Controller/APIController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="28">
-          <caret line="130" column="7" lean-forward="true" selection-start-line="130" selection-start-column="7" selection-end-line="130" selection-end-column="7" />
+          <caret line="130" column="7" selection-start-line="130" selection-start-column="7" selection-end-line="130" selection-end-column="7" />
           <folding>
             <element signature="e#34#99#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/CommandeMontureRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-149" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2012">
+          <caret line="74" selection-start-line="74" selection-end-line="74" />
+          <folding>
+            <element signature="e#30#78#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/CommandeMonture.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="75" selection-start-line="75" selection-end-line="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20200407103142.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20200406231715.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-132" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20200407103918.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-321" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Stock.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/CommandeVerre.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="310" column="19" selection-start-line="310" selection-start-column="19" selection-end-line="310" selection-end-column="19" />
         </state>
       </provider>
     </entry>

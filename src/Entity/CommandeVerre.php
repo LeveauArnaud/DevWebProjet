@@ -87,11 +87,6 @@ class CommandeVerre
     private $commentaire;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $etat;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Client", inversedBy="commandeVerres")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -102,6 +97,12 @@ class CommandeVerre
      * @ORM\JoinColumn(nullable=false)
      */
     private $idVerre;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\EtatCommande")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $etat;
 
     public function getId(): ?int
     {
@@ -276,18 +277,6 @@ class CommandeVerre
         return $this;
     }
 
-    public function getEtat(): ?string
-    {
-        return $this->etat;
-    }
-
-    public function setEtat(string $etat): self
-    {
-        $this->etat = $etat;
-
-        return $this;
-    }
-
     public function getIdClient(): ?Client
     {
         return $this->idClient;
@@ -308,6 +297,18 @@ class CommandeVerre
     public function setIdVerre(?Verres $idVerre): self
     {
         $this->idVerre = $idVerre;
+
+        return $this;
+    }
+
+    public function getEtat(): ?EtatCommande
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(?EtatCommande $etat): self
+    {
+        $this->etat = $etat;
 
         return $this;
     }

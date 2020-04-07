@@ -138,3 +138,8 @@ e56097,::1,GET,https://localhost:8000/stock,1586208340,,200
 4ff459,::1,GET,https://localhost:8000/client,1586208359,,200
 13fbbc,::1,GET,https://localhost:8000/client,1586208415,,200
 d7ca19,::1,GET,https://localhost:8000/stock,1586209882,,200
+fef77f,::1,GET,https://localhost:8000/api/client/liste,1586216017,,200
+e13a03,::1,GET,https://localhost:8000/api/client/get/1,1586216065,,200
+dfb611,::1,GET,https://localhost:8000/api/client/get/1,1586216254,,200
+00d9dd,::1,GET,https://localhost:8000/api/client/get/1,1586255386,,200
+e1e668,::1,GET,https://localhost:8000/api/client/get/1,1586256148,,200
