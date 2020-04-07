@@ -1,35 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a0d6d03-21cf-4848-aa7c-959bdba867e8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/CommandeMonture.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/CommandeMonture.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/CommandeVerre.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/CommandeVerre.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Stock.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Stock.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerBD2FDdd.legacy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerBD2FDdd/removed-ids.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerBD2FDdd/srcApp_KernelDevDebugContainer.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/8/R/KLI+mMKq110bvlgSLzug" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/8/R/KLI+mMKq110bvlgSLzug" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/8/Y/lycZp8SOx5EgqS-5fy4A" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/8/Y/lycZp8SOx5EgqS-5fy4A" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/D/8/U074Mmn9nQTvrIPzTthw" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/D/8/U074Mmn9nQTvrIPzTthw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/D/T/6q0KVNG9ad+VVE5bfTjA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/D/T/6q0KVNG9ad+VVE5bfTjA" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/I/Y/2TCgDluuMwKFPlUV8k2w" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/I/Y/2TCgDluuMwKFPlUV8k2w" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/R/C/IsVmodkolOWBhFcALkDg" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/R/C/IsVmodkolOWBhFcALkDg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/T/N/FoFT1zxvHT9TpNzIYu+g" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/T/N/FoFT1zxvHT9TpNzIYu+g" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/U/3/cqBX1im4wHpirmSme4JA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/U/3/cqBX1im4wHpirmSme4JA" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/W/X/J6HPUY296c+RF64yI0wg" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/W/X/J6HPUY296c+RF64yI0wg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Y/A/2nPGnu98WWORTO5reb0Q" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Y/A/2nPGnu98WWORTO5reb0Q" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Y/I/uQHcFx9Zv3vm0TfEklIA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Y/I/uQHcFx9Zv3vm0TfEklIA" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Z/0/phiuV42A09TnjNTq5Sgw" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Z/0/phiuV42A09TnjNTq5Sgw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.php.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.preload.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.preload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainerCompiler.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainerCompiler.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/log/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/log/dev.log" afterDir="false" />
-    </list>
+    <list default="true" id="8a0d6d03-21cf-4848-aa7c-959bdba867e8" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -458,13 +430,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50909000" />
+    <option name="totallyTimeSpent" value="51098000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="39" y="30" width="1452" height="838" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22269504" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22269504" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -478,7 +449,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.34316355" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.34316355" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
