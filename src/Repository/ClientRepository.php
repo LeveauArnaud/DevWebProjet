@@ -19,6 +19,20 @@ class ClientRepository extends ServiceEntityRepository
         parent::__construct($registry, Client::class);
     }
 
+
+    /**
+     * @return array
+     */
+    public function apiFindMinInfosAll(): array
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->select('c.id', 'c.sexe', 'c.nom', 'c.prenom' , 'c.dateNaissance', 'c.rue', 'c.codePostale', 'c.ville', 'c.pays', 'c.phone', 'c.email', 'c.photo')
+            ->orderBy('c.nom', 'ASC');
+
+        $query = $qb ->getQuery();
+        return $query->execute();
+    }
+
     // /**
     //  * @return Client[] Returns an array of Client objects
     //  */
@@ -47,4 +61,5 @@ class ClientRepository extends ServiceEntityRepository
         ;
     }
     */
+
 }

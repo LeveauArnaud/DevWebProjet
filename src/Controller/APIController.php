@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Correction;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ClientRepository;
@@ -23,6 +24,10 @@ use App\Entity\Client;
  */
 class APIController extends AbstractController
 {
+
+    /*
+     * fonction commune
+     */
 
     public function toJson($entite){
 
@@ -52,20 +57,55 @@ class APIController extends AbstractController
         return $response;
     }
 
+
+    /*
+     * Client
+     */
+
+
     /**
-     * @Route("/client/liste", name="get_client_liste", methods={"GET"})
+     * @SWG\Tag(name="Client")
+     * Ajoute un nouveau client
+     * @Route("/client", name="create_client", methods={"POST"})
      * @SWG\Response(
      *     response=200,
-     *     description="retrourne une liste des utilisateurs",
+     *     description="le client à bien été  ajouté",
      * )
-     *
+     */
+    public function createClient(Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager)
+    {
+        // Convertir le format JSON
+        $client = $serializer->deserialize($request->getContent(), Client::class, 'json');
+        // Sauvegarde pour utilisation
+        $entityManager->persist($client);
+        // Envoie vers la DB
+        $entityManager->flush();
+        $data = [
+            'status' => 201,
+            'message' => 'Le client '.$client->getNom().' '.$client->getPrenom().' a bien été ajouté avec l id '.$client->getId()
+        ];
+        return new JsonResponse($data, 201);
+    }
+
+    /**
+     * @SWG\Tag(name="Client")
+     * Retrourne une liste des clients avec leurs infos de base : id, sexe, nom, prenom, date de naissance, adresse, téléphone, email, photo. Trié par orde croissant sur le nom.
+     * @Route("/clients", name="get_clients", methods={"GET"})
+     * @SWG\Response(
+     *     response=200,
+     *     description="retrourne une liste des clients avec leurs infos de base : id, sexe, nom, prenom, date de naissance, adresse, téléphone, email, photo",
+     * )
+     *@SWG\Response(
+     *     response=404,
+     *     description="Pas de client"
+     * )
      */
 
     public function liste(ClientRepository $clientsRepo)
     {
-        // On récupère la liste des articles
-        $clients = $clientsRepo->findAll();
-
+        // Récupère la liste des articles
+        $clients = $clientsRepo->apiFindMinInfosAll();
+        // Converti au format JSON
         $response = $this->toJson($clients);
         return $response;
 
@@ -74,7 +114,23 @@ class APIController extends AbstractController
 
 
     /**
-     * @Route("/client/get/{id}", name="get_client_id", methods={"GET"})
+     * @SWG\Tag(name="Client")
+     * Retrourne infos d'un client en fonction de son id : infos personnelles, corrections, commandes verres et montures
+     * @Route("/client/{id}", name="get_client_id", methods={"GET"})
+     * @SWG\Parameter(
+     *     name="id",
+     *     in="path",
+     *     type="integer",
+     *     description="l'id du client"
+     * )
+     * @SWG\Response(
+     *     response=200,
+     *     description="retrourne infos d'un client en fonction de son id : infos personnelles, corrections, commandes verres et montures"
+     * )
+     * @SWG\Response(
+     *     response=404,
+     *     description="Pas de client avec cet id"
+     * )
      */
 
     public function clientById($id)
@@ -85,7 +141,7 @@ class APIController extends AbstractController
 
         if (!$client) {
             throw $this->createNotFoundException(
-                'No product found for id '.$id
+                'Pas de client trouvé avec l\'id '.$id
             );
         }
 
@@ -96,38 +152,65 @@ class APIController extends AbstractController
     }
 
     /**
-     * @Route("/client/param", name="get_client_param", methods={"GET"})
+     * @SWG\Tag(name="Client")
+     * Modifie infos d'un client en fonction de son id : infos personnelles
+     * @Route("/client/{id}", name="update_client_id", methods={"PUT"})
+     * @SWG\Parameter(
+     *     name="id",
+     *     in="path",
+     *     type="integer",
+     *     description="l'id du client"
+     * )
+     * @SWG\Response(
+     *     response=200,
+     *     description="modifie infos d'un client en fonction de son id : infos personnelles"
+     * )
+     * @SWG\Response(
+     *     response=404,
+     *     description="Pas de client avec cet id"
+     * )
      */
 
-    public function clientByParam(Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager)
+    public function updateClient(Request $request, SerializerInterface $serializer, Client $client, EntityManagerInterface $entityManager)
     {
-
-        $client = $this->getDoctrine()
-            ->getRepository(Client::class)
-            ->findBy([
-                "prenom" => $prenom,
-                "nom" => $nom,
-            ]);
-
-        if (!$client) {
-            throw $this->createNotFoundException(
-                'No product found for id '.$id
-            );
+       // récupère le client avec son id
+        $clientUpdate = $entityManager->getRepository(Client::class)->find($client->getId());
+        // récupère les données à modifier
+        $data = json_decode($request->getContent());
+        foreach ($data as $key => $value){
+            if($key && !empty($value)) {
+                $nom = ucfirst($key);
+                $setter = 'set'.$nom;
+                $clientUpdate->$setter($value);
+            }
         }
-
-        $response = $this->toJson($client);
+        // Envoie les nouvelles données
+        $entityManager->flush();
         $data = [
-            'status' => 201,
-            'message' => $response
+            'status' => 200,
+            'message' => 'Le client a bien été mis à jour'
         ];
-        return new JsonResponse($data, 201);
-
-
+        return new JsonResponse($data);
     }
 
-
     /**
-     * @Route("/client/delete/{id}", name="delete_client_id")
+     * @SWG\Tag(name="Client")
+     * Supprime un client en fonction de son id à condition qu'il n'ai plus de commande en cours !
+     * @Route("/client/delete/{id}", name="delete_client_id", methods={"DELETE"})
+     * @SWG\Parameter(
+     *     name="id",
+     *     in="path",
+     *     type="integer",
+     *     description="l'id du client"
+     * )
+     * @SWG\Response(
+     *     response=200,
+     *     description="le client à bien été supprimé"
+     * )
+     * @SWG\Response(
+     *     response=404,
+     *     description="Pas de client avec cet id"
+     * )
      */
 
     public function clientDelete($id)
@@ -137,7 +220,7 @@ class APIController extends AbstractController
 
         if (!$client) {
             throw $this->createNotFoundException(
-                'No product found for id '.$id
+                'Pas de client trouvé avec l\'id '.$id
             );
         }
 
@@ -158,19 +241,78 @@ class APIController extends AbstractController
         return new JsonResponse($data, 201);
     }
 
+    /*
+    * Commande client
+    * */
 
     /**
-     * @Route("/client/create", name="create_client", methods={"POST"})
+     * @SWG\Tag(name="Commande")
+     * Ajoute une nouvelle correction
+     * @Route("/client/{id}/correction", name="create_client_correction", methods={"POST"})
+     * @SWG\Response(
+     *     response=200,
+     *     description="la correction à bien été  ajouté",
+     * )
      */
-    public function createClient(Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager)
+    public function createCorrection(Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager, $id)
     {
-        $client = $serializer->deserialize($request->getContent(), Client::class, 'json');
-        $entityManager->persist($client);
+        $eM = $this->getDoctrine()->getManager();
+        $client = $eM->getRepository(Client::class)->find($id);
+
+        // Convertir le format JSON
+        $correction = $serializer->deserialize($request->getContent(), Correction::class, 'json');
+        // Sauvegarde pour utilisation
+        $entityManager->persist($correction);
+        // Envoie vers la DB
         $entityManager->flush();
         $data = [
             'status' => 201,
-            'message' => 'Le client '.$client->getNom().' '.$client->getPrenom().' a bien été ajouté avec l id '.$client->getId()
+            'message' => 'La correction à bien été ajouté au client '.$client->getnom()
         ];
         return new JsonResponse($data, 201);
     }
+
+    /**
+     * @SWG\Tag(name="Commande")
+     * Retrourne les corrections d'un client en fonction de son id
+     * @Route("/client/{id}/correction", name="get_client_id_correction", methods={"GET"})
+     * @SWG\Parameter(
+     *     name="id",
+     *     in="path",
+     *     type="integer",
+     *     description="l'id du client"
+     * )
+     * @SWG\Response(
+     *     response=200,
+     *     description="retrourne infos d'un client en fonction de son id : infos personnelles, corrections, commandes verres et montures"
+     * )
+     * @SWG\Response(
+     *     response=404,
+     *     description="Pas de client avec cet id"
+     * )
+     */
+
+    public function clientByIdCorrection($id)
+    {
+        $client = $this->getDoctrine()
+            ->getRepository(Correction::class)
+            ->findClient($id);
+
+        if (!$client) {
+            throw $this->createNotFoundException(
+                'Pas de client trouvé avec l\'id '.$id
+            );
+        }
+
+        $response = $this->toJson($client);
+        return $response;
+
+
+    }
+    /*
+     * Stock
+     */
+
+
+
 }

@@ -2,60 +2,89 @@
 
 return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
     $o = [
-        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
-        clone ($p['Swagger\\Annotations\\Response'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Swagger\\Annotations\\Response')),
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Swagger\\Annotations\\Tag'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Swagger\\Annotations\\Tag')),
         clone ($p['Swagger\\Context'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Swagger\\Context')),
+        clone ($p['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
+        clone ($p['Swagger\\Annotations\\Response'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Swagger\\Annotations\\Response')),
+        clone $p['Swagger\\Context'],
+        clone $p['Swagger\\Annotations\\Response'],
+        clone $p['Swagger\\Context'],
     ],
     null,
     [
-        'Symfony\\Component\\Routing\\Annotation\\Route' => [
-            'path' => [
-                '/client/liste',
-            ],
-            'name' => [
-                'get_client_liste',
-            ],
-            'methods' => [
-                [
-                    'GET',
-                ],
-            ],
-        ],
         'stdClass' => [
-            'response' => [
-                1 => 200,
-            ],
-            'description' => [
-                1 => 'retrourne une liste des utilisateurs',
+            'name' => [
+                'Client',
             ],
             '_context' => [
-                1 => $o[2],
+                $o[1],
+                3 => $o[4],
+                5 => $o[6],
             ],
             'filename' => [
-                2 => '/Applications/MAMP/htdocs/DevWebProjet/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/DocParser.php',
+                1 => '/Applications/MAMP/htdocs/DevWebProjet/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/DocParser.php',
+                4 => '/Applications/MAMP/htdocs/DevWebProjet/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/DocParser.php',
+                6 => '/Applications/MAMP/htdocs/DevWebProjet/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/DocParser.php',
             ],
             'line' => [
-                2 => 825,
+                1 => 825,
+                4 => 825,
+                6 => 825,
             ],
             'method' => [
-                2 => 'Annotation',
+                1 => 'Annotation',
+                4 => 'Annotation',
+                6 => 'Annotation',
             ],
             'class' => [
-                2 => 'DocParser',
+                1 => 'DocParser',
+                4 => 'DocParser',
+                6 => 'DocParser',
             ],
             'namespace' => [
-                2 => 'Doctrine\\Common\\Annotations',
+                1 => 'Doctrine\\Common\\Annotations',
+                4 => 'Doctrine\\Common\\Annotations',
+                6 => 'Doctrine\\Common\\Annotations',
             ],
             'annotations' => [
+                1 => [
+                    $o[0],
+                ],
+                4 => [
+                    $o[3],
+                ],
+                6 => [
+                    $o[5],
+                ],
+            ],
+            'response' => [
+                3 => 200,
+                5 => 404,
+            ],
+            'description' => [
+                3 => 'retrourne une liste des clients avec leurs infos de base : id, sexe, nom, prenom, date de naissance, adresse, téléphone, email, photo',
+                5 => 'Pas de client',
+            ],
+        ],
+        'Symfony\\Component\\Routing\\Annotation\\Route' => [
+            'path' => [
+                2 => '/clients',
+            ],
+            'name' => [
+                2 => 'get_clients',
+            ],
+            'methods' => [
                 2 => [
-                    $o[1],
+                    'GET',
                 ],
             ],
         ],
     ],
     [
         $o[0],
-        $o[1],
+        $o[2],
+        $o[3],
+        $o[5],
     ],
     []
 ); }];
