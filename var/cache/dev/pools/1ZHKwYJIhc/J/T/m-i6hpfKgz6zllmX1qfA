@@ -16,7 +16,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
     [
         'stdClass' => [
             'name' => [
-                'Commande',
+                'Correction',
                 3 => 'id',
             ],
             '_context' => [
@@ -74,8 +74,8 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
             ],
             'description' => [
                 3 => 'l\'id du client',
-                5 => 'retrourne infos d\'un client en fonction de son id : infos personnelles, corrections, commandes verres et montures',
-                7 => 'Pas de client avec cet id',
+                5 => 'retrourne les corrections d\'un client en fonction de son id',
+                7 => 'Pas de correction pour le client avec cet id',
             ],
             'type' => [
                 3 => 'integer',
@@ -87,7 +87,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
         ],
         'Symfony\\Component\\Routing\\Annotation\\Route' => [
             'path' => [
-                2 => '/client/{id}/correction',
+                2 => '/client/{id}/corrections',
             ],
             'name' => [
                 2 => 'get_client_id_correction',

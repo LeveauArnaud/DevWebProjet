@@ -15,6 +15,7 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/api/client' => [[['_route' => 'api_create_client', '_controller' => 'App\\Controller\\APIController::createClient'], null, ['POST' => 0], null, false, false, null]],
         '/api/clients' => [[['_route' => 'api_get_clients', '_controller' => 'App\\Controller\\APIController::liste'], null, ['GET' => 0], null, false, false, null]],
+        '/api/stock' => [[['_route' => 'api_update_stock', '_controller' => 'App\\Controller\\APIController::new'], null, ['POST' => 0], null, false, false, null]],
         '/client' => [[['_route' => 'client', '_controller' => 'App\\Controller\\ClientController::index'], null, null, null, false, false, null]],
         '/client_delete' => [[['_route' => 'client_delete', '_controller' => 'App\\Controller\\ClientController::clientDelete'], null, null, null, false, false, null]],
         '/commande' => [[['_route' => 'commande', '_controller' => 'App\\Controller\\CommandeController::index'], null, null, null, false, false, null]],
@@ -41,14 +42,22 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/api/client/(?'
-                    .'|([^/]++)(?'
-                        .'|(*:195)'
+                .'|/api/(?'
+                    .'|client/(?'
+                        .'|([^/]++)(?'
+                            .'|(*:198)'
+                        .')'
+                        .'|delete/([^/]++)(*:222)'
+                        .'|([^/]++)/(?'
+                            .'|correction(?'
+                                .'|(*:255)'
+                                .'|s(*:264)'
+                            .')'
+                            .'|verres(*:279)'
+                            .'|montures(*:295)'
+                        .')'
                     .')'
-                    .'|delete/([^/]++)(*:219)'
-                    .'|([^/]++)/correction(?'
-                        .'|(*:249)'
-                    .')'
+                    .'|stock/([^/]++)(*:319)'
                 .')'
             .')/?$}sD',
     ],
@@ -60,14 +69,17 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        195 => [
+        198 => [
             [['_route' => 'api_get_client_id', '_controller' => 'App\\Controller\\APIController::clientById'], ['id'], ['GET' => 0], null, false, true, null],
             [['_route' => 'api_update_client_id', '_controller' => 'App\\Controller\\APIController::updateClient'], ['id'], ['PUT' => 0], null, false, true, null],
         ],
-        219 => [[['_route' => 'api_delete_client_id', '_controller' => 'App\\Controller\\APIController::clientDelete'], ['id'], ['DELETE' => 0], null, false, true, null]],
-        249 => [
-            [['_route' => 'api_create_client_correction', '_controller' => 'App\\Controller\\APIController::createCorrection'], ['id'], ['POST' => 0], null, false, false, null],
-            [['_route' => 'api_get_client_id_correction', '_controller' => 'App\\Controller\\APIController::clientByIdCorrection'], ['id'], ['GET' => 0], null, false, false, null],
+        222 => [[['_route' => 'api_delete_client_id', '_controller' => 'App\\Controller\\APIController::clientDelete'], ['id'], ['DELETE' => 0], null, false, true, null]],
+        255 => [[['_route' => 'api_create_client_correction', '_controller' => 'App\\Controller\\APIController::createCorrection'], ['id'], ['POST' => 0], null, false, false, null]],
+        264 => [[['_route' => 'api_get_client_id_correction', '_controller' => 'App\\Controller\\APIController::correctionByClientID'], ['id'], ['GET' => 0], null, false, false, null]],
+        279 => [[['_route' => 'api_get_client_id_verres', '_controller' => 'App\\Controller\\APIController::verresByClientID'], ['id'], ['GET' => 0], null, false, false, null]],
+        295 => [[['_route' => 'api_get_client_id_montures', '_controller' => 'App\\Controller\\APIController::monturesByClientID'], ['id'], ['GET' => 0], null, false, false, null]],
+        319 => [
+            [['_route' => 'api_get_stock', '_controller' => 'App\\Controller\\APIController::findMontureInStock'], ['id'], ['GET' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

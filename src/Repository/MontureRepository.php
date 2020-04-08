@@ -18,6 +18,18 @@ class MontureRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Monture::class);
     }
+    /**
+     * @return array
+     */
+    public function findInStock(): array
+    {
+        $qb = $this->createQueryBuilder('m')
+            ->orderBy('m.marque', 'ASC');
+
+        $query = $qb ->getQuery();
+        return $query->execute();
+    }
+
 
     // /**
     //  * @return Monture[] Returns an array of Monture objects

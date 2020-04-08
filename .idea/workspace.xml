@@ -4,61 +4,77 @@
     <list default="true" id="8a0d6d03-21cf-4848-aa7c-959bdba867e8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/APIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/APIController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Client.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200406203016.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200406220646.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200406222649.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200406225238.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200406225854.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200406231101.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200406231715.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200407103918.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200407104556.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ClientRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ClientRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/CommandeVerreRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/CommandeVerreRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Stock.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200408145001.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/CorrectionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/CorrectionRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerCOWKfAD.legacy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerCOWKfAD/removed-ids.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerCOWKfAD/srcApp_KernelDevDebugContainer.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerTKMn9Ar/removed-ids.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerTKMn9Ar/srcApp_KernelDevDebugContainer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/MontureRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/MontureRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/StockRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerXxRwBlO.legacy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerXxRwBlO/removed-ids.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerXxRwBlO/srcApp_KernelDevDebugContainer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYKJPq86/removed-ids.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYKJPq86/srcApp_KernelDevDebugContainer.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/UrlGenerator.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/UrlGenerator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/UrlMatcher.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/UrlMatcher.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/-/J/1D6PYJR5VJgC-fblOTjA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/-/J/1D6PYJR5VJgC-fblOTjA" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/-/W/bfZBNVWv5f0WtTbolhkA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/-/W/bfZBNVWv5f0WtTbolhkA" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/1/H/LiaNrHuQnFcSAnKMCpbg" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/1/H/LiaNrHuQnFcSAnKMCpbg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/2/C/3hxnWknwRZYeo+63vJPA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/2/C/3hxnWknwRZYeo+63vJPA" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/2/G/eLWtoT9DQjmPTYAx-e5g" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/2/G/eLWtoT9DQjmPTYAx-e5g" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/3/9/-E6cf8prMsVRd7603NEA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/3/9/-E6cf8prMsVRd7603NEA" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/3/B/eQNbUpH3YAYhkU1R8AdQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/3/B/eQNbUpH3YAYhkU1R8AdQ" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/4/9/XkJRIGEy+TQkfFzAN-YQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/4/9/XkJRIGEy+TQkfFzAN-YQ" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/5/O/NyAgKwhlhN91VNRPG1Ow" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/5/O/NyAgKwhlhN91VNRPG1Ow" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/5/X/n8ZEjHTGCRDPx8aCeprg" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/5/X/n8ZEjHTGCRDPx8aCeprg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/6/D/jPN2qq8PdJOD9pmGZMPg" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/6/D/jPN2qq8PdJOD9pmGZMPg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/6/Y/pPKGKlXMckiULMtZcTSw" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/6/Y/pPKGKlXMckiULMtZcTSw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/7/N/TCR4RcL9UjVZfLsfOQ0g" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/7/N/TCR4RcL9UjVZfLsfOQ0g" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/8/9/XFM-YLIxUYG6SmR071ug" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/8/9/XFM-YLIxUYG6SmR071ug" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/8/Z/-HjBVYXtULhJqF92ZvzA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/8/Z/-HjBVYXtULhJqF92ZvzA" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/A/K/OvsQfj4ownujgl3sPZVQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/A/K/OvsQfj4ownujgl3sPZVQ" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/A/V/Mk5mMjbnL6rnLrk-Z1xg" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/A/V/Mk5mMjbnL6rnLrk-Z1xg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/C/E/Duq2eAiaI+u2acPOv0kQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/C/E/Duq2eAiaI+u2acPOv0kQ" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/7/E/HM7k-7oq8Ltqib47oiIQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/7/E/HM7k-7oq8Ltqib47oiIQ" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/8/R/KLI+mMKq110bvlgSLzug" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/8/R/KLI+mMKq110bvlgSLzug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/A/0/5wIb4q1+wAhqEtk7-O0w" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/A/0/5wIb4q1+wAhqEtk7-O0w" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/A/Z/CqxaFWXP3iYyb075rCZw" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/A/Z/CqxaFWXP3iYyb075rCZw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/D/8/U074Mmn9nQTvrIPzTthw" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/D/8/U074Mmn9nQTvrIPzTthw" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/D/L/5++j9O+JGB0QgEwg1N+w" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/D/L/5++j9O+JGB0QgEwg1N+w" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/D/U/KR5X7veBVWLRPzTuEjIA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/D/U/KR5X7veBVWLRPzTuEjIA" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/G/U/Nj6TR44WbgAcObuOytVA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/G/U/Nj6TR44WbgAcObuOytVA" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/H/M/iyJ4tqs02WjTYtWjFswA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/H/M/iyJ4tqs02WjTYtWjFswA" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/I/4/4Bg2bqbrKvnmLvU71vJw" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/I/4/4Bg2bqbrKvnmLvU71vJw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/K/A/g1ZFj-r2TE+Qq7zchZQQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/K/A/g1ZFj-r2TE+Qq7zchZQQ" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/E/V/fa8g9183xzZ+JKEiQsxw" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/E/V/fa8g9183xzZ+JKEiQsxw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/F/B/6rGf+JWfsUxOCuHbYuNg" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/F/B/6rGf+JWfsUxOCuHbYuNg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/G/U/8CxWXojMdZoMpB7ZSvNw" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/G/U/8CxWXojMdZoMpB7ZSvNw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/H/E/qo1f0J4R8E55Usf50vGw" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/H/E/qo1f0J4R8E55Usf50vGw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/I/1/HaCnmWAeO39sATYVxYqQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/I/1/HaCnmWAeO39sATYVxYqQ" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/I/N/1OS4jrW3BBDwLhjgmUSQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/I/N/1OS4jrW3BBDwLhjgmUSQ" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/J/F/mh66heZH1BB0cnp2kruw" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/J/F/mh66heZH1BB0cnp2kruw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/J/T/m-i6hpfKgz6zllmX1qfA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/J/T/m-i6hpfKgz6zllmX1qfA" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/K/-/hQxlnLrZNAU0XbnF7K9w" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/K/-/hQxlnLrZNAU0XbnF7K9w" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/K/6/hiyGoZivKdyOrCJWpriQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/K/6/hiyGoZivKdyOrCJWpriQ" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/K/L/J6MkhJjAXLHpRxnxZCkg" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/K/L/J6MkhJjAXLHpRxnxZCkg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/K/P/si95rYrlGOkvJu20h9JQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/K/P/si95rYrlGOkvJu20h9JQ" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/K/W/rMNndct78WBA1uCHXeTA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/K/W/rMNndct78WBA1uCHXeTA" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/L/0/clXFWw8y-SxjKLRfIk3w" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/L/0/clXFWw8y-SxjKLRfIk3w" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/L/O/A3h2OdHan4ucMK0UgTOg" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/L/O/A3h2OdHan4ucMK0UgTOg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/M/4/VtCgyTpDYEysE1eGoxYA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/M/4/VtCgyTpDYEysE1eGoxYA" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/O/Q/wykm0ZfmLIqtttvWjL2g" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/O/Q/wykm0ZfmLIqtttvWjL2g" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/P/K/jl2gjlaW1Ji+7V-fyFRg" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/P/K/jl2gjlaW1Ji+7V-fyFRg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/N/7/gfXqL2yJ4K9EU-32-ARQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/N/7/gfXqL2yJ4K9EU-32-ARQ" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/N/B/r+krlqkE0a3seOltdRPw" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/N/B/r+krlqkE0a3seOltdRPw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/N/P/3DOEiPi7tD2Kt8ppYtOw" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/N/P/3DOEiPi7tD2Kt8ppYtOw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/O/V/HiKM48VXSozi7A4l4hBA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/O/V/HiKM48VXSozi7A4l4hBA" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/P/6/WZSSn4uvVxLDv66Ic4xA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/P/6/WZSSn4uvVxLDv66Ic4xA" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/P/J/-x0-UwvXZqK4WzNtm+tw" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/P/J/-x0-UwvXZqK4WzNtm+tw" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/P/V/4LbzGH9EnfgbJGjz1eFg" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/P/V/4LbzGH9EnfgbJGjz1eFg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Q/D/wKL-ENmbp1N0DgqKOzQg" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Q/D/wKL-ENmbp1N0DgqKOzQg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Q/K/DLxg0bduzzvZCvE+c1MQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Q/K/DLxg0bduzzvZCvE+c1MQ" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Q/N/VbZJrxBxJDfNd0gsPkfA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Q/N/VbZJrxBxJDfNd0gsPkfA" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/R/C/IsVmodkolOWBhFcALkDg" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/R/C/IsVmodkolOWBhFcALkDg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/S/+/MZEDWhdDWoG7nqXLcj0A" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/S/+/MZEDWhdDWoG7nqXLcj0A" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/S/J/E6mvYgfxJIi2MHonpejQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/S/J/E6mvYgfxJIi2MHonpejQ" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/S/1/FVlBTG-NLZsXOHSrzqoQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/S/1/FVlBTG-NLZsXOHSrzqoQ" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/S/J/i+MMo41GI8PmGaHtMPIA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/S/J/i+MMo41GI8PmGaHtMPIA" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/S/O/wb3-U5DFLIAGk9cDagkw" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/S/O/wb3-U5DFLIAGk9cDagkw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/U/M/qwVz5R8FfARFzkPKdBmQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/U/M/qwVz5R8FfARFzkPKdBmQ" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/T/2/6RwrL9qxOH57PuKq1MxA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/T/2/6RwrL9qxOH57PuKq1MxA" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/T/G/z4TLAPcM7Ed8oVrErGaA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/T/G/z4TLAPcM7Ed8oVrErGaA" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/V/-/RP37deZj+E6Jml4XYKvg" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/V/-/RP37deZj+E6Jml4XYKvg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/V/T/OyQNwHt-aGyy4-tkeY6g" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/V/T/OyQNwHt-aGyy4-tkeY6g" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Y/6/hmbTbIXzRvOfY6YWGlVA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Y/6/hmbTbIXzRvOfY6YWGlVA" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/W/E/nSRmhwH4hTQPA1Z6SHfw" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/W/E/nSRmhwH4hTQPA1Z6SHfw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/X/P/C6DdhKsnnIb5kjIvrEzQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/X/P/C6DdhKsnnIb5kjIvrEzQ" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/X/R/2B3NqTaWTy11sP++xkpA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/X/R/2B3NqTaWTy11sP++xkpA" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Y/C/zBqWwmArbG6PYWSdv02w" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Y/C/zBqWwmArbG6PYWSdv02w" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Y/O/+AKSUQVO9dxLT9TEoN0w" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Y/O/+AKSUQVO9dxLT9TEoN0w" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Z/Y/jq3yUj+2Er-+SY7PzXdg" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Z/Y/jq3yUj+2Er-+SY7PzXdg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Y/I/uQHcFx9Zv3vm0TfEklIA" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Y/I/uQHcFx9Zv3vm0TfEklIA" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Z/F/B-X2IvAEmdubjEWB7Ptw" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Z/F/B-X2IvAEmdubjEWB7Ptw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Z/H/2LG-1nkQ69nBkAYtL5DQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Z/H/2LG-1nkQ69nBkAYtL5DQ" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Z/Z/2i4wAqoYkSUSVJZ7ERpw" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/1ZHKwYJIhc/Z/Z/2i4wAqoYkSUSVJZ7ERpw" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.php.meta" afterDir="false" />
@@ -81,8 +97,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/APIController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="306" column="26" selection-start-line="306" selection-start-column="26" selection-end-line="306" selection-end-column="43" />
+            <state relative-caret-position="111">
+              <caret line="407" column="26" selection-start-line="407" selection-start-column="26" selection-end-line="407" selection-end-column="26" />
               <folding>
                 <element signature="e#34#60#0#PHP" expanded="true" />
               </folding>
@@ -91,10 +107,35 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/Stock.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Repository/MontureRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="265">
+              <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/Monture.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-297" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Repository/ClientRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="35" column="10" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
+            <state relative-caret-position="262">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
             </state>
           </provider>
         </entry>
@@ -102,17 +143,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Repository/CorrectionRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="27" column="100" selection-start-line="27" selection-start-column="100" selection-end-line="27" selection-end-column="100" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/Correction.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="125" column="31" selection-start-line="125" selection-start-column="23" selection-end-line="125" selection-end-column="31" />
+            <state relative-caret-position="287">
+              <caret line="31" selection-start-line="31" selection-end-line="31" />
+              <folding>
+                <element signature="e#34#60#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -124,11 +159,6 @@
               <caret line="32" selection-start-line="32" selection-end-line="32" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Repository/CommandeMontureRepository.php">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -163,13 +193,15 @@
         <option value="$PROJECT_DIR$/templates/base.html.twig" />
         <option value="$PROJECT_DIR$/templates/client/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/CommandeMonture.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Stock.php" />
         <option value="$PROJECT_DIR$/src/Entity/CommandeVerre.php" />
         <option value="$PROJECT_DIR$/src/Repository/ClientRepository.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Correction.php" />
         <option value="$PROJECT_DIR$/src/Migrations/Version20200406222649.php" />
         <option value="$PROJECT_DIR$/src/Repository/CommandeVerreRepository.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Correction.php" />
+        <option value="$PROJECT_DIR$/src/Repository/StockRepository.php" />
+        <option value="$PROJECT_DIR$/src/Repository/MontureRepository.php" />
         <option value="$PROJECT_DIR$/src/Repository/CorrectionRepository.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Stock.php" />
         <option value="$PROJECT_DIR$/src/Controller/APIController.php" />
       </list>
     </option>
@@ -292,7 +324,7 @@
     <option name="x" value="39" />
     <option name="y" value="30" />
     <option name="width" value="1452" />
-    <option name="height" value="838" />
+    <option name="height" value="973" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -472,17 +504,17 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63964000" />
+    <option name="totallyTimeSpent" value="74642000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="39" y="30" width="1452" height="838" extended-state="0" />
+    <frame x="39" y="30" width="1452" height="973" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22269504" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17730497" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32841823" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3280363" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -492,7 +524,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.34316355" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.45289445" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -503,23 +535,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/login/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/parametre/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DataFixtures/AppFixtures.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -632,13 +647,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Stock.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/CommandeMonture.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -682,16 +690,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/nelmio/api-doc-bundle/Annotation/Model.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Client.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-74">
-          <caret line="74" selection-start-line="74" selection-end-line="74" />
-          <folding>
-            <element signature="e#30#78#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Migrations/Version20200408143632.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -767,29 +765,68 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Repository/ClientRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="35" column="10" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Correction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="125" column="31" selection-start-line="125" selection-start-column="23" selection-end-line="125" selection-end-column="31" />
+        <state relative-caret-position="262">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Repository/CorrectionRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="27" column="100" selection-start-line="27" selection-start-column="100" selection-end-line="27" selection-end-column="100" />
+        <state relative-caret-position="287">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="e#34#60#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Monture.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-297" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/MontureRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-709">
+          <caret line="225" column="34" selection-start-line="225" selection-start-column="20" selection-end-line="225" selection-end-column="34" />
+          <folding>
+            <element signature="e#30#78#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Correction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1147">
+          <caret line="44" column="12" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/StockRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Stock.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/APIController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="306" column="26" selection-start-line="306" selection-start-column="26" selection-end-line="306" selection-end-column="43" />
+        <state relative-caret-position="111">
+          <caret line="407" column="26" selection-start-line="407" selection-start-column="26" selection-end-line="407" selection-end-column="26" />
           <folding>
             <element signature="e#34#60#0#PHP" expanded="true" />
           </folding>

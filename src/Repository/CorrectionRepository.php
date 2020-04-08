@@ -22,15 +22,19 @@ class CorrectionRepository extends ServiceEntityRepository
     /**
      * @return array
      */
-    public function findClient($id): array
+    public function findCorrectionByClient($id): array
     {
-        $qb = $this->createQueryBuilder('c')
-            //->select('c.id', 'c.date', 'c.datePrescription', 'c.oD', 'c.oG', 'c.commentaire', "c.idPrescripteur")
-            ->where('c.idClient='.$id);
+        $qb = $this->createQueryBuilder('co')
+            ->select('co.id', 'co.date', 'co.datePrescription', 'co.oD', 'co.oG', 'co.commentaire')
+            ->addSelect('c.id')
+            ->innerJoin('co.idClient', 'c')
+            ->where('c='.$id);
 
         $query = $qb ->getQuery();
         return $query->execute();
     }
+
+
 
     // /**
     //  * @return Correction[] Returns an array of Correction objects

@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Correction;
+use App\Entity\Monture;
+use App\Entity\Stock;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ClientRepository;
@@ -242,11 +244,11 @@ class APIController extends AbstractController
     }
 
     /*
-    * Commande client
+    * Correction client
     * */
 
     /**
-     * @SWG\Tag(name="Commande")
+     * @SWG\Tag(name="Correction")
      * Ajoute une nouvelle correction
      * @Route("/client/{id}/correction", name="create_client_correction", methods={"POST"})
      * @SWG\Response(
@@ -261,8 +263,6 @@ class APIController extends AbstractController
 
         // Convertir le format JSON
         $correction = $serializer->deserialize($request->getContent(), Correction::class, 'json');
-        // Sauvegarde pour utilisation
-        $entityManager->persist($correction);
         // Envoie vers la DB
         $entityManager->flush();
         $data = [
@@ -272,10 +272,11 @@ class APIController extends AbstractController
         return new JsonResponse($data, 201);
     }
 
+
     /**
-     * @SWG\Tag(name="Commande")
+     * @SWG\Tag(name="Correction")
      * Retrourne les corrections d'un client en fonction de son id
-     * @Route("/client/{id}/correction", name="get_client_id_correction", methods={"GET"})
+     * @Route("/client/{id}/corrections", name="get_client_id_correction", methods={"GET"})
      * @SWG\Parameter(
      *     name="id",
      *     in="path",
@@ -284,19 +285,19 @@ class APIController extends AbstractController
      * )
      * @SWG\Response(
      *     response=200,
-     *     description="retrourne infos d'un client en fonction de son id : infos personnelles, corrections, commandes verres et montures"
+     *     description="retrourne les corrections d'un client en fonction de son id"
      * )
      * @SWG\Response(
      *     response=404,
-     *     description="Pas de client avec cet id"
+     *     description="Pas de correction pour le client avec cet id"
      * )
      */
 
-    public function clientByIdCorrection($id)
+    public function correctionByClientID($id)
     {
         $client = $this->getDoctrine()
-            ->getRepository(Correction::class)
-            ->findClient($id);
+            ->getRepository(Client::class)
+            ->find($id);
 
         if (!$client) {
             throw $this->createNotFoundException(
@@ -304,15 +305,228 @@ class APIController extends AbstractController
             );
         }
 
-        $response = $this->toJson($client);
+        $correctionList = $client->getCorrections();
+
+
+        $response = $this->toJson($correctionList);
         return $response;
 
 
     }
+
+
+    /*
+         * Commandes verres et montures
+         */
+    /**
+     * @SWG\Tag(name="Commandes")
+     * Retrourne les verres d'un client en fonction de son id
+     * @Route("/client/{id}/verres", name="get_client_id_verres", methods={"GET"})
+     * @SWG\Parameter(
+     *     name="id",
+     *     in="path",
+     *     type="integer",
+     *     description="l'id du client"
+     * )
+     * @SWG\Response(
+     *     response=200,
+     *     description="retrourne les verres d'un client en fonction de son id"
+     * )
+     * @SWG\Response(
+     *     response=404,
+     *     description="Pas de verres pour le client avec cet id"
+     * )
+     */
+
+    public function verresByClientID($id)
+    {
+        $client = $this->getDoctrine()
+            ->getRepository(Client::class)
+            ->find($id);
+
+        if (!$client) {
+            throw $this->createNotFoundException(
+                'Pas de client trouvé avec l\'id '.$id
+            );
+        }
+
+        $correctionList = $client->getCommandeVerres();
+
+
+        $response = $this->toJson($correctionList);
+        return $response;
+
+
+    }
+
+    /**
+     * @SWG\Tag(name="Commandes")
+     * Retrourne les montures d'un client en fonction de son id
+     * @Route("/client/{id}/montures", name="get_client_id_montures", methods={"GET"})
+     * @SWG\Parameter(
+     *     name="id",
+     *     in="path",
+     *     type="integer",
+     *     description="l'id du client"
+     * )
+     * @SWG\Response(
+     *     response=200,
+     *     description="retrourne les montures d'un client en fonction de son id"
+     * )
+     * @SWG\Response(
+     *     response=404,
+     *     description="Pas de montures pour le client avec cet id"
+     * )
+     */
+
+    public function monturesByClientID($id)
+    {
+        $client = $this->getDoctrine()
+            ->getRepository(Client::class)
+            ->find($id);
+
+        if (!$client) {
+            throw $this->createNotFoundException(
+                'Pas de client trouvé avec l\'id '.$id
+            );
+        }
+
+        $correctionList = $client->getCommandeMontures();
+
+
+        $response = $this->toJson($correctionList);
+        return $response;
+
+
+    }
+
     /*
      * Stock
      */
 
+    /**
+     * @SWG\Tag(name="Stoc")
+     * Retrourne la liste des montures en stock
+     * @Route("/stock", name="get_stock", methods={"GET"})
+     * @SWG\Response(
+     *     response=200,
+     *     description="Retrourne la liste des montures en stock"
+     * )
+     * @SWG\Response(
+     *     response=404,
+     *     description="Pas de monture en stock"
+     * )
+     */
 
+    public function findStock()
+    {
+        $stock = $this->getDoctrine()
+            ->getRepository(Stock::class)
+            ->findAll();
+
+        if (!$stock) {
+            throw $this->createNotFoundException(
+                'Pas de monture dans le stock'
+            );
+        }
+
+        $response = $this->toJson($stock);
+        return $response;
+
+
+    }
+
+    /**
+     * @SWG\Tag(name="Stock")
+     * Retrourne infos monture en stock avec l'id
+     * @Route("/stock/{id}", name="get_stock", methods={"GET"})
+     * @SWG\Response(
+     *     response=200,
+     *     description="Retrourne infos monture en stock avec l'id "
+     * )
+     * @SWG\Response(
+     *     response=404,
+     *     description="Cette monture n'est pas dans le stock"
+     * )
+     */
+
+    public function findMontureInStock(Stock $stock)
+    {
+        $montureStock = $this->getDoctrine()
+            ->getRepository(Stock::class)
+            ->find($stock->getId());
+
+        if (!$montureStock) {
+            throw $this->createNotFoundException(
+                'Cette monture n\'est pas dans le stock'
+            );
+        }
+
+        $response = $this->toJson($montureStock);
+        return $response;
+
+
+    }
+
+    /**
+     * @SWG\Tag(name="Stock")
+     * Modifie la qunatité dans le stock
+     * @Route("/stock/{id}", name="update_stock", methods={"PUT"})
+     * @SWG\Response(
+     *     response=200,
+     *     description="Modifie la qunatité dans le stock"
+     * )
+     * @SWG\Response(
+     *     response=404,
+     *     description="Pas de monture en stock"
+     * )
+     */
+
+    public function updateStock(Request $request, SerializerInterface $serializer, Stock $stock,  EntityManagerInterface $entityManager)
+    {
+        $stockUpdate = $entityManager->getRepository(Stock::class)->find($stock->getId());
+        $data = json_decode($request->getContent());
+        foreach ($data as $key => $value){
+            if($key && !empty($value)) {
+                $name = ucfirst($key);
+                $setter = 'set'.$name;
+                $stockUpdate->$setter($value);
+            }
+        }
+
+        $entityManager->flush();
+        $data = [
+            'status' => 200,
+            'message' => 'Le stock a bien été mis à jour'
+        ];
+        return new JsonResponse($data);
+    }
+
+    /**
+     * @SWG\Tag(name="Stock")
+     * Ajoute monture dans le Stock
+     * @Route("/stock", name="update_stock", methods={"POST"})
+     * @SWG\Response(
+     *     response=200,
+     *     description="Ajoute monture dans le Stock"
+     * )
+     * @SWG\Response(
+     *     response=404,
+     *     description="Pas de monture en stock"
+     * )
+     */
+
+    public function new(Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager)
+    {
+        $stock = $serializer->deserialize($request->getContent(), stock::class, 'json');
+
+        $entityManager->persist($stock);
+        $entityManager->flush();
+        $data = [
+            'status' => 201,
+            'message' => 'Le téléphone a bien été ajouté'
+        ];
+        return new JsonResponse($data, 201);
+    }
 
 }
