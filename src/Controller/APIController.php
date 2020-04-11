@@ -350,13 +350,47 @@ class APIController extends AbstractController
             );
         }
 
-        $correctionList = $client->getCommandeVerres();
+        $verresList = $client->getCommandeVerres();
 
 
-        $response = $this->toJson($correctionList);
+        $response = $this->toJson($verresList);
         return $response;
 
 
+    }
+
+    /**
+     * @SWG\Tag(name="Commande")
+     * Modifie commande verres
+     * @Route("/client/{cId}/verres/{vId}", name="update_verres", methods={"PUT"})
+     * @SWG\Response(
+     *     response=200,
+     *     description="Modifie commande verres "
+     * )
+     * @SWG\Response(
+     *     response=404,
+     *     description="Pas de monture en stock"
+     * )
+     */
+
+    public function updateVerresClient(Request $request, SerializerInterface $serializer, Stock $stock,  EntityManagerInterface $entityManager)
+    {
+        $stockUpdate = $entityManager->getRepository(Stock::class)->find($stock->getId());
+        $data = json_decode($request->getContent());
+        foreach ($data as $key => $value){
+            if($key && !empty($value)) {
+                $name = ucfirst($key);
+                $setter = 'set'.$name;
+                $stockUpdate->$setter($value);
+            }
+        }
+
+        $entityManager->flush();
+        $data = [
+            'status' => 200,
+            'message' => 'Le stock a bien été mis à jour'
+        ];
+        return new JsonResponse($data);
     }
 
     /**
@@ -403,11 +437,10 @@ class APIController extends AbstractController
     /*
      * Stock
      */
-
     /**
-     * @SWG\Tag(name="Stoc")
+     * @SWG\Tag(name="Stock")
      * Retrourne la liste des montures en stock
-     * @Route("/stock", name="get_stock", methods={"GET"})
+     * @Route("/stocks", name="get_stock", methods={"GET"})
      * @SWG\Response(
      *     response=200,
      *     description="Retrourne la liste des montures en stock"
@@ -439,7 +472,7 @@ class APIController extends AbstractController
     /**
      * @SWG\Tag(name="Stock")
      * Retrourne infos monture en stock avec l'id
-     * @Route("/stock/{id}", name="get_stock", methods={"GET"})
+     * @Route("/stock/{id}", name="get_stock_monture", methods={"GET"})
      * @SWG\Response(
      *     response=200,
      *     description="Retrourne infos monture en stock avec l'id "
@@ -502,31 +535,5 @@ class APIController extends AbstractController
         return new JsonResponse($data);
     }
 
-    /**
-     * @SWG\Tag(name="Stock")
-     * Ajoute monture dans le Stock
-     * @Route("/stock", name="update_stock", methods={"POST"})
-     * @SWG\Response(
-     *     response=200,
-     *     description="Ajoute monture dans le Stock"
-     * )
-     * @SWG\Response(
-     *     response=404,
-     *     description="Pas de monture en stock"
-     * )
-     */
-
-    public function new(Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager)
-    {
-        $stock = $serializer->deserialize($request->getContent(), stock::class, 'json');
-
-        $entityManager->persist($stock);
-        $entityManager->flush();
-        $data = [
-            'status' => 201,
-            'message' => 'Le téléphone a bien été ajouté'
-        ];
-        return new JsonResponse($data, 201);
-    }
 
 }

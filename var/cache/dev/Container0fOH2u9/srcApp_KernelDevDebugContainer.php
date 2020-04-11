@@ -1,6 +1,6 @@
 <?php
 
-namespace ContainerLMaVKQ5;
+namespace Container0fOH2u9;
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -2054,6 +2054,46 @@ class srcApp_KernelDevDebugContainer extends Container
     }
 
     /**
+     * Gets the private '.service_locator.QUsPo1E' shared service.
+     *
+     * @return \Symfony\Component\DependencyInjection\ServiceLocator
+     */
+    protected function get_ServiceLocator_QUsPo1EService()
+    {
+        return $this->privates['.service_locator.QUsPo1E'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
+            'App\\Controller\\APIController::createClient' => ['privates', '.service_locator.GFrcqSZ', 'get_ServiceLocator_GFrcqSZService', false],
+            'App\\Controller\\APIController::createCorrection' => ['privates', '.service_locator.GFrcqSZ', 'get_ServiceLocator_GFrcqSZService', false],
+            'App\\Controller\\APIController::findMontureInStock' => ['privates', '.service_locator.Emp.7EQ', 'get_ServiceLocator_Emp_7EQService', false],
+            'App\\Controller\\APIController::liste' => ['privates', '.service_locator.SsQABs7', 'get_ServiceLocator_SsQABs7Service', false],
+            'App\\Controller\\APIController::updateClient' => ['privates', '.service_locator.7foikkk', 'get_ServiceLocator_7foikkkService', false],
+            'App\\Controller\\APIController::updateStock' => ['privates', '.service_locator.yH_kZg4', 'get_ServiceLocator_YHKZg4Service', false],
+            'App\\Controller\\APIController::updateVerresClient' => ['privates', '.service_locator.yH_kZg4', 'get_ServiceLocator_YHKZg4Service', false],
+            'App\\Controller\\APIController:createClient' => ['privates', '.service_locator.GFrcqSZ', 'get_ServiceLocator_GFrcqSZService', false],
+            'App\\Controller\\APIController:createCorrection' => ['privates', '.service_locator.GFrcqSZ', 'get_ServiceLocator_GFrcqSZService', false],
+            'App\\Controller\\APIController:findMontureInStock' => ['privates', '.service_locator.Emp.7EQ', 'get_ServiceLocator_Emp_7EQService', false],
+            'App\\Controller\\APIController:liste' => ['privates', '.service_locator.SsQABs7', 'get_ServiceLocator_SsQABs7Service', false],
+            'App\\Controller\\APIController:updateClient' => ['privates', '.service_locator.7foikkk', 'get_ServiceLocator_7foikkkService', false],
+            'App\\Controller\\APIController:updateStock' => ['privates', '.service_locator.yH_kZg4', 'get_ServiceLocator_YHKZg4Service', false],
+            'App\\Controller\\APIController:updateVerresClient' => ['privates', '.service_locator.yH_kZg4', 'get_ServiceLocator_YHKZg4Service', false],
+        ], [
+            'App\\Controller\\APIController::createClient' => '?',
+            'App\\Controller\\APIController::createCorrection' => '?',
+            'App\\Controller\\APIController::findMontureInStock' => '?',
+            'App\\Controller\\APIController::liste' => '?',
+            'App\\Controller\\APIController::updateClient' => '?',
+            'App\\Controller\\APIController::updateStock' => '?',
+            'App\\Controller\\APIController::updateVerresClient' => '?',
+            'App\\Controller\\APIController:createClient' => '?',
+            'App\\Controller\\APIController:createCorrection' => '?',
+            'App\\Controller\\APIController:findMontureInStock' => '?',
+            'App\\Controller\\APIController:liste' => '?',
+            'App\\Controller\\APIController:updateClient' => '?',
+            'App\\Controller\\APIController:updateStock' => '?',
+            'App\\Controller\\APIController:updateVerresClient' => '?',
+        ]);
+    }
+
+    /**
      * Gets the private '.service_locator.SsQABs7' shared service.
      *
      * @return \Symfony\Component\DependencyInjection\ServiceLocator
@@ -2104,46 +2144,6 @@ class srcApp_KernelDevDebugContainer extends Container
             'serializer' => '?',
             'session' => '?',
             'twig' => '?',
-        ]);
-    }
-
-    /**
-     * Gets the private '.service_locator.x9nQft_' shared service.
-     *
-     * @return \Symfony\Component\DependencyInjection\ServiceLocator
-     */
-    protected function get_ServiceLocator_X9nQftService()
-    {
-        return $this->privates['.service_locator.x9nQft_'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
-            'App\\Controller\\APIController::createClient' => ['privates', '.service_locator.GFrcqSZ', 'get_ServiceLocator_GFrcqSZService', false],
-            'App\\Controller\\APIController::createCorrection' => ['privates', '.service_locator.GFrcqSZ', 'get_ServiceLocator_GFrcqSZService', false],
-            'App\\Controller\\APIController::findMontureInStock' => ['privates', '.service_locator.Emp.7EQ', 'get_ServiceLocator_Emp_7EQService', false],
-            'App\\Controller\\APIController::liste' => ['privates', '.service_locator.SsQABs7', 'get_ServiceLocator_SsQABs7Service', false],
-            'App\\Controller\\APIController::new' => ['privates', '.service_locator.GFrcqSZ', 'get_ServiceLocator_GFrcqSZService', false],
-            'App\\Controller\\APIController::updateClient' => ['privates', '.service_locator.7foikkk', 'get_ServiceLocator_7foikkkService', false],
-            'App\\Controller\\APIController::updateStock' => ['privates', '.service_locator.yH_kZg4', 'get_ServiceLocator_YHKZg4Service', false],
-            'App\\Controller\\APIController:createClient' => ['privates', '.service_locator.GFrcqSZ', 'get_ServiceLocator_GFrcqSZService', false],
-            'App\\Controller\\APIController:createCorrection' => ['privates', '.service_locator.GFrcqSZ', 'get_ServiceLocator_GFrcqSZService', false],
-            'App\\Controller\\APIController:findMontureInStock' => ['privates', '.service_locator.Emp.7EQ', 'get_ServiceLocator_Emp_7EQService', false],
-            'App\\Controller\\APIController:liste' => ['privates', '.service_locator.SsQABs7', 'get_ServiceLocator_SsQABs7Service', false],
-            'App\\Controller\\APIController:new' => ['privates', '.service_locator.GFrcqSZ', 'get_ServiceLocator_GFrcqSZService', false],
-            'App\\Controller\\APIController:updateClient' => ['privates', '.service_locator.7foikkk', 'get_ServiceLocator_7foikkkService', false],
-            'App\\Controller\\APIController:updateStock' => ['privates', '.service_locator.yH_kZg4', 'get_ServiceLocator_YHKZg4Service', false],
-        ], [
-            'App\\Controller\\APIController::createClient' => '?',
-            'App\\Controller\\APIController::createCorrection' => '?',
-            'App\\Controller\\APIController::findMontureInStock' => '?',
-            'App\\Controller\\APIController::liste' => '?',
-            'App\\Controller\\APIController::new' => '?',
-            'App\\Controller\\APIController::updateClient' => '?',
-            'App\\Controller\\APIController::updateStock' => '?',
-            'App\\Controller\\APIController:createClient' => '?',
-            'App\\Controller\\APIController:createCorrection' => '?',
-            'App\\Controller\\APIController:findMontureInStock' => '?',
-            'App\\Controller\\APIController:liste' => '?',
-            'App\\Controller\\APIController:new' => '?',
-            'App\\Controller\\APIController:updateClient' => '?',
-            'App\\Controller\\APIController:updateStock' => '?',
         ]);
     }
 
@@ -3155,7 +3155,7 @@ class srcApp_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'/vendor/symfony/http-kernel/Controller/ArgumentResolver/TraceableValueResolver.php';
         include_once \dirname(__DIR__, 4).'/vendor/symfony/http-kernel/Controller/ArgumentResolver/NotTaggedControllerValueResolver.php';
 
-        return $this->privates['debug.argument_resolver.not_tagged_controller'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver(($this->privates['.service_locator.x9nQft_'] ?? $this->get_ServiceLocator_X9nQftService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
+        return $this->privates['debug.argument_resolver.not_tagged_controller'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver(($this->privates['.service_locator.QUsPo1E'] ?? $this->get_ServiceLocator_QUsPo1EService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
     }
 
     /**
@@ -3197,7 +3197,7 @@ class srcApp_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'/vendor/symfony/http-kernel/Controller/ArgumentResolver/TraceableValueResolver.php';
         include_once \dirname(__DIR__, 4).'/vendor/symfony/http-kernel/Controller/ArgumentResolver/ServiceValueResolver.php';
 
-        return $this->privates['debug.argument_resolver.service'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver(($this->privates['.service_locator.x9nQft_'] ?? $this->get_ServiceLocator_X9nQftService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
+        return $this->privates['debug.argument_resolver.service'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver(($this->privates['.service_locator.QUsPo1E'] ?? $this->get_ServiceLocator_QUsPo1EService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
     }
 
     /**

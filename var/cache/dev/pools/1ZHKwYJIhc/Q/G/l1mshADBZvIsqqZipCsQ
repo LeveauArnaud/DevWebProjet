@@ -14,7 +14,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
     [
         'stdClass' => [
             'name' => [
-                'Stoc',
+                'Stock',
             ],
             '_context' => [
                 $o[1],
@@ -68,7 +68,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
         ],
         'Symfony\\Component\\Routing\\Annotation\\Route' => [
             'path' => [
-                2 => '/stock',
+                2 => '/stocks',
             ],
             'name' => [
                 2 => 'get_stock',

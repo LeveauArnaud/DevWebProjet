@@ -71,7 +71,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 2 => '/stock/{id}',
             ],
             'name' => [
-                2 => 'get_stock',
+                2 => 'get_stock_monture',
             ],
             'methods' => [
                 2 => [

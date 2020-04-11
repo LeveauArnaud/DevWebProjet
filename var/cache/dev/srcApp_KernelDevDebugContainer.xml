@@ -5311,12 +5311,6 @@
         <argument key="serializer" type="service" id="serializer"/>
       </argument>
     </service>
-    <service id=".service_locator.Emp.7EQ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="stock" type="service" id=".errored..service_locator.Emp.7EQ.App\Entity\Stock"/>
-      </argument>
-    </service>
     <service id=".service_locator.yH_kZg4" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5325,23 +5319,29 @@
         <argument key="stock" type="service" id=".errored..service_locator.yH_kZg4.App\Entity\Stock"/>
       </argument>
     </service>
-    <service id=".service_locator.x9nQft_" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.Emp.7EQ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="stock" type="service" id=".errored..service_locator.Emp.7EQ.App\Entity\Stock"/>
+      </argument>
+    </service>
+    <service id=".service_locator.QUsPo1E" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\APIController::createClient" type="service" id=".service_locator.GFrcqSZ"/>
         <argument key="App\Controller\APIController::createCorrection" type="service" id=".service_locator.GFrcqSZ"/>
         <argument key="App\Controller\APIController::findMontureInStock" type="service" id=".service_locator.Emp.7EQ"/>
         <argument key="App\Controller\APIController::liste" type="service" id=".service_locator.SsQABs7"/>
-        <argument key="App\Controller\APIController::new" type="service" id=".service_locator.GFrcqSZ"/>
         <argument key="App\Controller\APIController::updateClient" type="service" id=".service_locator.7foikkk"/>
         <argument key="App\Controller\APIController::updateStock" type="service" id=".service_locator.yH_kZg4"/>
+        <argument key="App\Controller\APIController::updateVerresClient" type="service" id=".service_locator.yH_kZg4"/>
         <argument key="App\Controller\APIController:createClient" type="service" id=".service_locator.GFrcqSZ"/>
         <argument key="App\Controller\APIController:createCorrection" type="service" id=".service_locator.GFrcqSZ"/>
         <argument key="App\Controller\APIController:findMontureInStock" type="service" id=".service_locator.Emp.7EQ"/>
         <argument key="App\Controller\APIController:liste" type="service" id=".service_locator.SsQABs7"/>
-        <argument key="App\Controller\APIController:new" type="service" id=".service_locator.GFrcqSZ"/>
         <argument key="App\Controller\APIController:updateClient" type="service" id=".service_locator.7foikkk"/>
         <argument key="App\Controller\APIController:updateStock" type="service" id=".service_locator.yH_kZg4"/>
+        <argument key="App\Controller\APIController:updateVerresClient" type="service" id=".service_locator.yH_kZg4"/>
       </argument>
     </service>
     <service id=".service_locator.Y7gDuDN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -5855,12 +5855,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.x9nQft_"/>
+      <argument type="service" id=".service_locator.QUsPo1E"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.x9nQft_"/>
+      <argument type="service" id=".service_locator.QUsPo1E"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus" public="false">
       <argument type="iterator">
@@ -5882,8 +5882,8 @@
       <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
     </service>
     <service id=".errored..service_locator.7foikkk.App\Entity\Client" class="App\Entity\Client"/>
-    <service id=".errored..service_locator.Emp.7EQ.App\Entity\Stock" class="App\Entity\Stock"/>
     <service id=".errored..service_locator.yH_kZg4.App\Entity\Stock" class="App\Entity\Stock"/>
+    <service id=".errored..service_locator.Emp.7EQ.App\Entity\Stock" class="App\Entity\Stock"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <argument type="service" id=".service_locator.AYR0Q3q"/>
       <argument type="collection">
@@ -6272,7 +6272,7 @@
     <service id="nelmio_api_doc.generator" alias="nelmio_api_doc.generator.default" public="true"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.x9nQft_"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.QUsPo1E"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
