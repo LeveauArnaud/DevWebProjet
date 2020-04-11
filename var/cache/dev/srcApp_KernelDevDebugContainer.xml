@@ -397,6 +397,10 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\EtatCommandeRepository" class="App\Repository\EtatCommandeRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\MagasinRepository" class="App\Repository\MagasinRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -3736,7 +3740,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.TGN6TYh"/>
+      <argument type="service" id=".service_locator.J71mngf"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5091,6 +5095,8 @@
     <service id=".abstract.instanceof.App\Repository\CorrectionRepository" class="App\Repository\CorrectionRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\DateRepository" class="App\Repository\DateRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\DateRepository" class="App\Repository\DateRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\EtatCommandeRepository" class="App\Repository\EtatCommandeRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\EtatCommandeRepository" class="App\Repository\EtatCommandeRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MagasinRepository" class="App\Repository\MagasinRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\MagasinRepository" class="App\Repository\MagasinRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MontureRepository" class="App\Repository\MontureRepository" autowire="true" abstract="true"/>
@@ -5284,12 +5290,6 @@
         <argument>make:migration</argument>
       </call>
     </service>
-    <service id=".service_locator.SsQABs7" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="clientsRepo" type="service" id="App\Repository\ClientRepository"/>
-      </argument>
-    </service>
     <service id=".service_locator.GFrcqSZ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5297,15 +5297,51 @@
         <argument key="serializer" type="service" id="serializer"/>
       </argument>
     </service>
-    <service id=".service_locator.O3C8Pa_" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.SsQABs7" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Controller\APIController::clientByParam" type="service" id=".service_locator.GFrcqSZ"/>
+        <argument key="clientsRepo" type="service" id="App\Repository\ClientRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.7foikkk" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="client" type="service" id=".errored..service_locator.7foikkk.App\Entity\Client"/>
+        <argument key="entityManager" type="service" id="doctrine.orm.default_entity_manager"/>
+        <argument key="serializer" type="service" id="serializer"/>
+      </argument>
+    </service>
+    <service id=".service_locator.yH_kZg4" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service" id="doctrine.orm.default_entity_manager"/>
+        <argument key="serializer" type="service" id="serializer"/>
+        <argument key="stock" type="service" id=".errored..service_locator.yH_kZg4.App\Entity\Stock"/>
+      </argument>
+    </service>
+    <service id=".service_locator.Emp.7EQ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="stock" type="service" id=".errored..service_locator.Emp.7EQ.App\Entity\Stock"/>
+      </argument>
+    </service>
+    <service id=".service_locator.QUsPo1E" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
         <argument key="App\Controller\APIController::createClient" type="service" id=".service_locator.GFrcqSZ"/>
+        <argument key="App\Controller\APIController::createCorrection" type="service" id=".service_locator.GFrcqSZ"/>
+        <argument key="App\Controller\APIController::findMontureInStock" type="service" id=".service_locator.Emp.7EQ"/>
         <argument key="App\Controller\APIController::liste" type="service" id=".service_locator.SsQABs7"/>
-        <argument key="App\Controller\APIController:clientByParam" type="service" id=".service_locator.GFrcqSZ"/>
+        <argument key="App\Controller\APIController::updateClient" type="service" id=".service_locator.7foikkk"/>
+        <argument key="App\Controller\APIController::updateStock" type="service" id=".service_locator.yH_kZg4"/>
+        <argument key="App\Controller\APIController::updateVerresClient" type="service" id=".service_locator.yH_kZg4"/>
         <argument key="App\Controller\APIController:createClient" type="service" id=".service_locator.GFrcqSZ"/>
+        <argument key="App\Controller\APIController:createCorrection" type="service" id=".service_locator.GFrcqSZ"/>
+        <argument key="App\Controller\APIController:findMontureInStock" type="service" id=".service_locator.Emp.7EQ"/>
         <argument key="App\Controller\APIController:liste" type="service" id=".service_locator.SsQABs7"/>
+        <argument key="App\Controller\APIController:updateClient" type="service" id=".service_locator.7foikkk"/>
+        <argument key="App\Controller\APIController:updateStock" type="service" id=".service_locator.yH_kZg4"/>
+        <argument key="App\Controller\APIController:updateVerresClient" type="service" id=".service_locator.yH_kZg4"/>
       </argument>
     </service>
     <service id=".service_locator.Y7gDuDN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -5421,7 +5457,7 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.TGN6TYh" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.J71mngf" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\ClientRepository" type="service" id="App\Repository\ClientRepository"/>
@@ -5429,6 +5465,7 @@
         <argument key="App\Repository\CommandeVerreRepository" type="service" id="App\Repository\CommandeVerreRepository"/>
         <argument key="App\Repository\CorrectionRepository" type="service" id="App\Repository\CorrectionRepository"/>
         <argument key="App\Repository\DateRepository" type="service" id="App\Repository\DateRepository"/>
+        <argument key="App\Repository\EtatCommandeRepository" type="service" id="App\Repository\EtatCommandeRepository"/>
         <argument key="App\Repository\MagasinRepository" type="service" id="App\Repository\MagasinRepository"/>
         <argument key="App\Repository\MontureRepository" type="service" id="App\Repository\MontureRepository"/>
         <argument key="App\Repository\PrescripteurRepository" type="service" id="App\Repository\PrescripteurRepository"/>
@@ -5818,12 +5855,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.O3C8Pa_"/>
+      <argument type="service" id=".service_locator.QUsPo1E"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.O3C8Pa_"/>
+      <argument type="service" id=".service_locator.QUsPo1E"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus" public="false">
       <argument type="iterator">
@@ -5844,6 +5881,9 @@
       </call>
       <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
     </service>
+    <service id=".errored..service_locator.7foikkk.App\Entity\Client" class="App\Entity\Client"/>
+    <service id=".errored..service_locator.yH_kZg4.App\Entity\Stock" class="App\Entity\Stock"/>
+    <service id=".errored..service_locator.Emp.7EQ.App\Entity\Stock" class="App\Entity\Stock"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <argument type="service" id=".service_locator.AYR0Q3q"/>
       <argument type="collection">
@@ -6232,7 +6272,7 @@
     <service id="nelmio_api_doc.generator" alias="nelmio_api_doc.generator.default" public="true"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.O3C8Pa_"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.QUsPo1E"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

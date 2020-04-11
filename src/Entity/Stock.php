@@ -19,7 +19,7 @@ class Stock
     /**
      * @ORM\Column(type="integer")
      */
-    private $quantitÃe;
+    private $quantite;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Monture")
@@ -38,14 +38,14 @@ class Stock
         return $this->id;
     }
 
-    public function getQuantitÃe(): ?int
+    public function getQuantite(): ?int
     {
-        return $this->quantitÃe;
+        return $this->quantite;
     }
 
-    public function setQuantitÃe(int $quantitÃe): self
+    public function setQuantite(int $quantite): self
     {
-        $this->quantitÃe = $quantitÃe;
+        $this->quantite = $quantite;
 
         return $this;
     }

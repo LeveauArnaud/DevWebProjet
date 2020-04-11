@@ -19,6 +19,18 @@ class CommandeVerreRepository extends ServiceEntityRepository
         parent::__construct($registry, CommandeVerre::class);
     }
 
+    /**
+     * @return array
+     */
+    public function findClient($id): array
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.idClient='.$id);
+
+        $query = $qb ->getQuery();
+        return $query->execute();
+    }
+
     // /**
     //  * @return CommandeVerre[] Returns an array of CommandeVerre objects
     //  */

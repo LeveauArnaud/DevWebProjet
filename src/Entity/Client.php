@@ -83,6 +83,11 @@ class Client
      */
     private $commandeVerres;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $phone;
+
     public function __construct()
     {
         $this->corrections = new ArrayCollection();
@@ -304,6 +309,18 @@ class Client
                 $commandeVerre->setIdClient(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPhone(): ?int
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(?int $phone): self
+    {
+        $this->phone = $phone;
 
         return $this;
     }
