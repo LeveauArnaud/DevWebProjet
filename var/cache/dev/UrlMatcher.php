@@ -14,7 +14,7 @@ return [
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/api/client' => [[['_route' => 'api_create_client', '_controller' => 'App\\Controller\\APIController::createClient'], null, ['POST' => 0], null, false, false, null]],
-        '/api/clients' => [[['_route' => 'api_get_clients', '_controller' => 'App\\Controller\\APIController::liste'], null, ['GET' => 0], null, false, false, null]],
+        '/api/clients' => [[['_route' => 'api_get_clients', '_controller' => 'App\\Controller\\APIController::listeClients'], null, ['GET' => 0], null, false, false, null]],
         '/api/stocks' => [[['_route' => 'api_get_stock', '_controller' => 'App\\Controller\\APIController::findStock'], null, ['GET' => 0], null, false, false, null]],
         '/client' => [[['_route' => 'client', '_controller' => 'App\\Controller\\ClientController::index'], null, null, null, false, false, null]],
         '/client_delete' => [[['_route' => 'client_delete', '_controller' => 'App\\Controller\\ClientController::clientDelete'], null, null, null, false, false, null]],

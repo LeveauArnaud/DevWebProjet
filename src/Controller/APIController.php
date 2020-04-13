@@ -101,9 +101,10 @@ class APIController extends AbstractController
      *     response=404,
      *     description="Pas de client"
      * )
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
 
-    public function liste(ClientRepository $clientsRepo)
+    public function listeClients(ClientRepository $clientsRepo)
     {
         // Récupère la liste des articles
         $clients = $clientsRepo->apiFindMinInfosAll();
@@ -267,7 +268,7 @@ class APIController extends AbstractController
         $entityManager->flush();
         $data = [
             'status' => 201,
-            'message' => 'La correction à bien été ajouté au client '.$client->getnom()
+            'message' => 'La correction à bien été ajouté au client '
         ];
         return new JsonResponse($data, 201);
     }

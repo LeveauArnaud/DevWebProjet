@@ -16,7 +16,7 @@ return [
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
     'api_create_client' => [[], ['_controller' => 'App\\Controller\\APIController::createClient'], [], [['text', '/api/client']], [], []],
-    'api_get_clients' => [[], ['_controller' => 'App\\Controller\\APIController::liste'], [], [['text', '/api/clients']], [], []],
+    'api_get_clients' => [[], ['_controller' => 'App\\Controller\\APIController::listeClients'], [], [['text', '/api/clients']], [], []],
     'api_get_client_id' => [['id'], ['_controller' => 'App\\Controller\\APIController::clientById'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/api/client']], [], []],
     'api_update_client_id' => [['id'], ['_controller' => 'App\\Controller\\APIController::updateClient'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/api/client']], [], []],
     'api_delete_client_id' => [['id'], ['_controller' => 'App\\Controller\\APIController::clientDelete'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/api/client/delete']], [], []],
