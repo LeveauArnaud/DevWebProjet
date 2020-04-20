@@ -16,6 +16,30 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+        #autorise l'authentification d'ulisiateur sans être authentifié
+        registration:
+            pattern:  ^/api/users
+            stateless: true
+            anonymous: true
+            methods : [POST]
+        #vérifie l'utilisateur
+        login:
+            pattern:  ^/api/login
+            stateless: true
+            anonymous: true
+            json_login:
+                check_path:               /api/login_check
+                success_handler:          lexik_jwt_authentication.handler.authentication_success
+                failure_handler:          lexik_jwt_authentication.handler.authentication_failure
+            #tout ce qui se trouve sous /api doit être authentifié
+        api:
+            pattern:   ^/api
+            stateless: true
+            anonymous: true
+            guard:
+                authenticators:
+                    - lexik_jwt_authentication.jwt_token_authenticator
+
         main:
             anonymous: lazy
             provider: app_user_provider
@@ -31,3 +55,15 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/clients, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/commande_montures, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/commande_verres, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/corrections, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/etat_commandes, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/magasins, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/montures, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/prescripteurs, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/stocks, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/verres, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/users, roles: IS_AUTHENTICATED_FULLY , methods:[GET, PUT, DELETE]}

@@ -60,7 +60,7 @@ class Client
      * @ORM\Column(type="date")
      * @groups({"clients_read","commandeMonture_read","commandeVerres_read","corrections_read"})
      * @Assert\NotBlank(message="le client doit avoir une date de naissance")
-     * 
+     *
      */
     private $dateNaissance;
 
@@ -108,7 +108,8 @@ class Client
     /**
      * @ORM\Column(type="string", length=1)
      * @groups({"clients_read","commandeMonture_read","commandeVerres_read","corrections_read"})
-     * @Assert\NotBlank(message="le client doit avoir un sexe M ou F")
+     * @Assert\NotBlank(message="le client doit avoir un sexe")
+     * @Assert\Choice(choices={"F","M"}, message="le sexe doit être soit  M ou F")
      */
 
     private $sexe;

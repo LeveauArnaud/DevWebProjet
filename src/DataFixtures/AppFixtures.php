@@ -40,6 +40,18 @@ class AppFixtures extends Fixture
     {
         $faker = Factory::create('fr_BE');
 
+
+        for($u =0; $u < 10; $u++){
+            $user = new User();
+
+            $hash = $this->encoder->encodePassword($user,"password");
+
+            $user->setUsername($faker->firstName)
+                ->setPassword($hash);
+
+            $manager->persist($user);
+        }
+
         for($p = 0; $p < 3; $p++){
             $prescripteur = new Prescripteur();
             $prescripteur->setNom($faker->lastName);
