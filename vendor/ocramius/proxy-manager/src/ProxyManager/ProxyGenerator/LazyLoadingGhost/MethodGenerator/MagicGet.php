@@ -1,48 +1,28 @@
 <?php
-/*
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
- * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
- * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
- * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
- * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
- * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- * This software consists of voluntary contributions made by many individuals
- * and is licensed under the MIT license.
- */
 
 declare(strict_types=1);
 
 namespace ProxyManager\ProxyGenerator\LazyLoadingGhost\MethodGenerator;
 
+use InvalidArgumentException;
+use Laminas\Code\Generator\MethodGenerator;
+use Laminas\Code\Generator\ParameterGenerator;
+use Laminas\Code\Generator\PropertyGenerator;
 use ProxyManager\Generator\MagicMethodGenerator;
-use Zend\Code\Generator\ParameterGenerator;
 use ProxyManager\ProxyGenerator\LazyLoadingGhost\PropertyGenerator\InitializationTracker;
 use ProxyManager\ProxyGenerator\LazyLoadingGhost\PropertyGenerator\PrivatePropertiesMap;
 use ProxyManager\ProxyGenerator\LazyLoadingGhost\PropertyGenerator\ProtectedPropertiesMap;
 use ProxyManager\ProxyGenerator\PropertyGenerator\PublicPropertiesMap;
 use ProxyManager\ProxyGenerator\Util\PublicScopeSimulator;
 use ReflectionClass;
-use Zend\Code\Generator\MethodGenerator;
-use Zend\Code\Generator\PropertyGenerator;
+use function sprintf;
 
 /**
  * Magic `__get` for lazy loading ghost objects
- *
- * @author Marco Pivetta <ocramius@gmail.com>
- * @license MIT
  */
 class MagicGet extends MagicMethodGenerator
 {
-    /**
-     * @var string
-     */
-    private $callParentTemplate =  <<<'PHP'
+    private string $callParentTemplate =  <<<'PHP'
 $this->%s && ! $this->%s && $this->%s('__get', array('name' => $name));
 
 if (isset(self::$%s[$name])) {
@@ -81,7 +61,7 @@ if (isset(self::$%s[$name])) {
         $cacheKey = $class . '#' . $name;
         $accessor = isset($accessorCache[$cacheKey])
             ? $accessorCache[$cacheKey]
-            : $accessorCache[$cacheKey] = \Closure::bind(function & ($instance) use ($name) {
+            : $accessorCache[$cacheKey] = \Closure::bind(static function & ($instance) use ($name) {
                 return $instance->$name;
             }, null, $class);
 
@@ -93,7 +73,7 @@ if (isset(self::$%s[$name])) {
         $cacheKey = $tmpClass . '#' . $name;
         $accessor = isset($accessorCache[$cacheKey])
             ? $accessorCache[$cacheKey]
-            : $accessorCache[$cacheKey] = \Closure::bind(function & ($instance) use ($name) {
+            : $accessorCache[$cacheKey] = \Closure::bind(static function & ($instance) use ($name) {
                 return $instance->$name;
             }, null, $tmpClass);
 
@@ -105,16 +85,7 @@ if (isset(self::$%s[$name])) {
 PHP;
 
     /**
-     * @param ReflectionClass        $originalClass
-     * @param PropertyGenerator      $initializerProperty
-     * @param MethodGenerator        $callInitializer
-     * @param PublicPropertiesMap    $publicProperties
-     * @param ProtectedPropertiesMap $protectedProperties
-     * @param PrivatePropertiesMap   $privateProperties
-     * @param InitializationTracker  $initializationTracker
-     *
-     * @throws \Zend\Code\Generator\Exception\InvalidArgumentException
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function __construct(
         ReflectionClass $originalClass,
@@ -128,8 +99,6 @@ PHP;
         parent::__construct($originalClass, '__get', [new ParameterGenerator('name')]);
 
         $override = $originalClass->hasMethod('__get');
-
-        $this->setDocBlock(($override ? "{@inheritDoc}\n" : '') . '@param string $name');
 
         $parentAccess = 'return parent::__get($name);';
 

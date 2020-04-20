@@ -3,9 +3,22 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiSubresource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CommandeVerreRepository")
+ * @ApiResource(
+ *     subresourceOperations={
+ *          "api_clients_commandeVerres_get_subresource"={
+ *                  "normalization_context"={"groups"={"commandeVerres_subresource"}}
+ *          }
+ *     },
+ *     normalizationContext={
+ *          "groups"={"commandeVerres_read"}
+ *     }
+ * )
  */
 class CommandeVerre
 {
@@ -13,94 +26,112 @@ class CommandeVerre
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="date")
+     * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $date;
 
     /**
      * @ORM\Column(type="integer")
+     * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $diamD;
 
     /**
      * @ORM\Column(type="integer")
+     * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $diamG;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $supp1;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $supp2;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $supp3;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $supp4;
 
     /**
      * @ORM\Column(type="integer")
+     * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $prixOD;
 
     /**
      * @ORM\Column(type="integer")
+     * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $prixOG;
 
     /**
      * @ORM\Column(type="integer")
+     * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $prixSupp1;
 
     /**
      * @ORM\Column(type="integer")
+     * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $prixSupp2;
 
     /**
      * @ORM\Column(type="integer")
+     * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $prixSupp3;
 
     /**
      * @ORM\Column(type="integer")
+     * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $prixSupp4;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $commentaire;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Client", inversedBy="commandeVerres")
      * @ORM\JoinColumn(nullable=false)
+     * @groups({"commandeVerres_read"})
      */
     private $idClient;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Verres")
      * @ORM\JoinColumn(nullable=false)
+     * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $idVerre;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\EtatCommande")
      * @ORM\JoinColumn(nullable=false)
+     * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $etat;
 

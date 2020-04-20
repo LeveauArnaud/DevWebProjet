@@ -35,7 +35,7 @@ final class SodiumPasswordEncoder implements PasswordEncoderInterface, SelfSalti
         }
 
         $this->opsLimit = $opsLimit ?? max(4, \defined('SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE') ? SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE : 4);
-        $this->memLimit = $memLimit ?? max(64 * 1024 * 1024, \defined('SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE') ? SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE : 64 * 1024 * 2014);
+        $this->memLimit = $memLimit ?? max(64 * 1024 * 1024, \defined('SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE') ? SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE : 64 * 1024 * 1024);
 
         if (3 > $this->opsLimit) {
             throw new \InvalidArgumentException('$opsLimit must be 3 or greater.');
@@ -54,7 +54,7 @@ final class SodiumPasswordEncoder implements PasswordEncoderInterface, SelfSalti
     /**
      * {@inheritdoc}
      */
-    public function encodePassword($raw, $salt): string
+    public function encodePassword(string $raw, ?string $salt): string
     {
         if (\strlen($raw) > self::MAX_PASSWORD_LENGTH) {
             throw new BadCredentialsException('Invalid password.');
@@ -74,7 +74,7 @@ final class SodiumPasswordEncoder implements PasswordEncoderInterface, SelfSalti
     /**
      * {@inheritdoc}
      */
-    public function isPasswordValid($encoded, $raw, $salt): bool
+    public function isPasswordValid(string $encoded, string $raw, ?string $salt): bool
     {
         if ('' === $raw) {
             return false;

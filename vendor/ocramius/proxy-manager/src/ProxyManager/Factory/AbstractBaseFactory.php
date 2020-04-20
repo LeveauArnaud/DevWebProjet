@@ -1,25 +1,10 @@
 <?php
-/*
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
- * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
- * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
- * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
- * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
- * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- * This software consists of voluntary contributions made by many individuals
- * and is licensed under the MIT license.
- */
 
 declare(strict_types=1);
 
 namespace ProxyManager\Factory;
 
+use OutOfBoundsException;
 use ProxyManager\Configuration;
 use ProxyManager\Generator\ClassGenerator;
 use ProxyManager\ProxyGenerator\ProxyGeneratorInterface;
@@ -27,31 +12,27 @@ use ProxyManager\Signature\Exception\InvalidSignatureException;
 use ProxyManager\Signature\Exception\MissingSignatureException;
 use ProxyManager\Version;
 use ReflectionClass;
+use function array_key_exists;
+use function assert;
+use function class_exists;
+use function is_a;
 
 /**
  * Base factory common logic
- *
- * @author Marco Pivetta <ocramius@gmail.com>
- * @license MIT
  */
 abstract class AbstractBaseFactory
 {
-    /**
-     * @var \ProxyManager\Configuration
-     */
-    protected $configuration;
+    protected Configuration $configuration;
 
     /**
      * Cached checked class names
      *
-     * @var string[]
+     * @var array<string, string>
+     * @psalm-var array<class-string, class-string>
      */
-    private $checkedClasses = [];
+    private array $checkedClasses = [];
 
-    /**
-     * @param \ProxyManager\Configuration $configuration
-     */
-    public function __construct(Configuration $configuration = null)
+    public function __construct(?Configuration $configuration = null)
     {
         $this->configuration = $configuration ?: new Configuration();
     }
@@ -59,25 +40,33 @@ abstract class AbstractBaseFactory
     /**
      * Generate a proxy from a class name
      *
-     * @param string  $className
-     * @param mixed[] $proxyOptions
-     *
-     * @return string proxy class name
+     * @param array<string, mixed> $proxyOptions
      *
      * @throws InvalidSignatureException
      * @throws MissingSignatureException
-     * @throws \OutOfBoundsException
+     * @throws OutOfBoundsException
+     *
+     * @psalm-template RealObjectType of object
+     *
+     * @psalm-param class-string<RealObjectType> $className
+     *
+     * @psalm-return class-string<RealObjectType>
      */
     protected function generateProxy(string $className, array $proxyOptions = []) : string
     {
-        if (\array_key_exists($className, $this->checkedClasses)) {
-            return $this->checkedClasses[$className];
+        if (array_key_exists($className, $this->checkedClasses)) {
+            $generatedClassName = $this->checkedClasses[$className];
+
+            assert(is_a($generatedClassName, $className, true));
+
+            return $generatedClassName;
         }
 
         $proxyParameters = [
             'className'           => $className,
-            'factory'             => get_class($this),
+            'factory'             => static::class,
             'proxyManagerVersion' => Version::getVersion(),
+            'proxyOptions'        => $proxyOptions,
         ];
         $proxyClassName  = $this
             ->configuration
@@ -106,10 +95,11 @@ abstract class AbstractBaseFactory
     /**
      * Generates the provided `$proxyClassName` from the given `$className` and `$proxyParameters`
      *
-     * @param string  $proxyClassName
-     * @param string  $className
-     * @param array   $proxyParameters
-     * @param mixed[] $proxyOptions
+     * @param array<string, mixed> $proxyParameters
+     * @param array<string, mixed> $proxyOptions
+     *
+     * @psalm-param class-string $proxyClassName
+     * @psalm-param class-string $className
      */
     private function generateProxyClass(
         string $proxyClassName,
@@ -120,10 +110,12 @@ abstract class AbstractBaseFactory
         $className = $this->configuration->getClassNameInflector()->getUserClassName($className);
         $phpClass  = new ClassGenerator($proxyClassName);
 
+        /** @psalm-suppress TooManyArguments - generator interface was not updated due to BC compliance */
         $this->getGenerator()->generate(new ReflectionClass($className), $phpClass, $proxyOptions);
 
         $phpClass = $this->configuration->getClassSignatureGenerator()->addSignature($phpClass, $proxyParameters);
 
+        /** @psalm-suppress TooManyArguments - generator interface was not updated due to BC compliance */
         $this->configuration->getGeneratorStrategy()->generate($phpClass, $proxyOptions);
 
         $autoloader = $this->configuration->getProxyAutoloader();

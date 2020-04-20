@@ -48,18 +48,16 @@ abstract class FileLoader extends BaseFileLoader
     /**
      * {@inheritdoc}
      *
-     * @param bool|string          $ignoreErrors Whether errors should be ignored; pass "not_found" to ignore only when the loaded resource is not found
-     * @param string|string[]|null $exclude      Glob patterns to exclude from the import
+     * @param bool|string $ignoreErrors Whether errors should be ignored; pass "not_found" to ignore only when the loaded resource is not found
      */
-    public function import($resource, $type = null, $ignoreErrors = false, $sourceResource = null/*, $exclude = null*/)
+    public function import($resource, $type = null, $ignoreErrors = false, $sourceResource = null, $exclude = null)
     {
         $args = \func_get_args();
 
         if ($ignoreNotFound = 'not_found' === $ignoreErrors) {
             $args[2] = false;
         } elseif (!\is_bool($ignoreErrors)) {
-            @trigger_error(sprintf('Invalid argument $ignoreErrors provided to %s::import(): boolean or "not_found" expected, %s given.', static::class, \gettype($ignoreErrors)), E_USER_DEPRECATED);
-            $args[2] = (bool) $ignoreErrors;
+            throw new \TypeError(sprintf('Invalid argument $ignoreErrors provided to "%s::import()": boolean or "not_found" expected, "%s" given.', static::class, \gettype($ignoreErrors)));
         }
 
         try {
@@ -92,10 +90,10 @@ abstract class FileLoader extends BaseFileLoader
     public function registerClasses(Definition $prototype, $namespace, $resource, $exclude = null)
     {
         if ('\\' !== substr($namespace, -1)) {
-            throw new InvalidArgumentException(sprintf('Namespace prefix must end with a "\\": %s.', $namespace));
+            throw new InvalidArgumentException(sprintf('Namespace prefix must end with a "\\": "%s".', $namespace));
         }
         if (!preg_match('/^(?:[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*+\\\\)++$/', $namespace)) {
-            throw new InvalidArgumentException(sprintf('Namespace is not a valid PSR-4 prefix: %s.', $namespace));
+            throw new InvalidArgumentException(sprintf('Namespace is not a valid PSR-4 prefix: "%s".', $namespace));
         }
 
         $classes = $this->findClasses($namespace, $resource, (array) $exclude);
@@ -180,7 +178,7 @@ abstract class FileLoader extends BaseFileLoader
                 $prefixLen = \strlen($resource->getPrefix());
 
                 if ($excludePrefix && 0 !== strpos($excludePrefix, $resource->getPrefix())) {
-                    throw new InvalidArgumentException(sprintf('Invalid "exclude" pattern when importing classes for "%s": make sure your "exclude" pattern (%s) is a subset of the "resource" pattern (%s)', $namespace, $excludePattern, $pattern));
+                    throw new InvalidArgumentException(sprintf('Invalid "exclude" pattern when importing classes for "%s": make sure your "exclude" pattern (%s) is a subset of the "resource" pattern (%s).', $namespace, $excludePattern, $pattern));
                 }
             }
 

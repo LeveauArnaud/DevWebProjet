@@ -1,58 +1,60 @@
 <?php
-/*
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
- * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
- * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
- * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
- * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
- * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- * This software consists of voluntary contributions made by many individuals
- * and is licensed under the MIT license.
- */
 
 declare(strict_types=1);
 
 namespace ProxyManager\Factory;
 
+use OutOfBoundsException;
+use ProxyManager\Configuration;
 use ProxyManager\Proxy\NullObjectInterface;
 use ProxyManager\ProxyGenerator\NullObjectGenerator;
 use ProxyManager\ProxyGenerator\ProxyGeneratorInterface;
 use ProxyManager\Signature\Exception\InvalidSignatureException;
 use ProxyManager\Signature\Exception\MissingSignatureException;
+use function get_class;
+use function is_object;
 
 /**
  * Factory responsible of producing proxy objects
- *
- * @author Vincent Blanchon <blanchon.vincent@gmail.com>
- * @license MIT
  */
 class NullObjectFactory extends AbstractBaseFactory
 {
-    /**
-     * @var \ProxyManager\ProxyGenerator\NullObjectGenerator|null
-     */
-    private $generator;
+    private NullObjectGenerator $generator;
+
+    public function __construct(?Configuration $configuration = null)
+    {
+        parent::__construct($configuration);
+
+        $this->generator = new NullObjectGenerator();
+    }
 
     /**
-     * @param object $instanceOrClassName the object to be wrapped or interface to transform to null object
-     *
-     * @return NullObjectInterface
+     * @param object|string $instanceOrClassName the object to be wrapped or interface to transform to null object
      *
      * @throws InvalidSignatureException
      * @throws MissingSignatureException
-     * @throws \OutOfBoundsException
+     * @throws OutOfBoundsException
+     *
+     * @psalm-template RealObjectType of object
+     *
+     * @psalm-param RealObjectType|class-string<RealObjectType> $instanceOrClassName
+     *
+     * @psalm-return RealObjectType&NullObjectInterface
+     *
+     * @psalm-suppress MixedInferredReturnType We ignore type checks here, since `staticProxyConstructor` is not
+     *                                         interfaced (by design)
      */
     public function createProxy($instanceOrClassName) : NullObjectInterface
     {
         $className      = is_object($instanceOrClassName) ? get_class($instanceOrClassName) : $instanceOrClassName;
         $proxyClassName = $this->generateProxy($className);
 
+        /**
+         * We ignore type checks here, since `staticProxyConstructor` is not interfaced (by design)
+         *
+         * @psalm-suppress MixedMethodCall
+         * @psalm-suppress MixedReturnStatement
+         */
         return $proxyClassName::staticProxyConstructor();
     }
 
@@ -61,6 +63,6 @@ class NullObjectFactory extends AbstractBaseFactory
      */
     protected function getGenerator() : ProxyGeneratorInterface
     {
-        return $this->generator ?: $this->generator = new NullObjectGenerator();
+        return $this->generator;
     }
 }

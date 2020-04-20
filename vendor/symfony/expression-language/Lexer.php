@@ -21,13 +21,11 @@ class Lexer
     /**
      * Tokenizes an expression.
      *
-     * @param string $expression The expression to tokenize
-     *
      * @return TokenStream A token stream instance
      *
      * @throws SyntaxError
      */
-    public function tokenize($expression)
+    public function tokenize(string $expression)
     {
         $expression = str_replace(["\r", "\n", "\t", "\v", "\f"], ' ', $expression);
         $cursor = 0;
@@ -59,12 +57,12 @@ class Lexer
             } elseif (false !== strpos(')]}', $expression[$cursor])) {
                 // closing bracket
                 if (empty($brackets)) {
-                    throw new SyntaxError(sprintf('Unexpected "%s"', $expression[$cursor]), $cursor, $expression);
+                    throw new SyntaxError(sprintf('Unexpected "%s".', $expression[$cursor]), $cursor, $expression);
                 }
 
                 list($expect, $cur) = array_pop($brackets);
                 if ($expression[$cursor] != strtr($expect, '([{', ')]}')) {
-                    throw new SyntaxError(sprintf('Unclosed "%s"', $expect), $cur, $expression);
+                    throw new SyntaxError(sprintf('Unclosed "%s".', $expect), $cur, $expression);
                 }
 
                 $tokens[] = new Token(Token::PUNCTUATION_TYPE, $expression[$cursor], $cursor + 1);
@@ -87,7 +85,7 @@ class Lexer
                 $cursor += \strlen($match[0]);
             } else {
                 // unlexable
-                throw new SyntaxError(sprintf('Unexpected character "%s"', $expression[$cursor]), $cursor, $expression);
+                throw new SyntaxError(sprintf('Unexpected character "%s".', $expression[$cursor]), $cursor, $expression);
             }
         }
 
@@ -95,7 +93,7 @@ class Lexer
 
         if (!empty($brackets)) {
             list($expect, $cur) = array_pop($brackets);
-            throw new SyntaxError(sprintf('Unclosed "%s"', $expect), $cur, $expression);
+            throw new SyntaxError(sprintf('Unclosed "%s".', $expect), $cur, $expression);
         }
 
         return new TokenStream($tokens, $expression);
