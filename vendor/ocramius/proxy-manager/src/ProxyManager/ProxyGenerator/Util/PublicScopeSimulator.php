@@ -1,41 +1,24 @@
 <?php
-/*
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
- * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
- * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
- * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
- * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
- * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- * This software consists of voluntary contributions made by many individuals
- * and is licensed under the MIT license.
- */
 
 declare(strict_types=1);
 
 namespace ProxyManager\ProxyGenerator\Util;
 
-use Zend\Code\Generator\PropertyGenerator;
+use InvalidArgumentException;
+use Laminas\Code\Generator\PropertyGenerator;
+use function sprintf;
 
 /**
  * Generates code necessary to simulate a fatal error in case of unauthorized
  * access to class members in magic methods even when in child classes and dealing
  * with protected members.
- *
- * @author Marco Pivetta <ocramius@gmail.com>
- * @license MIT
  */
 class PublicScopeSimulator
 {
-    const OPERATION_SET   = 'set';
-    const OPERATION_GET   = 'get';
-    const OPERATION_ISSET = 'isset';
-    const OPERATION_UNSET = 'unset';
+    public const OPERATION_SET   = 'set';
+    public const OPERATION_GET   = 'get';
+    public const OPERATION_ISSET = 'isset';
+    public const OPERATION_UNSET = 'unset';
 
     /**
      * Generates code for simulating access to a property from the scope that is accessing a proxy.
@@ -50,19 +33,17 @@ class PublicScopeSimulator
      * @param string|null       $returnPropertyName name of the property to which we want to assign the result of
      *                                              the operation. Return directly if none provided
      *
-     * @return string
-     *
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public static function getPublicAccessSimulationCode(
         string $operationType,
         string $nameParameter,
-        $valueParameter = null,
-        PropertyGenerator $valueHolder = null,
-        $returnPropertyName = null
+        ?string $valueParameter = null,
+        ?PropertyGenerator $valueHolder = null,
+        ?string $returnPropertyName = null
     ) : string {
         $byRef  = self::getByRefReturnValue($operationType);
-        $value  = static::OPERATION_SET === $operationType ? ', $value' : '';
+        $value  = $operationType === self::OPERATION_SET ? ', $value' : '';
         $target = '$this';
 
         if ($valueHolder) {
@@ -70,7 +51,7 @@ class PublicScopeSimulator
         }
 
         return '$realInstanceReflection = new \\ReflectionClass(get_parent_class($this));' . "\n\n"
-            . 'if (! $realInstanceReflection->hasProperty($' . $nameParameter . ')) {'   . "\n"
+            . 'if (! $realInstanceReflection->hasProperty($' . $nameParameter . ')) {' . "\n"
             . '    $targetObject = ' . $target . ';' . "\n\n"
             . self::getUndefinedPropertyNotice($operationType, $nameParameter)
             . '    ' . self::getOperation($operationType, $nameParameter, $valueParameter) . "\n"
@@ -90,15 +71,10 @@ class PublicScopeSimulator
 
     /**
      * This will generate code that triggers a notice if access is attempted on a non-existing property
-     *
-     * @param string $operationType
-     * @param string $nameParameter
-     *
-     * @return string
      */
     private static function getUndefinedPropertyNotice(string $operationType, string $nameParameter) : string
     {
-        if (static::OPERATION_GET !== $operationType) {
+        if ($operationType !== self::OPERATION_GET) {
             return '';
         }
 
@@ -121,65 +97,49 @@ class PublicScopeSimulator
      * Note: if the object is a wrapper, the wrapped instance is accessed directly. If the object
      * is a ghost or the proxy has no wrapper, then an instance of the parent class is created via
      * on-the-fly unserialization
-     *
-     * @param string $operationType
-     *
-     * @return string
      */
     private static function getByRefReturnValue(string $operationType) : string
     {
-        return (static::OPERATION_GET === $operationType || static::OPERATION_SET === $operationType) ? '& ' : '';
+        return $operationType === self::OPERATION_GET || $operationType === self::OPERATION_SET ? '& ' : '';
     }
 
     /**
      * Retrieves the logic to fetch the object on which access should be attempted
-     *
-     * @param PropertyGenerator $valueHolder
-     *
-     * @return string
      */
-    private static function getTargetObject(PropertyGenerator $valueHolder = null) : string
+    private static function getTargetObject(?PropertyGenerator $valueHolder = null) : string
     {
         if ($valueHolder) {
             return '$this->' . $valueHolder->getName();
         }
 
-        return 'unserialize(sprintf(\'O:%d:"%s":0:{}\', strlen(get_parent_class($this)), get_parent_class($this)))';
+        return '$realInstanceReflection->newInstanceWithoutConstructor()';
     }
 
     /**
-     * @param string      $operationType
-     * @param string      $nameParameter
-     * @param string|null $valueParameter
-     *
-     * @return string
-     *
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      */
-    private static function getOperation(string $operationType, string $nameParameter, $valueParameter) : string
+    private static function getOperation(string $operationType, string $nameParameter, ?string $valueParameter) : string
     {
         switch ($operationType) {
-            case static::OPERATION_GET:
+            case self::OPERATION_GET:
                 return 'return $targetObject->$' . $nameParameter . ';';
-            case static::OPERATION_SET:
-                if (! $valueParameter) {
-                    throw new \InvalidArgumentException('Parameter $valueParameter not provided');
+            case self::OPERATION_SET:
+                if ($valueParameter === null) {
+                    throw new InvalidArgumentException('Parameter $valueParameter not provided');
                 }
 
                 return 'return $targetObject->$' . $nameParameter . ' = $' . $valueParameter . ';';
-            case static::OPERATION_ISSET:
+            case self::OPERATION_ISSET:
                 return 'return isset($targetObject->$' . $nameParameter . ');';
-            case static::OPERATION_UNSET:
+            case self::OPERATION_UNSET:
                 return 'unset($targetObject->$' . $nameParameter . ');';
         }
 
-        throw new \InvalidArgumentException(sprintf('Invalid operation "%s" provided', $operationType));
+        throw new InvalidArgumentException(sprintf('Invalid operation "%s" provided', $operationType));
     }
 
     /**
      * Generates code to bind operations to the parent scope
-     *
-     * @return string
      */
     private static function getScopeReBind() : string
     {

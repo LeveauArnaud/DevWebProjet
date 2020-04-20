@@ -1,68 +1,83 @@
 <?php
-/*
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
- * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
- * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
- * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
- * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
- * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- * This software consists of voluntary contributions made by many individuals
- * and is licensed under the MIT license.
- */
 
 declare(strict_types=1);
 
 namespace ProxyManager\ProxyGenerator\RemoteObject\MethodGenerator;
 
+use Laminas\Code\Generator\PropertyGenerator;
+use Laminas\Code\Reflection\MethodReflection;
 use ProxyManager\Generator\MethodGenerator;
 use ProxyManager\Generator\Util\ProxiedMethodReturnExpression;
 use ReflectionClass;
-use Zend\Code\Generator\ParameterGenerator;
-use Zend\Code\Generator\PropertyGenerator;
-use Zend\Code\Reflection\MethodReflection;
+use function count;
+use function strtr;
+use function var_export;
 
 /**
  * Method decorator for remote objects
- *
- * @author Vincent Blanchon <blanchon.vincent@gmail.com>
- * @license MIT
  */
 class RemoteObjectMethod extends MethodGenerator
 {
-    /**
-     * @param \Zend\Code\Reflection\MethodReflection $originalMethod
-     * @param \Zend\Code\Generator\PropertyGenerator $adapterProperty
-     * @param \ReflectionClass                       $originalClass
-     *
-     * @return self|static
-     */
+    private const TEMPLATE
+        = <<<'PHP'
+$defaultValues = #DEFAULT_VALUES#;
+$declaredParameterCount = #PARAMETER_COUNT#;
+
+$args = \func_get_args() + $defaultValues;
+
+#PROXIED_RETURN#
+PHP;
+
+    /** @return static */
     public static function generateMethod(
         MethodReflection $originalMethod,
         PropertyGenerator $adapterProperty,
         ReflectionClass $originalClass
     ) : self {
-        /* @var $method self */
-        $method        = static::fromReflection($originalMethod);
-        $list          = array_values(array_map(
-            function (ParameterGenerator $parameter) : string {
-                return '$' . $parameter->getName();
-            },
-            $method->getParameters()
-        ));
+        /** @var static $method */
+        $method        = static::fromReflectionWithoutBodyAndDocBlock($originalMethod);
+        $proxiedReturn = '$return = $this->' . $adapterProperty->getName()
+            . '->call(' . var_export($originalClass->getName(), true)
+            . ', ' . var_export($originalMethod->getName(), true) . ', $args);' . "\n\n"
+            . ProxiedMethodReturnExpression::generate('$return', $originalMethod);
+
+        $defaultValues          = self::getDefaultValuesForMethod($originalMethod);
+        $declaredParameterCount = count($originalMethod->getParameters());
 
         $method->setBody(
-            '$return = $this->' . $adapterProperty->getName()
-            . '->call(' . var_export($originalClass->getName(), true)
-            . ', ' . var_export($originalMethod->getName(), true) . ', array('. implode(', ', $list) .'));' . "\n\n"
-            . ProxiedMethodReturnExpression::generate('$return', $originalMethod)
+            strtr(
+                self::TEMPLATE,
+                [
+                    '#PROXIED_RETURN#' => $proxiedReturn,
+                    '#DEFAULT_VALUES#' => var_export($defaultValues, true),
+                    '#PARAMETER_COUNT#' => var_export($declaredParameterCount, true),
+                ]
+            )
         );
 
         return $method;
+    }
+
+    /**
+     * @return array
+     */
+    private static function getDefaultValuesForMethod(MethodReflection $originalMethod) : array
+    {
+        $defaultValues = [];
+        foreach ($originalMethod->getParameters() as $parameter) {
+            if ($parameter->isOptional() && $parameter->isDefaultValueAvailable()) {
+                /** @psalm-var int|float|bool|array|string|null */
+                $defaultValues[] = $parameter->getDefaultValue();
+                continue;
+            }
+
+            if ($parameter->isVariadic()) {
+                continue;
+            }
+
+            $defaultValues[] = null;
+        }
+
+        return $defaultValues;
     }
 }

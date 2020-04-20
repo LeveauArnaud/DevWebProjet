@@ -1,49 +1,26 @@
 <?php
-/*
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
- * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
- * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
- * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
- * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
- * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- * This software consists of voluntary contributions made by many individuals
- * and is licensed under the MIT license.
- */
 
 declare(strict_types=1);
 
 namespace ProxyManager\ProxyGenerator\AccessInterceptorValueHolder\MethodGenerator;
 
+use Laminas\Code\Generator\Exception\InvalidArgumentException;
+use Laminas\Code\Generator\ParameterGenerator;
+use Laminas\Code\Generator\PropertyGenerator;
 use ProxyManager\Generator\MethodGenerator;
 use ProxyManager\ProxyGenerator\Util\Properties;
 use ProxyManager\ProxyGenerator\Util\UnsetPropertiesGenerator;
 use ReflectionClass;
-use Zend\Code\Generator\ParameterGenerator;
-use Zend\Code\Generator\PropertyGenerator;
 
 /**
  * The `staticProxyConstructor` implementation for access interceptor value holders
- *
- * @author Marco Pivetta <ocramius@gmail.com>
- * @license MIT
  */
 class StaticProxyConstructor extends MethodGenerator
 {
     /**
      * Constructor
      *
-     * @param ReflectionClass   $originalClass
-     * @param PropertyGenerator $valueHolder
-     * @param PropertyGenerator $prefixInterceptors
-     * @param PropertyGenerator $suffixInterceptors
-     *
-     * @throws \Zend\Code\Generator\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function __construct(
         ReflectionClass $originalClass,
@@ -51,7 +28,7 @@ class StaticProxyConstructor extends MethodGenerator
         PropertyGenerator $prefixInterceptors,
         PropertyGenerator $suffixInterceptors
     ) {
-        parent::__construct('staticProxyConstructor', [], static::FLAG_PUBLIC | static::FLAG_STATIC);
+        parent::__construct('staticProxyConstructor', [], self::FLAG_PUBLIC | self::FLAG_STATIC);
 
         $prefix = new ParameterGenerator('prefixInterceptors');
         $suffix = new ParameterGenerator('suffixInterceptors');
@@ -68,7 +45,7 @@ class StaticProxyConstructor extends MethodGenerator
 
         $this->setDocBlock(
             "Constructor to setup interceptors\n\n"
-            . "@param \\" . $originalClass->getName() . " \$wrappedObject\n"
+            . '@param \\' . $originalClass->getName() . " \$wrappedObject\n"
             . "@param \\Closure[] \$prefixInterceptors method interceptors to be used before method logic\n"
             . "@param \\Closure[] \$suffixInterceptors method interceptors to be used before method logic\n\n"
             . '@return self'
@@ -76,8 +53,8 @@ class StaticProxyConstructor extends MethodGenerator
 
         $this->setBody(
             'static $reflection;' . "\n\n"
-            . '$reflection = $reflection ?: $reflection = new \ReflectionClass(__CLASS__);' . "\n"
-            . '$instance = (new \ReflectionClass(get_class()))->newInstanceWithoutConstructor();' . "\n\n"
+            . '$reflection = $reflection ?? new \ReflectionClass(__CLASS__);' . "\n"
+            . '$instance   = $reflection->newInstanceWithoutConstructor();' . "\n\n"
             . UnsetPropertiesGenerator::generateSnippet(Properties::fromReflectionClass($originalClass), 'instance')
             . '$instance->' . $valueHolder->getName() . " = \$wrappedObject;\n"
             . '$instance->' . $prefixInterceptors->getName() . " = \$prefixInterceptors;\n"

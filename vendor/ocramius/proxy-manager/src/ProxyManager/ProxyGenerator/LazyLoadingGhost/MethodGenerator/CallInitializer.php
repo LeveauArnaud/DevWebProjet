@@ -1,48 +1,27 @@
 <?php
-/*
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
- * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
- * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
- * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
- * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
- * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- * This software consists of voluntary contributions made by many individuals
- * and is licensed under the MIT license.
- */
 
 declare(strict_types=1);
 
 namespace ProxyManager\ProxyGenerator\LazyLoadingGhost\MethodGenerator;
 
+use Laminas\Code\Generator\ParameterGenerator;
+use Laminas\Code\Generator\PropertyGenerator;
 use ProxyManager\Generator\MethodGenerator;
-use Zend\Code\Generator\ParameterGenerator;
-use ProxyManager\Generator\Util\UniqueIdentifierGenerator;
+use ProxyManager\Generator\Util\IdentifierSuffixer;
 use ProxyManager\ProxyGenerator\Util\Properties;
 use ReflectionProperty;
-use Zend\Code\Generator\PropertyGenerator;
+use function array_map;
+use function implode;
+use function sprintf;
+use function str_replace;
+use function var_export;
 
 /**
  * Implementation for {@see \ProxyManager\Proxy\LazyLoadingInterface::isProxyInitialized}
  * for lazy loading value holder objects
- *
- * @author Marco Pivetta <ocramius@gmail.com>
- * @license MIT
  */
 class CallInitializer extends MethodGenerator
 {
-    /**
-     * Constructor
-     *
-     * @param PropertyGenerator $initializerProperty
-     * @param PropertyGenerator $initTracker
-     * @param Properties        $properties
-     */
     public function __construct(
         PropertyGenerator $initializerProperty,
         PropertyGenerator $initTracker,
@@ -58,12 +37,12 @@ Triggers initialization logic for this ghost object
 DOCBLOCK;
 
         parent::__construct(
-            UniqueIdentifierGenerator::getIdentifier('callInitializer'),
+            IdentifierSuffixer::getIdentifier('callInitializer'),
             [
                 new ParameterGenerator('methodName'),
                 new ParameterGenerator('parameters', 'array'),
             ],
-            static::FLAG_PRIVATE,
+            self::FLAG_PRIVATE,
             null,
             $docBlock
         );
@@ -87,13 +66,15 @@ $this->%s = false;
 return $result;
 PHP;
 
+        $referenceableProperties = $properties->withoutNonReferenceableProperties();
+
         $this->setBody(sprintf(
             $bodyTemplate,
             $initialization,
             $initializer,
             $initialization,
-            $this->propertiesInitializationCode($properties),
-            $this->propertiesReferenceArrayCode($properties),
+            $this->propertiesInitializationCode($referenceableProperties),
+            $this->propertiesReferenceArrayCode($referenceableProperties),
             $initializer,
             $initializer,
             $initialization
@@ -114,7 +95,7 @@ PHP;
         foreach ($properties->getGroupedPrivateProperties() as $className => $privateProperties) {
             $cacheKey      = 'cache' . str_replace('\\', '_', $className);
             $assignments[] = 'static $' . $cacheKey . ";\n\n"
-                . '$' . $cacheKey . ' ?: $' . $cacheKey . " = \\Closure::bind(function (\$instance) {\n"
+                . '$' . $cacheKey . ' ?: $' . $cacheKey . " = \\Closure::bind(static function (\$instance) {\n"
                 . $this->getPropertyDefaultsAssignments($privateProperties) . "\n"
                 . '}, null, ' . var_export($className, true) . ");\n\n"
                 . '$' . $cacheKey . "(\$this);\n\n";
@@ -125,8 +106,6 @@ PHP;
 
     /**
      * @param ReflectionProperty[] $properties
-     *
-     * @return string
      */
     private function getPropertyDefaultsAssignments(array $properties) : string
     {
@@ -156,23 +135,21 @@ PHP;
 
         // must use assignments, as direct reference during array definition causes a fatal error (not sure why)
         foreach ($properties->getGroupedPrivateProperties() as $className => $classPrivateProperties) {
-            $cacheKey  = 'cacheFetch' . str_replace('\\', '_', $className);
+            $cacheKey = 'cacheFetch' . str_replace('\\', '_', $className);
 
             $code .= 'static $' . $cacheKey . ";\n\n"
                 . '$' . $cacheKey . ' ?: $' . $cacheKey
                 . " = \\Closure::bind(function (\$instance, array & \$properties) {\n"
                 . $this->generatePrivatePropertiesAssignmentsCode($classPrivateProperties)
-                . "}, \$this, " . var_export($className, true) . ");\n\n"
-                . '$' . $cacheKey . "(\$this, \$properties);";
+                . '}, $this, ' . var_export($className, true) . ");\n\n"
+                . '$' . $cacheKey . '($this, $properties);';
         }
 
         return $code;
     }
 
     /**
-     * @param ReflectionProperty[] $properties indexed by internal name
-     *
-     * @return string
+     * @param array<string, ReflectionProperty> $properties indexed by internal name
      */
     private function generatePrivatePropertiesAssignmentsCode(array $properties) : string
     {

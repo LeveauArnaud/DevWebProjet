@@ -13,6 +13,7 @@ namespace Symfony\Component\Form\Extension\Core\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Exception\InvalidConfigurationException;
+use Symfony\Component\Form\Exception\LogicException;
 use Symfony\Component\Form\Extension\Core\DataTransformer\DateTimeImmutableToDateTimeTransformer;
 use Symfony\Component\Form\Extension\Core\DataTransformer\DateTimeToArrayTransformer;
 use Symfony\Component\Form\Extension\Core\DataTransformer\DateTimeToStringTransformer;
@@ -60,16 +61,18 @@ class TimeType extends AbstractType
         }
 
         if ('single_text' === $options['widget']) {
-            // handle seconds ignored by user's browser when with_seconds enabled
-            // https://codereview.chromium.org/450533009/
-            if ($options['with_seconds']) {
-                $builder->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $e) {
-                    $data = $e->getData();
-                    if ($data && preg_match('/^\d{2}:\d{2}$/', $data)) {
-                        $e->setData($data.':00');
+            $builder->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $e) use ($options) {
+                $data = $e->getData();
+                if ($data && preg_match('/^(?P<hours>\d{2}):(?P<minutes>\d{2})(?::(?P<seconds>\d{2})(?:\.\d+)?)?$/', $data, $matches)) {
+                    if ($options['with_seconds']) {
+                        // handle seconds ignored by user's browser when with_seconds enabled
+                        // https://codereview.chromium.org/450533009/
+                        $e->setData(sprintf('%s:%s:%s', $matches['hours'], $matches['minutes'], isset($matches['seconds']) ? $matches['seconds'] : '00'));
+                    } else {
+                        $e->setData(sprintf('%s:%s', $matches['hours'], $matches['minutes']));
                     }
-                });
-            }
+                }
+            });
 
             if (null !== $options['reference_date']) {
                 $format = 'Y-m-d '.$format;
@@ -323,12 +326,12 @@ class TimeType extends AbstractType
             'choice_translation_domain' => false,
         ]);
 
-        $resolver->setDeprecated('model_timezone', function (Options $options, $modelTimezone): string {
+        $resolver->setNormalizer('model_timezone', function (Options $options, $modelTimezone): ?string {
             if (null !== $modelTimezone && $options['view_timezone'] !== $modelTimezone && null === $options['reference_date']) {
-                return sprintf('Using different values for the "model_timezone" and "view_timezone" options without configuring a reference date is deprecated since Symfony 4.4.');
+                throw new LogicException(sprintf('Using different values for the "model_timezone" and "view_timezone" options without configuring a reference date is not supported.'));
             }
 
-            return '';
+            return $modelTimezone;
         });
 
         $resolver->setNormalizer('placeholder', $placeholderNormalizer);

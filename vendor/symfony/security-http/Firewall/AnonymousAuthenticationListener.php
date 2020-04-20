@@ -19,18 +19,19 @@ use Symfony\Component\Security\Core\Authentication\Token\AnonymousToken;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 
+// Help opcache.preload discover always-needed symbols
+class_exists(AnonymousToken::class);
+
 /**
  * AnonymousAuthenticationListener automatically adds a Token if none is
  * already present.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *
- * @final since Symfony 4.3
+ * @final
  */
-class AnonymousAuthenticationListener extends AbstractListener implements ListenerInterface
+class AnonymousAuthenticationListener extends AbstractListener
 {
-    use LegacyListenerTrait;
-
     private $tokenStorage;
     private $secret;
     private $authenticationManager;

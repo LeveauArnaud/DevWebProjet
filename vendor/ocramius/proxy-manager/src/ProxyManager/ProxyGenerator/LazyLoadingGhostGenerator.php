@@ -1,25 +1,13 @@
 <?php
-/*
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
- * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
- * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
- * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
- * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
- * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- * This software consists of voluntary contributions made by many individuals
- * and is licensed under the MIT license.
- */
 
 declare(strict_types=1);
 
 namespace ProxyManager\ProxyGenerator;
 
+use InvalidArgumentException;
+use Laminas\Code\Generator\ClassGenerator;
+use Laminas\Code\Generator\MethodGenerator;
+use Laminas\Code\Reflection\MethodReflection;
 use ProxyManager\Exception\InvalidProxiedClassException;
 use ProxyManager\Generator\MethodGenerator as ProxyManagerMethodGenerator;
 use ProxyManager\Generator\Util\ClassGeneratorUtils;
@@ -46,26 +34,25 @@ use ProxyManager\ProxyGenerator\Util\Properties;
 use ProxyManager\ProxyGenerator\Util\ProxiedMethodsFilter;
 use ReflectionClass;
 use ReflectionMethod;
-use Zend\Code\Generator\ClassGenerator;
-use Zend\Code\Generator\MethodGenerator;
-use Zend\Code\Reflection\MethodReflection;
+use function array_map;
+use function array_merge;
 
 /**
  * Generator for proxies implementing {@see \ProxyManager\Proxy\GhostObjectInterface}
  *
  * {@inheritDoc}
- *
- * @author Marco Pivetta <ocramius@gmail.com>
- * @license MIT
  */
 class LazyLoadingGhostGenerator implements ProxyGeneratorInterface
 {
     /**
      * {@inheritDoc}
      *
+     * @return void
+     *
      * @throws InvalidProxiedClassException
-     * @throws \Zend\Code\Generator\Exception\InvalidArgumentException
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
+     *
+     * @psalm-param array{skippedProperties?: array<int, string>} $proxyOptions
      */
     public function generate(ReflectionClass $originalClass, ClassGenerator $classGenerator, array $proxyOptions = [])
     {
@@ -80,7 +67,7 @@ class LazyLoadingGhostGenerator implements ProxyGeneratorInterface
 
         $classGenerator->setExtendedClass($originalClass->getName());
         $classGenerator->setImplementedInterfaces([GhostObjectInterface::class]);
-        $classGenerator->addPropertyFromGenerator($initializer = new InitializerProperty());
+        $classGenerator->addPropertyFromGenerator($initializer           = new InitializerProperty());
         $classGenerator->addPropertyFromGenerator($initializationTracker = new InitializationTracker());
         $classGenerator->addPropertyFromGenerator($publicProperties);
         $classGenerator->addPropertyFromGenerator($privateProperties);
@@ -89,7 +76,7 @@ class LazyLoadingGhostGenerator implements ProxyGeneratorInterface
         $init = new CallInitializer($initializer, $initializationTracker, $filteredProperties);
 
         array_map(
-            function (MethodGenerator $generatedMethod) use ($originalClass, $classGenerator) {
+            static function (MethodGenerator $generatedMethod) use ($originalClass, $classGenerator) : void {
                 ClassGeneratorUtils::addMethodIfNotFinal($originalClass, $classGenerator, $generatedMethod);
             },
             array_merge(
@@ -144,16 +131,15 @@ class LazyLoadingGhostGenerator implements ProxyGeneratorInterface
     /**
      * Retrieves all abstract methods to be proxied
      *
-     * @param ReflectionClass $originalClass
-     *
      * @return MethodGenerator[]
      */
     private function getAbstractProxiedMethods(ReflectionClass $originalClass) : array
     {
         return array_map(
-            function (ReflectionMethod $method) : ProxyManagerMethodGenerator {
-                $generated = ProxyManagerMethodGenerator
-                    ::fromReflection(new MethodReflection($method->getDeclaringClass()->getName(), $method->getName()));
+            static function (ReflectionMethod $method) : ProxyManagerMethodGenerator {
+                $generated = ProxyManagerMethodGenerator::fromReflectionWithoutBodyAndDocBlock(
+                    new MethodReflection($method->getDeclaringClass()->getName(), $method->getName())
+                );
 
                 $generated->setAbstract(false);
 

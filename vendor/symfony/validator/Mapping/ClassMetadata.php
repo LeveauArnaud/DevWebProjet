@@ -200,11 +200,9 @@ class ClassMetadata extends GenericMetadata implements ClassMetadataInterface
     /**
      * Adds a constraint to the given property.
      *
-     * @param string $property The name of the property
-     *
      * @return $this
      */
-    public function addPropertyConstraint($property, Constraint $constraint)
+    public function addPropertyConstraint(string $property, Constraint $constraint)
     {
         if (!isset($this->properties[$property])) {
             $this->properties[$property] = new PropertyMetadata($this->getClassName(), $property);
@@ -220,12 +218,11 @@ class ClassMetadata extends GenericMetadata implements ClassMetadataInterface
     }
 
     /**
-     * @param string       $property
      * @param Constraint[] $constraints
      *
      * @return $this
      */
-    public function addPropertyConstraints($property, array $constraints)
+    public function addPropertyConstraints(string $property, array $constraints)
     {
         foreach ($constraints as $constraint) {
             $this->addPropertyConstraint($property, $constraint);
@@ -240,11 +237,9 @@ class ClassMetadata extends GenericMetadata implements ClassMetadataInterface
      * The name of the getter is assumed to be the name of the property with an
      * uppercased first letter and either the prefix "get" or "is".
      *
-     * @param string $property The name of the property
-     *
      * @return $this
      */
-    public function addGetterConstraint($property, Constraint $constraint)
+    public function addGetterConstraint(string $property, Constraint $constraint)
     {
         if (!isset($this->getters[$property])) {
             $this->getters[$property] = new GetterMetadata($this->getClassName(), $property);
@@ -262,12 +257,9 @@ class ClassMetadata extends GenericMetadata implements ClassMetadataInterface
     /**
      * Adds a constraint to the getter of the given property.
      *
-     * @param string $property The name of the property
-     * @param string $method   The name of the getter method
-     *
      * @return $this
      */
-    public function addGetterMethodConstraint($property, $method, Constraint $constraint)
+    public function addGetterMethodConstraint(string $property, string $method, Constraint $constraint)
     {
         if (!isset($this->getters[$property])) {
             $this->getters[$property] = new GetterMetadata($this->getClassName(), $property, $method);
@@ -283,12 +275,11 @@ class ClassMetadata extends GenericMetadata implements ClassMetadataInterface
     }
 
     /**
-     * @param string       $property
      * @param Constraint[] $constraints
      *
      * @return $this
      */
-    public function addGetterConstraints($property, array $constraints)
+    public function addGetterConstraints(string $property, array $constraints)
     {
         foreach ($constraints as $constraint) {
             $this->addGetterConstraint($property, $constraint);
@@ -298,13 +289,11 @@ class ClassMetadata extends GenericMetadata implements ClassMetadataInterface
     }
 
     /**
-     * @param string       $property
-     * @param string       $method
      * @param Constraint[] $constraints
      *
      * @return $this
      */
-    public function addGetterMethodConstraints($property, $method, array $constraints)
+    public function addGetterMethodConstraints(string $property, string $method, array $constraints)
     {
         foreach ($constraints as $constraint) {
             $this->addGetterMethodConstraint($property, $method, $constraint);
@@ -356,7 +345,7 @@ class ClassMetadata extends GenericMetadata implements ClassMetadataInterface
     /**
      * {@inheritdoc}
      */
-    public function hasPropertyMetadata($property)
+    public function hasPropertyMetadata(string $property)
     {
         return \array_key_exists($property, $this->members);
     }
@@ -364,7 +353,7 @@ class ClassMetadata extends GenericMetadata implements ClassMetadataInterface
     /**
      * {@inheritdoc}
      */
-    public function getPropertyMetadata($property)
+    public function getPropertyMetadata(string $property)
     {
         if (!isset($this->members[$property])) {
             return [];
@@ -393,7 +382,7 @@ class ClassMetadata extends GenericMetadata implements ClassMetadataInterface
     public function setGroupSequence($groupSequence)
     {
         if ($this->isGroupSequenceProvider()) {
-            throw new GroupDefinitionException('Defining a static group sequence is not allowed with a group sequence provider');
+            throw new GroupDefinitionException('Defining a static group sequence is not allowed with a group sequence provider.');
         }
 
         if (\is_array($groupSequence)) {
@@ -401,11 +390,11 @@ class ClassMetadata extends GenericMetadata implements ClassMetadataInterface
         }
 
         if (\in_array(Constraint::DEFAULT_GROUP, $groupSequence->groups, true)) {
-            throw new GroupDefinitionException(sprintf('The group "%s" is not allowed in group sequences', Constraint::DEFAULT_GROUP));
+            throw new GroupDefinitionException(sprintf('The group "%s" is not allowed in group sequences.', Constraint::DEFAULT_GROUP));
         }
 
         if (!\in_array($this->getDefaultGroup(), $groupSequence->groups, true)) {
-            throw new GroupDefinitionException(sprintf('The group "%s" is missing in the group sequence', $this->getDefaultGroup()));
+            throw new GroupDefinitionException(sprintf('The group "%s" is missing in the group sequence.', $this->getDefaultGroup()));
         }
 
         $this->groupSequence = $groupSequence;
@@ -446,18 +435,16 @@ class ClassMetadata extends GenericMetadata implements ClassMetadataInterface
     /**
      * Sets whether a group sequence provider should be used.
      *
-     * @param bool $active
-     *
      * @throws GroupDefinitionException
      */
-    public function setGroupSequenceProvider($active)
+    public function setGroupSequenceProvider(bool $active)
     {
         if ($this->hasGroupSequence()) {
-            throw new GroupDefinitionException('Defining a group sequence provider is not allowed with a static group sequence');
+            throw new GroupDefinitionException('Defining a group sequence provider is not allowed with a static group sequence.');
         }
 
         if (!$this->getReflectionClass()->implementsInterface('Symfony\Component\Validator\GroupSequenceProviderInterface')) {
-            throw new GroupDefinitionException(sprintf('Class "%s" must implement GroupSequenceProviderInterface', $this->name));
+            throw new GroupDefinitionException(sprintf('Class "%s" must implement GroupSequenceProviderInterface.', $this->name));
         }
 
         $this->groupSequenceProvider = $active;

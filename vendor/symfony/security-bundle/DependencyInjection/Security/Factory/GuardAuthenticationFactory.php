@@ -55,7 +55,7 @@ class GuardAuthenticationFactory implements SecurityFactoryInterface
         ;
     }
 
-    public function create(ContainerBuilder $container, $id, $config, $userProvider, $defaultEntryPoint)
+    public function create(ContainerBuilder $container, string $id, array $config, string $userProvider, ?string $defaultEntryPoint)
     {
         $authenticatorIds = $config['authenticators'];
         $authenticatorReferences = [];
@@ -115,6 +115,6 @@ class GuardAuthenticationFactory implements SecurityFactoryInterface
         }
 
         // we have multiple entry points - we must ask them to configure one
-        throw new \LogicException(sprintf('Because you have multiple guard authenticators, you need to set the "guard.entry_point" key to one of your authenticators (%s)', implode(', ', $authenticatorIds)));
+        throw new \LogicException(sprintf('Because you have multiple guard authenticators, you need to set the "guard.entry_point" key to one of your authenticators (%s).', implode(', ', $authenticatorIds)));
     }
 }

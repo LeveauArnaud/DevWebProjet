@@ -39,6 +39,7 @@ abstract class AbstractRememberMeServices implements RememberMeServicesInterface
     protected $options = [
         'secure' => false,
         'httponly' => true,
+        'samesite' => null,
     ];
     private $providerKey;
     private $secret;
@@ -240,11 +241,9 @@ abstract class AbstractRememberMeServices implements RememberMeServicesInterface
     /**
      * Decodes the raw cookie value.
      *
-     * @param string $rawCookie
-     *
      * @return array
      */
-    protected function decodeCookie($rawCookie)
+    protected function decodeCookie(string $rawCookie)
     {
         return explode(self::COOKIE_DELIMITER, base64_decode($rawCookie));
     }
@@ -260,7 +259,7 @@ abstract class AbstractRememberMeServices implements RememberMeServicesInterface
     {
         foreach ($cookieParts as $cookiePart) {
             if (false !== strpos($cookiePart, self::COOKIE_DELIMITER)) {
-                throw new \InvalidArgumentException(sprintf('$cookieParts should not contain the cookie delimiter "%s"', self::COOKIE_DELIMITER));
+                throw new \InvalidArgumentException(sprintf('$cookieParts should not contain the cookie delimiter "%s".', self::COOKIE_DELIMITER));
             }
         }
 
@@ -276,7 +275,7 @@ abstract class AbstractRememberMeServices implements RememberMeServicesInterface
             $this->logger->debug('Clearing remember-me cookie.', ['name' => $this->options['name']]);
         }
 
-        $request->attributes->set(self::COOKIE_ATTR_NAME, new Cookie($this->options['name'], null, 1, $this->options['path'], $this->options['domain'], $this->options['secure'] ?? $request->isSecure(), $this->options['httponly'], false, $this->options['samesite'] ?? null));
+        $request->attributes->set(self::COOKIE_ATTR_NAME, new Cookie($this->options['name'], null, 1, $this->options['path'], $this->options['domain'], $this->options['secure'] ?? $request->isSecure(), $this->options['httponly'], false, $this->options['samesite']));
     }
 
     /**

@@ -27,12 +27,10 @@ use Symfony\Component\Security\Http\Event\LazyResponseEvent;
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *
- * @final since Symfony 4.3
+ * @final
  */
-class AccessListener extends AbstractListener implements ListenerInterface
+class AccessListener extends AbstractListener
 {
-    use LegacyListenerTrait;
-
     private $tokenStorage;
     private $accessDecisionManager;
     private $map;
@@ -87,15 +85,7 @@ class AccessListener extends AbstractListener implements ListenerInterface
             $this->tokenStorage->setToken($token);
         }
 
-        $granted = false;
-        foreach ($attributes as $key => $value) {
-            if ($this->accessDecisionManager->decide($token, [$key => $value], $request)) {
-                $granted = true;
-                break;
-            }
-        }
-
-        if (!$granted) {
+        if (!$this->accessDecisionManager->decide($token, $attributes, $request, true)) {
             $exception = new AccessDeniedException();
             $exception->setAttributes($attributes);
             $exception->setSubject($request);

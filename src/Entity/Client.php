@@ -5,9 +5,28 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiSubresource;
+use Symfony\Component\Serializer\Annotation\Groups;
+
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ClientRepository")
+ * @ApiResource(
+ *     subresourceOperations={
+ *          "commandeMonture_get_subresource"={"path"="/clients/{id}/montures"},
+ *          "commandeVerres_get_subresource"={"path"="/clients/{id}/verres"},
+ *          "corrections_get_subresource"={"path"="/clients/{id}/corrections"}
+ *     },
+ *     normalizationContext={
+ *          "groups"={"clients_read"}
+ *     },
+ *     attributes={
+ *          "pagination_enabled"=true,
+ *          "pagination_items_per_page"= 5
+ *
+ *     },)
  */
 class Client
 {
@@ -15,78 +34,122 @@ class Client
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @groups({"clients_read","commandeMonture_read","commandeVerres_read","corrections_read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255 )
+     * @groups({"clients_read","commandeMonture_read","commandeVerres_read","corrections_read"})
+     * @Assert\NotBlank(message="Le nom du client est obligatoire")
+     * @Assert\Length(min=3, minMessage="Le nom du client doit faire entre 3 et 255 caractères",
+     *                max=255, maxMessage="Le nom du client doit faire entre 3 et 255 caractères")
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @groups({"clients_read","commandeMonture_read","commandeVerres_read","corrections_read"})
+     * @Assert\NotBlank(message="Le prenom du client est obligatoire")
+     * @Assert\Length(min=3, minMessage="Le prenom du client doit faire entre 3 et 255 caractères",
+     *                max=255, maxMessage="Le prenom du client doit faire entre 3 et 255 caractères")
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="date")
+     * @groups({"clients_read","commandeMonture_read","commandeVerres_read","corrections_read"})
+     * @Assert\NotBlank(message="le client doit avoir une date de naissance")
+     *
      */
     private $dateNaissance;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @groups({"clients_read","commandeMonture_read","commandeVerres_read","corrections_read"})
+     * @Assert\NotBlank(message="le client doit avoir une rue")
+     * @Assert\Length(min=3, minMessage="La rue du client doit faire entre 3 et 255 caractères",
+     *                max=255, maxMessage="La rue du client doit faire entre 3 et 255 caractères")
      */
     private $rue;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @groups({"clients_read","commandeMonture_read","commandeVerres_read","corrections_read"})
+     * @Assert\NotBlank(message="le client doit avoir une ville")
+     * @Assert\Length(min=3, minMessage="La ville du client doit faire entre 3 et 255 caractères",
+     *               max=255, maxMessage="La ville du client doit faire entre 3 et 255 caractères")
      */
     private $ville;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @groups({"clients_read","commandeMonture_read","commandeVerres_read","corrections_read"})
+     * @Assert\NotBlank(message="le client doit avoir un pays")
+     * @Assert\Length(min=3, minMessage="Le nom du client doit faire entre 3 et 255 caractères",
+     *               max=255, maxMessage="Le nom du client doit faire entre 3 et 255 caractères")
      */
     private $pays;
 
     /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @groups({"clients_read","commandeMonture_read","commandeVerres_read","corrections_read"})
+     */
+    private $phone;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @groups({"clients_read","commandeMonture_read","commandeVerres_read","corrections_read"})
+     * @Assert\Email(message = "l'adresse email '{{ value }}' n'est pas une adresse email valide."
+     * )
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=1)
+     * @groups({"clients_read","commandeMonture_read","commandeVerres_read","corrections_read"})
+     * @Assert\NotBlank(message="le client doit avoir un sexe")
+     * @Assert\Choice(choices={"F","M"}, message="le sexe doit être soit  M ou F")
      */
+
     private $sexe;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @groups({"clients_read","commandeMonture_read","commandeVerres_read","corrections_read"})
      */
     private $photo;
 
     /**
      * @ORM\Column(type="integer", length=4)
+     * @groups({"clients_read","commandeMonture_read","commandeVerres_read","corrections_read"})
+     * @Assert\NotBlank(message="le client doit avoir un code postal")
+     * @Assert\Length(min=4, minMessage="Le code postal du client doit faire entre 3 et 6 caractères",
+     *               max=6, maxMessage="Le code postal du client doit faire entre 3 et 6 caractères")
      */
     private $codePostale;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Correction", mappedBy="idClient")
+     * @groups({"clients_read","prescripteurs_read"})
+     * @ApiSubresource
      */
     private $corrections;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\CommandeMonture", mappedBy="idClient", orphanRemoval=true)
+     * @groups({"clients_read"})
+     * @ApiSubresource
      */
     private $commandeMontures;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\CommandeVerre", mappedBy="idClient", orphanRemoval=true)
+     * @groups({"clients_read"})
+     * @ApiSubresource
      */
     private $commandeVerres;
 
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $phone;
 
     public function __construct()
     {
