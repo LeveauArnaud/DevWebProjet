@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="8a0d6d03-21cf-4848-aa7c-959bdba867e8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/DevWebProjet.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DevWebProjet.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
@@ -255,6 +256,9 @@
       <change beforePath="$PROJECT_DIR$/vendor/ocramius/package-versions/src/PackageVersions/Versions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/ocramius/package-versions/src/PackageVersions/Versions.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+=======
+    <list default="true" id="8a0d6d03-21cf-4848-aa7c-959bdba867e8" name="Default Changelist" comment="" />
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -583,7 +587,15 @@
       <updated>1584464794556</updated>
       <workItem from="1584464795782" duration="1008000" />
       <workItem from="1584477656227" duration="2063000" />
+<<<<<<< Updated upstream
       <workItem from="1584486767619" duration="9571000" />
+=======
+      <workItem from="1584486767619" duration="14600000" />
+      <workItem from="1584715837784" duration="620000" />
+      <workItem from="1585080427784" duration="2053000" />
+      <workItem from="1585350723956" duration="552000" />
+      <workItem from="1587452631062" duration="1013000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
