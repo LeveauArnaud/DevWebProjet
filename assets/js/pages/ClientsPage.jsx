@@ -17,6 +17,7 @@ const ClientsPage = (props) => {
         },[])
 
 
+
     const handlePageChange = page => {
         setCurrentPage(page);
     };
@@ -28,9 +29,8 @@ const ClientsPage = (props) => {
         itemsPerPage
     );
 
-    const handleInfos = id => {
-        console.log(id);
-    }
+
+
 
     return(
         <>
@@ -48,7 +48,7 @@ const ClientsPage = (props) => {
                         <th scope="col" className="text-center">Rue</th>
                         <th scope="col" className="text-center">
                             <button
-                                onClick={() => handleInfos(client.id)}
+
                                 className="btn btn-sm btn-success"
                             >
                                 Nouveau
@@ -57,19 +57,19 @@ const ClientsPage = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                {paginatedClients.map(client => <tr key={client.id}>
+                {paginatedClients.map(client => <tr key={client.id} >
                     <th scope="row" className="text-center align-middle"><img className="c-img" src={client.photo} /></th>
                     <td className="text-center align-middle">{client.nom}</td>
                     <td className="text-center align-middle">{client.prenom}</td>
                     <td className="text-center align-middle">{client.ville}</td>
                     <td className="text-center align-middle">{client.rue}</td>
                     <td className="text-center align-middle">
-                        <button
-                            onClick={() => handleInfos(client.id)}
+                        <a
+                            href={"/#/client/"+client.id}
                             className="btn btn-sm btn-success"
                         >
                             Selectionner
-                        </button>
+                        </a>
                     </td>
                 </tr>)}
 

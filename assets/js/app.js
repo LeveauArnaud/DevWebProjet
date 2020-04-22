@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import { HashRouter, Switch, Route} from "react-router-dom";
 import '../css/app.css';
 import ClientsPage from "./pages/ClientsPage";
+import ClientPage from "./pages/ClientPage";
 import LoginPage from "./pages/LoginPage";
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
@@ -22,7 +23,7 @@ const App = () =>{
         <main className="container pt-5">
             <Switch>
                 <Route path="/login" component={LoginPage}/>
-                <Route path="/clients/:id" component={ClientsPage}/>
+                <Route path="/client/:id" component={ClientPage}/>
                 <Route path="/clients" component={ClientsPage}/>
                 <Route path="/" component={HomePage} />
             </Switch>
