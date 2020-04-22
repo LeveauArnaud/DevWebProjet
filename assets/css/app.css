@@ -1,5 +1,5 @@
-body {
-
+html, body {
+    height: 100%;
 }
 
 .imgHome{
@@ -7,4 +7,12 @@ body {
 }
 .c-img{
     max-width: 100px;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.btn-client{
+    width : 10px;
 }

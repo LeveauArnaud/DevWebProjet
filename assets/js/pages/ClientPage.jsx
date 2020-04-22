@@ -18,18 +18,26 @@ const ClientPage = (props) => {
 
     console.log(clientCorrections);
 
+    function showCommandeContent() {
+        console.log("ok");
+    }
+
+    const [showCommandes, setShowCommandes] = useState([0]);
+
+
     return(
         <>
-            <h1>Infos Clients</h1>
+            <h1>Infos Client</h1>
             <div className="row">
-                <div className="col-sm-4">
+                <div className="col-sm-3 ">
                     <div className="card text-white bg-danger mb-3">
-                        <div className="card-Header">
+                        <div className="card-Header text-center">
                             <h1>Espace client</h1>
                         </div>
+                        <form>
+                            <fieldset>
                         <div className="card-body">
-                            <div className="card-Header">
-
+                            <div className="card-Header text-center">
                                 <img src={client.photo} alt="photo du client" className=""/>
                             </div>
                                 <div className="card-body">
@@ -62,16 +70,23 @@ const ClientPage = (props) => {
                                            placeholder={client.phone} disabled/>
                                 </div>
                         </div>
+                            </fieldset>
+                            <fieldset className="text-center align-middle">
+                                <a className="btn btn-primary " href={"/#/client/"+id+"/update"}>Modifier
+                                </a>
+                            </fieldset>
+                        </form>
                     </div>
                 </div>
-                <div className="col-sm-8">
+                <div className="col-sm-9">
                     <div className="card text-white bg-success mb-3">
-                        <div className="card-Header">
+                        <div className="card-Header text-center">
                             <h1>Espace correction</h1>
                         </div>
-                        <div className="card-body">
+                        <div className="card-body" id="verres">
                             <div className="row">
-                                <div className="col-md-4">
+                                <div className="col-md-2">
+                                    <div className="row">
                                     <label htmlFor="exampleSelect1"><h4>Date Correction</h4></label>
                                     <select className="form-control" id="exampleSelect1">
                                         <option>1</option>
@@ -80,23 +95,66 @@ const ClientPage = (props) => {
                                         <option>4</option>
                                         <option>5</option>
                                     </select>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-md-12 p-5">
+                                            <div className="row p-2">
+                                                <button className="btn btn-primary " type="button" data-toggle="collapse" data-target="#navbarColor01"
+                                                        aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">Modifier
+                                                </button>
+                                            </div>
+                                            <div className="row p-2">
+                                                <button className="btn btn-primary " type="button" data-toggle="collapse" data-target="#navbarColor01"
+                                                        aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">Nouvelle
+                                                </button>
+                                            </div>
+                                            <div className="row p-2">
+                                                <button className="btn btn-primary " type="button" data-toggle="collapse" data-target="#navbarColor01"
+                                                        aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">Doc INAMI
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="col-md-8">
-                                    <label>Prescripteur : </label>
-                                    <input className="form-control" id="disabledInput" type="text"
-                                           placeholder="" disabled/>
-                                    <label>Date prescription : </label>
-                                    <input className="form-control" id="disabledInput" type="text"
-                                           placeholder="" disabled/>
-                                    <label>OD : </label>
-                                    <input className="form-control" id="disabledInput" type="text"
-                                           placeholder="" disabled/>
-                                    <label>OG : </label>
-                                    <input className="form-control" id="disabledInput" type="text"
-                                           placeholder="" disabled/>
-                                    <label>Commentaire : </label>
-                                    <input className="form-control" id="disabledInput" type="text"
-                                           placeholder="" disabled/>
+                                <div className="col-md-10">
+                                    <div className="row">
+                                        <div className="col-md-6">
+                                            <label>Prescripteur : </label>
+                                            <input className="form-control" id="disabledInput" type="text"
+                                                   placeholder="" disabled/>
+                                        </div>
+
+                                        <div className="col-md-6">
+                                            <label>Date prescription : </label>
+                                            <input className="form-control" id="disabledInput" type="text"
+                                                   placeholder="" disabled/>
+                                        </div>
+
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-md-12" >
+                                        <label>OD : </label>
+                                        <input className="form-control" id="disabledInput" type="text"
+                                               placeholder="" disabled/>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-md-12">
+                                        <label>OG : </label>
+                                        <input className="form-control" id="disabledInput" type="text"
+                                               placeholder="" disabled/>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-md-12">
+                                        <label>Commentaire : </label>
+                                        <textarea className="form-control" id="disabledInput" type="text"
+                                               placeholder="" disabled/>
+                                        </div>
+                                    </div>
+
+
+
                                 </div>
 
                             </div>
@@ -104,75 +162,163 @@ const ClientPage = (props) => {
                         </div>
                     </div>
                     <div className="card text-white bg-info mb-3">
-                        <ul className="nav nav-tabs">
-                            <li className="nav-item">
-                                    <h1>Espace verres</h1>
-                            </li>
-                            <li className="nav-item">
-                                    <h1>Espace montures</h1>
-                            </li>
-                        </ul>
-                        <div id="myTabContent" className="tab-content">
-                            <div className="tab-pane fade active show" id="home">
-                                <div className="card-body">
-                                    <div className="col-md-4">
-                                        <label htmlFor="exampleSelect1"><h4>Date Correction</h4></label>
-                                        <select className="form-control" id="exampleSelect1">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
-                                    </div>
-                                    <div className="col-md-8">
-                                        <label>Prescripteur : </label>
-                                        <input className="form-control" id="disabledInput" type="text"
-                                               placeholder="" disabled/>
-                                        <label>Date prescription : </label>
-                                        <input className="form-control" id="disabledInput" type="text"
-                                               placeholder="" disabled/>
-                                        <label>OD : </label>
-                                        <input className="form-control" id="disabledInput" type="text"
-                                               placeholder="" disabled/>
-                                        <label>OG : </label>
-                                        <input className="form-control" id="disabledInput" type="text"
-                                               placeholder="" disabled/>
-                                        <label>Commentaire : </label>
-                                        <input className="form-control" id="disabledInput" type="text"
-                                               placeholder="" disabled/>
-                                    </div>
+                        <div className="card-Header text-center">
+                            <nav className="navbar navbar-expand-lg navbar-dark bg-primary ">
+                                <div className="row collapse navbar-collapse" id="navbarColor01">
+                                    <ul className="col-md-12 navbar-nav justify-content-center">
+                                        <div className="col-md-6 nav-item active">
+                                            <a className="nav-link" href={"#/client/"+id} onClick={showCommandeContent}><h1>Espace verres <span className="sr-only">(current)</span></h1></a>
+                                        </div>
+                                        <div className="col-md-6 nav-item">
+                                            <a className="nav-link" href={"#/client/"+id}><h1>Espace montures</h1></a>
+                                        </div>
+                                    </ul>
                                 </div>
-                            </div>
-                            <div className="tab-pane fade" id="profile">
-                                <div className="card-body">
-                                    <div className="col-md-4">
-                                        <label htmlFor="exampleSelect1"><h4>Date Correction</h4></label>
-                                        <select className="form-control" id="exampleSelect1">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
+                            </nav>
+                        </div>
+                        <div>
+                            <div className="card-body">
+                                <div className="row" id="verres">
+                                    <div className="col-md-2">
+                                        <div className="row">
+                                            <label htmlFor="exampleSelect1"><h4>Date Commande</h4></label>
+                                            <select className="form-control" id="exampleSelect1">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-md-12 p-5">
+                                                <div className="row p-2">
+                                                    <button className="btn btn-primary btn-client" type="button" data-toggle="collapse" data-target="#navbarColor01"
+                                                            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">Modifier
+                                                    </button>
+                                                </div>
+                                                <div className="row p-2">
+                                                    <button className="btn btn-primary btn-client" type="button" data-toggle="collapse" data-target="#navbarColor01"
+                                                            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">Nouvelle Commande
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className="col-md-8">
-                                        <label>Prescripteur : </label>
-                                        <input className="form-control" id="disabledInput" type="text"
-                                               placeholder="" disabled/>
-                                        <label>Date prescription : </label>
-                                        <input className="form-control" id="disabledInput" type="text"
-                                               placeholder="" disabled/>
-                                        <label>OD : </label>
-                                        <input className="form-control" id="disabledInput" type="text"
-                                               placeholder="" disabled/>
-                                        <label>OG : </label>
-                                        <input className="form-control" id="disabledInput" type="text"
-                                               placeholder="" disabled/>
-                                        <label>Commentaire : </label>
-                                        <input className="form-control" id="disabledInput" type="text"
-                                               placeholder="" disabled/>
+                                    <div className="col-md-10">
+                                        <div className="row">
+                                            <div className="col-md-6">
+                                                <label>Prescripteur : </label>
+                                                <input className="form-control" id="disabledInput" type="text"
+                                                       placeholder="" disabled/>
+                                            </div>
+
+                                            <div className="col-md-6">
+                                                <label>Date prescription : </label>
+                                                <input className="form-control" id="disabledInput" type="text"
+                                                       placeholder="" disabled/>
+                                            </div>
+
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-md-12" >
+                                                <label>OD : </label>
+                                                <input className="form-control" id="disabledInput" type="text"
+                                                       placeholder="" disabled/>
+                                            </div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-md-12">
+                                                <label>OG : </label>
+                                                <input className="form-control" id="disabledInput" type="text"
+                                                       placeholder="" disabled/>
+                                            </div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-md-12">
+                                                <label>Commentaire : </label>
+                                                <textarea className="form-control" id="disabledInput" type="text"
+                                                          placeholder="" disabled/>
+                                            </div>
+                                        </div>
+
+
+
                                     </div>
+
+                                </div>
+                                <div className="row" id="montures">
+                                    <div className="col-md-2">
+                                        <div className="row">
+                                            <label htmlFor="exampleSelect1"><h4>Date Commande</h4></label>
+                                            <select className="form-control" id="exampleSelect1">
+                                                <option>11/02/2020</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-md-12 p-5">
+                                                <div className="row p-2">
+                                                    <button className="btn btn-primary btn-client" type="button" data-toggle="collapse" data-target="#navbarColor01"
+                                                            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">Modifier
+                                                    </button>
+                                                </div>
+                                                <div className="row p-2">
+                                                    <button className="btn btn-primary btn-client" type="button" data-toggle="collapse" data-target="#navbarColor01"
+                                                            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">Nouvelle Commande
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-10">
+                                        <div className="row">
+                                            <div className="col-md-10" >
+                                                <label>Code : </label>
+                                                <input className="form-control" id="disabledInput" type="text"
+                                                       placeholder="" disabled/>
+                                                <table>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Code</th>
+                                                            <th>Marque</th>
+                                                            <th>Model</th>
+                                                            <th>Couleur</th>
+                                                            <th>Taille</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div className="col-md-2" >
+                                                <label>Prix : </label>
+                                                <input className="form-control" id="disabledInput" type="text"
+                                                       placeholder="" disabled/>
+                                            </div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-md-12">
+                                                <label>Commentaire : </label>
+                                                <textarea className="form-control" id="disabledInput" type="text"
+                                                          placeholder="" disabled/>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

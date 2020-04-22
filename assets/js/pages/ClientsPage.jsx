@@ -41,15 +41,15 @@ const ClientsPage = (props) => {
             <table className="table table-hover">
                 <thead>
                     <tr>
-                        <th></th>
-                        <th scope="col" className="text-center">Nom</th>
-                        <th scope="col" className="text-center">Prenom</th>
-                        <th scope="col" className="text-center">Ville</th>
-                        <th scope="col" className="text-center">Rue</th>
-                        <th scope="col" className="text-center">
+                        <th className="text-center"></th>
+                        <th className="text-center">Nom</th>
+                        <th className="text-center">Prenom</th>
+                        <th className="text-center">Ville</th>
+                        <th className="text-center">Rue</th>
+                        <th className="text-center align-middle">
                             <button
 
-                                className="btn btn-sm btn-success"
+                                className="btn btn-sm btn-primary"
                             >
                                 Nouveau
                             </button>
@@ -58,11 +58,11 @@ const ClientsPage = (props) => {
                 </thead>
                 <tbody>
                 {paginatedClients.map(client => <tr key={client.id} >
-                    <th scope="row" className="text-center align-middle"><img className="c-img" src={client.photo} /></th>
-                    <td className="text-center align-middle">{client.nom}</td>
-                    <td className="text-center align-middle">{client.prenom}</td>
-                    <td className="text-center align-middle">{client.ville}</td>
-                    <td className="text-center align-middle">{client.rue}</td>
+                    <th className="text-center"><img className="c-img" src={client.photo} /></th>
+                    <td className="text-center">{client.nom}</td>
+                    <td className="text-center">{client.prenom}</td>
+                    <td className="text-center">{client.ville}</td>
+                    <td className="text-center">{client.rue}</td>
                     <td className="text-center align-middle">
                         <a
                             href={"/#/client/"+client.id}

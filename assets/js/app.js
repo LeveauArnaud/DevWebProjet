@@ -8,11 +8,11 @@ import '../css/app.css';
 import ClientsPage from "./pages/ClientsPage";
 import ClientPage from "./pages/ClientPage";
 import LoginPage from "./pages/LoginPage";
+import StockPage from "./pages/StockPage";
+import ClientInfosPage from "./pages/ClientInfosPage";
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 // import $ from 'jquery';
-
-console.log('Hello Webpack');
 
 
 
@@ -20,9 +20,11 @@ const App = () =>{
     return <HashRouter>
         <Navbar/>
 
-        <main className="container pt-5">
+        <main className="p-4">
             <Switch>
+                <Route path="/stock" component={StockPage}/>
                 <Route path="/login" component={LoginPage}/>
+                <Route path="/client/:id/update" component={ClientInfosPage}/>
                 <Route path="/client/:id" component={ClientPage}/>
                 <Route path="/clients" component={ClientsPage}/>
                 <Route path="/" component={HomePage} />

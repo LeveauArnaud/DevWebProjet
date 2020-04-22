@@ -4,10 +4,14 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MontureRepository")
- * @ApiResource
+ * @ApiResource(
+ *     normalizationContext={
+ *          "groups"={"monture_read"}
+ *     })
  */
 class Monture
 {
@@ -15,31 +19,37 @@ class Monture
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @groups({"monture_read","stock_read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @groups({"monture_read","stock_read"})
      */
     private $marque;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @groups({"monture_read","stock_read"})
      */
     private $model;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @groups({"monture_read","stock_read"})
      */
     private $couleur;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @groups({"monture_read","stock_read"})
      */
     private $taille;
 
     /**
      * @ORM\Column(type="integer")
+     * @groups({"monture_read"})
      */
     private $prix;
 
