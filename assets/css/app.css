@@ -1,3 +1,10 @@
 body {
-    background-color: lightgray;
+
+}
+
+.imgHome{
+    max-width: 60%;
+}
+.c-img{
+    max-width: 100px;
 }

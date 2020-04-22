@@ -56,7 +56,7 @@ security:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
         - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/clients, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/clients, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/commande_montures, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/api/commande_verres, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/api/corrections, roles: IS_AUTHENTICATED_FULLY }
