@@ -20,7 +20,7 @@ const App = () =>{
     return <HashRouter>
         <Navbar/>
 
-        <main className="p-4">
+        <main className="p-4 full-height">
             <Switch>
                 <Route path="/stock" component={StockPage}/>
                 <Route path="/login" component={LoginPage}/>

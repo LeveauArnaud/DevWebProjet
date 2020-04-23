@@ -1,5 +1,5 @@
-html, body {
-    height: 100%;
+body, html {
+    height: 100px;
 }
 
 .imgHome{
@@ -14,5 +14,16 @@ html, body {
 }
 
 .btn-client{
-    width : 10px;
+    width : 150px;
 }
+ .bg-teal{
+     background-color: #008080;
+ }
+
+ .bg-darkSalmon{
+     background-color: #E9967A;
+ }
+
+ input{
+     height: 2px;
+ }

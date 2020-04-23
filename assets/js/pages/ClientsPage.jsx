@@ -35,9 +35,18 @@ const ClientsPage = (props) => {
     return(
         <>
             <h1>Liste des clients</h1>
-            <form className="">
-                <input className="form-control mr-sm-2" type="text" placeholder="Recherche client"/>
-            </form>
+            <div className="row">
+                <div className="col-md-10">
+                    <form className="">
+                        <input className="form-control mr-sm-2" type="text" placeholder="Recherche client"/>
+                    </form>
+                </div>
+                <div className="col-md-2">
+                    <button className="btn btn-primary">
+                        Nouveau
+                    </button>
+                </div>
+            </div>
             <table className="table table-hover">
                 <thead>
                     <tr>
@@ -47,12 +56,7 @@ const ClientsPage = (props) => {
                         <th className="text-center">Ville</th>
                         <th className="text-center">Rue</th>
                         <th className="text-center align-middle">
-                            <button
 
-                                className="btn btn-sm btn-primary"
-                            >
-                                Nouveau
-                            </button>
                         </th>
                     </tr>
                 </thead>
