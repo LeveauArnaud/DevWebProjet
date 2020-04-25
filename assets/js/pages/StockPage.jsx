@@ -43,7 +43,7 @@ const StockPage = (props) => {
                 <tr>
                     <th className="text-center">Magasin</th>
                     <th className="text-center">Marque</th>
-                    <th className="text-center">Model</th>
+                    <th className="text-center">Modèle</th>
                     <th className="text-center">Couleur</th>
                     <th className="text-center">Taille</th>
                     <th className="text-center">Prix</th>
@@ -61,12 +61,12 @@ const StockPage = (props) => {
                 <tbody>
                 {paginatedStock.map(stockItems => <tr key={stockItems.id} >
 
-                    <td className="text-center align-middle"></td>
-                    <td className="text-center align-middle"></td>
-                    <td className="text-center align-middle"></td>
-                    <td className="text-center align-middle"></td>
-                    <td className="text-center align-middle"></td>
-                    <td className="text-center align-middle"></td>
+                    <td className="text-center align-middle">{stockItems.idMagasin.nom}</td>
+                    <td className="text-center align-middle">{stockItems.idMonture.marque}</td>
+                    <td className="text-center align-middle">{stockItems.idMonture.model}</td>
+                    <td className="text-center align-middle">{stockItems.idMonture.couleur}</td>
+                    <td className="text-center align-middle">{stockItems.idMonture.taille}</td>
+                    <td className="text-center align-middle">{stockItems.idMonture.prix} € </td>
                         <td className="text-center align-middle"><span className="badge badge-info">{stockItems.quantite}</span></td>
                     <td className="text-center align-middle">
                         <a

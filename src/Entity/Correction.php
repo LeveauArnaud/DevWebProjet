@@ -26,37 +26,37 @@ class Correction
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @groups({"corrections_read","corrections_subresource","clients_read"})
+     * @groups({"corrections_read","corrections_subresource","clients_read","prescripteurs_read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="date")
-     * @groups({"corrections_read","corrections_subresource","clients_read"})
+     * @groups({"corrections_read","corrections_subresource","clients_read","prescripteurs_read"})
      */
     private $date;
 
     /**
      * @ORM\Column(type="date")
-     * @groups({"corrections_read","corrections_subresource","clients_read"})
+     * @groups({"corrections_read","corrections_subresource","clients_read","prescripteurs_read"})
      */
     private $datePrescription;
 
     /**
      * @ORM\Column(type="text")
-     * @groups({"corrections_read","corrections_subresource","clients_read"})
+     * @groups({"corrections_read","corrections_subresource","clients_read","prescripteurs_read"})
      */
     private $oD = [];
 
     /**
      * @ORM\Column(type="text")
-     * @groups({"corrections_read","corrections_subresource","clients_read"})
+     * @groups({"corrections_read","corrections_subresource","clients_read","prescripteurs_read"})
      */
     private $oG = [];
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @groups({"corrections_read","corrections_subresource","clients_read"})
+     * @groups({"corrections_read","corrections_subresource","clients_read","prescripteurs_read"})
      */
     private $commentaire;
 
@@ -70,7 +70,6 @@ class Correction
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Client", inversedBy="corrections")
      * @ORM\JoinColumn(nullable=false)
-     * @groups({"corrections_read"})
      */
     private $idClient;
 
