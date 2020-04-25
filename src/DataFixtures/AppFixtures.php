@@ -114,7 +114,8 @@ class AppFixtures extends Fixture
                      ->setSexe($faker->randomElement(['F','M']))
                      ->setPhoto("https://via.placeholder.com/150")
                      ->setCodePostale($faker->randomNumber(4))
-                     ->setPhone($faker->randomNumber(9));
+                     ->setPhone($faker->randomNumber(9))
+                     ->setNCli($faker->randomNumber(4));
 
             $manager->persist($customer);
 

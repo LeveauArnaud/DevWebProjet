@@ -145,6 +145,15 @@ class Client
      */
     private $commandeVerres;
 
+    /**
+     * @ORM\Column(type="integer")
+     * @groups({"clients_read"})
+     * @ApiSubresource
+     */
+    private $nCli;
+
+
+
 
     public function __construct()
     {
@@ -382,4 +391,18 @@ class Client
 
         return $this;
     }
+
+    public function getNCli(): ?int
+    {
+        return $this->nCli;
+    }
+
+    public function setNCli(int $nCli): self
+    {
+        $this->nCli = $nCli;
+
+        return $this;
+    }
+
+
 }

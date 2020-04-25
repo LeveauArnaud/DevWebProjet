@@ -8,6 +8,7 @@ const StockPage = (props) => {
 
     const [stock, setStock] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
+    const [search, setSearch] = useState("");
 
     useEffect(()=>{
         axios.get("https://127.0.0.1:8000/api/stocks")
@@ -16,15 +17,29 @@ const StockPage = (props) => {
             .catch(error => console.log(error.response));
     },[])
 
-    console.log(stock);
 
     const handlePageChange = page => {
         setCurrentPage(page);
     };
+
+    const handleSearch = event =>{
+        const value = event.currentTarget.value;
+        setSearch(value);
+        setCurrentPage(1);
+    };
+
+    const filteredStock = stock.filter( s =>
+        s.idMagasin.nom.toLowerCase().includes(search.toLowerCase()) ||
+        s.idMonture.marque.toLowerCase().includes(search.toLowerCase()) ||
+        s.idMonture.model.toLowerCase().includes(search.toLowerCase()) ||
+        s.idMonture.couleur.toLowerCase().includes(search.toLowerCase()) ||
+        s.idMonture.taille.toLowerCase().includes(search.toLowerCase())
+    );
+
     const itemsPerPage = 10;
 
     const paginatedStock = Pagination.getData(
-        stock,
+        filteredStock,
         currentPage,
         itemsPerPage
     );
@@ -35,9 +50,9 @@ const StockPage = (props) => {
     return(
         <>
             <h1>Liste des montures en stock</h1>
-            <form className="">
-                <input className="form-control mr-sm-2" type="text" placeholder="Recherche dans le stock"/>
-            </form>
+            <div className="form-group">
+                <input type="text" onChange={handleSearch} value={search} className="form-control" placeholder="Rechercher ..." />
+            </div>
             <table className="table table-hover">
                 <thead>
                 <tr>
@@ -84,7 +99,7 @@ const StockPage = (props) => {
             <Pagination
                 currentPage={currentPage}
                 itemsPerPage={itemsPerPage}
-                length={stock.length}
+                length={filteredStock.length}
                 onPageChanged={handlePageChange}
             />
 

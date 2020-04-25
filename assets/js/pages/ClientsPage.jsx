@@ -8,6 +8,7 @@ const ClientsPage = (props) => {
 
     const [clients, setClients] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
+    const [search, setSearch] = useState("");
 
     useEffect(()=>{
             axios.get("https://127.0.0.1:8000/api/clients")
@@ -18,16 +19,31 @@ const ClientsPage = (props) => {
 
 
 
+
     const handlePageChange = page => {
         setCurrentPage(page);
     };
+
+    const handleSearch = event =>{
+        const value = event.currentTarget.value;
+        setSearch(value);
+        setCurrentPage(1);
+    };
+
+    const filteredClients = clients.filter( c =>
+        c.prenom.toLowerCase().includes(search.toLowerCase()) ||
+        c.nom.toLowerCase().includes(search.toLowerCase()) ||
+        c.ville.toLowerCase().includes(search.toLowerCase()) ||
+        c.rue.toLowerCase().includes(search.toLowerCase())
+
+    );
+
     const itemsPerPage = 5;
 
     const paginatedClients = Pagination.getData(
-        clients,
+        filteredClients,
         currentPage,
-        itemsPerPage
-    );
+        itemsPerPage);
 
 
 
@@ -37,9 +53,9 @@ const ClientsPage = (props) => {
             <h1>Liste des clients</h1>
             <div className="row">
                 <div className="col-md-10">
-                    <form className="">
-                        <input className="form-control mr-sm-2" type="text" placeholder="Recherche client"/>
-                    </form>
+                    <div className="form-group">
+                        <input type="text" onChange={handleSearch} value={search} className="form-control" placeholder="Rechercher ..." />
+                    </div>
                 </div>
                 <div className="col-md-2">
                     <button className="btn btn-primary">
@@ -51,6 +67,7 @@ const ClientsPage = (props) => {
                 <thead>
                     <tr>
                         <th className="text-center"></th>
+                        <th className="text-center">Code</th>
                         <th className="text-center">Nom</th>
                         <th className="text-center">Prenom</th>
                         <th className="text-center">Ville</th>
@@ -63,6 +80,7 @@ const ClientsPage = (props) => {
                 <tbody>
                 {paginatedClients.map(client => <tr key={client.id} >
                     <th className="text-center"><img className="c-img" src={client.photo} /></th>
+                    <td className="text-center">{client.nCli}</td>
                     <td className="text-center">{client.nom}</td>
                     <td className="text-center">{client.prenom}</td>
                     <td className="text-center">{client.ville}</td>
@@ -80,12 +98,13 @@ const ClientsPage = (props) => {
                 </tbody>
             </table>
 
-            <Pagination
+            {itemsPerPage < filteredClients.length &&( <Pagination
                 currentPage={currentPage}
                 itemsPerPage={itemsPerPage}
-                length={clients.length}
+                length={filteredClients.length}
                 onPageChanged={handlePageChange}
             />
+            )}
 
 
         </>
