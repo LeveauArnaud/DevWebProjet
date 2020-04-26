@@ -54,8 +54,6 @@ const ClientPage = (props) => {
     }
 
 
-    const [showCommandes, setShowCommandes] = useState([0]);
-
 
     return(
         <>

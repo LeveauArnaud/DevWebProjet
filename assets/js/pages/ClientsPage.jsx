@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import axios from "axios";
 import Pagination from "../components/Pagination";
+import ClientsAPI from "../services/clientsAPI";
 
 const ClientsPage = (props) => {
 
@@ -10,26 +10,35 @@ const ClientsPage = (props) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [search, setSearch] = useState("");
 
-    useEffect(()=>{
-            axios.get("https://127.0.0.1:8000/api/clients")
-                .then(response => response.data["hydra:member"])
-                .then(data => setClients(data))
-                .catch(error => console.log(error.response));
-        },[])
+
+    //permet de récupérer les clients
+    const fetchClients = async () => {
+        try {
+            const data = await ClientsAPI.findAll()
+            setClients(data);
+        } catch (error) {
+            console.log(error.response);
+        }
+
+    }
+
+    //au chargement du composant on va chercher les clients
+    useEffect(()=> {
+        fetchClients()
+    },[])
 
 
 
+    // gestion changement de page
+    const handlePageChange = page => setCurrentPage(page);
 
-    const handlePageChange = page => {
-        setCurrentPage(page);
-    };
-
-    const handleSearch = event =>{
-        const value = event.currentTarget.value;
-        setSearch(value);
+    // gestion de la recherche
+    const handleSearch = (currentTarget) =>{
+        setSearch(currentTarget.value);
         setCurrentPage(1);
     };
 
+    // filtrage des clients en fonction de la recherche
     const filteredClients = clients.filter( c =>
         c.prenom.toLowerCase().includes(search.toLowerCase()) ||
         c.nom.toLowerCase().includes(search.toLowerCase()) ||
@@ -38,8 +47,10 @@ const ClientsPage = (props) => {
 
     );
 
+    // nbr items par page
     const itemsPerPage = 5;
 
+    // pagination des données
     const paginatedClients = Pagination.getData(
         filteredClients,
         currentPage,
@@ -54,7 +65,11 @@ const ClientsPage = (props) => {
             <div className="row">
                 <div className="col-md-10">
                     <div className="form-group">
-                        <input type="text" onChange={handleSearch} value={search} className="form-control" placeholder="Rechercher ..." />
+                        <input type="text"
+                               onChange={handleSearch}
+                               value={search}
+                               className="form-control"
+                               placeholder="Rechercher ..." />
                     </div>
                 </div>
                 <div className="col-md-2">
@@ -98,12 +113,13 @@ const ClientsPage = (props) => {
                 </tbody>
             </table>
 
-            {itemsPerPage < filteredClients.length &&( <Pagination
-                currentPage={currentPage}
-                itemsPerPage={itemsPerPage}
-                length={filteredClients.length}
-                onPageChanged={handlePageChange}
-            />
+            {itemsPerPage < filteredClients.length &&(
+                <Pagination
+                    currentPage={currentPage}
+                    itemsPerPage={itemsPerPage}
+                    length={filteredClients.length}
+                    onPageChanged={handlePageChange}
+                />
             )}
 
 

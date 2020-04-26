@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import axios from "axios";
 import Pagination from "../components/Pagination";
+import StockAPI from "../services/stockAPI";
 
 const StockPage = (props) => {
 
@@ -9,25 +9,38 @@ const StockPage = (props) => {
     const [stock, setStock] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [search, setSearch] = useState("");
+    // nbr items par pag
+    const itemsPerPage = 10;
 
-    useEffect(()=>{
-        axios.get("https://127.0.0.1:8000/api/stocks")
-            .then(response => response.data["hydra:member"])
-            .then(data => setStock(data))
-            .catch(error => console.log(error.response));
+    //permet de récupérer les montures en stock
+    const fetchStock = async () => {
+        try {
+            const data = await StockAPI.findAll()
+            setStock(data);
+        } catch (error) {
+            console.log(error.response);
+        }
+
+    }
+
+    //au chargement du composant on va chercher les montures en stock
+    useEffect(()=> {
+        fetchStock()
     },[])
 
-
+    // gestion changement de page
     const handlePageChange = page => {
         setCurrentPage(page);
     };
 
+    // gestion de la recherche
     const handleSearch = event =>{
         const value = event.currentTarget.value;
         setSearch(value);
         setCurrentPage(1);
     };
 
+    // filtrage des montures en stock en fonction de la recherche
     const filteredStock = stock.filter( s =>
         s.idMagasin.nom.toLowerCase().includes(search.toLowerCase()) ||
         s.idMonture.marque.toLowerCase().includes(search.toLowerCase()) ||
@@ -36,8 +49,7 @@ const StockPage = (props) => {
         s.idMonture.taille.toLowerCase().includes(search.toLowerCase())
     );
 
-    const itemsPerPage = 10;
-
+    // pagination des données
     const paginatedStock = Pagination.getData(
         filteredStock,
         currentPage,
