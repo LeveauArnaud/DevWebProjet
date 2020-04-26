@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import moment from 'moment';
+import ClientsAPI from "../services/clientsAPI";
 
 const ClientPage = (props) => {
 
@@ -10,17 +11,34 @@ const ClientPage = (props) => {
     const { id = "get"} = props.match.params;
 
     const [client, setClient] = useState([]);
-    const corrections = client.corrections;
-    const verres = client.commandeVerres;
-    const montures = client.commandeMontures;
+    const [corrections, setCorrections] = useState([]);
+    const [verres, setVerres] = useState([]);
+    const [montures, setMontures] = useState([]);
+    const [selectedCorrection, setselectedCorrection] = useState([]);
+    const [selectedVerre, setselectedVerre] = useState([]);
+    const [selectedMonture, setselectedMonture] = useState([]);
 
 
-    useEffect(()=>{
-        axios.get("https://127.0.0.1:8000/api/clients/"+id)
-            .then(response => response.data)
-            .then(data => setClient(data))
-            .catch(error => console.log(error.response));
+    //permet de récupérer les clients
+    const fetchClient = async () => {
+        try {
+            const data = await ClientsAPI.findID(id)
+            setClient(data);
+            setCorrections(data.corrections);
+            setMontures(data.commandeMontures);
+            setVerres(data.commandeVerres);
+            setselectedCorrection(data.corrections[0]);
+            setselectedVerre(data.commandeVerres[0]);
+            setselectedMonture(data.commandeMontures[0]);
+        } catch (error) {
+            console.log(error.response);
+        }
 
+    }
+
+    //au chargement du composant on va chercher les clients
+    useEffect(()=> {
+        fetchClient()
     },[])
 
 
@@ -30,21 +48,17 @@ const ClientPage = (props) => {
     console.log(verres);
 
 
-    const [corrSelected, setCorrSelected] = useState([]);
-
-
     function dateFormat(date){
         return moment(date).format('DD/MM/YYYY');
     }
 
-    function handleLoadCorrection(e){
 
-    }
+
 
     function handleChangeCorrection(e) {
         let id = e.target.value;
         corrections.forEach(function(correction,index) {
-            if(correction.id == id){
+            if(correction.id === id){
                 setCorrSelected(correction);
                 console.log(correction + "- "+index);
 
@@ -118,8 +132,10 @@ const ClientPage = (props) => {
                                 <div className="col-md-2">
                                     <div className="row">
                                     <label htmlFor="exampleSelect1"><h4>Date Correction</h4></label>
-                                    <select className="form-control" id="exampleSelect1" onChange={handleChangeCorrection} onLoad={handleLoadCorrection}>
-
+                                    <select className="form-control" id="selectCorrection" onChange={handleChangeCorrection}>
+                                        {corrections.map(correction =>
+                                            <option key={correction.id} id={correction.id} value={correction.id}> {dateFormat(correction.date)}</option>
+                                            )}
 
                                     </select>
                                     </div>
@@ -148,13 +164,13 @@ const ClientPage = (props) => {
                                         <div className="col-md-6">
                                             <label>Prescripteur : </label>
                                             <input className="form-control" id="prescripteur" type="text"
-                                                   placeholder={corrSelected.idPrescripteur} disabled/>
+                                                   placeholder={selectedCorrection.idPrescripteur} disabled/>
                                         </div>
 
                                         <div className="col-md-6">
                                             <label>Date prescription : </label>
                                             <input className="form-control" id="datePrescription" type="text"
-                                                   placeholder={dateFormat(corrSelected.datePrescription)} disabled/>
+                                                   placeholder={dateFormat(selectedCorrection.datePrescription)} disabled/>
                                         </div>
 
                                     </div>
@@ -406,7 +422,7 @@ const ClientPage = (props) => {
                                         <div className="col-md-12">
                                         <label>Commentaire : </label>
                                         <textarea className="form-control" id="correctionCommentaire" type="text"
-                                               placeholder={corrSelected.commentaire}disabled/>
+                                               placeholder={selectedCorrection.commentaire}disabled/>
                                         </div>
                                     </div>
                                 </div>
@@ -436,12 +452,10 @@ const ClientPage = (props) => {
                                 <div className="col-md-2">
                                     <div className="row">
                                         <label htmlFor="exampleSelect1"><h4>Date Commande</h4></label>
-                                        <select className="form-control" id="dateCommandeVerres">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
+                                        <select className="form-control" id="SelectDateCommandeVerres">
+                                            {verres.map(verre =>
+                                                <option key={verre.id} id={verre.id}> {dateFormat(verre.date)}</option>
+                                            )}
                                         </select>
                                     </div>
                                     <div className="row">
@@ -578,12 +592,10 @@ const ClientPage = (props) => {
                                 <div className="col-md-2">
                                     <div className="row">
                                         <label htmlFor="exampleSelect1"><h4>Date Commande</h4></label>
-                                        <select className="form-control" id="dateCommandeMonture">
-                                            <option>11/02/2020</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
+                                        <select className="form-control" id="SelectDateCommandeMonture">
+                                            {montures.map(monture =>
+                                                <option key={monture.id} id={monture.id}> {dateFormat(monture.date)}</option>
+                                            )}
                                         </select>
                                     </div>
                                     <div className="row">

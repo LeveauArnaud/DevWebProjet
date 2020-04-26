@@ -29,14 +29,11 @@ const StockPage = (props) => {
     },[])
 
     // gestion changement de page
-    const handlePageChange = page => {
-        setCurrentPage(page);
-    };
+    const handlePageChange = page => setCurrentPage(page);
 
     // gestion de la recherche
-    const handleSearch = event =>{
-        const value = event.currentTarget.value;
-        setSearch(value);
+    const handleSearch = (currentTarget) =>{
+        setSearch(currentTarget.value);
         setCurrentPage(1);
     };
 
