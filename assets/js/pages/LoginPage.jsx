@@ -1,8 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import AuthAPI from "../services/AuthAPI";
+import AuthContext from "../contexts/AuthContexts";
 
 
-const LoginPage = ({onLogin}) => {
+const LoginPage = ({ history }) => {
+
+    const { setIsAuthenticated } = useContext(AuthContext);
 
     const [credentials, setCredentials] = useState({
         username :"",
@@ -23,7 +26,8 @@ const LoginPage = ({onLogin}) => {
         try{
             await AuthAPI.authenticate(credentials);
             setError("");
-            onLogin(true);
+            setIsAuthenticated(true);
+            history.replace("/clients")
         }catch (error) {
             setError("Aucun compte ne possède ce nom d'utilsateur ou alors les informations ne correspondent pas !");
         }
@@ -33,7 +37,7 @@ const LoginPage = ({onLogin}) => {
         <div className="jumbotron">
             <h1 className="display-3 d-flex justify-content-center">Optical App</h1>
             <div className="col-sm-12 text-center">
-                <img src="/img/logo.png" className="imgHome " alt="logo-App"/>
+                <img src="/img/logo.png" className="imgHome w-25" alt="logo-App"/>
             </div>
             <form onSubmit={handleSubmit}>
                 <fieldset>
