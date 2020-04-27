@@ -38,6 +38,8 @@ const ClientPage = (props) => {
 
     }
 
+    console.log(client);
+
     //au chargement du composant on va chercher les clients
     useEffect(()=> {
         fetchClient()
@@ -444,15 +446,10 @@ const ClientPage = (props) => {
                     <div className="card text-white bg-darkSalmon mb-3">
                         <div className="card-Header text-center">
                             <div className="row">
-                                <div className="col-md-5">
+                                <div className="col-md-6">
                                     <h1>Espace verres</h1>
                                 </div>
-                                <div className="col-md-2">
-                                    <a className="btn btn-warning btn-client" type="button" data-toggle="collapse" data-target="#navbarColor01"
-                                       aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">REMISE
-                                    </a>
-                                </div>
-                                <div className="col-md-5">
+                                <div className="col-md-6">
                                     <h1>Espace monture</h1>
                                 </div>
                             </div>

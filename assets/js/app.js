@@ -1,29 +1,33 @@
 //Les imports importants
-import React from "react";
+import React, {useState} from "react";
 import ReactDom from "react-dom";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import { HashRouter, Switch, Route} from "react-router-dom";
-import '../css/app.css';
 import ClientsPage from "./pages/ClientsPage";
 import ClientPage from "./pages/ClientPage";
 import LoginPage from "./pages/LoginPage";
 import StockPage from "./pages/StockPage";
 import ClientInfosPage from "./pages/ClientInfosPage";
+import AuthAPI from "./services/AuthAPI";
+//import css perso
+import '../css/app.css';
 
-// Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
-// import $ from 'jquery';
-
-
+AuthAPI.setup();
 
 const App = () =>{
+
+    const [isAuthenticated, setIsAuthenticated] = useState(AuthAPI.isAuthenticated);
+
     return <HashRouter>
-        <Navbar/>
+        <Navbar isAuthenticated={isAuthenticated} onLogout={setIsAuthenticated}/>
 
         <main className="p-4 full-height">
             <Switch>
                 <Route path="/stock" component={StockPage}/>
-                <Route path="/login" component={LoginPage}/>
+                <Route path="/login" render={props => (
+                    <LoginPage onLogin={setIsAuthenticated}/>)}
+                />
                 <Route path="/client/:id/update" component={ClientInfosPage}/>
                 <Route path="/client/:id" component={ClientPage}/>
                 <Route path="/clients" component={ClientsPage}/>

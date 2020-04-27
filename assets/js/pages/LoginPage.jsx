@@ -1,41 +1,32 @@
 import React, {useState} from 'react';
-import axios from "axios";
+import AuthAPI from "../services/AuthAPI";
 
-const LoginPage = (props) => {
+
+const LoginPage = ({onLogin}) => {
 
     const [credentials, setCredentials] = useState({
-        username :"aa",
+        username :"",
         password: ""
     });
-
     const [error, setError] = useState("");
 
-    const handleChange = event => {
-        const value = event.currentTarget.value;
-        const name = event.currentTarget.name;
-
+    //gestion des champs
+    const handleChange = ({currentTarget}) => {
+        const {value, name} = currentTarget;
         setCredentials({ ...credentials, [name]: value});
     };
 
+    //gestion du submit
     const handleSubmit = async event => {
         event.preventDefault();
 
         try{
-            const token = await axios.post("https://127.0.0.1:8000/api/login_check", credentials)
-                .then(response => response.data.token);
-
-            //remise à zéro des erreurs
+            await AuthAPI.authenticate(credentials);
             setError("");
-
-            //stockage du token dans le localStorage
-            window.localStorage.setItem("authToken", token)
-            // on prévient axios qu'on a un header par défault pour toutes les futures requêtess http
-            axios.defaults.headers["Authorization"]= "Bearer " + token;
+            onLogin(true);
         }catch (error) {
             setError("Aucun compte ne possède ce nom d'utilsateur ou alors les informations ne correspondent pas !");
         }
-
-        console.log(credentials);
     }
 
     return(

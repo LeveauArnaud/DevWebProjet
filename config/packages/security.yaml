@@ -56,14 +56,14 @@ security:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
         - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/clients, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/commande_montures, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/commande_verres, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/corrections, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/etat_commandes, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/magasins, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/montures, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/prescripteurs, roles: IS_AUTHENTICATED_vANONYMOUSLY }
-        - { path: ^/api/stocks, roles: IS_AUTHENTICATED_ANONYMOUSLY}
-        - { path: ^/api/verres, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/clients, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/commande_montures, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/commande_verres, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/corrections, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/etat_commandes, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/magasins, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/montures, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/prescripteurs, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/stocks, roles: IS_AUTHENTICATED_FULLY}
+        - { path: ^/api/verres, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/api/users, roles: IS_AUTHENTICATED_FULLY , methods:[GET, PUT, DELETE]}
