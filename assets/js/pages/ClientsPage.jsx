@@ -9,7 +9,8 @@ const ClientsPage = (props) => {
     const [clients, setClients] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [search, setSearch] = useState("");
-
+    // nbr items par page
+    const itemsPerPage = 5;
 
     //permet de récupérer les clients
     const fetchClients = async () => {
@@ -22,7 +23,7 @@ const ClientsPage = (props) => {
 
     }
 
-    //au chargement du composant on va chercher les clients
+    //au chargement du composant on va chercher les montures en stock
     useEffect(()=> {
         fetchClients()
     },[])
@@ -30,16 +31,19 @@ const ClientsPage = (props) => {
 
 
     // gestion changement de page
-    const handlePageChange = page => setCurrentPage(page);
-
+    const handlePageChange = page => {
+        setCurrentPage(page);
+    };
     // gestion de la recherche
-    const handleSearch = (currentTarget) =>{
-        setSearch(currentTarget.value);
+    const handleSearch = event =>{
+        const value = event.currentTarget.value;
+        setSearch(value);
         setCurrentPage(1);
     };
 
-    // filtrage des clients en fonction de la recherche
+    // filtrage des montures en stock en fonction de la recherche
     const filteredClients = clients.filter( c =>
+
         c.prenom.toLowerCase().includes(search.toLowerCase()) ||
         c.nom.toLowerCase().includes(search.toLowerCase()) ||
         c.ville.toLowerCase().includes(search.toLowerCase()) ||
@@ -47,8 +51,6 @@ const ClientsPage = (props) => {
 
     );
 
-    // nbr items par page
-    const itemsPerPage = 5;
 
     // pagination des données
     const paginatedClients = Pagination.getData(
@@ -65,11 +67,7 @@ const ClientsPage = (props) => {
             <div className="row">
                 <div className="col-md-10">
                     <div className="form-group">
-                        <input type="text"
-                               onChange={handleSearch}
-                               value={search}
-                               className="form-control"
-                               placeholder="Rechercher ..." />
+                        <input type="text" onChange={handleSearch} value={search} className="form-control" placeholder="Rechercher ..." />
                     </div>
                 </div>
                 <div className="col-md-2">
@@ -113,13 +111,12 @@ const ClientsPage = (props) => {
                 </tbody>
             </table>
 
-            {itemsPerPage < filteredClients.length &&(
-                <Pagination
-                    currentPage={currentPage}
-                    itemsPerPage={itemsPerPage}
-                    length={filteredClients.length}
-                    onPageChanged={handlePageChange}
-                />
+            {itemsPerPage < filteredClients.length &&( <Pagination
+                currentPage={currentPage}
+                itemsPerPage={itemsPerPage}
+                length={filteredClients.length}
+                onPageChanged={handlePageChange}
+            />
             )}
 
 

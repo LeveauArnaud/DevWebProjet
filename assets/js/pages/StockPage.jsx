@@ -9,7 +9,7 @@ const StockPage = (props) => {
     const [stock, setStock] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [search, setSearch] = useState("");
-    // nbr items par pag
+    // nbr items par page
     const itemsPerPage = 10;
 
     //permet de récupérer les montures en stock
@@ -29,11 +29,14 @@ const StockPage = (props) => {
     },[])
 
     // gestion changement de page
-    const handlePageChange = page => setCurrentPage(page);
+    const handlePageChange = page => {
+        setCurrentPage(page);
+    };
 
     // gestion de la recherche
-    const handleSearch = (currentTarget) =>{
-        setSearch(currentTarget.value);
+    const handleSearch = event =>{
+        const value = event.currentTarget.value;
+        setSearch(value);
         setCurrentPage(1);
     };
 

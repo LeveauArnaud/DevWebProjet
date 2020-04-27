@@ -4,8 +4,9 @@
     <list default="true" id="99a787a9-4342-4f37-9820-58dc11fc7958" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/pages/ClientPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/ClientPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/pages/ClientsPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/ClientsPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/pages/HomePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/HomePage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/pages/StockPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/StockPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/services/clientsAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/services/clientsAPI.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/log/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/log/dev.log" afterDir="false" />
     </list>
@@ -18,13 +19,35 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/assets/js/pages/StockPage.jsx">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="375">
+                    <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="28" selection-end-column="9" />
+                    <folding>
+                      <element signature="e#0#49#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/pages/ClientPage.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="45" lean-forward="true" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+            <state relative-caret-position="701">
+              <caret line="51" selection-start-line="51" selection-end-line="51" />
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
               </folding>
@@ -60,18 +83,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/pages/StockPage.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="58" selection-start-line="31" selection-start-column="58" selection-end-line="31" selection-end-column="58" />
-              <folding>
-                <element signature="e#0#49#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/services/stockAPI.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
@@ -80,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/js/pages/ClientsPage.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="95" column="47" selection-start-line="95" selection-start-column="38" selection-end-line="95" selection-end-column="47" />
+            <state relative-caret-position="80">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
               </folding>
@@ -127,7 +138,6 @@
         <option value="$PROJECT_DIR$/src/Controller/AppController.php" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
-        <option value="$PROJECT_DIR$/assets/js/pages/HomePage.jsx" />
         <option value="$PROJECT_DIR$/assets/js/components/Pagination.jsx" />
         <option value="$PROJECT_DIR$/assets/js/pages/Client.jsx" />
         <option value="$PROJECT_DIR$/assets/js/components/Navbar.jsx" />
@@ -147,11 +157,12 @@
         <option value="$PROJECT_DIR$/assets/js/pages/LoginPage.jsx" />
         <option value="$PROJECT_DIR$/config/packages/security.yaml" />
         <option value="$PROJECT_DIR$/src/EventSubscriber/PasswordEncoderSubscriber.php" />
-        <option value="$PROJECT_DIR$/assets/js/pages/ClientsPage.jsx" />
         <option value="$PROJECT_DIR$/assets/js/services/stockAPI.js" />
-        <option value="$PROJECT_DIR$/assets/js/pages/StockPage.jsx" />
         <option value="$PROJECT_DIR$/assets/js/services/clientsAPI.js" />
+        <option value="$PROJECT_DIR$/assets/js/pages/HomePage.jsx" />
         <option value="$PROJECT_DIR$/assets/js/pages/ClientPage.jsx" />
+        <option value="$PROJECT_DIR$/assets/js/pages/StockPage.jsx" />
+        <option value="$PROJECT_DIR$/assets/js/pages/ClientsPage.jsx" />
       </list>
     </option>
   </component>
@@ -284,8 +295,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="125" />
-    <option name="y" value="23" />
+    <option name="x" value="102" />
+    <option name="y" value="46" />
     <option name="width" value="1452" />
     <option name="height" value="1001" />
   </component>
@@ -351,6 +362,11 @@
               <item name="DevWebProjet" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
               <item name="packages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DevWebProjet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DevWebProjet" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DevWebProjet" type="b2602c69:ProjectViewProjectNode" />
@@ -434,12 +450,12 @@
       <workItem from="1587403584189" duration="9908000" />
       <workItem from="1587481330714" duration="64116000" />
       <workItem from="1587746020628" duration="8592000" />
-      <workItem from="1587818142661" duration="17780000" />
+      <workItem from="1587818142661" duration="23420000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="142046000" />
+    <option name="totallyTimeSpent" value="147686000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -451,10 +467,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="125" y="23" width="1452" height="1001" extended-state="0" />
+    <frame x="102" y="46" width="1452" height="1001" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19148937" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19148937" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -467,7 +483,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.31683168" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.31683168" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -741,13 +757,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/pages/HomePage.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="8" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/pages/LoginPage.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="463">
@@ -779,13 +788,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/pages/StockPage.jsx">
+    <entry file="file://$PROJECT_DIR$/assets/js/services/clientsAPI.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="58" selection-start-line="31" selection-start-column="58" selection-end-line="31" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="210">
+          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/pages/HomePage.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -796,27 +809,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/services/clientsAPI.js">
+    <entry file="file://$PROJECT_DIR$/assets/js/pages/ClientPage.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/pages/ClientsPage.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="95" column="47" selection-start-line="95" selection-start-column="38" selection-end-line="95" selection-end-column="47" />
+        <state relative-caret-position="701">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/pages/ClientPage.jsx">
+    <entry file="file://$PROJECT_DIR$/assets/js/pages/StockPage.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="45" lean-forward="true" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+        <state relative-caret-position="375">
+          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="28" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/pages/ClientsPage.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
           </folding>
