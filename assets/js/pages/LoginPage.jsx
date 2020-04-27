@@ -1,6 +1,7 @@
 import React, {useState, useContext} from 'react';
 import AuthAPI from "../services/AuthAPI";
 import AuthContext from "../contexts/AuthContexts";
+import Field from "../components/forms/Field";
 
 
 const LoginPage = ({ history }) => {
@@ -41,33 +42,22 @@ const LoginPage = ({ history }) => {
             </div>
             <form onSubmit={handleSubmit}>
                 <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="username">Uername</label>
-                        <input
-                            value={credentials.username}
-                            onChange={handleChange}
-                            type="text"
-                            className={"form-control" + (error && " is-invalid")}
-                            placeholder="Enter username"
-                            name="username"
-                            id="username"
-                        />
-                        { error && <p className="invalid-feedback">
-                            {error}
-                        </p>}
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="password">Password</label>
-                        <input
-                            value={credentials.password}
-                            onChange={handleChange}
-                            type="password"
-                            className="form-control"
-                            placeholder="Enter password"
-                            name="password"
-                            id="password"
-                        />
-                    </div>
+                    <Field
+                        label="Utilisateur"
+                        name="username"
+                        value={credentials.username}
+                        onChange={handleChange}
+                        placeHolder="Enter username"
+                        error={error}
+                    />
+                    <Field
+                        label="Mot de passe"
+                        name="password"
+                        value={credentials.password}
+                        onChange={handleChange}
+                        placeHolder="Enter password"
+                        error={error}
+                    />
                     <div className="form-group">
                         <button   type="submit" className="btn btn-success" >
                             Connexion

@@ -1,7 +1,10 @@
-body, html {
-    height: 100px;
+html,body {
+    height: 100%;
 }
 
+.container-fluid{
+    height: 100%;
+}
 .imgHome{
     max-width: 60%;
 }
@@ -9,9 +12,6 @@ body, html {
     max-width: 100px;
 }
 
-.full-height {
-    height: 100%;
-}
 
 .btn-client{
     width : 150px;
