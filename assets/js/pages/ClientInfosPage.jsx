@@ -1,11 +1,21 @@
 import React, {useState, useEffect} from 'react';
 import Field from "../components/forms/Field";
+import Select from "../components/forms/Select";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import moment from 'moment';
+import ClientsAPI from "../services/clientsAPI";
+import {toast} from "react-toastify";
 
-const ClientInfosPage = (props) => {
+const ClientInfosPage = ({match, history}) => {
 
-    const { id = "new"} = props.match.params;
+    const moment = require('moment');
+    moment().format();
+
+    function dateFormat(date){
+        return moment(date).format('YYYY-MM-DD');
+    }
+
+    const { id = "new"} = match.params;
 
     const [client, setClient] = useState({
         nCli:0,
@@ -45,12 +55,10 @@ const ClientInfosPage = (props) => {
 
     const [editing, setEditing ] = useState(false);
 
-    const fetcgClient = async id =>{
+    // Récupération du client en fonction de son id
+    const fetchClient = async id =>{
         try{
             //awit permet de attendre afin de ne récuperer que les data
-            const data = await axios
-                .get("https://127.0.0.1:8000/api/clients/"+id)
-                .then(response => response.data);
             const {
                 nCli,
                 nom,
@@ -64,7 +72,7 @@ const ClientInfosPage = (props) => {
                 email,
                 phone,
                 photo
-            } = data;
+            } = await ClientsAPI.findID(id);
 
             setClient({
                 nCli,
@@ -81,22 +89,24 @@ const ClientInfosPage = (props) => {
                 photo
             });
         }catch (e) {
-            console.log(e.response);
+            toast.error("Impossible de charger les informations du client");
+            history.replace("/clients");
         }
 
     }
 
 
+    // Chargement du client si besoin au chargement du composant ou au chargement de l'id ( à chaque changement de l'id)
     useEffect(() =>{
         if(id !== "new") {
             setEditing(true);
-            fetcgClient(id);
+            fetchClient(id);
 
         };
     }, [id]);
 
 
-
+    // Gestion des changements des inputs dans le formulaire
     const handleChange = ({currentTarget}) =>{
         const { name, value} = currentTarget;
         if(name ==="codePostale" || name ==="phone" ){
@@ -108,31 +118,36 @@ const ClientInfosPage = (props) => {
 
     };
 
+    // Gestion de la soumission du formulaire
     const handleSubmit = async event =>{
         //eviter de recharger la page
         event.preventDefault();
         try{
-
+            setErrors({});
             if(editing){
-                const response = await axios.put("https://127.0.0.1:8000/api/clients/"+id, client);
-
+                await ClientsAPI.update(id, client);
+                toast.success("Client modifié avec succès ");
+                history.replace("/client/"+id);
             }else {
-                const response = await axios.post("https://localhost:8000/api/clients", client);
-
-                props.history.replace("/clients");
+                await ClientsAPI.create(client);
+                toast.success("Client créé avec succès ");
+                history.replace("/clients");
             }
 
-            setErrors({});
+        // response === error.response
+        }catch ({ response }) {
 
-        }catch (error) {
+            const { violations } =response.data;
 
-            if(error.response.data.violations){
+            if(violations){
                 const apiErrors = {};
-                error.response.data.violations.forEach( violation =>{
-                    apiErrors[violation.propertyPath] = violation.message;
+                //pour chaque vioaltion on utilise les propriétés : propertyPath et message
+                violations.forEach( ({ propertyPath, message}) =>{
+                    apiErrors[propertyPath] = message;
                 });
-                console.log(apiErrors);
+
                 setErrors(apiErrors);
+                toast.error("Il y a une ou pluslieurs erreur(s) dans le formulaire");
             }
         }
 
@@ -142,7 +157,7 @@ const ClientInfosPage = (props) => {
         <>
             <div className="jumbotron">
 
-                {!editing && <h1>Création d'un client</h1> || <h1>Modification du client</h1>}
+                {!editing && <h1>Création d'un client</h1> || <h1>Modification du client : {client.nCli}</h1>}
 
             <form onSubmit={handleSubmit}>
                 <div className="row">
@@ -163,19 +178,21 @@ const ClientInfosPage = (props) => {
                             onChange={handleChange}
                             error={errors.prenom}
                         />
-                        <Field
+                        <Select
                             label="Sexe"
                             name="sexe"
-                            placeHolder="Sexe du client"
                             value={client.sexe}
                             onChange={handleChange}
                             error={errors.sexe}
-                        />
+                        >
+                            <option value="M"> M</option>
+                            <option value="F"> F</option>
+                        </Select>
                         <Field
                             label="Date de naissance"
                             name="dateNaissance"
                             placeHolder="Date de naissance du client"
-                            value={client.dateNaissance}
+                            value={dateFormat(client.dateNaissance)}
                             type="date"
                             onChange={handleChange}
                             error={errors.dateNaissance}

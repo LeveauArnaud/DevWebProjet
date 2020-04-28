@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Pagination from "../components/Pagination";
 import ClientsAPI from "../services/clientsAPI";
 import { Link } from "react-router-dom";
+import {toast} from "react-toastify";
 
 const ClientsPage = (props) => {
 
@@ -19,7 +20,7 @@ const ClientsPage = (props) => {
             const data = await ClientsAPI.findAll()
             setClients(data);
         } catch (error) {
-            console.log(error.response);
+            toast.error("Impossible de charger les clients");
         }
 
     }

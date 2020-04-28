@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Pagination from "../components/Pagination";
 import StockAPI from "../services/stockAPI";
+import {toast} from "react-toastify";
 
 const StockPage = (props) => {
 
@@ -19,6 +20,7 @@ const StockPage = (props) => {
             setStock(data);
         } catch (error) {
             console.log(error.response);
+            toast.error("Impossible de charger le stock");
         }
 
     }

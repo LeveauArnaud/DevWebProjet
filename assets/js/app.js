@@ -17,6 +17,8 @@ import PrivateRoute from "./components/PrivateRoute";
 //import css perso
 import '../css/app.css';
 import ClientInfosPage from "./pages/ClientInfosPage";
+import {ToastContainer, toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 AuthAPI.setup();
 
@@ -48,6 +50,7 @@ const App = () =>{
         </div>
 
         </HashRouter>
+          <ToastContainer position={toast.POSITION.BOTTOM_LEFT}/>
       </AuthContext.Provider>);
 };
 

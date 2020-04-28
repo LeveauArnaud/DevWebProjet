@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import moment from 'moment';
 import ClientsAPI from "../services/clientsAPI";
+import {toast} from "react-toastify";
 
 const ClientPage = (props) => {
 
@@ -24,7 +25,7 @@ const ClientPage = (props) => {
     //permet de récupérer les clients
     const fetchClient = async () => {
         try {
-            const data = await ClientsAPI.findID(id)
+            const data = await ClientsAPI.findID(id);
             setClient(data);
             setCorrections(data.corrections);
             setMontures(data.commandeMontures);
@@ -32,8 +33,10 @@ const ClientPage = (props) => {
             setselectedCorrection(data.corrections[0]);
             setselectedVerre(data.commandeVerres[0]);
             setselectedMonture(data.commandeMontures[0]);
+            toast.success("Les informations du client ont bien été chargées");
         } catch (error) {
             console.log(error.response);
+            toast.error("Impossible de charger les informations du client");
         }
 
     }
@@ -128,7 +131,7 @@ const ClientPage = (props) => {
                         </div>
                             </fieldset>
                             <fieldset className="text-center align-middle">
-                                <a className="btn btn-primary btn-client" href={"/#/client/"+id+"/update"}>Modifier
+                                <a className="btn btn-primary btn-client" href={"/#/clientInfos/"+id}>Modifier
                                 </a>
                             </fieldset>
                         </form>
