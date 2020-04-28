@@ -16,6 +16,7 @@ import AuthContext from "./contexts/AuthContexts";
 import PrivateRoute from "./components/PrivateRoute";
 //import css perso
 import '../css/app.css';
+import ClientInfosPage from "./pages/ClientInfosPage";
 
 AuthAPI.setup();
 
@@ -39,6 +40,7 @@ const App = () =>{
             <Switch>
                 <Route path="/login" component={LoginPage}/>
                 <PrivateRoute path="/stock" component={StockPage} />
+                <PrivateRoute path="/clientInfos/:id" component={ClientInfosPage} />
                 <PrivateRoute path="/client/:id" component={ClientPage} />
                 <PrivateRoute path="/clients" component={ClientsPage} />
                 <Route path="/" component={HomePage} />

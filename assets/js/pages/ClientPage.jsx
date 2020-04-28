@@ -104,7 +104,7 @@ const ClientPage = (props) => {
                                     <input className="form-control" id="clientPrenom" type="text"
                                            placeholder={client.prenom} disabled/>
                                     <label>Sexe :</label>
-                                    <input className="form-control" id="clientSes" type="text"
+                                    <input className="form-control" id="clientSexe" type="text"
                                            placeholder={client.sexe} disabled/>
                                     <label>Date de Naissance:</label>
                                     <input className="form-control" id="clientNaissance" type="text"
