@@ -17,9 +17,9 @@ const ClientPage = (props) => {
     const [verres, setVerres] = useState([]);
     const [montures, setMontures] = useState([]);
 
-    const [selectedCorrection, setselectedCorrection] = useState([]);
-    const [selectedVerre, setselectedVerre] = useState([]);
-    const [selectedMonture, setselectedMonture] = useState([]);
+    const [selectedCorrection, setSelectedCorrection] = useState([]);
+    const [selectedVerre, setSelectedVerre] = useState([]);
+    const [selectedMonture, setSelectedMonture] = useState([]);
 
 
     //permet de récupérer les clients
@@ -30,9 +30,9 @@ const ClientPage = (props) => {
             setCorrections(data.corrections);
             setMontures(data.commandeMontures);
             setVerres(data.commandeVerres);
-            setselectedCorrection(data.corrections[0]);
-            setselectedVerre(data.commandeVerres[0]);
-            setselectedMonture(data.commandeMontures[0]);
+            setSelectedCorrection(data.corrections[0]);
+            setSelectedVerre(data.commandeVerres[0]);
+            setSelectedMonture(data.commandeMontures[0]);
             toast.success("Les informations du client ont bien été chargées");
         } catch (error) {
             console.log(error.response);
@@ -43,11 +43,13 @@ const ClientPage = (props) => {
 
     console.log(client);
 
+
+
+
     //au chargement du composant on va chercher les clients
     useEffect(()=> {
         fetchClient()
-    },[])
-
+    },[]);
 
 
     function dateFormat(date){
@@ -55,41 +57,40 @@ const ClientPage = (props) => {
     }
 
 
-    function handleChangeCorrection(e) {
+    const handleChangeCorrection = (e) => {
         let id = e.target.value;
         corrections.forEach(function(correction) {
             if(correction.id == id){
-                setselectedCorrection(correction);
+                setSelectedCorrection(correction);
                 console.log(correction);
             }
         })
-    }
-    function handleChangeVerres(e) {
+    };
+    const handleChangeVerres = (e) => {
         let id = e.target.value;
         verres.forEach(function(verre) {
             if(verre.id == id){
-                setselectedVerre(verre);
+                setSelectedVerre(verre);
                 console.log(verre);
             }
         })
-    }
-    function handleChangeMonture(e) {
+    };
+    const handleChangeMonture = (e) => {
         let id = e.target.value;
         montures.forEach(function(monture) {
             if(monture.id == id){
-                setselectedMonture(monture);
+                setSelectedMonture(monture);
                 console.log(monture);
             }
         })
-    }
-
+    };
 
     return(
         <>
-            <h1>Infos Client</h1>
-            <div className="row full-height">
-                <div className="col-sm-3 ">
-                    <div className="card text-white bg-danger mb-3">
+            <h1>Infos du client : {client.nCli}</h1>
+            <div className="row container-fluid">
+                <div className="col-sm-3 container-fluid">
+                    <div className="card text-white bg-danger mb-3 container-fluid">
                         <div className="card-Header text-center">
                             <h1>Espace client</h1>
                         </div>
@@ -137,7 +138,7 @@ const ClientPage = (props) => {
                         </form>
                     </div>
                 </div>
-                <div className="col-sm-9">
+                <div className="col-sm-9 container-fluid">
                     <div className="card text-white bg-teal mb-3">
                         <div className="card-Header text-center">
                             <h1>Espace correction</h1>
@@ -157,13 +158,11 @@ const ClientPage = (props) => {
                                     <div className="row">
                                         <div className="col-md-12 p-5">
                                             <div className="row p-2">
-                                                <a className="btn btn-primary btn-client" type="button" data-toggle="collapse" data-target="#navbarColor01"
-                                                        aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">Modifier
+                                                <a className="btn btn-primary btn-client" href={"/#/ClientCorrection/"+id+"/"+selectedCorrection.id}>Modifier
                                                 </a>
                                             </div>
                                             <div className="row p-2">
-                                                <a className="btn btn-primary btn-client" type="button" data-toggle="collapse" data-target="#navbarColor01"
-                                                        aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">Nouvelle
+                                                <a className="btn btn-primary btn-client" href={"/#/ClientCorrection/"+id+"/new"}>Nouvelle
                                                 </a>
                                             </div>
                                             <div className="row p-2">
@@ -179,7 +178,7 @@ const ClientPage = (props) => {
                                         <div className="col-md-6">
                                             <label>Prescripteur : </label>
                                             <input className="form-control" id="prescripteur" type="text"
-                                                   placeholder={selectedCorrection.idPrescripteur} disabled/>
+                                                   placeholder={selectedCorrection.idPrescripteur && selectedCorrection.idPrescripteur.nom} disabled/>
                                         </div>
 
                                         <div className="col-md-6">
@@ -314,7 +313,7 @@ const ClientPage = (props) => {
                                         <div className="col-md-6">
                                             <div className="row">
                                                 <div className="col-md-1">
-                                                    <h1>OD</h1>
+                                                    <h1>OG</h1>
                                                 </div>
                                                 <div className="col-md-11">
                                                     <div className="row">
@@ -504,7 +503,7 @@ const ClientPage = (props) => {
                                                 </div>
                                                 <div className="col-md-8">
                                                     <input className="form-control" id="marque" type="text"
-                                                           placeholder={selectedVerre.marque} disabled/>
+                                                           placeholder={selectedVerre.idVerre && selectedVerre.idVerre.marque} disabled/>
                                                 </div>
                                             </div>
                                             <div className="row justify-content-end">
@@ -513,7 +512,7 @@ const ClientPage = (props) => {
                                                 </div>
                                                 <div className="col-md-8">
                                                     <input className="form-control" id="type" type="text"
-                                                           placeholder={selectedVerre.type} disabled/>
+                                                           placeholder={selectedVerre.idVerre && selectedVerre.idVerre.type} disabled/>
                                                 </div>
                                             </div>
                                         </div>
@@ -644,27 +643,27 @@ const ClientPage = (props) => {
                                             <div className="row">
                                                 <div className="col-md-2">
                                                     <input className="form-control" id="montureCode" type="text"
-                                                           placeholder={selectedMonture.idMonture} disabled/>
+                                                           placeholder={selectedMonture.idMonture && selectedMonture.idMonture.id} disabled/>
                                                 </div>
                                                 <div className="col-md-2">
                                                     <input className="form-control" id="montureMarque" type="text"
-                                                           placeholder={selectedMonture.idMonture} disabled/>
+                                                           placeholder={selectedMonture.idMonture && selectedMonture.idMonture.marque} disabled/>
                                                 </div>
                                                 <div className="col-md-2">
                                                     <input className="form-control" id="montureModel" type="text"
-                                                           placeholder={selectedMonture.idMonture} disabled/>
+                                                           placeholder={selectedMonture.idMonture && selectedMonture.idMonture.model} disabled/>
                                                 </div>
                                                 <div className="col-md-2">
                                                     <input className="form-control" id="montureCouleur" type="text"
-                                                           placeholder={selectedMonture.idMonture} disabled/>
+                                                           placeholder={selectedMonture.idMonture && selectedMonture.idMonture.couleur} disabled/>
                                                 </div>
                                                 <div className="col-md-2">
                                                     <input className="form-control" id="montureTaille" type="text"
-                                                           placeholder={selectedMonture.idMonture} disabled/>
+                                                           placeholder={selectedMonture.idMonture && selectedMonture.idMonture.taille} disabled/>
                                                 </div>
                                                 <div className="col-md-2">
                                                     <input className="form-control" id="monturePrix" type="text"
-                                                           placeholder={selectedMonture.idMonture} disabled/>
+                                                           placeholder={selectedMonture.idMonture && selectedMonture.idMonture.prix} disabled/>
                                                 </div>
                                             </div>
                                         </div>
@@ -673,7 +672,7 @@ const ClientPage = (props) => {
                                         <div className="col-md-12">
                                             <label>Commentaire : </label>
                                             <textarea className="form-control" id="montureCommentaire" type="text"
-                                                      placeholder="" disabled/>
+                                                      placeholder={selectedMonture.commentaire} disabled/>
                                         </div>
                                     </div>
 

@@ -58,6 +58,7 @@ const LoginPage = ({ history }) => {
                         name="password"
                         value={credentials.password}
                         onChange={handleChange}
+                        type="password"
                         placeHolder="Enter password"
                         error={error}
                     />

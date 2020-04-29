@@ -4,10 +4,15 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\VerresRepository")
- * @ApiResource
+ * @ApiResource(
+ *     normalizationContext={
+ *          "groups"={"verres_read"}
+ *     }
+ * )
  */
 class Verres
 {
@@ -15,16 +20,19 @@ class Verres
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @groups({"commandeVerres_read","clients_read","commandeVerres_subresource"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @groups({"commandeVerres_read","clients_read","commandeVerres_subresource"})
      */
     private $marque;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @groups({"commandeVerres_read","clients_read","commandeVerres_subresource"})
      */
     private $type;
 

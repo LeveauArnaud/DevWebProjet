@@ -3,6 +3,7 @@ import Pagination from "../components/Pagination";
 import ClientsAPI from "../services/clientsAPI";
 import { Link } from "react-router-dom";
 import {toast} from "react-toastify";
+import TableLoader from "../components/loarders/TableLoader";
 
 const ClientsPage = (props) => {
 
@@ -11,6 +12,7 @@ const ClientsPage = (props) => {
     const [clients, setClients] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [search, setSearch] = useState("");
+    const [loading, setLoading] = useState(true);
     // nbr items par page
     const itemsPerPage = 5;
 
@@ -19,6 +21,7 @@ const ClientsPage = (props) => {
         try {
             const data = await ClientsAPI.findAll()
             setClients(data);
+            setLoading(false);
         } catch (error) {
             toast.error("Impossible de charger les clients");
         }
@@ -45,7 +48,7 @@ const ClientsPage = (props) => {
 
     // filtrage des montures en stock en fonction de la recherche
     const filteredClients = clients.filter( c =>
-
+        c.nCli.toString().toLowerCase().includes(search.toLowerCase()) ||
         c.prenom.toLowerCase().includes(search.toLowerCase()) ||
         c.nom.toLowerCase().includes(search.toLowerCase()) ||
         c.ville.toLowerCase().includes(search.toLowerCase()) ||
@@ -91,7 +94,7 @@ const ClientsPage = (props) => {
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+                {!loading &&<tbody>
                 {paginatedClients.map(client => <tr key={client.id} >
                     <th className="text-center"><img className="c-img" src={client.photo} /></th>
                     <td className="text-center">{client.nCli}</td>
@@ -109,8 +112,10 @@ const ClientsPage = (props) => {
                     </td>
                 </tr>)}
 
-                </tbody>
+                </tbody>}
             </table>
+
+
 
             {itemsPerPage < filteredClients.length &&( <Pagination
                 currentPage={currentPage}
@@ -118,7 +123,12 @@ const ClientsPage = (props) => {
                 length={filteredClients.length}
                 onPageChanged={handlePageChange}
             />
+
             )}
+            {loading &&
+            <TableLoader/>
+
+            }
 
 
         </>

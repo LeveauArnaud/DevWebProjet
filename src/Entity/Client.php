@@ -148,7 +148,6 @@ class Client
     /**
      * @ORM\Column(type="integer")
      * @groups({"clients_read"})
-     * @ApiSubresource
      */
     private $nCli;
 

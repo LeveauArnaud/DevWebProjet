@@ -12,6 +12,9 @@ html,body {
     max-width: 100px;
 }
 
+.my-loader {
+    width: 100%;
+}
 
 .btn-client{
     width : 150px;
