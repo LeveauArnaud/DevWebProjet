@@ -25,8 +25,6 @@ const ClientCorrectionPage = ({match, history}) => {
         datePrescription:"",
         commentaire:"",
         idPrescripteur:"",
-        oD: "",
-        oG: ""
 
 
 
@@ -37,8 +35,6 @@ const ClientCorrectionPage = ({match, history}) => {
         datePrescription:"",
         commentaire:"",
         idPrescripteur:"",
-        oD: "",
-        oG: ""
 
     });
 
@@ -50,25 +46,9 @@ const ClientCorrectionPage = ({match, history}) => {
     const fetchCorrection = async idCorrection => {
         try{
             //awit permet de attendre afin de ne récuperer que les data
-            const {
-                id,
-                date,
-                datePrescription,
-                commentaire,
-                idPrescripteur,
-                oD,
-                oG
-            } = await ClientAPI.find(idCorrection);
+            const dataCorrection = await ClientAPI.find(idCorrection);
 
-            setCorrection({
-                id,
-                date,
-                datePrescription,
-                commentaire,
-                idPrescripteur,
-                oD,
-                oG
-            });
+            setCorrection(dataCorrection);
             console.log(correction);
         }catch (e) {
             toast.error("Impossible de charger la correction du client");
@@ -109,10 +89,10 @@ const ClientCorrectionPage = ({match, history}) => {
     // Gestion des changements des inputs dans le formulaire
     const handleChange = ({currentTarget}) =>{
         const { name, value} = currentTarget;
-        if(name ==="codePostale" || name ==="phone" ){
-            setCorrection({...correction, [name]: +value});
-        }else {
+        if(name ==="commentaire" || name ==="date" || name ==="datePrescription"){
             setCorrection({...correction, [name]: value});
+        }else {
+            setCorrection({...correction, [name]: +value});
         }
 
 
@@ -124,15 +104,9 @@ const ClientCorrectionPage = ({match, history}) => {
         event.preventDefault();
         try{
             setErrors({});
-            if(editing){
-                await ClientAPI.update(idCorrection, corection);
-                toast.success("Client modifié avec succès ");
-                history.replace("/client/"+idClient);
-            }else {
-                await ClientAPI.create(correction);
-                toast.success("Client créé avec succès ");
-                history.replace("/clients");
-            }
+            console.log(correction);
+            await ClientAPI.update(idCorrection, corection);
+
 
             // response === error.response
         }catch ({ response }) {
@@ -227,25 +201,29 @@ const ClientCorrectionPage = ({match, history}) => {
                                                 <div className="row justify-content-end">
                                                     <div className="col-md-3">
                                                         <Field
-                                                            name="LSphOd"
+                                                            name="sphOdL"
+                                                            value={correction.sphOdL}
                                                             onChange={handleChange}
                                                         />
                                                     </div>
                                                     <div className="col-md-3">
                                                         <Field
-                                                            name="LCylOd"
+                                                            name="cylOdL"
+                                                            value={correction.cylOdL}
                                                             onChange={handleChange}
                                                         />
                                                     </div>
                                                     <div className="col-md-3">
                                                         <Field
-                                                            name="LAxOd"
+                                                            name="axOdL"
+                                                            value={correction.axOdL}
                                                             onChange={handleChange}
                                                         />
                                                     </div>
                                                     <div className="col-md-3">
                                                         <Field
-                                                            name="LPdOd"
+                                                            name="pdOdL"
+                                                            value={correction.pdOdL}
                                                             onChange={handleChange}
                                                         />
                                                     </div>
@@ -271,6 +249,7 @@ const ClientCorrectionPage = ({match, history}) => {
                                                     <div className="col-md-3">
                                                         <Field
                                                             name="addOd"
+                                                            value={correction.addOd}
                                                             onChange={handleChange}
                                                         />
                                                     </div>
@@ -284,6 +263,7 @@ const ClientCorrectionPage = ({match, history}) => {
                                                     <div className="col-md-3">
                                                         <Field
                                                             name="addLOd"
+                                                            value={correction.addLOd}
                                                             onChange={handleChange}
                                                         />
                                                     </div>
@@ -300,25 +280,29 @@ const ClientCorrectionPage = ({match, history}) => {
                                                 <div className="row">
                                                     <div className="col-md-3">
                                                         <Field
-                                                            name="PSphOd"
+                                                            name="sphOdP"
+                                                            value={correction.sphOdP}
                                                             onChange={handleChange}
                                                         />
                                                     </div>
                                                     <div className="col-md-3">
                                                         <Field
-                                                            name="PCylOd"
+                                                            name="cylOdP"
+                                                            value={correction.cylOdP}
                                                             onChange={handleChange}
                                                         />
                                                     </div>
                                                     <div className="col-md-3">
                                                         <Field
-                                                            name="PAxOd"
+                                                            name="axOdP"
+                                                            value={correction.axOdP}
                                                             onChange={handleChange}
                                                         />
                                                     </div>
                                                     <div className="col-md-3">
                                                         <Field
-                                                            name="PPdOd"
+                                                            name="pdOdP"
+                                                            value={correction.pdOdP}
                                                             onChange={handleChange}
                                                         />
                                                     </div>
@@ -368,25 +352,29 @@ const ClientCorrectionPage = ({match, history}) => {
                                                 <div className="row justify-content-end">
                                                     <div className="col-md-3">
                                                         <Field
-                                                            name="LSphOg"
+                                                            name="sphOgL"
+                                                            value={correction.sphOgL}
                                                             onChange={handleChange}
                                                         />
                                                     </div>
                                                     <div className="col-md-3">
                                                         <Field
-                                                            name="LCylOg"
+                                                            name="cylOgL"
+                                                            value={correction.cylOgL}
                                                             onChange={handleChange}
                                                         />
                                                     </div>
                                                     <div className="col-md-3">
                                                         <Field
-                                                            name="LAxOg"
+                                                            name="axOgL"
+                                                            value={correction.axOgL}
                                                             onChange={handleChange}
                                                         />
                                                     </div>
                                                     <div className="col-md-3">
                                                         <Field
-                                                            name="LPdOg"
+                                                            name="pdOgL"
+                                                            value={correction.pdOgL}
                                                             onChange={handleChange}
                                                         />
                                                     </div>
@@ -412,6 +400,7 @@ const ClientCorrectionPage = ({match, history}) => {
                                                     <div className="col-md-3">
                                                         <Field
                                                             name="addOg"
+                                                            value={correction.addOg}
                                                             onChange={handleChange}
                                                         />
                                                     </div>
@@ -425,6 +414,7 @@ const ClientCorrectionPage = ({match, history}) => {
                                                     <div className="col-md-3">
                                                         <Field
                                                             name="addLOg"
+                                                            value={correction.addLOg}
                                                             onChange={handleChange}
                                                         />
                                                     </div>
@@ -441,25 +431,29 @@ const ClientCorrectionPage = ({match, history}) => {
                                                 <div className="row">
                                                     <div className="col-md-3">
                                                         <Field
-                                                            name="PSphOg"
+                                                            name="sphOgP"
+                                                            value={correction.sphOgP}
                                                             onChange={handleChange}
                                                         />
                                                     </div>
                                                     <div className="col-md-3">
                                                         <Field
-                                                            name="PCylOg"
+                                                            name="cylOgP"
+                                                            value={correction.cylOgP}
                                                             onChange={handleChange}
                                                         />
                                                     </div>
                                                     <div className="col-md-3">
                                                         <Field
-                                                            name="PAxOg"
+                                                            name="axOgP"
+                                                            value={correction.axOgP}
                                                             onChange={handleChange}
                                                         />
                                                     </div>
                                                     <div className="col-md-3">
                                                         <Field
-                                                            name="PPdOg"
+                                                            name="pdOgP"
+                                                            value={correction.pdOgP}
                                                             onChange={handleChange}
                                                         />
                                                     </div>

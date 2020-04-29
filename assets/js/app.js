@@ -11,6 +11,7 @@ import ClientsPage from "./pages/ClientsPage";
 import ClientPage from "./pages/ClientPage";
 import LoginPage from "./pages/LoginPage";
 import StockPage from "./pages/StockPage";
+import StockInfosPage from "./pages/stock/StockInfosPage";
 import AuthAPI from "./services/AuthAPI";
 import AuthContext from "./contexts/AuthContexts";
 import PrivateRoute from "./components/PrivateRoute";
@@ -18,6 +19,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import '../css/app.css';
 import ClientInfosPage from "./pages/client/ClientInfosPage";
 import ClientCorrectionPage from "./pages/client/ClientCorrectionPage";
+import ClientInamiPage from "./pages/client/ClientInamiPage";
 import {ToastContainer, toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -42,9 +44,11 @@ const App = () =>{
         <div className="p-4 container-full">
             <Switch>
                 <Route path="/login" component={LoginPage}/>
+                <PrivateRoute path="/stock/:id" component={StockInfosPage} />
                 <PrivateRoute path="/stock" component={StockPage} />
-                <PrivateRoute path="/ClientCorrection/:idClient/:idCorrection" component={ClientCorrectionPage} />
-                <PrivateRoute path="/clientInfos/:id" component={ClientInfosPage} />
+                <PrivateRoute path="/client/:idClient/correction/:idCorrection" component={ClientCorrectionPage} />
+                <PrivateRoute path="/client/:idClient/inami" component={ClientInamiPage} />
+                <PrivateRoute path="/client/:id/infos" component={ClientInfosPage} />
                 <PrivateRoute path="/client/:id" component={ClientPage} />
                 <PrivateRoute path="/clients" component={ClientsPage} />
                 <Route path="/" component={HomePage} />

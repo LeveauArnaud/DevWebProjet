@@ -71,7 +71,7 @@ const ClientsPage = (props) => {
 
             <div className="mb-3 d-flex justify-content-between align-items-center">
                 <h1>Liste des clients</h1>
-                <Link to="/clientInfos/new" className="btn btn-primary">Créer un client</Link>
+                <Link to="/client/new/infos" className="btn btn-primary">Créer un client</Link>
             </div>
             <div className="row">
                 <div className="col-md-12">

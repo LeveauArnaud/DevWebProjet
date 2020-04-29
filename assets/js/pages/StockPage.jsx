@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Pagination from "../components/Pagination";
 import StockAPI from "../services/stockAPI";
 import {toast} from "react-toastify";
+import {Link} from "react-router-dom";
 
 const StockPage = (props) => {
 
@@ -63,7 +64,11 @@ const StockPage = (props) => {
 
     return(
         <>
-            <h1>Liste des montures en stock</h1>
+
+            <div className="mb-3 d-flex justify-content-between align-items-center">
+                <h1>Liste des montures en stock</h1>
+                <Link to={"/stock/new"} className="btn btn-primary">Ajouter une monture dans le stock</Link>
+            </div>
             <div className="form-group">
                 <input type="text" onChange={handleSearch} value={search} className="form-control" placeholder="Rechercher ..." />
             </div>
@@ -77,14 +82,7 @@ const StockPage = (props) => {
                     <th className="text-center">Taille</th>
                     <th className="text-center">Prix</th>
                     <th className="text-center">Quantité</th>
-                    <th className="text-center align-middle">
-                        <button
-
-                            className="btn btn-sm btn-primary"
-                        >
-                            Nouveau
-                        </button>
-                    </th>
+                    <th className="text-center align-middle"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -98,12 +96,12 @@ const StockPage = (props) => {
                     <td className="text-center align-middle">{stockItems.idMonture.prix} € </td>
                         <td className="text-center align-middle"><span className="badge badge-info">{stockItems.quantite}</span></td>
                     <td className="text-center align-middle">
-                        <a
-                            href="#"
+                        <Link
+                            to={"/stock/"+stockItems.id}
                             className="btn btn-sm btn-success"
                         >
                             Modifier
-                        </a>
+                        </Link>
                     </td>
                 </tr>
                 )}
