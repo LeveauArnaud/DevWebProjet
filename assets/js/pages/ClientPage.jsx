@@ -163,7 +163,7 @@ const ClientPage = (props) => {
                                                 </a>
                                             </div>
                                             <div className="row p-2">
-                                                <a className="btn btn-primary btn-client" href={"/#/client/"+id+"/inami"}>Doc INAMI
+                                                <a className="btn btn-primary btn-client" href={"/#/client/"+id+"/correction/"+selectedCorrection.id+"/inami"}>Doc INAMI
                                                 </a>
                                             </div>
                                         </div>
@@ -492,7 +492,7 @@ const ClientPage = (props) => {
 
                                     </div>
                                     <div className="row">
-                                        <div className="col-md-5">
+                                        <div className="col-md-4">
                                             <div className="row justify-content-end">
                                                 <div className="col-md-4">
                                                     <h6 className="text-right">Marque</h6>
@@ -511,8 +511,28 @@ const ClientPage = (props) => {
                                                            placeholder={selectedVerre.idVerre && selectedVerre.idVerre.type} disabled/>
                                                 </div>
                                             </div>
+                                            <div className="row justify-content-end">
+                                                <div className="col-md-4">
+                                                    <h6 className="text-right">Sup 1</h6>
+                                                </div>
+                                            </div>
+                                            <div className="row justify-content-end">
+                                                <div className="col-md-4">
+                                                    <h6 className="text-right">Sup 2</h6>
+                                                </div>
+                                            </div>
+                                            <div className="row justify-content-end">
+                                                <div className="col-md-4">
+                                                    <h6 className="text-right">Sup 3</h6>
+                                                </div>
+                                            </div>
+                                            <div className="row justify-content-end">
+                                                <div className="col-md-4">
+                                                    <h6 className="text-right">Sup 4</h6>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className="col-md-5">
+                                        <div className="col-md-4">
                                             <div className="row justify-content-end">
                                                 <div className="col-md-3">
                                                     <h6 className="text-right">D-D</h6>
@@ -532,9 +552,6 @@ const ClientPage = (props) => {
                                                 </div>
                                             </div>
                                             <div className="row justify-content-end">
-                                                <div className="col-md-3">
-                                                    <h6 className="text-right">Sup 1</h6>
-                                                </div>
                                                 <div className="col-md-9">
                                                     <input className="form-control" id="sup1" type="text"
                                                            placeholder={selectedVerre.supp1} disabled/>
@@ -580,6 +597,20 @@ const ClientPage = (props) => {
                                             <input className="form-control" id="prixSup3" type="text"
                                                    placeholder={selectedVerre.prixSupp3+" €"} disabled/>
                                             <input className="form-control" id="prixSup4" type="text"
+                                                   placeholder={selectedVerre.prixSupp4+" €"} disabled/>
+                                        </div>
+                                        <div className="col-md-2">
+                                            <input className="form-control" id="reducPrixDD" type="text"
+                                                   placeholder={selectedVerre.prixOD+" €"} disabled/>
+                                            <input className="form-control" id="reducPrixDG" type="text"
+                                                   placeholder={selectedVerre.prixOG+" €"} disabled/>
+                                            <input className="form-control" id="reducPrixSup1" type="text"
+                                                   placeholder={selectedVerre.prixSupp1+" €"} disabled/>
+                                            <input className="form-control" id="reducPrixSup2" type="text"
+                                                   placeholder={selectedVerre.prixSupp2+" €"} disabled/>
+                                            <input className="form-control" id="reducPrixSup3" type="text"
+                                                   placeholder={selectedVerre.prixSupp3+" €"} disabled/>
+                                            <input className="form-control" id="reducPrixSup4" type="text"
                                                    placeholder={selectedVerre.prixSupp4+" €"} disabled/>
                                         </div>
                                     </div>

@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiSubresource;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CorrectionRepository")
@@ -22,6 +23,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  */
 class Correction
 {
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -33,12 +35,14 @@ class Correction
     /**
      * @ORM\Column(type="date")
      * @groups({"corrections_read","corrections_subresource","clients_read"})
+     * @Assert\NotBlank(message="la correction doit avoir une date de création")
      */
     private $date;
 
     /**
      * @ORM\Column(type="date")
      * @groups({"corrections_read","corrections_subresource","clients_read"})
+     * @Assert\NotBlank(message="la correction doit avoir une date de prescription")
      */
     private $datePrescription;
 
@@ -52,6 +56,7 @@ class Correction
      * @ORM\ManyToOne(targetEntity="App\Entity\Prescripteur")
      * @ORM\JoinColumn(nullable=false)
      * @groups({"corrections_read","corrections_subresource","clients_read"})
+     * @Assert\NotBlank(message="la correction doit avoir un prescripteur")
      */
     private $idPrescripteur;
 

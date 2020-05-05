@@ -35,14 +35,15 @@ security:
         api:
             pattern:   ^/api
             stateless: true
+            #Autorise l'accès au infos de l'api
             anonymous: true
             guard:
                 authenticators:
                     - lexik_jwt_authentication.jwt_token_authenticator
 
         main:
-            anonymous: lazy
-            provider: app_user_provider
+            anonymous: true
+            #provider: app_user_provider
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
@@ -66,4 +67,4 @@ security:
         - { path: ^/api/prescripteurs, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/api/stocks, roles: IS_AUTHENTICATED_FULLY}
         - { path: ^/api/verres, roles: IS_AUTHENTICATED_FULLY }
-        - { path: ^/api/users, roles: IS_AUTHENTICATED_FULLY , methods:[GET, PUT, DELETE]}
+        - { path: ^/api/users, roles: IS_AUTHENTICATED_FULLY , methods:[POST,GET, PUT, DELETE]}

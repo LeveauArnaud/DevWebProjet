@@ -46,8 +46,8 @@ const App = () =>{
                 <Route path="/login" component={LoginPage}/>
                 <PrivateRoute path="/stock/:id" component={StockInfosPage} />
                 <PrivateRoute path="/stock" component={StockPage} />
+                <PrivateRoute path="/client/:idClient/correction/:idCorrection/inami" component={ClientInamiPage} />
                 <PrivateRoute path="/client/:idClient/correction/:idCorrection" component={ClientCorrectionPage} />
-                <PrivateRoute path="/client/:idClient/inami" component={ClientInamiPage} />
                 <PrivateRoute path="/client/:id/infos" component={ClientInfosPage} />
                 <PrivateRoute path="/client/:id" component={ClientPage} />
                 <PrivateRoute path="/clients" component={ClientsPage} />

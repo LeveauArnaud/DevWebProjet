@@ -92,7 +92,6 @@ const ClientInfosPage = ({match, history}) => {
             toast.error("Impossible de charger les informations du client");
             history.replace("/clients");
         }
-
     }
 
 

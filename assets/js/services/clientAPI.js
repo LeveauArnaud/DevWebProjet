@@ -13,5 +13,4 @@ function update(idCorrection, correction) {
 
 export default{
     find,
-    update
 };

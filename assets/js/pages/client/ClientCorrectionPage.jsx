@@ -7,6 +7,7 @@ import ClientAPI from "../../services/clientAPI";
 import CorrectionAPI from "../../services/correctionAPI";
 import {toast} from "react-toastify";
 import Textarea from "../../components/forms/Textarea";
+import axios from "axios";
 
 const ClientCorrectionPage = ({match, history}) => {
 
@@ -20,25 +21,19 @@ const ClientCorrectionPage = ({match, history}) => {
     const { idCorrection = "new", idClient} = match.params;
 
     const [correction, setCorrection] = useState({
-        id:"",
-        date:"",
+        date:dateFormat(),
         datePrescription:"",
         commentaire:"",
         idPrescripteur:"",
-
-
+        idClient:""
 
     });
     const [errors, setErrors] = useState({
-        id:"",
-        date:"",
-        datePrescription:"",
-        commentaire:"",
-        idPrescripteur:"",
 
     });
 
     const [editing, setEditing ] = useState(false);
+
     //liste des prescripteurs
     const [prescripteurs, setPrescripteurs ] = useState([]);
 
@@ -87,29 +82,34 @@ const ClientCorrectionPage = ({match, history}) => {
 
 
     // Gestion des changements des inputs dans le formulaire
-    const handleChange = ({currentTarget}) =>{
-        const { name, value} = currentTarget;
-        if(name ==="commentaire" || name ==="date" || name ==="datePrescription"){
+    const handleChange = ({currentTarget}) => {
+        const { name, value } = currentTarget;
+        if(name ==="commentaire" || name ==="date" || name ==="datePrescription" || name ==="idPrescripteur"){
             setCorrection({...correction, [name]: value});
-        }else {
+        }else{
             setCorrection({...correction, [name]: +value});
         }
-
-
     };
 
     // Gestion de la soumission du formulaire
     const handleSubmit = async event =>{
         //eviter de recharger la page
         event.preventDefault();
+
+
         try{
-            setErrors({});
-            console.log(correction);
-            await ClientAPI.update(idCorrection, corection);
+            if(editing){
+                const response = await  axios.put("https://127.0.0.1:8000/api/corrections/"+idCorrection, {...correction, idPrescripteur:`/api/prescripteurs/${correction.idPrescripteur}`});
+                toast.success("Client modifié avec succès ");
+                history.replace("/client/"+idClient);
+            }else {
+                const response = await  axios.post("https://127.0.0.1:8000/api/corrections", {...correction, idClient:`/api/clients/${idClient}`, idPrescripteur:`/api/prescripteurs/${correction.idPrescripteur}`});
+                toast.success("Correction ajoutée avec succès au client "+idClient);
+                history.replace("/client/"+idClient);
+            }
 
 
-            // response === error.response
-        }catch ({ response }) {
+        }catch ({response}) {
 
             const { violations } =response.data;
 
@@ -130,7 +130,7 @@ const ClientCorrectionPage = ({match, history}) => {
         <>
             <div className="jumbotron">
 
-                {!editing && <h1>Création d'une correction pour le client : </h1> || <h1>Modification de la correction du client : {idClient}</h1>}
+                {!editing && <h1>Création d'une correction pour le client : {idClient}</h1> || <h1>Modification de la correction du client : {idClient}</h1>}
 
                 <form onSubmit={handleSubmit}>
 
@@ -141,8 +141,9 @@ const ClientCorrectionPage = ({match, history}) => {
                             <div className="col-md-6">
                                 <Select
                                     label="Prescripteur"
-                                    name="prescripteur"
+                                    name="idPrescripteur"
                                     onChange={handleChange}
+                                    error={errors.idPrescripteur}
                                 >
                                     <option value={correction.idPrescripteur.id}>{correction.idPrescripteur.nom}</option>
                                     {prescripteurs.map(p => <option key={p.id} value={p.id}>{p.nom}</option>)}
@@ -204,6 +205,8 @@ const ClientCorrectionPage = ({match, history}) => {
                                                             name="sphOdL"
                                                             value={correction.sphOdL}
                                                             onChange={handleChange}
+                                                            error={errors.sphOdL}
+                                                            type={"number"}
                                                         />
                                                     </div>
                                                     <div className="col-md-3">
@@ -211,6 +214,8 @@ const ClientCorrectionPage = ({match, history}) => {
                                                             name="cylOdL"
                                                             value={correction.cylOdL}
                                                             onChange={handleChange}
+                                                            error={errors.cylOdL}
+                                                            type={"number"}
                                                         />
                                                     </div>
                                                     <div className="col-md-3">
@@ -218,6 +223,8 @@ const ClientCorrectionPage = ({match, history}) => {
                                                             name="axOdL"
                                                             value={correction.axOdL}
                                                             onChange={handleChange}
+                                                            error={errors.axOdL}
+                                                            type={"number"}
                                                         />
                                                     </div>
                                                     <div className="col-md-3">
@@ -225,6 +232,8 @@ const ClientCorrectionPage = ({match, history}) => {
                                                             name="pdOdL"
                                                             value={correction.pdOdL}
                                                             onChange={handleChange}
+                                                            error={errors.pdOdL}
+                                                            type={"number"}
                                                         />
                                                     </div>
                                                 </div>
@@ -251,6 +260,8 @@ const ClientCorrectionPage = ({match, history}) => {
                                                             name="addOd"
                                                             value={correction.addOd}
                                                             onChange={handleChange}
+                                                            error={errors.addOd}
+                                                            type={"number"}
                                                         />
                                                     </div>
                                                     <div className="col-md-3">
@@ -265,6 +276,8 @@ const ClientCorrectionPage = ({match, history}) => {
                                                             name="addLOd"
                                                             value={correction.addLOd}
                                                             onChange={handleChange}
+                                                            error={errors.addLOd}
+                                                            type={"number"}
                                                         />
                                                     </div>
                                                 </div>
@@ -283,6 +296,8 @@ const ClientCorrectionPage = ({match, history}) => {
                                                             name="sphOdP"
                                                             value={correction.sphOdP}
                                                             onChange={handleChange}
+                                                            error={errors.sphOdP}
+                                                            type={"number"}
                                                         />
                                                     </div>
                                                     <div className="col-md-3">
@@ -290,6 +305,8 @@ const ClientCorrectionPage = ({match, history}) => {
                                                             name="cylOdP"
                                                             value={correction.cylOdP}
                                                             onChange={handleChange}
+                                                            error={errors.cylOdP}
+                                                            type={"number"}
                                                         />
                                                     </div>
                                                     <div className="col-md-3">
@@ -297,6 +314,8 @@ const ClientCorrectionPage = ({match, history}) => {
                                                             name="axOdP"
                                                             value={correction.axOdP}
                                                             onChange={handleChange}
+                                                            error={errors.axOdP}
+                                                            type={"number"}
                                                         />
                                                     </div>
                                                     <div className="col-md-3">
@@ -304,6 +323,8 @@ const ClientCorrectionPage = ({match, history}) => {
                                                             name="pdOdP"
                                                             value={correction.pdOdP}
                                                             onChange={handleChange}
+                                                            error={errors.pdOdP}
+                                                            type={"number"}
                                                         />
                                                     </div>
                                                 </div>
@@ -355,6 +376,8 @@ const ClientCorrectionPage = ({match, history}) => {
                                                             name="sphOgL"
                                                             value={correction.sphOgL}
                                                             onChange={handleChange}
+                                                            error={errors.sphOgL}
+                                                            type={"number"}
                                                         />
                                                     </div>
                                                     <div className="col-md-3">
@@ -362,6 +385,8 @@ const ClientCorrectionPage = ({match, history}) => {
                                                             name="cylOgL"
                                                             value={correction.cylOgL}
                                                             onChange={handleChange}
+                                                            error={errors.cylOgL}
+                                                            type={"number"}
                                                         />
                                                     </div>
                                                     <div className="col-md-3">
@@ -369,6 +394,8 @@ const ClientCorrectionPage = ({match, history}) => {
                                                             name="axOgL"
                                                             value={correction.axOgL}
                                                             onChange={handleChange}
+                                                            error={errors.axOgL}
+                                                            type={"number"}
                                                         />
                                                     </div>
                                                     <div className="col-md-3">
@@ -376,6 +403,8 @@ const ClientCorrectionPage = ({match, history}) => {
                                                             name="pdOgL"
                                                             value={correction.pdOgL}
                                                             onChange={handleChange}
+                                                            error={errors.pdOgL}
+                                                            type={"number"}
                                                         />
                                                     </div>
                                                 </div>
@@ -402,6 +431,8 @@ const ClientCorrectionPage = ({match, history}) => {
                                                             name="addOg"
                                                             value={correction.addOg}
                                                             onChange={handleChange}
+                                                            error={errors.addOg}
+                                                            type={"number"}
                                                         />
                                                     </div>
                                                     <div className="col-md-3">
@@ -416,6 +447,8 @@ const ClientCorrectionPage = ({match, history}) => {
                                                             name="addLOg"
                                                             value={correction.addLOg}
                                                             onChange={handleChange}
+                                                            error={errors.addLOg}
+                                                            type={"number"}
                                                         />
                                                     </div>
                                                 </div>
@@ -434,6 +467,8 @@ const ClientCorrectionPage = ({match, history}) => {
                                                             name="sphOgP"
                                                             value={correction.sphOgP}
                                                             onChange={handleChange}
+                                                            error={errors.sphOgP}
+                                                            type={"number"}
                                                         />
                                                     </div>
                                                     <div className="col-md-3">
@@ -441,6 +476,8 @@ const ClientCorrectionPage = ({match, history}) => {
                                                             name="cylOgP"
                                                             value={correction.cylOgP}
                                                             onChange={handleChange}
+                                                            error={errors.cylOgP}
+                                                            type={"number"}
                                                         />
                                                     </div>
                                                     <div className="col-md-3">
@@ -448,6 +485,8 @@ const ClientCorrectionPage = ({match, history}) => {
                                                             name="axOgP"
                                                             value={correction.axOgP}
                                                             onChange={handleChange}
+                                                            error={errors.axOgP}
+                                                            type={"number"}
                                                         />
                                                     </div>
                                                     <div className="col-md-3">
@@ -455,6 +494,8 @@ const ClientCorrectionPage = ({match, history}) => {
                                                             name="pdOgP"
                                                             value={correction.pdOgP}
                                                             onChange={handleChange}
+                                                            error={errors.pdOgP}
+                                                            type={"number"}
                                                         />
                                                     </div>
                                                 </div>
@@ -474,6 +515,7 @@ const ClientCorrectionPage = ({match, history}) => {
                                     type="textArea"
                                     value={correction.commentaire}
                                     onChange={handleChange}
+                                    error={errors.commentaire}
                                 />
                             </div>
                         </div>
