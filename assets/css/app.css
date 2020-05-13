@@ -1,10 +1,32 @@
-body {
-
+html,body {
+    height: 100%;
 }
 
+.container-fluid{
+    height: 100%;
+}
 .imgHome{
     max-width: 60%;
 }
 .c-img{
     max-width: 100px;
 }
+
+.my-loader {
+    width: 100%;
+}
+
+.btn-client{
+    width : 150px;
+}
+ .bg-teal{
+     background-color: #008080;
+ }
+
+ .bg-darkSalmon{
+     background-color: #E9967A;
+ }
+
+ input{
+     height: 2px;
+ }

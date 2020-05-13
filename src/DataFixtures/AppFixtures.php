@@ -114,7 +114,8 @@ class AppFixtures extends Fixture
                      ->setSexe($faker->randomElement(['F','M']))
                      ->setPhoto("https://via.placeholder.com/150")
                      ->setCodePostale($faker->randomNumber(4))
-                     ->setPhone($faker->randomNumber(9));
+                     ->setPhone($faker->randomNumber(9))
+                     ->setNCli($faker->randomNumber(4));
 
             $manager->persist($customer);
 
@@ -123,10 +124,28 @@ class AppFixtures extends Fixture
                 $correction->setDate($faker->dateTimeBetween('-3 months'))
                             ->setIdPrescripteur($prescripteur)
                             ->setDatePrescription($faker->dateTimeBetween('-8 months'))
-                            ->setOD("od-corr")
-                            ->setOG("og-corr")
                             ->setCommentaire($faker->text)
-                            ->setIdClient($customer);
+                            ->setIdClient($customer)
+                            ->setSphOdL($faker->randomNumber(3))
+                            ->setCylOdL($faker->randomNumber(3))
+                            ->setAxOdL($faker->randomNumber(3))
+                            ->setPdOdL($faker->randomNumber(3))
+                            ->setAddOd($faker->randomNumber(3))
+                            ->setAddLOd($faker->randomNumber(3))
+                            ->setSphOdP($faker->randomNumber(3))
+                            ->setCylOdP($faker->randomNumber(3))
+                            ->setAxOdP($faker->randomNumber(3))
+                            ->setPdOdP($faker->randomNumber(3))
+                            ->setSphOgL($faker->randomNumber(3))
+                            ->setCylOgL($faker->randomNumber(3))
+                            ->setAxOgL($faker->randomNumber(3))
+                            ->setPdOgL($faker->randomNumber(3))
+                            ->setAddOg($faker->randomNumber(3))
+                            ->setAddLOg($faker->randomNumber(3))
+                            ->setSphOgP($faker->randomNumber(3))
+                            ->setCylOgP($faker->randomNumber(3))
+                            ->setAxOgP($faker->randomNumber(3))
+                            ->setPdOgP($faker->randomNumber(3));
 
                 $manager->persist($correction);
             }

@@ -4,10 +4,14 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MagasinRepository")
- * @ApiResource
+ * @ApiResource(
+ *     normalizationContext={
+ *          "groups"={"maga_read"}
+ *     })
  */
 class Magasin
 {
@@ -15,11 +19,13 @@ class Magasin
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @groups({"maga_read","stock_read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @groups({"maga_read","stock_read"})
      */
     private $nom;
 

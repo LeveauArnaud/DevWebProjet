@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import axios from "axios";
 import Pagination from "../components/Pagination";
+import ClientsAPI from "../services/clientsAPI";
+import { Link } from "react-router-dom";
+import {toast} from "react-toastify";
+import TableLoader from "../components/loarders/TableLoader";
 
 const ClientsPage = (props) => {
 
@@ -8,61 +11,97 @@ const ClientsPage = (props) => {
 
     const [clients, setClients] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
+    const [search, setSearch] = useState("");
+    const [loading, setLoading] = useState(true);
+    // nbr items par page
+    const itemsPerPage = 5;
 
-    useEffect(()=>{
-            axios.get("https://127.0.0.1:8000/api/clients")
-                .then(response => response.data["hydra:member"])
-                .then(data => setClients(data))
-                .catch(error => console.log(error.response));
-        },[])
+    //permet de récupérer les clients
+    const fetchClients = async () => {
+        try {
+            const data = await ClientsAPI.findAll()
+            setClients(data);
+            setLoading(false);
+        } catch (error) {
+            toast.error("Impossible de charger les clients");
+        }
+
+    }
+
+    //au chargement du composant on va chercher les montures en stock
+    useEffect(()=> {
+        fetchClients()
+    },[])
 
 
 
+    // gestion changement de page
     const handlePageChange = page => {
         setCurrentPage(page);
     };
-    const itemsPerPage = 5;
+    // gestion de la recherche
+    const handleSearch = event =>{
+        const value = event.currentTarget.value;
+        setSearch(value);
+        setCurrentPage(1);
+    };
 
-    const paginatedClients = Pagination.getData(
-        clients,
-        currentPage,
-        itemsPerPage
+    // filtrage des montures en stock en fonction de la recherche
+    const filteredClients = clients.filter( c =>
+        c.nCli.toString().toLowerCase().includes(search.toLowerCase()) ||
+        c.prenom.toLowerCase().includes(search.toLowerCase()) ||
+        c.nom.toLowerCase().includes(search.toLowerCase()) ||
+        c.ville.toLowerCase().includes(search.toLowerCase()) ||
+        c.rue.toLowerCase().includes(search.toLowerCase())
+
     );
+
+
+    // pagination des données
+    const paginatedClients = Pagination.getData(
+        filteredClients,
+        currentPage,
+        itemsPerPage);
 
 
 
 
     return(
         <>
-            <h1>Liste des clients</h1>
-            <form className="">
-                <input className="form-control mr-sm-2" type="text" placeholder="Recherche client"/>
-            </form>
+
+            <div className="mb-3 d-flex justify-content-between align-items-center">
+                <h1>Liste des clients</h1>
+                <Link to="/client/new/infos" className="btn btn-primary">Créer un client</Link>
+            </div>
+            <div className="row">
+                <div className="col-md-12">
+                    <div className="form-group">
+                        <input type="text" onChange={handleSearch} value={search} className="form-control" placeholder="Rechercher ..." />
+                    </div>
+                </div>
+            </div>
             <table className="table table-hover">
                 <thead>
                     <tr>
-                        <th></th>
-                        <th scope="col" className="text-center">Nom</th>
-                        <th scope="col" className="text-center">Prenom</th>
-                        <th scope="col" className="text-center">Ville</th>
-                        <th scope="col" className="text-center">Rue</th>
-                        <th scope="col" className="text-center">
-                            <button
+                        <th className="text-center"></th>
+                        <th className="text-center">Code</th>
+                        <th className="text-center">Nom</th>
+                        <th className="text-center">Prenom</th>
+                        <th className="text-center">Ville</th>
+                        <th className="text-center">Rue</th>
+                        <th className="text-center align-middle">
 
-                                className="btn btn-sm btn-success"
-                            >
-                                Nouveau
-                            </button>
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+                {!loading &&<tbody>
                 {paginatedClients.map(client => <tr key={client.id} >
-                    <th scope="row" className="text-center align-middle"><img className="c-img" src={client.photo} /></th>
-                    <td className="text-center align-middle">{client.nom}</td>
-                    <td className="text-center align-middle">{client.prenom}</td>
-                    <td className="text-center align-middle">{client.ville}</td>
-                    <td className="text-center align-middle">{client.rue}</td>
+                    <th className="text-center"><img className="c-img" src={client.photo} /></th>
+                    <td className="text-center">{client.nCli}</td>
+                    <td className="text-center">{client.nom}</td>
+                    <td className="text-center">{client.prenom}</td>
+                    <td className="text-center">{client.ville}</td>
+                    <td className="text-center">{client.rue}</td>
                     <td className="text-center align-middle">
                         <a
                             href={"/#/client/"+client.id}
@@ -73,15 +112,23 @@ const ClientsPage = (props) => {
                     </td>
                 </tr>)}
 
-                </tbody>
+                </tbody>}
             </table>
 
-            <Pagination
+
+
+            {itemsPerPage < filteredClients.length &&( <Pagination
                 currentPage={currentPage}
                 itemsPerPage={itemsPerPage}
-                length={clients.length}
+                length={filteredClients.length}
                 onPageChanged={handlePageChange}
             />
+
+            )}
+            {loading &&
+            <TableLoader/>
+
+            }
 
 
         </>

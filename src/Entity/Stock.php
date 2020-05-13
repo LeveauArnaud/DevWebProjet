@@ -4,10 +4,14 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\StockRepository")
- * @ApiResource
+ * @ApiResource(
+ *     normalizationContext={
+ *          "groups"={"stock_read"}
+ *     })
  */
 class Stock
 {
@@ -15,23 +19,27 @@ class Stock
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @groups({"stock_read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="integer")
+     * @groups({"stock_read"})
      */
     private $quantite;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Monture")
      * @ORM\JoinColumn(nullable=false)
+     * @groups({"stock_read"})
      */
     private $idMonture;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Magasin")
      * @ORM\JoinColumn(nullable=false)
+     * @groups({"stock_read"})
      */
     private $idMagasin;
 

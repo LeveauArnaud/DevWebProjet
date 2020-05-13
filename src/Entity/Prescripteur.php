@@ -10,11 +10,6 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PrescripteurRepository")
  * @ApiResource(
- *     subresourceOperations={
- *          "api_clients_prescripteur_get_subresource"={
- *                  "normalization_context"={"groups"={"prescripteur_subresource"}}
- *          }
- *     },
  *     normalizationContext={
  *          "groups"={"prescripteurs_read"}
  *     }
@@ -26,13 +21,13 @@ class Prescripteur
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @groups({"prescripteurs_read","corrections_read","prescripteur_subresource"})
+     * @groups({"corrections_read","corrections_subresource","clients_read","prescripteurs_read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @groups({"prescripteurs_read","corrections_read","prescripteur_subresource"})
+     * @groups({"corrections_read","corrections_subresource","clients_read","prescripteurs_read"})
      */
     private $nom;
 

@@ -6504,8 +6504,8 @@
     },
     {
         "name": "symfony/security-csrf",
-        "version": "v5.0.7",
-        "version_normalized": "5.0.7.0",
+        "version": "v5.0.8",
+        "version_normalized": "5.0.8.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/security-csrf.git",
