@@ -20,6 +20,8 @@ import '../css/app.css';
 import ClientInfosPage from "./pages/client/ClientInfosPage";
 import ClientCorrectionPage from "./pages/client/ClientCorrectionPage";
 import ClientInamiPage from "./pages/client/ClientInamiPage";
+import ClientCommandeVerresPage from "./pages/client/ClientCommandeVerresPage";
+import ClientCommandeMonturePage from "./pages/client/ClientCommandeMonturePage";
 import {ToastContainer, toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -48,6 +50,8 @@ const App = () =>{
                 <PrivateRoute path="/stock" component={StockPage} />
                 <PrivateRoute path="/client/:idClient/correction/:idCorrection/inami" component={ClientInamiPage} />
                 <PrivateRoute path="/client/:idClient/correction/:idCorrection" component={ClientCorrectionPage} />
+                <PrivateRoute path="/client/:idClient/commandeMonture/:idCommandeMonture" component={ClientCommandeMonturePage} />
+                <PrivateRoute path="/client/:idClient/commandeVerres/:idCommandeVerres" component={ClientCommandeVerresPage} />
                 <PrivateRoute path="/client/:id/infos" component={ClientInfosPage} />
                 <PrivateRoute path="/client/:id" component={ClientPage} />
                 <PrivateRoute path="/clients" component={ClientsPage} />

@@ -466,162 +466,156 @@ const ClientPage = (props) => {
                                     <div className="row">
                                         <div className="col-md-12 p-5">
                                             <div className="row p-2">
-                                                <a className="btn btn-primary btn-client" type="button"
-                                                   data-toggle="collapse" data-target="#navbarColor01"
-                                                   aria-controls="navbarColor01" aria-expanded="false"
-                                                   aria-label="Toggle navigation">Modifier
+                                                <a className="btn btn-primary btn-client" href={"/#/client/"+id+"/commandeVerres/"+selectedVerre.id}>Modifier
                                                 </a>
                                             </div>
                                             <div className="row p-2">
-                                                <a className="btn btn-primary btn-client" type="button"
-                                                   data-toggle="collapse" data-target="#navbarColor01"
-                                                   aria-controls="navbarColor01" aria-expanded="false"
-                                                   aria-label="Toggle navigation">Nouvelle Commande
+                                                <a className="btn btn-primary btn-client" href={"/#/client/"+id+"/commandeVerres/new"}>Nouvelle
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="col-md-10">
-                                    <div className="row">
-                                        <div className="col-md-5"></div>
-                                        <div className="col-md-5"></div>
-                                        <div className="col-md-2">
-                                            <label>Prix : </label>
-                                        </div>
+                                <div className="row">
+                                    <div className="col-md-5"></div>
+                                    <div className="col-md-5"></div>
+                                    <div className="col-md-2">
+                                        <label>Prix : </label>
+                                    </div>
 
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-md-4">
-                                            <div className="row justify-content-end">
-                                                <div className="col-md-4">
-                                                    <h6 className="text-right">Marque</h6>
-                                                </div>
-                                                <div className="col-md-8">
-                                                    <input className="form-control" id="marque" type="text"
-                                                           placeholder={selectedVerre.idVerre && selectedVerre.idVerre.marque} disabled/>
-                                                </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-4">
+                                        <div className="row justify-content-end">
+                                            <div className="col-md-4">
+                                                <h6 className="text-right">Marque</h6>
                                             </div>
-                                            <div className="row justify-content-end">
-                                                <div className="col-md-4">
-                                                    <h6 className="text-right">Type</h6>
-                                                </div>
-                                                <div className="col-md-8">
-                                                    <input className="form-control" id="type" type="text"
-                                                           placeholder={selectedVerre.idVerre && selectedVerre.idVerre.type} disabled/>
-                                                </div>
-                                            </div>
-                                            <div className="row justify-content-end">
-                                                <div className="col-md-4">
-                                                    <h6 className="text-right">Sup 1</h6>
-                                                </div>
-                                            </div>
-                                            <div className="row justify-content-end">
-                                                <div className="col-md-4">
-                                                    <h6 className="text-right">Sup 2</h6>
-                                                </div>
-                                            </div>
-                                            <div className="row justify-content-end">
-                                                <div className="col-md-4">
-                                                    <h6 className="text-right">Sup 3</h6>
-                                                </div>
-                                            </div>
-                                            <div className="row justify-content-end">
-                                                <div className="col-md-4">
-                                                    <h6 className="text-right">Sup 4</h6>
-                                                </div>
+                                            <div className="col-md-8">
+                                                <input className="form-control" id="marque" type="text"
+                                                       placeholder={selectedVerre.idVerre && selectedVerre.idVerre.marque} disabled/>
                                             </div>
                                         </div>
-                                        <div className="col-md-4">
-                                            <div className="row justify-content-end">
-                                                <div className="col-md-3">
-                                                    <h6 className="text-right">D-D</h6>
-                                                </div>
-                                                <div className="col-md-4">
-                                                    <input className="form-control" id="DD" type="text"
-                                                           placeholder={selectedVerre.diamD} disabled/>
-                                                </div>
+                                        <div className="row justify-content-end">
+                                            <div className="col-md-4">
+                                                <h6 className="text-right">Type</h6>
                                             </div>
-                                            <div className="row justify-content-end">
-                                                <div className="col-md-3">
-                                                    <h6 className="text-right">D-G</h6>
-                                                </div>
-                                                <div className="col-md-4">
-                                                    <input className="form-control" id="DG" type="text"
-                                                           placeholder={selectedVerre.diamG} disabled/>
-                                                </div>
-                                            </div>
-                                            <div className="row justify-content-end">
-                                                <div className="col-md-9">
-                                                    <input className="form-control" id="sup1" type="text"
-                                                           placeholder={selectedVerre.supp1} disabled/>
-                                                </div>
-                                            </div>
-                                            <div className="row justify-content-end">
-                                                <div className="col-md-3">
-                                                    <h6 className="text-right">Sup 2</h6>
-                                                </div>
-                                                <div className="col-md-9">
-                                                    <input className="form-control" id="sup2" type="text"
-                                                           placeholder={selectedVerre.supp2} disabled/>
-                                                </div>
-                                            </div>
-                                            <div className="row justify-content-end">
-                                                <div className="col-md-3">
-                                                    <h6 className="text-right">Sup 3</h6>
-                                                </div>
-                                                <div className="col-md-9">
-                                                    <input className="form-control" id="sup3" type="text"
-                                                           placeholder={selectedVerre.supp3} disabled/>
-                                                </div>
-                                            </div>
-                                            <div className="row justify-content-end">
-                                                <div className="col-md-3">
-                                                    <h6 className="text-right">Sup 4</h6>
-                                                </div>
-                                                <div className="col-md-9">
-                                                    <input className="form-control" id="sup4" type="text"
-                                                           placeholder={selectedVerre.supp4} disabled/>
-                                                </div>
+                                            <div className="col-md-8">
+                                                <input className="form-control" id="type" type="text"
+                                                       placeholder={selectedVerre.idVerre && selectedVerre.idVerre.type} disabled/>
                                             </div>
                                         </div>
-                                        <div className="col-md-2">
-                                            <input className="form-control" id="prixDD" type="text"
-                                                   placeholder={selectedVerre.prixOD+" €"} disabled/>
-                                            <input className="form-control" id="prixDG" type="text"
-                                                   placeholder={selectedVerre.prixOG+" €"} disabled/>
-                                            <input className="form-control" id="prixSup1" type="text"
-                                                   placeholder={selectedVerre.prixSupp1+" €"} disabled/>
-                                            <input className="form-control" id="prixSup2" type="text"
-                                                   placeholder={selectedVerre.prixSupp2+" €"} disabled/>
-                                            <input className="form-control" id="prixSup3" type="text"
-                                                   placeholder={selectedVerre.prixSupp3+" €"} disabled/>
-                                            <input className="form-control" id="prixSup4" type="text"
-                                                   placeholder={selectedVerre.prixSupp4+" €"} disabled/>
+                                        <div className="row justify-content-end">
+                                            <div className="col-md-4">
+                                                <h6 className="text-right">Sup 1</h6>
+                                            </div>
                                         </div>
-                                        <div className="col-md-2">
-                                            <input className="form-control" id="reducPrixDD" type="text"
-                                                   placeholder={selectedVerre.prixOD+" €"} disabled/>
-                                            <input className="form-control" id="reducPrixDG" type="text"
-                                                   placeholder={selectedVerre.prixOG+" €"} disabled/>
-                                            <input className="form-control" id="reducPrixSup1" type="text"
-                                                   placeholder={selectedVerre.prixSupp1+" €"} disabled/>
-                                            <input className="form-control" id="reducPrixSup2" type="text"
-                                                   placeholder={selectedVerre.prixSupp2+" €"} disabled/>
-                                            <input className="form-control" id="reducPrixSup3" type="text"
-                                                   placeholder={selectedVerre.prixSupp3+" €"} disabled/>
-                                            <input className="form-control" id="reducPrixSup4" type="text"
-                                                   placeholder={selectedVerre.prixSupp4+" €"} disabled/>
+                                        <div className="row justify-content-end">
+                                            <div className="col-md-4">
+                                                <h6 className="text-right">Sup 2</h6>
+                                            </div>
+                                        </div>
+                                        <div className="row justify-content-end">
+                                            <div className="col-md-4">
+                                                <h6 className="text-right">Sup 3</h6>
+                                            </div>
+                                        </div>
+                                        <div className="row justify-content-end">
+                                            <div className="col-md-4">
+                                                <h6 className="text-right">Sup 4</h6>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="row">
-                                        <div className="col-md-12">
-                                            <label>Commentaire : </label>
-                                            <textarea className="form-control" id="verresCommentaire" type="text"
-                                                      placeholder={selectedVerre.commentaire} disabled/>
+                                    <div className="col-md-4">
+                                        <div className="row justify-content-end">
+                                            <div className="col-md-3">
+                                                <h6 className="text-right">D-D</h6>
+                                            </div>
+                                            <div className="col-md-4">
+                                                <input className="form-control" id="DD" type="text"
+                                                       placeholder={selectedVerre.diamD} disabled/>
+                                            </div>
                                         </div>
+                                        <div className="row justify-content-end">
+                                            <div className="col-md-3">
+                                                <h6 className="text-right">D-G</h6>
+                                            </div>
+                                            <div className="col-md-4">
+                                                <input className="form-control" id="DG" type="text"
+                                                       placeholder={selectedVerre.diamG} disabled/>
+                                            </div>
+                                        </div>
+                                        <div className="row justify-content-end">
+                                            <div className="col-md-9">
+                                                <input className="form-control" id="sup1" type="text"
+                                                       placeholder={selectedVerre.supp1} disabled/>
+                                            </div>
+                                        </div>
+                                        <div className="row justify-content-end">
+                                            <div className="col-md-3">
+                                                <h6 className="text-right">Sup 2</h6>
+                                            </div>
+                                            <div className="col-md-9">
+                                                <input className="form-control" id="sup2" type="text"
+                                                       placeholder={selectedVerre.supp2} disabled/>
+                                            </div>
+                                        </div>
+                                        <div className="row justify-content-end">
+                                            <div className="col-md-3">
+                                                <h6 className="text-right">Sup 3</h6>
+                                            </div>
+                                            <div className="col-md-9">
+                                                <input className="form-control" id="sup3" type="text"
+                                                       placeholder={selectedVerre.supp3} disabled/>
+                                            </div>
+                                        </div>
+                                        <div className="row justify-content-end">
+                                            <div className="col-md-3">
+                                                <h6 className="text-right">Sup 4</h6>
+                                            </div>
+                                            <div className="col-md-9">
+                                                <input className="form-control" id="sup4" type="text"
+                                                       placeholder={selectedVerre.supp4} disabled/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-2">
+                                        <input className="form-control" id="prixDD" type="text"
+                                               placeholder={selectedVerre.prixOD+" €"} disabled/>
+                                        <input className="form-control" id="prixDG" type="text"
+                                               placeholder={selectedVerre.prixOG+" €"} disabled/>
+                                        <input className="form-control" id="prixSup1" type="text"
+                                               placeholder={selectedVerre.prixSupp1+" €"} disabled/>
+                                        <input className="form-control" id="prixSup2" type="text"
+                                               placeholder={selectedVerre.prixSupp2+" €"} disabled/>
+                                        <input className="form-control" id="prixSup3" type="text"
+                                               placeholder={selectedVerre.prixSupp3+" €"} disabled/>
+                                        <input className="form-control" id="prixSup4" type="text"
+                                               placeholder={selectedVerre.prixSupp4+" €"} disabled/>
+                                    </div>
+                                    <div className="col-md-2">
+                                        <input className="form-control" id="reducPrixDD" type="text"
+                                               placeholder={selectedVerre.prixOD+" €"} disabled/>
+                                        <input className="form-control" id="reducPrixDG" type="text"
+                                               placeholder={selectedVerre.prixOG+" €"} disabled/>
+                                        <input className="form-control" id="reducPrixSup1" type="text"
+                                               placeholder={selectedVerre.prixSupp1+" €"} disabled/>
+                                        <input className="form-control" id="reducPrixSup2" type="text"
+                                               placeholder={selectedVerre.prixSupp2+" €"} disabled/>
+                                        <input className="form-control" id="reducPrixSup3" type="text"
+                                               placeholder={selectedVerre.prixSupp3+" €"} disabled/>
+                                        <input className="form-control" id="reducPrixSup4" type="text"
+                                               placeholder={selectedVerre.prixSupp4+" €"} disabled/>
                                     </div>
                                 </div>
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <label>Commentaire : </label>
+                                        <textarea className="form-control" id="verresCommentaire" type="text"
+                                                  placeholder={selectedVerre.commentaire} disabled/>
+                                    </div>
+                                </div>
+                            </div>
 
                             </div>
                             <div className="row align-items-center" id="montures">
@@ -637,18 +631,12 @@ const ClientPage = (props) => {
                                     <div className="row">
                                         <div className="col-md-12 p-5">
                                             <div className="row p-2">
-                                                <button className="btn btn-primary btn-client" type="button"
-                                                        data-toggle="collapse" data-target="#navbarColor01"
-                                                        aria-controls="navbarColor01" aria-expanded="false"
-                                                        aria-label="Toggle navigation">Modifier
-                                                </button>
+                                                <a className="btn btn-primary btn-client" href={"/#/client/"+id+"/commandeMonture/"+selectedVerre.id}>Modifier
+                                                </a>
                                             </div>
                                             <div className="row p-2">
-                                                <button className="btn btn-primary btn-client" type="button"
-                                                        data-toggle="collapse" data-target="#navbarColor01"
-                                                        aria-controls="navbarColor01" aria-expanded="false"
-                                                        aria-label="Toggle navigation">Nouvelle Commande
-                                                </button>
+                                                <a className="btn btn-primary btn-client" href={"/#/client/"+id+"/commandeMonture/new"}>Nouvelle
+                                                </a>
                                             </div>
                                         </div>
                                     </div>

@@ -8,6 +8,7 @@ import CorrectionAPI from "../../services/correctionAPI";
 import {toast} from "react-toastify";
 import Textarea from "../../components/forms/Textarea";
 import axios from "axios";
+import ClientsAPI from "../../services/clientsAPI";
 
 const ClientCorrectionPage = ({match, history}) => {
 
@@ -51,7 +52,7 @@ const ClientCorrectionPage = ({match, history}) => {
         }
 
     }
-
+    console.log(correction);
     // Récupération liste des prescipteurs
     const fetchPrescripteurs = async idCorrection => {
         try{
@@ -99,7 +100,7 @@ const ClientCorrectionPage = ({match, history}) => {
 
         try{
             if(editing){
-                const response = await  axios.put("https://127.0.0.1:8000/api/corrections/"+idCorrection, {...correction, idPrescripteur:`/api/prescripteurs/${correction.idPrescripteur}`});
+                await CorrectionAPI.update(idCorrection, correction);
                 toast.success("Client modifié avec succès ");
                 history.replace("/client/"+idClient);
             }else {

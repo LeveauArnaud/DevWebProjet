@@ -11,8 +11,8 @@ function find(idCorrection) {
         .then(response => response.data);
 }
 
-function update(idClient, idCorrection, correction) {
-    return axios.put("https://127.0.0.1:8000/api/corrections/"+idCorrection, {...correction, idPrescripteur:`/api/prescripteurs/${correction.idPrescripteur}`});
+function update(idCorrection, correction) {
+    return axios.patch("https://127.0.0.1:8000/api/corrections/"+idCorrection, correction);
 }
 
 export default{

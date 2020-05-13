@@ -27,7 +27,7 @@ class CommandeMonture
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @groups({"commandeMonture_read","commandeMonture_subresource","clients_read"})
+     * @groups({"commandeMonture_read","commandeMonture_subresource","clients_read","monture_read"})
      */
     private $id;
 
