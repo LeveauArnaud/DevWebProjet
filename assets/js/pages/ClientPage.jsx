@@ -190,7 +190,7 @@ const ClientPage = (props) => {
                                         <div className="col-md-6">
                                             <label>Date prescription : </label>
                                             <input className="form-control" id="datePrescription" type="text"
-                                                   placeholder={dateFormat(selectedCorrection && selectedCorrection.datePrescription)} disabled/>
+                                                   placeholder={selectedCorrection && dateFormat( selectedCorrection.datePrescription)} disabled/>
                                         </div>
 
                                     </div>
@@ -490,9 +490,12 @@ const ClientPage = (props) => {
                                 <div className="col-md-10">
                                 <div className="row">
                                     <div className="col-md-5"></div>
-                                    <div className="col-md-5"></div>
+                                    <div className="col-md-3"></div>
                                     <div className="col-md-2">
                                         <label>Prix : </label>
+                                    </div>
+                                    <div className="col-md-2">
+                                        <label>Prix Réd. : </label>
                                     </div>
 
                                 </div>

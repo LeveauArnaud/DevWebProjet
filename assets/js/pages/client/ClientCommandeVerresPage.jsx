@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 import moment from 'moment';
 import ClientsAPI from "../../services/clientsAPI";
 import ClientAPI from "../../services/clientAPI";
+import VerresAPI from "../../services/verresAPI";
 import {toast} from "react-toastify";
 import Textarea from "../../components/forms/Textarea";
+import CorrectionAPI from "../../services/correctionAPI";
 
 const ClientCommandeVerresPage = ({match, history}) => {
 
@@ -18,8 +20,10 @@ const ClientCommandeVerresPage = ({match, history}) => {
     }
 
     const { idClient , idCommandeVerres ="new"} = match.params;
-
+    //infos client
     const [client, setClient] = useState([]);
+    //infos verres
+    const [verres, setVerres] = useState([]);
     const [commandeVerres, setCommandeVerres] = useState([]);
     const [errors, setErrors] = useState([]);
 
@@ -51,16 +55,54 @@ const ClientCommandeVerresPage = ({match, history}) => {
     }, [idCommandeVerres]);
 
 
+    // Récupération du client en fonction de son id
+    const fetchClient = async idClient =>{
+        try{
+            //awit permet de attendre afin de ne récuperer que les data
+            const {
+                nCli
+            } = await ClientsAPI.findID(idClient);
+
+            setClient({
+                nCli
+            });
+        }catch (e) {
+            toast.error("Impossible de charger les informations du client");
+            history.replace("/clients");
+        }
+    }
+
+
+    // Chargement du client si besoin au chargement du composant ou au chargement de l'id ( à chaque changement de l'id)
+    useEffect(() =>{
+        fetchClient(idClient);
+
+    }, [idClient]);
+
+    // Récupération liste des verres
+    const fetchVerres = async () => {
+        try{
+            //awit permet de attendre afin de ne récuperer que les data
+            const dataVerres = await VerresAPI.findAllVerres();
+            setVerres(dataVerres);
+
+        }catch (e) {
+            toast.error("Impossible de charger la liste des prescripteurs");
+            history.replace("/client/"+idClient);
+        }
+
+    }
+ console.log(verres);
+    // Chargement liste des verres
+    useEffect(() =>{
+        fetchVerres();
+
+    }, []);
+
     // Gestion des changements des inputs dans le formulaire
     const handleChange = ({currentTarget}) =>{
         const { name, value} = currentTarget;
-        if(name ==="codePostale" || name ==="phone" ){
-            setClient({...client, [name]: +value});
-        }else {
-            setClient({...client, [name]: value});
-        }
-
-
+        setCommandeVerres({...commandeVerres, [name]: value});
     };
 
     // Gestion de la soumission du formulaire
@@ -118,28 +160,19 @@ const ClientCommandeVerresPage = ({match, history}) => {
                             <div className="col-md-5">
                                 <div className="row justify-content-end">
                                     <div className="col-md-4">
-                                        <h6 className="text-right">Marque</h6>
+                                        <h6 className="text-right">Verres</h6>
                                     </div>
                                     <div className="col-md-8">
-                                        <Field
-                                            name="marque"
-                                            placeHolder="marque"
-                                            value={commandeVerres.idVerre && commandeVerres.idVerre.marque}
+                                        <Select
+                                            value={commandeVerres.idVerre && commandeVerres.idVerre.id}
+                                            name="idVerres"
                                             onChange={handleChange}
-                                        />
-                                    </div>
-                                </div>
-                                <div className="row justify-content-end">
-                                    <div className="col-md-4">
-                                        <h6 className="text-right">Type</h6>
-                                    </div>
-                                    <div className="col-md-8">
-                                        <Field
-                                            name="type"
-                                            placeHolder="type"
-                                            value={commandeVerres.idVerre && commandeVerres.idVerre.type}
-                                            onChange={handleChange}
-                                        />
+                                            error={errors.idVerres}
+                                        >
+
+                                            {!editing && <option >Selectionner un verres</option>}
+                                            {verres.map(v => <option key={v.id} value={v.id}>{v.marque +" - "+v.type}</option>)}
+                                        </Select>
                                     </div>
                                 </div>
                             </div>

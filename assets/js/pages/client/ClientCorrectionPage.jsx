@@ -37,7 +37,8 @@ const ClientCorrectionPage = ({match, history}) => {
 
     //liste des prescripteurs
     const [prescripteurs, setPrescripteurs ] = useState([]);
-    const [idPrescripteur, setIdPrescripteur ] = useState([]);
+    //infos client
+    const [client, setClient] = useState([]);
 
     // Récupération du client en fonction de son id
     const fetchCorrection = async idCorrection => {
@@ -53,7 +54,7 @@ const ClientCorrectionPage = ({match, history}) => {
         }
     }
     // Récupération liste des prescipteurs
-    const fetchPrescripteurs = async idCorrection => {
+    const fetchPrescripteurs = async () => {
         try{
             //awit permet de attendre afin de ne récuperer que les data
             const dataPrescripteur = await CorrectionAPI.findAllPrescripteur();
@@ -65,6 +66,30 @@ const ClientCorrectionPage = ({match, history}) => {
         }
 
     }
+
+    // Récupération du client en fonction de son id
+    const fetchClient = async idClient =>{
+        try{
+            //awit permet de attendre afin de ne récuperer que les data
+            const {
+                nCli
+            } = await ClientsAPI.findID(idClient);
+
+            setClient({
+                nCli
+            });
+        }catch (e) {
+            toast.error("Impossible de charger les informations du client");
+            history.replace("/clients");
+        }
+    }
+
+
+    // Chargement du client si besoin au chargement du composant ou au chargement de l'id ( à chaque changement de l'id)
+    useEffect(() =>{
+        fetchClient(idClient);
+
+    }, [idClient]);
 
     // Chargement du client si besoin au chargement du composant ou au chargement de l'id ( à chaque changement de l'id)
     useEffect(() =>{
@@ -133,7 +158,7 @@ const ClientCorrectionPage = ({match, history}) => {
         <>
             <div className="jumbotron">
 
-                {!editing && <h1>Création d'une correction pour le client : {idClient}</h1> || <h1>Modification de la correction du client : {idClient}</h1>}
+                {!editing && <h1>Création d'une correction pour le client : {client.nCli}</h1> || <h1>Modification de la correction du client : {client.nCli}</h1>}
 
                 <form onSubmit={handleSubmit}>
 
