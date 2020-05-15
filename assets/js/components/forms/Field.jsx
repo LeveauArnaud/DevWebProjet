@@ -9,7 +9,7 @@ const Field = ({
                    placeHolder,
                    type = "text",
                    error=""
-}) =>(
+                }) =>(
         <div className="form-group">
             <label htmlFor={name}>{label}</label>
             <input

@@ -27,6 +27,7 @@ function findCommandeMonture(idCommandeMonture){
 
 export default{
     find,
+    update,
     findCommandeVerres,
     UpdateCommandeVerres,
     findCommandeMonture

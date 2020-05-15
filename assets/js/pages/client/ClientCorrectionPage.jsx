@@ -37,6 +37,7 @@ const ClientCorrectionPage = ({match, history}) => {
 
     //liste des prescripteurs
     const [prescripteurs, setPrescripteurs ] = useState([]);
+    const [idPrescripteur, setIdPrescripteur ] = useState([]);
 
     // Récupération du client en fonction de son id
     const fetchCorrection = async idCorrection => {
@@ -44,15 +45,13 @@ const ClientCorrectionPage = ({match, history}) => {
             //awit permet de attendre afin de ne récuperer que les data
             const dataCorrection = await ClientAPI.find(idCorrection);
 
-            setCorrection(dataCorrection);
+            setCorrection({...dataCorrection, ["idPrescripteur"]: dataCorrection.idPrescripteur.id});
             console.log(correction);
         }catch (e) {
             toast.error("Impossible de charger la correction du client");
             history.replace("/client/"+idClient);
         }
-
     }
-    console.log(correction);
     // Récupération liste des prescipteurs
     const fetchPrescripteurs = async idCorrection => {
         try{
@@ -90,6 +89,8 @@ const ClientCorrectionPage = ({match, history}) => {
         }else{
             setCorrection({...correction, [name]: +value});
         }
+        console.log(correction);
+
     };
 
     // Gestion de la soumission du formulaire
@@ -98,9 +99,10 @@ const ClientCorrectionPage = ({match, history}) => {
         event.preventDefault();
 
 
+
         try{
             if(editing){
-                await CorrectionAPI.update(idCorrection, correction);
+                await CorrectionAPI.update(idCorrection,idClient,correction.idPrescripteur, correction);
                 toast.success("Client modifié avec succès ");
                 history.replace("/client/"+idClient);
             }else {
@@ -141,12 +143,14 @@ const ClientCorrectionPage = ({match, history}) => {
                         <div className="row">
                             <div className="col-md-6">
                                 <Select
+                                    value={correction.idPrescripteur}
                                     label="Prescripteur"
                                     name="idPrescripteur"
                                     onChange={handleChange}
                                     error={errors.idPrescripteur}
                                 >
-                                    <option value={correction.idPrescripteur.id}>{correction.idPrescripteur.nom}</option>
+
+                                    {!editing && <option >Selectionner un ophtalmologue</option>}
                                     {prescripteurs.map(p => <option key={p.id} value={p.id}>{p.nom}</option>)}
                                 </Select>
                             </div>

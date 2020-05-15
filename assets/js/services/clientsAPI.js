@@ -11,7 +11,7 @@ function findID(id) {
 }
 
 function update(id, client) {
-    return axios.patch("https://127.0.0.1:8000/api/clients/"+id, client);
+    return axios.put("https://127.0.0.1:8000/api/clients/"+id, client);
 }
 
 function create(client) {

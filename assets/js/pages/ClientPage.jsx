@@ -82,6 +82,14 @@ const ClientPage = (props) => {
         })
     };
 
+    const handleClick = (e) => {
+        let eC =  e.target.id.slice(6).toLowerCase();
+        let elementClick = document.getElementById(eC);
+        let element = document.getElementById(eC==="verres" && "montures" || "verres");
+        elementClick.classList.remove("d-none");
+        element.classList.add("d-none");
+    }
+
     return(
         <>
             <h1>Infos du client : {client.nCli}</h1>
@@ -155,16 +163,18 @@ const ClientPage = (props) => {
                                     <div className="row">
                                         <div className="col-md-12 p-5">
                                             <div className="row p-2">
+                                                {selectedCorrection &&
                                                 <a className="btn btn-primary btn-client" href={"/#/client/"+id+"/correction/"+selectedCorrection.id}>Modifier
-                                                </a>
+                                                </a>}
                                             </div>
                                             <div className="row p-2">
                                                 <a className="btn btn-primary btn-client" href={"/#/client/"+id+"/correction/new"}>Nouvelle
                                                 </a>
                                             </div>
                                             <div className="row p-2">
+                                                {selectedCorrection &&
                                                 <a className="btn btn-primary btn-client" href={"/#/client/"+id+"/correction/"+selectedCorrection.id+"/inami"}>Doc INAMI
-                                                </a>
+                                                </a>}
                                             </div>
                                         </div>
                                     </div>
@@ -174,13 +184,13 @@ const ClientPage = (props) => {
                                         <div className="col-md-6">
                                             <label>Prescripteur : </label>
                                             <input className="form-control" id="prescripteur" type="text"
-                                                   placeholder={selectedCorrection.idPrescripteur && selectedCorrection.idPrescripteur.nom} disabled/>
+                                                   placeholder={selectedCorrection && selectedCorrection.idPrescripteur && selectedCorrection.idPrescripteur.nom} disabled/>
                                         </div>
 
                                         <div className="col-md-6">
                                             <label>Date prescription : </label>
                                             <input className="form-control" id="datePrescription" type="text"
-                                                   placeholder={dateFormat(selectedCorrection.datePrescription)} disabled/>
+                                                   placeholder={dateFormat(selectedCorrection && selectedCorrection.datePrescription)} disabled/>
                                         </div>
 
                                     </div>
@@ -224,19 +234,19 @@ const ClientPage = (props) => {
                                                             <div className="row justify-content-end">
                                                                 <div className="col-md-3">
                                                                     <input className="form-control" id="sphOdL" type="text"
-                                                                           placeholder={selectedCorrection.sphOdL} disabled/>
+                                                                           placeholder={selectedCorrection && selectedCorrection.sphOdL} disabled/>
                                                                 </div>
                                                                 <div className="col-md-3">
                                                                     <input className="form-control" id="cylOdL" type="text"
-                                                                           placeholder={selectedCorrection.cylOdL} disabled/>
+                                                                           placeholder={selectedCorrection && selectedCorrection.cylOdL} disabled/>
                                                                 </div>
                                                                 <div className="col-md-3">
                                                                     <input className="form-control" id="axOdL" type="text"
-                                                                           placeholder={selectedCorrection.axOdL} disabled/>
+                                                                           placeholder={selectedCorrection && selectedCorrection.axOdL} disabled/>
                                                                 </div>
                                                                 <div className="col-md-3">
                                                                     <input className="form-control" id="pdOdL" type="text"
-                                                                           placeholder={selectedCorrection.pdOdL} disabled/>
+                                                                           placeholder={selectedCorrection && selectedCorrection.pdOdL} disabled/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -259,7 +269,7 @@ const ClientPage = (props) => {
                                                                 </div>
                                                                 <div className="col-md-3">
                                                                     <input className="form-control" id="addOd" type="text"
-                                                                           placeholder={selectedCorrection.addOd} disabled/>
+                                                                           placeholder={selectedCorrection && selectedCorrection.addOd} disabled/>
                                                                 </div>
                                                                 <div className="col-md-3">
                                                                     <div className="row justify-content-end">
@@ -270,7 +280,7 @@ const ClientPage = (props) => {
                                                                 </div>
                                                                 <div className="col-md-3">
                                                                     <input className="form-control" id="addLOd" type="text"
-                                                                           placeholder={selectedCorrection.addLOd} disabled/>
+                                                                           placeholder={selectedCorrection && selectedCorrection.addLOd} disabled/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -285,19 +295,19 @@ const ClientPage = (props) => {
                                                             <div className="row">
                                                                 <div className="col-md-3">
                                                                     <input className="form-control" id="sphOdP" type="text"
-                                                                           placeholder={selectedCorrection.sphOdP} disabled/>
+                                                                           placeholder={selectedCorrection && selectedCorrection.sphOdP} disabled/>
                                                                 </div>
                                                                 <div className="col-md-3">
                                                                     <input className="form-control" id="cylOdP" type="text"
-                                                                           placeholder={selectedCorrection.cylOdP} disabled/>
+                                                                           placeholder={selectedCorrection && selectedCorrection.cylOdP} disabled/>
                                                                 </div>
                                                                 <div className="col-md-3">
                                                                     <input className="form-control" id="axOdP" type="text"
-                                                                           placeholder={selectedCorrection.axOdP} disabled/>
+                                                                           placeholder={selectedCorrection && selectedCorrection.axOdP} disabled/>
                                                                 </div>
                                                                 <div className="col-md-3">
                                                                     <input className="form-control" id="pdOdP" type="text"
-                                                                           placeholder={selectedCorrection.pdOdP} disabled/>
+                                                                           placeholder={selectedCorrection && selectedCorrection.pdOdP} disabled/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -345,19 +355,19 @@ const ClientPage = (props) => {
                                                             <div className="row justify-content-end">
                                                                 <div className="col-md-3">
                                                                     <input className="form-control" id="sphOgL" type="text"
-                                                                           placeholder={selectedCorrection.sphOgL} disabled/>
+                                                                           placeholder={selectedCorrection && selectedCorrection.sphOgL} disabled/>
                                                                 </div>
                                                                 <div className="col-md-3">
                                                                     <input className="form-control" id="cylOgL" type="text"
-                                                                           placeholder={selectedCorrection.cylOgL} disabled/>
+                                                                           placeholder={selectedCorrection && selectedCorrection.cylOgL} disabled/>
                                                                 </div>
                                                                 <div className="col-md-3">
                                                                     <input className="form-control" id="axOgL" type="text"
-                                                                           placeholder={selectedCorrection.axOgL} disabled/>
+                                                                           placeholder={selectedCorrection && selectedCorrection.axOgL} disabled/>
                                                                 </div>
                                                                 <div className="col-md-3">
                                                                     <input className="form-control" id="pdOgL" type="text"
-                                                                           placeholder={selectedCorrection.pdOgL} disabled/>
+                                                                           placeholder={selectedCorrection && selectedCorrection.pdOgL} disabled/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -380,7 +390,7 @@ const ClientPage = (props) => {
                                                                 </div>
                                                                 <div className="col-md-3">
                                                                     <input className="form-control" id="addOg" type="text"
-                                                                           placeholder={selectedCorrection.addOg} disabled/>
+                                                                           placeholder={selectedCorrection && selectedCorrection.addOg} disabled/>
                                                                 </div>
                                                                 <div className="col-md-3">
                                                                     <div className="row justify-content-end">
@@ -391,7 +401,7 @@ const ClientPage = (props) => {
                                                                 </div>
                                                                 <div className="col-md-3">
                                                                     <input className="form-control" id="addLOg" type="text"
-                                                                           placeholder={selectedCorrection.addLOg} disabled/>
+                                                                           placeholder={selectedCorrection && selectedCorrection.addLOg} disabled/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -406,19 +416,19 @@ const ClientPage = (props) => {
                                                             <div className="row">
                                                                 <div className="col-md-3">
                                                                     <input className="form-control" id="sphOgP" type="text"
-                                                                           placeholder={selectedCorrection.sphOgP} disabled/>
+                                                                           placeholder={selectedCorrection && selectedCorrection.sphOgP} disabled/>
                                                                 </div>
                                                                 <div className="col-md-3">
                                                                     <input className="form-control" id="cylOgP" type="text"
-                                                                           placeholder={selectedCorrection.cylOgP} disabled/>
+                                                                           placeholder={selectedCorrection && selectedCorrection.cylOgP} disabled/>
                                                                 </div>
                                                                 <div className="col-md-3">
                                                                     <input className="form-control" id="axOgP" type="text"
-                                                                           placeholder={selectedCorrection.axOgP} disabled/>
+                                                                           placeholder={selectedCorrection && selectedCorrection.axOgP} disabled/>
                                                                 </div>
                                                                 <div className="col-md-3">
                                                                     <input className="form-control" id="pdOgP" type="text"
-                                                                           placeholder={selectedCorrection.pdOgP} disabled/>
+                                                                           placeholder={selectedCorrection && selectedCorrection.pdOgP} disabled/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -431,8 +441,8 @@ const ClientPage = (props) => {
                                     <div className="row">
                                         <div className="col-md-12">
                                         <label>Commentaire : </label>
-                                        <textarea className="form-control" id="correctionCommentaire" type="text"
-                                               placeholder={selectedCorrection.commentaire}disabled/>
+                                        <textarea className="form-control" id="correctionCommentaire"
+                                               placeholder={selectedCorrection && selectedCorrection.commentaire}disabled/>
                                         </div>
                                     </div>
                                 </div>
@@ -444,16 +454,16 @@ const ClientPage = (props) => {
                     <div className="card text-white bg-darkSalmon mb-3">
                         <div className="card-Header text-center">
                             <div className="row">
+                                <div   className="col-md-6">
+                                    <h1  id="espaceVerres" className="nav-link active" onClick={handleClick}>Espace verres</h1>
+                                </div >
                                 <div className="col-md-6">
-                                    <h1>Espace verres</h1>
-                                </div>
-                                <div className="col-md-6">
-                                    <h1>Espace monture</h1>
+                                    <h1 id="espaceMontures" onClick={handleClick}>Espace monture</h1>
                                 </div>
                             </div>
                         </div>
                         <div className="card-body">
-                            <div className="row" id="verres">
+                            <div className="row align-items-center " id="verres">
                                 <div className="col-md-2">
                                     <div className="row">
                                         <label htmlFor="exampleSelect1"><h4>Date Commande</h4></label>
@@ -466,8 +476,9 @@ const ClientPage = (props) => {
                                     <div className="row">
                                         <div className="col-md-12 p-5">
                                             <div className="row p-2">
+                                                {selectedVerre &&
                                                 <a className="btn btn-primary btn-client" href={"/#/client/"+id+"/commandeVerres/"+selectedVerre.id}>Modifier
-                                                </a>
+                                                </a>}
                                             </div>
                                             <div className="row p-2">
                                                 <a className="btn btn-primary btn-client" href={"/#/client/"+id+"/commandeVerres/new"}>Nouvelle
@@ -493,7 +504,7 @@ const ClientPage = (props) => {
                                             </div>
                                             <div className="col-md-8">
                                                 <input className="form-control" id="marque" type="text"
-                                                       placeholder={selectedVerre.idVerre && selectedVerre.idVerre.marque} disabled/>
+                                                       placeholder={selectedVerre && selectedVerre.idVerre && selectedVerre.idVerre.marque} disabled/>
                                             </div>
                                         </div>
                                         <div className="row justify-content-end">
@@ -502,7 +513,7 @@ const ClientPage = (props) => {
                                             </div>
                                             <div className="col-md-8">
                                                 <input className="form-control" id="type" type="text"
-                                                       placeholder={selectedVerre.idVerre && selectedVerre.idVerre.type} disabled/>
+                                                       placeholder={selectedVerre && selectedVerre.idVerre && selectedVerre.idVerre.type} disabled/>
                                             </div>
                                         </div>
                                         <div className="row justify-content-end">
@@ -533,7 +544,7 @@ const ClientPage = (props) => {
                                             </div>
                                             <div className="col-md-4">
                                                 <input className="form-control" id="DD" type="text"
-                                                       placeholder={selectedVerre.diamD} disabled/>
+                                                       placeholder={selectedVerre && selectedVerre.diamD} disabled/>
                                             </div>
                                         </div>
                                         <div className="row justify-content-end">
@@ -542,13 +553,13 @@ const ClientPage = (props) => {
                                             </div>
                                             <div className="col-md-4">
                                                 <input className="form-control" id="DG" type="text"
-                                                       placeholder={selectedVerre.diamG} disabled/>
+                                                       placeholder={selectedVerre && selectedVerre.diamG} disabled/>
                                             </div>
                                         </div>
                                         <div className="row justify-content-end">
                                             <div className="col-md-9">
                                                 <input className="form-control" id="sup1" type="text"
-                                                       placeholder={selectedVerre.supp1} disabled/>
+                                                       placeholder={selectedVerre && selectedVerre.supp1} disabled/>
                                             </div>
                                         </div>
                                         <div className="row justify-content-end">
@@ -557,7 +568,7 @@ const ClientPage = (props) => {
                                             </div>
                                             <div className="col-md-9">
                                                 <input className="form-control" id="sup2" type="text"
-                                                       placeholder={selectedVerre.supp2} disabled/>
+                                                       placeholder={selectedVerre && selectedVerre.supp2} disabled/>
                                             </div>
                                         </div>
                                         <div className="row justify-content-end">
@@ -566,7 +577,7 @@ const ClientPage = (props) => {
                                             </div>
                                             <div className="col-md-9">
                                                 <input className="form-control" id="sup3" type="text"
-                                                       placeholder={selectedVerre.supp3} disabled/>
+                                                       placeholder={selectedVerre && selectedVerre.supp3} disabled/>
                                             </div>
                                         </div>
                                         <div className="row justify-content-end">
@@ -575,50 +586,50 @@ const ClientPage = (props) => {
                                             </div>
                                             <div className="col-md-9">
                                                 <input className="form-control" id="sup4" type="text"
-                                                       placeholder={selectedVerre.supp4} disabled/>
+                                                       placeholder={selectedVerre && selectedVerre.supp4} disabled/>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-md-2">
                                         <input className="form-control" id="prixDD" type="text"
-                                               placeholder={selectedVerre.prixOD+" €"} disabled/>
+                                               placeholder={selectedVerre && selectedVerre.prixOD+" €"} disabled/>
                                         <input className="form-control" id="prixDG" type="text"
-                                               placeholder={selectedVerre.prixOG+" €"} disabled/>
+                                               placeholder={selectedVerre && selectedVerre.prixOG+" €"} disabled/>
                                         <input className="form-control" id="prixSup1" type="text"
-                                               placeholder={selectedVerre.prixSupp1+" €"} disabled/>
+                                               placeholder={selectedVerre && selectedVerre.prixSupp1+" €"} disabled/>
                                         <input className="form-control" id="prixSup2" type="text"
-                                               placeholder={selectedVerre.prixSupp2+" €"} disabled/>
+                                               placeholder={selectedVerre && selectedVerre.prixSupp2+" €"} disabled/>
                                         <input className="form-control" id="prixSup3" type="text"
-                                               placeholder={selectedVerre.prixSupp3+" €"} disabled/>
+                                               placeholder={selectedVerre && selectedVerre.prixSupp3+" €"} disabled/>
                                         <input className="form-control" id="prixSup4" type="text"
-                                               placeholder={selectedVerre.prixSupp4+" €"} disabled/>
+                                               placeholder={selectedVerre && selectedVerre.prixSupp4+" €"} disabled/>
                                     </div>
                                     <div className="col-md-2">
                                         <input className="form-control" id="reducPrixDD" type="text"
-                                               placeholder={selectedVerre.prixOD+" €"} disabled/>
+                                               placeholder={selectedVerre && selectedVerre.prixOD+" €"} disabled/>
                                         <input className="form-control" id="reducPrixDG" type="text"
-                                               placeholder={selectedVerre.prixOG+" €"} disabled/>
+                                               placeholder={selectedVerre && selectedVerre.prixOG+" €"} disabled/>
                                         <input className="form-control" id="reducPrixSup1" type="text"
-                                               placeholder={selectedVerre.prixSupp1+" €"} disabled/>
+                                               placeholder={selectedVerre && selectedVerre.prixSupp1+" €"} disabled/>
                                         <input className="form-control" id="reducPrixSup2" type="text"
-                                               placeholder={selectedVerre.prixSupp2+" €"} disabled/>
+                                               placeholder={selectedVerre && selectedVerre.prixSupp2+" €"} disabled/>
                                         <input className="form-control" id="reducPrixSup3" type="text"
-                                               placeholder={selectedVerre.prixSupp3+" €"} disabled/>
+                                               placeholder={selectedVerre && selectedVerre.prixSupp3+" €"} disabled/>
                                         <input className="form-control" id="reducPrixSup4" type="text"
-                                               placeholder={selectedVerre.prixSupp4+" €"} disabled/>
+                                               placeholder={selectedVerre && selectedVerre.prixSupp4+" €"} disabled/>
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col-md-12">
                                         <label>Commentaire : </label>
                                         <textarea className="form-control" id="verresCommentaire" type="text"
-                                                  placeholder={selectedVerre.commentaire} disabled/>
+                                                  placeholder={selectedVerre && selectedVerre.commentaire} disabled/>
                                     </div>
                                 </div>
                             </div>
 
                             </div>
-                            <div className="row align-items-center" id="montures">
+                            <div className="row align-items-center d-none" id="montures">
                                 <div className="col-md-2">
                                     <div className="row">
                                         <label htmlFor="exampleSelect1"><h4>Date Commande</h4></label>
@@ -631,8 +642,9 @@ const ClientPage = (props) => {
                                     <div className="row">
                                         <div className="col-md-12 p-5">
                                             <div className="row p-2">
-                                                <a className="btn btn-primary btn-client" href={"/#/client/"+id+"/commandeMonture/"+selectedVerre.id}>Modifier
-                                                </a>
+                                                {selectedMonture &&
+                                                <a className="btn btn-primary btn-client" href={"/#/client/"+id+"/commandeMonture/"+selectedMonture.id}>Modifier
+                                                </a>}
                                             </div>
                                             <div className="row p-2">
                                                 <a className="btn btn-primary btn-client" href={"/#/client/"+id+"/commandeMonture/new"}>Nouvelle
@@ -658,27 +670,27 @@ const ClientPage = (props) => {
                                             <div className="row">
                                                 <div className="col-md-2">
                                                     <input className="form-control" id="montureCode" type="text"
-                                                           placeholder={selectedMonture.idMonture && selectedMonture.idMonture.id} disabled/>
+                                                           placeholder={selectedMonture && selectedMonture.idMonture && selectedMonture.idMonture.id} disabled/>
                                                 </div>
                                                 <div className="col-md-2">
                                                     <input className="form-control" id="montureMarque" type="text"
-                                                           placeholder={selectedMonture.idMonture && selectedMonture.idMonture.marque} disabled/>
+                                                           placeholder={selectedMonture && selectedMonture.idMonture && selectedMonture.idMonture.marque} disabled/>
                                                 </div>
                                                 <div className="col-md-2">
                                                     <input className="form-control" id="montureModel" type="text"
-                                                           placeholder={selectedMonture.idMonture && selectedMonture.idMonture.model} disabled/>
+                                                           placeholder={selectedMonture && selectedMonture.idMonture && selectedMonture.idMonture.model} disabled/>
                                                 </div>
                                                 <div className="col-md-2">
                                                     <input className="form-control" id="montureCouleur" type="text"
-                                                           placeholder={selectedMonture.idMonture && selectedMonture.idMonture.couleur} disabled/>
+                                                           placeholder={selectedMonture && selectedMonture.idMonture && selectedMonture.idMonture.couleur} disabled/>
                                                 </div>
                                                 <div className="col-md-2">
                                                     <input className="form-control" id="montureTaille" type="text"
-                                                           placeholder={selectedMonture.idMonture && selectedMonture.idMonture.taille} disabled/>
+                                                           placeholder={selectedMonture && selectedMonture.idMonture && selectedMonture.idMonture.taille} disabled/>
                                                 </div>
                                                 <div className="col-md-2">
                                                     <input className="form-control" id="monturePrix" type="text"
-                                                           placeholder={selectedMonture.idMonture && selectedMonture.idMonture.prix} disabled/>
+                                                           placeholder={selectedMonture && selectedMonture.idMonture && selectedMonture.idMonture.prix} disabled/>
                                                 </div>
                                             </div>
                                         </div>
@@ -687,7 +699,7 @@ const ClientPage = (props) => {
                                         <div className="col-md-12">
                                             <label>Commentaire : </label>
                                             <textarea className="form-control" id="montureCommentaire" type="text"
-                                                      placeholder={selectedMonture.commentaire} disabled/>
+                                                      placeholder={selectedMonture && selectedMonture.commentaire} disabled/>
                                         </div>
                                     </div>
 
