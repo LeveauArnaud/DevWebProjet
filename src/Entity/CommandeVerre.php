@@ -37,13 +37,13 @@ class CommandeVerre
     private $date;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $diamD;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $diamG;
@@ -91,19 +91,19 @@ class CommandeVerre
     private $prixSupp1;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $prixSupp2;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $prixSupp3;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $prixSupp4;

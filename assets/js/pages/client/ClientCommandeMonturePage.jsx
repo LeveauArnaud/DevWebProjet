@@ -7,6 +7,7 @@ import ClientsAPI from "../../services/clientsAPI";
 import ClientAPI from "../../services/clientAPI";
 import {toast} from "react-toastify";
 import Textarea from "../../components/forms/Textarea";
+import MonturesAPI from "../../services/monturesAPI";
 
 const ClientCommandeMonturePage = ({match, history}) => {
 
@@ -21,6 +22,7 @@ const ClientCommandeMonturePage = ({match, history}) => {
 
     const [client, setClient] = useState([]);
     const [commandeMonture, setCommandeMonture] = useState([]);
+    const [montures, setMontures] = useState([]);
     const [errors, setErrors] = useState([]);
 
     const [editing, setEditing ] = useState(false);
@@ -53,14 +55,59 @@ const ClientCommandeMonturePage = ({match, history}) => {
     // Gestion des changements des inputs dans le formulaire
     const handleChange = ({currentTarget}) =>{
         const { name, value} = currentTarget;
-        if(name ==="codePostale" || name ==="phone" ){
-            setClient({...client, [name]: +value});
+        if(name ==="id" || name ==="taille" || name ==="prix"){
+            setCommandeMonture({...commandeMonture, [name]: parseFloat(value)});
         }else {
-            setClient({...client, [name]: value});
+            setCommandeMonture({...commandeMonture, [name]: value});
         }
 
 
     };
+
+    // Récupération du client en fonction de son id
+    const fetchClient = async idClient =>{
+        try{
+            //awit permet de attendre afin de ne récuperer que les data
+            const {
+                nCli
+            } = await ClientsAPI.findID(idClient);
+
+            setClient({
+                nCli
+            });
+        }catch (e) {
+            toast.error("Impossible de charger les informations du client");
+            history.replace("/clients");
+        }
+    }
+
+
+    // Chargement du client si besoin au chargement du composant ou au chargement de l'id ( à chaque changement de l'id)
+    useEffect(() =>{
+        fetchClient(idClient);
+
+    }, [idClient]);
+
+    // Récupération liste des montures
+    const fetchMontures = async () => {
+        try{
+            //awit permet de attendre afin de ne récuperer que les data
+            const dataMontures = await MonturesAPI.findAll();
+            setMontures(dataMontures);
+
+        }catch (e) {
+            toast.error("Impossible de charger la liste des prescripteurs");
+            history.replace("/client/"+idClient);
+        }
+
+    }
+
+    // Chargement liste des verres
+    useEffect(() =>{
+        fetchMontures();
+
+    }, []);
+
 console.log(commandeMonture);
     // Gestion de la soumission du formulaire
     const handleSubmit = async event =>{
@@ -119,54 +166,16 @@ console.log(commandeMonture);
                         <div className="row">
                             <div className="col-md-12">
                                 <div className="row">
-                                    <div className="col-md-2">
-                                        <Field
-                                            name="montureCode"
-                                            placeHolder="Code..."
-                                            value={commandeMonture.idMonture && commandeMonture.idMonture.id}
-                                            onChange={handleChange}
-                                        />
-                                    </div>
-                                    <div className="col-md-2">
-                                        <Field
-                                            name="montureMarque"
-                                            placeHolder="Marque..."
-                                            value={commandeMonture.idMonture && commandeMonture.idMonture.marque}
-                                            onChange={handleChange}
-                                        />
-                                    </div>
-                                    <div className="col-md-2">
-                                        <Field
-                                            name="montureModel"
-                                            placeHolder="Model..."
-                                            value={commandeMonture.idMonture && commandeMonture.idMonture.model}
-                                            onChange={handleChange}
-                                        />
-                                    </div>
-                                    <div className="col-md-2">
-                                        <Field
-                                            name="montureCouleur"
-                                            placeHolder="Couleur..."
-                                            value={commandeMonture.idMonture && commandeMonture.idMonture.couleur}
-                                            onChange={handleChange}
-                                        />
-                                    </div>
-                                    <div className="col-md-2">
-                                        <Field
-                                            name="montureTaille"
-                                            placeHolder="Taille..."
-                                            value={commandeMonture.idMonture && commandeMonture.idMonture.taille}
-                                            onChange={handleChange}
-                                        />
-                                    </div>
-                                    <div className="col-md-2">
-                                        <Field
-                                            name="monturePrix"
-                                            placeHolder="Prix..."
-                                            value={commandeMonture.prix}
-                                            onChange={handleChange}
-                                        />
-                                    </div>
+                                    <Select
+                                        value={commandeMonture.idMonture && commandeMonture.idMOnture}
+                                        name="idMonture"
+                                        onChange={handleChange}
+                                        error={errors.idMonture}
+                                    >
+
+                                        {!editing && <option >Selectionner une monture</option>}
+                                        {montures.map(m => <option key={m.id} value={m.id}>{m.id +" - "+m.marque+" - "+m.model+" - "+m.couleur+" - "+m.taille+" - "+m.prix}</option>)}
+                                    </Select>
                                 </div>
                             </div>
                         </div>
@@ -174,7 +183,7 @@ console.log(commandeMonture);
                             <div className="col-md-12">
                                 <label>Commentaire : </label>
                                 <Textarea
-                                    name="montureCommentaire"
+                                    name="commentaire"
                                     placeHolder="Commentaire ..."
                                     type="textArea"
                                     value={commandeMonture.commentaire}
