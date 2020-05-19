@@ -1,10 +1,9 @@
 <?php
 
-namespace App\EventSubscriber;
+namespace App\EventSubscriber\;
 
 use ApiPlatform\Core\EventListener\EventPriorities;
 use App\Entity\User;
-use App\EventSubscriber\PasswordEncoderSubscriber;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\HttpKernel\Event\ViewEvent;
