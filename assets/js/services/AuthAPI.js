@@ -1,5 +1,6 @@
 import axios from "axios";
 import jwtDecode from "jwt-decode";
+import {API_URL} from "../config.js";
 
 
 /**
@@ -26,7 +27,7 @@ function setAxiosToken(token){
  */
 
 function authenticate(credentials){
-    return axios.post("https://127.0.0.1:8000/api/login_check", credentials)
+    return axios.post(API_URL+"login_check", credentials)
         .then(response => response.data.token)
         .then(token => {
             //stockage du token dans le localStorage

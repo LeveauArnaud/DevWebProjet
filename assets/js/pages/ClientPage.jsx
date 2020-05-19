@@ -458,7 +458,7 @@ const ClientPage = (props) => {
                                     <h1  id="espaceVerres" className="nav-link active" onClick={handleClick}>Espace verres</h1>
                                 </div >
                                 <div className="col-md-6">
-                                    <h1 id="espaceMontures" onClick={handleClick}>Espace monture</h1>
+                                    <h1 id="espaceMontures" className="nav-link" onClick={handleClick}>Espace monture</h1>
                                 </div>
                             </div>
                         </div>

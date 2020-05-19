@@ -1,7 +1,8 @@
 import axios from "axios";
+import {API_URL} from "../config.js";
 
 function findAllVerres() {
-    return axios.get("https://127.0.0.1:8000/api/verres")
+    return axios.get(API_URL+"verres")
         .then(response => response.data["hydra:member"])
 }
 

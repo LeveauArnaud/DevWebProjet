@@ -1,7 +1,8 @@
 import axios from "axios";
+import {API_URL} from "../config.js";
 
 function findAll() {
-    return axios.get("https://127.0.0.1:8000/api/montures")
+    return axios.get(API_URL+"api/montures")
         .then(response => response.data["hydra:member"])
 }
 

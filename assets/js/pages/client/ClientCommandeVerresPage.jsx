@@ -28,13 +28,10 @@ const ClientCommandeVerresPage = ({match, history}) => {
     //infos verres
     const [verre, setVerre] = useState([]);
     //infos commande verres
-    const [commandeVerres, setCommandeVerres] = useState(
-        {
-            date:dateFormat(),
-            etat:"/api/etat_commandes/33",
-
-        }
-    );
+    const [commandeVerres, setCommandeVerres] = useState({
+        date: dateFormat(),
+        etat: "/api/etat_commandes/31"
+    });
     //erreur liste
     const [errors, setErrors] = useState([]);
 
@@ -129,11 +126,11 @@ const ClientCommandeVerresPage = ({match, history}) => {
             setErrors({});
             if(editing){
                 await CommandeVerresAPI.update(idCommandeVerres,idClient, commandeVerres);
-                toast.success("Client modifié avec succès ");
+                toast.success("Commande modifiée avec succès ");
                 history.replace("/client/"+idClient);
             }else {
-                await  axios.post("https://127.0.0.1:8000/api/commande_verres", {...commandeVerres, idClient:`/api/clients/${idClient}`, idVerre:`/api/verres/${commandeVerres.idVerre}`});
-                toast.success("Client créé avec succès ");
+                await CommandeVerresAPI.create(idClient, commandeVerres);
+                toast.success("Commande créée avec succès ");
                 history.replace("/clients");
             }
 
@@ -203,6 +200,7 @@ const ClientCommandeVerresPage = ({match, history}) => {
                                             placeHolder="DD"
                                             value={commandeVerres.diamD}
                                             onChange={handleChange}
+                                            error={errors.diamD}
                                         />
                                     </div>
                                 </div>
@@ -216,6 +214,7 @@ const ClientCommandeVerresPage = ({match, history}) => {
                                             placeHolder="DG"
                                             value={commandeVerres.diamG}
                                             onChange={handleChange}
+                                            error={errors.diamG}
                                         />
                                     </div>
                                 </div>
@@ -229,6 +228,7 @@ const ClientCommandeVerresPage = ({match, history}) => {
                                             placeHolder="sup1"
                                             value={commandeVerres.supp1}
                                             onChange={handleChange}
+                                            error={errors.supp1}
                                         />
                                     </div>
                                 </div>
@@ -242,6 +242,7 @@ const ClientCommandeVerresPage = ({match, history}) => {
                                             placeHolder="sup2"
                                             value={commandeVerres.supp2}
                                             onChange={handleChange}
+                                            error={errors.supp2}
                                         />
                                     </div>
                                 </div>
@@ -255,6 +256,7 @@ const ClientCommandeVerresPage = ({match, history}) => {
                                             placeHolder="sup3"
                                             value={commandeVerres.supp3}
                                             onChange={handleChange}
+                                            error={errors.supp3}
                                         />
                                     </div>
                                 </div>
@@ -268,6 +270,7 @@ const ClientCommandeVerresPage = ({match, history}) => {
                                             placeHolder="sup4"
                                             value={commandeVerres.supp4}
                                             onChange={handleChange}
+                                            error={errors.supp4}
                                         />
                                     </div>
                                 </div>
@@ -278,36 +281,42 @@ const ClientCommandeVerresPage = ({match, history}) => {
                                     placeHolder="prixOD"
                                     value={commandeVerres.prixOD}
                                     onChange={handleChange}
+                                    error={errors.prixOD}
                                 />
                                 <Field
                                     name="prixOG"
                                     placeHolder="prixOG"
                                     value={commandeVerres.prixOG}
                                     onChange={handleChange}
+                                    error={errors.prixOG}
                                 />
                                 <Field
                                     name="prixSupp1"
                                     placeHolder="prixSupp1"
                                     value={commandeVerres.prixSupp1}
                                     onChange={handleChange}
+                                    error={errors.prixSupp1}
                                 />
                                 <Field
                                     name="prixSupp2"
                                     placeHolder="prixSupp2"
                                     value={commandeVerres.prixSupp2}
                                     onChange={handleChange}
+                                    error={errors.prixSupp2}
                                 />
                                 <Field
                                     name="prixSupp3"
                                     placeHolder="prixSupp3"
                                     value={commandeVerres.prixSupp3}
                                     onChange={handleChange}
+                                    error={errors.prixSupp3}
                                 />
                                 <Field
                                     name="prixSupp4"
                                     placeHolder="prixSupp4"
                                     value={commandeVerres.prixSupp4}
                                     onChange={handleChange}
+                                    error={errors.prixSupp4}
                                 />
                             </div>
                         </div>

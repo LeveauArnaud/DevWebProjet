@@ -1,23 +1,28 @@
 import axios from "axios";
+import {API_URL} from "../config.js";
 
 function findAll() {
-    return axios.get("https://127.0.0.1:8000/api/prescripteurs")
+    return axios.get(API_URL+"prescripteurs")
         .then(response => response.data["hydra:member"])
 };
 
 
 function find(idCommandeMonture){
-    return axios.get("https://127.0.0.1:8000/api/commande_montures/"+idCommandeMonture)
+    return axios.get(API_URL+"commande_montures/"+idCommandeMonture)
         .then(response => response.data);
 }
 
-function update(idCommandeMonture,idClient, commandeMonture) {
-    return axios.put("https://127.0.0.1:8000/api/commande_montures/"+idCommandeVerres, {...commandeVerres, idClient:`/api/clients/${idClient}`, idVerre:`/api/verres/${commandeVerres.idVerre}`});
+function update(idClient, commandeMonture) {
+    return axios.put(API_URL+"commande_montures/"+commandeMonture.id, {...commandeMonture, idClient:`/api/clients/${idClient}` , idMonture:`/api/montures/${commandeMonture.idMonture}`});
 }
 
+function create(idClient, commandeMonture) {
+    return axios.post(API_URL+"commande_montures", {...commandeMonture, idClient:`/api/clients/${idClient}` , idMonture:`/api/montures/${commandeMonture.idMonture}`});
+}
 
 export default{
     findAll,
     find,
-    update
+    update,
+    create
 };

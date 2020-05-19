@@ -1,6 +1,6 @@
 <?php
 
-namespace EventSubscriber;
+namespace App\EventSubscriber;
 
 use ApiPlatform\Core\EventListener\EventPriorities;
 use App\Entity\User;

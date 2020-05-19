@@ -4,6 +4,7 @@ import Select from "../../components/forms/Select";
 import { Link } from "react-router-dom";
 import moment from 'moment';
 import ClientsAPI from "../../services/clientsAPI";
+import CommandeMontureAPI from "../../services/commandeMonturesAPI";
 import ClientAPI from "../../services/clientAPI";
 import {toast} from "react-toastify";
 import Textarea from "../../components/forms/Textarea";
@@ -21,19 +22,24 @@ const ClientCommandeMonturePage = ({match, history}) => {
     const { idClient , idCommandeMonture ="new"} = match.params;
 
     const [client, setClient] = useState([]);
-    const [commandeMonture, setCommandeMonture] = useState([]);
+    const [commandeMonture, setCommandeMonture] = useState({
+        date: dateFormat(),
+        etat: "/api/etat_commandes/31"
+    });
     const [montures, setMontures] = useState([]);
+    const [montureSelected, setMontureSelected] = useState([]);
     const [errors, setErrors] = useState([]);
 
     const [editing, setEditing ] = useState(false);
 
-
+console.log(commandeMonture);
     // Récupération de la commande en fonction de son id
     const fetchCommandeMonture = async idCommandeMonture =>{
         try{
             //await permet de attendre afin de ne récuperer que les data
             const dataCommandeMonture = await ClientAPI.findCommandeMonture(idCommandeMonture);
-            setCommandeMonture(dataCommandeMonture);
+            setCommandeMonture({...dataCommandeMonture,["idMonture"]: dataCommandeMonture.idMonture.id });
+            setMontureSelected(dataCommandeMonture.idMonture);
 
         }catch (e) {
             console.log(e);
@@ -42,7 +48,6 @@ const ClientCommandeMonturePage = ({match, history}) => {
         }
 
     }
-
     // Chargement du client si besoin au chargement du composant ou au chargement de l'id ( à chaque changement de l'id)
     useEffect(() =>{
         if(idCommandeMonture !== "new") {
@@ -55,12 +60,15 @@ const ClientCommandeMonturePage = ({match, history}) => {
     // Gestion des changements des inputs dans le formulaire
     const handleChange = ({currentTarget}) =>{
         const { name, value} = currentTarget;
-        if(name ==="id" || name ==="taille" || name ==="prix"){
+        if(name ==="id" || name ==="prix"){
             setCommandeMonture({...commandeMonture, [name]: parseFloat(value)});
         }else {
             setCommandeMonture({...commandeMonture, [name]: value});
         }
-
+        if (name ==="idMonture"){
+            setMontureSelected(montures.map(m => m).filter(m => m.id === parseInt(value))[0]);
+            console.log(montures.map(m => m).filter(m => m.id === parseInt(value)));
+        }
 
     };
 
@@ -77,7 +85,7 @@ const ClientCommandeMonturePage = ({match, history}) => {
             });
         }catch (e) {
             toast.error("Impossible de charger les informations du client");
-            history.replace("/clients");
+            history.replace("/client/"+idClient);
         }
     }
 
@@ -116,13 +124,13 @@ console.log(commandeMonture);
         try{
             setErrors({});
             if(editing){
-                await ClientsAPI.update(idClient, client);
-                toast.success("Client modifié avec succès ");
+                await CommandeMontureAPI.update(idClient, commandeMonture);
+                toast.success("Commande modifiée avec succès ");
                 history.replace("/client/"+idClient);
             }else {
-                await ClientsAPI.create(client);
-                toast.success("Client créé avec succès ");
-                history.replace("/clients");
+                await CommandeMontureAPI.create(idClient, commandeMonture);
+                toast.success("Commande créée avec succès ");
+                history.replace("/client/"+idClient);
             }
 
             // response === error.response
@@ -166,16 +174,39 @@ console.log(commandeMonture);
                         <div className="row">
                             <div className="col-md-12">
                                 <div className="row">
-                                    <Select
-                                        value={commandeMonture.idMonture && commandeMonture.idMOnture}
+                                    <div className="col-md-2">
+                                        <Select
+                                        value={commandeMonture.idMonture && commandeMonture.idMonture}
                                         name="idMonture"
                                         onChange={handleChange}
                                         error={errors.idMonture}
-                                    >
+                                        >
 
                                         {!editing && <option >Selectionner une monture</option>}
                                         {montures.map(m => <option key={m.id} value={m.id}>{m.id +" - "+m.marque+" - "+m.model+" - "+m.couleur+" - "+m.taille+" - "+m.prix}</option>)}
-                                    </Select>
+                                        </Select>
+                                    </div>
+                                    <div className="col-md-2">
+                                        <input className="form-control" id="montureMarque" type="text"
+                                               placeholder={commandeMonture.idMonture && montureSelected.marque} disabled/>
+                                    </div>
+                                    <div className="col-md-2">
+                                        <input className="form-control" id="montureModel" type="text"
+                                               placeholder={commandeMonture.idMonture && montureSelected.model} disabled/>
+                                    </div>
+                                    <div className="col-md-2">
+                                        <input className="form-control" id="montureCouleur" type="text"
+                                               placeholder={commandeMonture.idMonture && montureSelected.couleur} disabled/>
+                                    </div>
+                                    <div className="col-md-2">
+                                        <input className="form-control" id="montureTaille" type="text"
+                                               placeholder={commandeMonture.idMonture && montureSelected.taille} disabled/>
+                                    </div>
+                                    <div className="col-md-2">
+                                        <input className="form-control" id="monturePrix" type="text"
+                                               placeholder={commandeMonture.idMonture && montureSelected.prix} disabled/>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

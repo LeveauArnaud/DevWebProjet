@@ -4,6 +4,7 @@ import Select from "../../components/forms/Select";
 import { Link } from "react-router-dom";
 import moment from 'moment';
 import ClientsAPI from "../../services/clientsAPI";
+import ClientAPI from "../../services/clientAPI";
 import {toast} from "react-toastify";
 
 const ClientInfosPage = ({match, history}) => {
@@ -63,7 +64,7 @@ const ClientInfosPage = ({match, history}) => {
                 nCli,
                 nom,
                 prenom,
-                sexe,
+                sexe="M",
                 dateNaissance,
                 rue,
                 ville,
@@ -116,6 +117,7 @@ const ClientInfosPage = ({match, history}) => {
 
 
     };
+    console.log(client);
 
     // Gestion de la soumission du formulaire
     const handleSubmit = async event =>{
@@ -128,7 +130,7 @@ const ClientInfosPage = ({match, history}) => {
                 toast.success("Client modifié avec succès ");
                 history.replace("/client/"+id);
             }else {
-                await ClientsAPI.create(client);
+                await ClientAPI.create(client);
                 toast.success("Client créé avec succès ");
                 history.replace("/clients");
             }
@@ -180,11 +182,12 @@ const ClientInfosPage = ({match, history}) => {
                         <Select
                             label="Sexe"
                             name="sexe"
-                            value={client.sexe}
+                            value={client.sexe }
                             onChange={handleChange}
                             error={errors.sexe}
                         >
-                            <option value="M"> M</option>
+                            {!editing && <option >Selectionner le sexe</option>}
+                            <option value="M" > M</option>
                             <option value="F"> F</option>
                         </Select>
                         <Field

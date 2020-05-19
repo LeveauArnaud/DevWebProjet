@@ -7,11 +7,11 @@ const Select = ({
                    onChange,
                     children,
                     value,
-                   error=""
+                   error="",
                }) =>(
 
     <div className="form-group">
-        <label htmlFor={name}>{label}</label>
+
         <select
             value={value}
             onChange={onChange}
