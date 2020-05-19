@@ -355,12 +355,12 @@
       <workItem from="1589283090444" duration="15147000" />
       <workItem from="1589447938539" duration="34943000" />
       <workItem from="1589791165607" duration="13245000" />
-      <workItem from="1589908214736" duration="2681000" />
+      <workItem from="1589908214736" duration="2977000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="308396000" />
+    <option name="totallyTimeSpent" value="308692000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -373,8 +373,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="47" y="23" width="1553" height="1021" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14096625" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14096625" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -387,7 +388,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.29601723" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.29601723" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32893288" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -399,12 +400,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/packages/api_platform.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/validator.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -779,13 +774,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yarn.lock">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-20778" />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpunit.xml.dist">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yarn.lock">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/prod/monolog.yaml">
       <provider selected="true" editor-type-id="text-editor">
