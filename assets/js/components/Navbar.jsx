@@ -15,6 +15,7 @@ const Navbar = ({history}) => {
         history.push("/login")
     };
 
+
     return(
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
             <NavLink className="navbar-brand" to="/">

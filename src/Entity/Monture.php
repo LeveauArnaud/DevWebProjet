@@ -19,37 +19,37 @@ class Monture
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @groups({"monture_read","stock_read","clients_read"})
+     * @groups({"monture_read","stock_read","clients_read","commandeMonture_read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @groups({"monture_read","stock_read","clients_read"})
+     * @groups({"monture_read","stock_read","clients_read","commandeMonture_read"})
      */
     private $marque;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @groups({"monture_read","stock_read","clients_read"})
+     * @groups({"monture_read","stock_read","clients_read","commandeMonture_read"})
      */
     private $model;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @groups({"monture_read","stock_read","clients_read"})
+     * @groups({"monture_read","stock_read","clients_read","commandeMonture_read"})
      */
     private $couleur;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @groups({"monture_read","stock_read","clients_read"})
+     * @groups({"monture_read","stock_read","clients_read","commandeMonture_read"})
      */
     private $taille;
 
     /**
      * @ORM\Column(type="integer")
-     * @groups({"monture_read","stock_read","clients_read"})
+     * @groups({"monture_read","stock_read","clients_read","commandeMonture_read"})
      */
     private $prix;
 

@@ -67,7 +67,7 @@ class Correction
     private $idClient;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      * @groups({"corrections_read","corrections_subresource","clients_read"})
      */
     private $sphOdL;

@@ -20,19 +20,19 @@ class Verres
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @groups({"commandeVerres_read","clients_read","commandeVerres_subresource"})
+     * @groups({"commandeVerres_read","clients_read","commandeVerres_subresource","verres_read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @groups({"commandeVerres_read","clients_read","commandeVerres_subresource"})
+     * @groups({"commandeVerres_read","clients_read","commandeVerres_subresource","verres_read"})
      */
     private $marque;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @groups({"commandeVerres_read","clients_read","commandeVerres_subresource"})
+     * @groups({"commandeVerres_read","clients_read","commandeVerres_subresource","verres_read"})
      */
     private $type;
 

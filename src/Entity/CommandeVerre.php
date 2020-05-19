@@ -7,6 +7,8 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiSubresource;
 use Symfony\Component\Serializer\Annotation\Groups;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CommandeVerreRepository")
  * @ApiResource(
@@ -33,17 +35,18 @@ class CommandeVerre
     /**
      * @ORM\Column(type="date")
      * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
+     * @Assert\NotBlank(message="Une commande doit avoir une date")
      */
     private $date;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $diamD;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $diamG;
@@ -75,35 +78,37 @@ class CommandeVerre
     /**
      * @ORM\Column(type="integer")
      * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
+     * @Assert\NotBlank(message="l'OD doit avoir un prix !")
      */
     private $prixOD;
 
     /**
      * @ORM\Column(type="integer")
      * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
+     * @Assert\NotBlank(message="l'OG doit avoir un prix !")
      */
     private $prixOG;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $prixSupp1;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $prixSupp2;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $prixSupp3;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
      */
     private $prixSupp4;
@@ -117,7 +122,7 @@ class CommandeVerre
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Client", inversedBy="commandeVerres")
      * @ORM\JoinColumn(nullable=false)
-     * @groups({"commandeVerres_read"})
+     * @Assert\NotBlank(message="la commande doit être associée à un client !")
      */
     private $idClient;
 
@@ -125,6 +130,7 @@ class CommandeVerre
      * @ORM\ManyToOne(targetEntity="App\Entity\Verres")
      * @ORM\JoinColumn(nullable=false)
      * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
+     * @Assert\NotBlank(message="la commande doit avoir un verre !")
      */
     private $idVerre;
 
@@ -132,6 +138,7 @@ class CommandeVerre
      * @ORM\ManyToOne(targetEntity="App\Entity\EtatCommande")
      * @ORM\JoinColumn(nullable=false)
      * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
+     * @Assert\NotBlank(message="la commande doit avoir un etat !")
      */
     private $etat;
 

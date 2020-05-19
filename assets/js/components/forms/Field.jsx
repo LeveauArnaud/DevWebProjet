@@ -8,11 +8,14 @@ const Field = ({
                    onChange,
                    placeHolder,
                    type = "text",
-                   error=""
-}) =>(
+                   error="",
+                   step="0.01",
+                   list=""
+                }) =>(
         <div className="form-group">
             <label htmlFor={name}>{label}</label>
             <input
+                list={list}
                 value={value}
                 onChange={onChange}
                 type={type}
@@ -20,6 +23,7 @@ const Field = ({
                 placeholder={placeHolder}
                 name={name}
                 id={name}
+                step={step}
             />
             { error && <p className="invalid-feedback">
                 {error}

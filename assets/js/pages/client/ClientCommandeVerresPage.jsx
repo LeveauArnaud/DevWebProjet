@@ -5,8 +5,12 @@ import { Link } from "react-router-dom";
 import moment from 'moment';
 import ClientsAPI from "../../services/clientsAPI";
 import ClientAPI from "../../services/clientAPI";
+import CommandeVerresAPI from "../../services/commandeVerresAPI";
+import VerresAPI from "../../services/verresAPI";
 import {toast} from "react-toastify";
 import Textarea from "../../components/forms/Textarea";
+import CorrectionAPI from "../../services/correctionAPI";
+import axios from "axios";
 
 const ClientCommandeVerresPage = ({match, history}) => {
 
@@ -19,26 +23,32 @@ const ClientCommandeVerresPage = ({match, history}) => {
 
     const { idClient , idCommandeVerres ="new"} = match.params;
 
+    //infos client
     const [client, setClient] = useState([]);
-    const [commandeVerres, setCommandeVerres] = useState([]);
+    //infos verres
+    const [verre, setVerre] = useState([]);
+    //infos commande verres
+    const [commandeVerres, setCommandeVerres] = useState({
+        date: dateFormat(),
+        etat: "/api/etat_commandes/31"
+    });
+    //erreur liste
     const [errors, setErrors] = useState([]);
 
     const [editing, setEditing ] = useState(false);
 
 
     // Récupération de la commande en fonction de son id
-    const fetchCommandeVerres = async idCommandeVerres =>{
+    const fetchCommandeVerres = async () =>{
         try{
             //await permet de attendre afin de ne récuperer que les data
-            const dataCommandeVerres = await ClientAPI.findCommandeVerres(idCommandeVerres);
-            setCommandeVerres(dataCommandeVerres);
-
+            const dataCommandeVerres = await CommandeVerresAPI.find(idCommandeVerres);
+            setCommandeVerres({...dataCommandeVerres, ["idVerre"]: dataCommandeVerres.idVerre.id});
         }catch (e) {
             console.log(e);
             toast.error("Impossible de charger la commande");
             history.replace("/client/"+idClient);
         }
-
     }
 
     // Chargement du client si besoin au chargement du composant ou au chargement de l'id ( à chaque changement de l'id)
@@ -50,16 +60,60 @@ const ClientCommandeVerresPage = ({match, history}) => {
         };
     }, [idCommandeVerres]);
 
+    console.log(commandeVerres);
+    // Récupération du client en fonction de son id
+    const fetchClient = async idClient =>{
+        try{
+            //awit permet de attendre afin de ne récuperer que les data
+            const {
+                nCli
+            } = await ClientsAPI.findID(idClient);
 
-    // Gestion des changements des inputs dans le formulaire
-    const handleChange = ({currentTarget}) =>{
-        const { name, value} = currentTarget;
-        if(name ==="codePostale" || name ==="phone" ){
-            setClient({...client, [name]: +value});
-        }else {
-            setClient({...client, [name]: value});
+            setClient({
+                nCli
+            });
+        }catch (e) {
+            toast.error("Impossible de charger les informations du client");
+            history.replace("/clients");
+        }
+    }
+
+
+    // Chargement du client si besoin au chargement du composant ou au chargement de l'id ( à chaque changement de l'id)
+    useEffect(() =>{
+        fetchClient(idClient);
+
+    }, [idClient]);
+
+    // Récupération liste des verres
+    const fetchVerres = async () => {
+        try{
+            //awit permet de attendre afin de ne récuperer que les data
+            const dataVerres = await VerresAPI.findAllVerres();
+            setVerre(dataVerres);
+
+        }catch (e) {
+            toast.error("Impossible de charger la liste des prescripteurs");
+            history.replace("/client/"+idClient);
         }
 
+    }
+
+    // Chargement liste des verres
+    useEffect(() =>{
+        fetchVerres();
+
+    }, []);
+
+    // Gestion des changements des inputs dans le formulaire
+    const handleChange = ({currentTarget}) => {
+        const { name, value } = currentTarget;
+        if(name ==="commentaire" || name ==="supp1" || name ==="supp2" || name ==="supp3" || name ==="supp4"){
+            setCommandeVerres({...commandeVerres, [name]: value});
+        }else{
+            setCommandeVerres({...commandeVerres, [name]: parseFloat(value)});
+        }
+        console.log({...commandeVerres, [name]: value});
 
     };
 
@@ -67,15 +121,16 @@ const ClientCommandeVerresPage = ({match, history}) => {
     const handleSubmit = async event =>{
         //eviter de recharger la page
         event.preventDefault();
+        console.log(commandeVerres);
         try{
             setErrors({});
             if(editing){
-                await ClientsAPI.update(idClient, client);
-                toast.success("Client modifié avec succès ");
+                await CommandeVerresAPI.update(idCommandeVerres,idClient, commandeVerres);
+                toast.success("Commande modifiée avec succès ");
                 history.replace("/client/"+idClient);
             }else {
-                await ClientsAPI.create(client);
-                toast.success("Client créé avec succès ");
+                await CommandeVerresAPI.create(idClient, commandeVerres);
+                toast.success("Commande créée avec succès ");
                 history.replace("/clients");
             }
 
@@ -118,28 +173,19 @@ const ClientCommandeVerresPage = ({match, history}) => {
                             <div className="col-md-5">
                                 <div className="row justify-content-end">
                                     <div className="col-md-4">
-                                        <h6 className="text-right">Marque</h6>
+                                        <h6 className="text-right">Verres</h6>
                                     </div>
                                     <div className="col-md-8">
-                                        <Field
-                                            name="marque"
-                                            placeHolder="marque"
-                                            value={commandeVerres.idVerre && commandeVerres.idVerre.marque}
+                                        <Select
+                                            value={commandeVerres.idVerre && commandeVerres.idVerre}
+                                            name="idVerre"
                                             onChange={handleChange}
-                                        />
-                                    </div>
-                                </div>
-                                <div className="row justify-content-end">
-                                    <div className="col-md-4">
-                                        <h6 className="text-right">Type</h6>
-                                    </div>
-                                    <div className="col-md-8">
-                                        <Field
-                                            name="type"
-                                            placeHolder="type"
-                                            value={commandeVerres.idVerre && commandeVerres.idVerre.type}
-                                            onChange={handleChange}
-                                        />
+                                            error={errors.idVerre}
+                                        >
+
+                                            {!editing && <option >Selectionner un verres</option>}
+                                            {verre.map(v => <option key={v.id} value={v.id}>{v.marque +" - "+v.type}</option>)}
+                                        </Select>
                                     </div>
                                 </div>
                             </div>
@@ -150,10 +196,11 @@ const ClientCommandeVerresPage = ({match, history}) => {
                                     </div>
                                     <div className="col-md-4">
                                         <Field
-                                            name="DD"
+                                            name="diamD"
                                             placeHolder="DD"
                                             value={commandeVerres.diamD}
                                             onChange={handleChange}
+                                            error={errors.diamD}
                                         />
                                     </div>
                                 </div>
@@ -163,10 +210,11 @@ const ClientCommandeVerresPage = ({match, history}) => {
                                     </div>
                                     <div className="col-md-4">
                                         <Field
-                                            name="DG"
+                                            name="diamG"
                                             placeHolder="DG"
                                             value={commandeVerres.diamG}
                                             onChange={handleChange}
+                                            error={errors.diamG}
                                         />
                                     </div>
                                 </div>
@@ -176,10 +224,11 @@ const ClientCommandeVerresPage = ({match, history}) => {
                                     </div>
                                     <div className="col-md-9">
                                         <Field
-                                            name="sup1"
+                                            name="supp1"
                                             placeHolder="sup1"
                                             value={commandeVerres.supp1}
                                             onChange={handleChange}
+                                            error={errors.supp1}
                                         />
                                     </div>
                                 </div>
@@ -189,10 +238,11 @@ const ClientCommandeVerresPage = ({match, history}) => {
                                     </div>
                                     <div className="col-md-9">
                                         <Field
-                                            name="sup2"
+                                            name="supp2"
                                             placeHolder="sup2"
                                             value={commandeVerres.supp2}
                                             onChange={handleChange}
+                                            error={errors.supp2}
                                         />
                                     </div>
                                 </div>
@@ -202,10 +252,11 @@ const ClientCommandeVerresPage = ({match, history}) => {
                                     </div>
                                     <div className="col-md-9">
                                         <Field
-                                            name="sup3"
+                                            name="supp3"
                                             placeHolder="sup3"
                                             value={commandeVerres.supp3}
                                             onChange={handleChange}
+                                            error={errors.supp3}
                                         />
                                     </div>
                                 </div>
@@ -215,10 +266,11 @@ const ClientCommandeVerresPage = ({match, history}) => {
                                     </div>
                                     <div className="col-md-9">
                                         <Field
-                                            name="sup4"
+                                            name="supp4"
                                             placeHolder="sup4"
                                             value={commandeVerres.supp4}
                                             onChange={handleChange}
+                                            error={errors.supp4}
                                         />
                                     </div>
                                 </div>
@@ -229,36 +281,42 @@ const ClientCommandeVerresPage = ({match, history}) => {
                                     placeHolder="prixOD"
                                     value={commandeVerres.prixOD}
                                     onChange={handleChange}
+                                    error={errors.prixOD}
                                 />
                                 <Field
                                     name="prixOG"
                                     placeHolder="prixOG"
                                     value={commandeVerres.prixOG}
                                     onChange={handleChange}
+                                    error={errors.prixOG}
                                 />
                                 <Field
-                                    name="prixSup1"
-                                    placeHolder="prixSup1"
+                                    name="prixSupp1"
+                                    placeHolder="prixSupp1"
                                     value={commandeVerres.prixSupp1}
                                     onChange={handleChange}
+                                    error={errors.prixSupp1}
                                 />
                                 <Field
-                                    name="prixSup2"
-                                    placeHolder="prixSup2"
+                                    name="prixSupp2"
+                                    placeHolder="prixSupp2"
                                     value={commandeVerres.prixSupp2}
                                     onChange={handleChange}
+                                    error={errors.prixSupp2}
                                 />
                                 <Field
-                                    name="prixSup3"
-                                    placeHolder="prixSup3"
+                                    name="prixSupp3"
+                                    placeHolder="prixSupp3"
                                     value={commandeVerres.prixSupp3}
                                     onChange={handleChange}
+                                    error={errors.prixSupp3}
                                 />
                                 <Field
-                                    name="prixSup4"
-                                    placeHolder="prixSup4"
+                                    name="prixSupp4"
+                                    placeHolder="prixSupp4"
                                     value={commandeVerres.prixSupp4}
                                     onChange={handleChange}
+                                    error={errors.prixSupp4}
                                 />
                             </div>
                         </div>
@@ -266,7 +324,7 @@ const ClientCommandeVerresPage = ({match, history}) => {
                             <div className="col-md-12">
                                 <label>Commentaire : </label>
                                 <Textarea
-                                    name="verresCommentaire"
+                                    name="commentaire"
                                     placeHolder="Commentaire ..."
                                     type="textArea"
                                     value={commandeVerres.commentaire}

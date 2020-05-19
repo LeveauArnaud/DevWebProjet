@@ -1,33 +1,31 @@
 import axios from "axios";
+import {API_URL} from "../config.js";
 
 
 function find(idCorrection) {
-    return axios.get("https://127.0.0.1:8000/api/corrections/"+idCorrection)
+    return axios.get(API_URL+"corrections/"+idCorrection)
         .then(response => response.data);
 }
 
 function update(idCorrection, correction) {
-    return axios.put("https://127.0.0.1:8000/api/corrections/"+idCorrection, correction);
+    return axios.put(API_URL+"corrections/"+idCorrection, correction);
 }
 
-function findCommandeVerres(idCommandeVerres){
-    return axios.get("https://127.0.0.1:8000/api/commande_verres/"+idCommandeVerres)
-        .then(response => response.data);
-}
 
-function UpdateCommandeVerres(idCommandeVerres){
-    return axios.patch("https://127.0.0.1:8000/api/commande_verres/"+idCommandeVerres)
-        .then(response => response.data);
-}
 
 function findCommandeMonture(idCommandeMonture){
-    return axios.get("https://127.0.0.1:8000/api/commande_montures/"+idCommandeMonture)
+    return axios.get(API_URL+"commande_montures/"+idCommandeMonture)
         .then(response => response.data);
+}
+
+
+function create(client) {
+    return axios.post(API_URL+"clients", client);
 }
 
 export default{
     find,
-    findCommandeVerres,
-    UpdateCommandeVerres,
-    findCommandeMonture
+    update,
+    findCommandeMonture,
+    create
 };

@@ -34,6 +34,7 @@ class CommandeMonture
     /**
      * @ORM\Column(type="date")
      * @groups({"commandeMonture_read","commandeMonture_subresource","clients_read"})
+     * @Assert\NotBlank(message="la commande doit avoir une date !")
      */
     private $date;
 
@@ -48,6 +49,7 @@ class CommandeMonture
      * @ORM\ManyToOne(targetEntity="App\Entity\Client", inversedBy="commandeMontures")
      * @ORM\JoinColumn(nullable=false)
      * @groups({"commandeMonture_read"})
+     * @Assert\NotBlank(message="la commande doit être associée à un client !")
      */
     private $idClient;
 
@@ -55,6 +57,7 @@ class CommandeMonture
      * @ORM\ManyToOne(targetEntity="App\Entity\Monture")
      * @ORM\JoinColumn(nullable=false)
      * @groups({"commandeMonture_read","commandeMonture_subresource","clients_read"})
+     * @Assert\NotBlank(message="la commande doit avoir une monture !")
      */
     private $idMonture;
 
@@ -62,6 +65,7 @@ class CommandeMonture
      * @ORM\ManyToOne(targetEntity="App\Entity\EtatCommande")
      * @ORM\JoinColumn(nullable=false)
      * @groups({"commandeMonture_read","commandeMonture_subresource","clients_read"})
+     * @Assert\NotBlank(message="la commande doit avoir un état !")
      */
     private $etat;
 
