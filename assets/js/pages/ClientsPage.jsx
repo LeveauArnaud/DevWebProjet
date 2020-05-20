@@ -47,7 +47,7 @@ const ClientsPage = (props) => {
     };
 
     // filtrage des montures en stock en fonction de la recherche
-    const filteredClients = clients.filter( c =>
+    const filteredClients = clients && clients.filter( c =>
         c.nCli.toString().toLowerCase().includes(search.toLowerCase()) ||
         c.prenom.toLowerCase().includes(search.toLowerCase()) ||
         c.nom.toLowerCase().includes(search.toLowerCase()) ||
