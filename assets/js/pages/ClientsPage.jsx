@@ -117,7 +117,7 @@ const ClientsPage = (props) => {
 
 
 
-            {itemsPerPage < filteredClients.length &&( <Pagination
+            {filteredClients && itemsPerPage < filteredClients.length &&( <Pagination
                 currentPage={currentPage}
                 itemsPerPage={itemsPerPage}
                 length={filteredClients.length}
