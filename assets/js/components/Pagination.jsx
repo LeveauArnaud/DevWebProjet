@@ -37,7 +37,7 @@ const Pagination = ({currentPage, itemsPerPage, length, onPageChanged}) => {
 Pagination.getData = (items, currentPage, itemsPerPage) =>{
     // d'où on part (start) pendant combien ( itemsPerPage)
     const start = currentPage * itemsPerPage - itemsPerPage;
-    return items.slice(start, start + itemsPerPage);
+    return items && items.slice(start, start + itemsPerPage);
 
 }
 
