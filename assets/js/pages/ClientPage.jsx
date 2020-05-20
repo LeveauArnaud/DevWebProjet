@@ -3,6 +3,7 @@ import axios from "axios";
 import moment from 'moment';
 import ClientsAPI from "../services/clientsAPI";
 import {toast} from "react-toastify";
+import Field from "../components/forms/Field";
 
 const ClientPage = (props) => {
 
@@ -105,7 +106,7 @@ const ClientPage = (props) => {
                             <div className="card-Header text-center">
                                 <img src={client.photo} alt="photo du client" className=""/>
                             </div>
-                                <div className="card-body">
+                            <div className="card-body">
                                     <label>Nom: </label>
                                     <input className="form-control" id="clientNom" type="text"
                                            placeholder={client.nom} disabled/>
@@ -134,12 +135,13 @@ const ClientPage = (props) => {
                                     <input className="form-control" id="clientPhone" type="text"
                                            placeholder={client.phone} disabled/>
                                 </div>
-                        </div>
-                            </fieldset>
-                            <fieldset className="text-center align-middle">
+                            <div className="text-center align-middle">
                                 <a className="btn btn-primary btn-client" href={"/#/client/"+id+"/infos"}>Modifier
                                 </a>
+                            </div>
+                        </div>
                             </fieldset>
+
                         </form>
                     </div>
                 </div>
@@ -185,6 +187,7 @@ const ClientPage = (props) => {
                                             <label>Prescripteur : </label>
                                             <input className="form-control" id="prescripteur" type="text"
                                                    placeholder={selectedCorrection && selectedCorrection.idPrescripteur && selectedCorrection.idPrescripteur.nom} disabled/>
+
                                         </div>
 
                                         <div className="col-md-6">
@@ -489,13 +492,10 @@ const ClientPage = (props) => {
                                 </div>
                                 <div className="col-md-10">
                                 <div className="row">
-                                    <div className="col-md-5"></div>
-                                    <div className="col-md-3"></div>
+                                    <div className="col-md-4"></div>
+                                    <div className="col-md-6"></div>
                                     <div className="col-md-2">
-                                        <label>Prix : </label>
-                                    </div>
-                                    <div className="col-md-2">
-                                        <label>Prix Réd. : </label>
+                                        <label><h6>Prix :</h6></label>
                                     </div>
 
                                 </div>
@@ -519,28 +519,8 @@ const ClientPage = (props) => {
                                                        placeholder={selectedVerre && selectedVerre.idVerre && selectedVerre.idVerre.type} disabled/>
                                             </div>
                                         </div>
-                                        <div className="row justify-content-end">
-                                            <div className="col-md-4">
-                                                <h6 className="text-right">Sup 1</h6>
-                                            </div>
-                                        </div>
-                                        <div className="row justify-content-end">
-                                            <div className="col-md-4">
-                                                <h6 className="text-right">Sup 2</h6>
-                                            </div>
-                                        </div>
-                                        <div className="row justify-content-end">
-                                            <div className="col-md-4">
-                                                <h6 className="text-right">Sup 3</h6>
-                                            </div>
-                                        </div>
-                                        <div className="row justify-content-end">
-                                            <div className="col-md-4">
-                                                <h6 className="text-right">Sup 4</h6>
-                                            </div>
-                                        </div>
                                     </div>
-                                    <div className="col-md-4">
+                                    <div className="col-md-6">
                                         <div className="row justify-content-end">
                                             <div className="col-md-3">
                                                 <h6 className="text-right">D-D</h6>
@@ -605,20 +585,6 @@ const ClientPage = (props) => {
                                         <input className="form-control" id="prixSup3" type="text"
                                                placeholder={selectedVerre && selectedVerre.prixSupp3+" €"} disabled/>
                                         <input className="form-control" id="prixSup4" type="text"
-                                               placeholder={selectedVerre && selectedVerre.prixSupp4+" €"} disabled/>
-                                    </div>
-                                    <div className="col-md-2">
-                                        <input className="form-control" id="reducPrixDD" type="text"
-                                               placeholder={selectedVerre && selectedVerre.prixOD+" €"} disabled/>
-                                        <input className="form-control" id="reducPrixDG" type="text"
-                                               placeholder={selectedVerre && selectedVerre.prixOG+" €"} disabled/>
-                                        <input className="form-control" id="reducPrixSup1" type="text"
-                                               placeholder={selectedVerre && selectedVerre.prixSupp1+" €"} disabled/>
-                                        <input className="form-control" id="reducPrixSup2" type="text"
-                                               placeholder={selectedVerre && selectedVerre.prixSupp2+" €"} disabled/>
-                                        <input className="form-control" id="reducPrixSup3" type="text"
-                                               placeholder={selectedVerre && selectedVerre.prixSupp3+" €"} disabled/>
-                                        <input className="form-control" id="reducPrixSup4" type="text"
                                                placeholder={selectedVerre && selectedVerre.prixSupp4+" €"} disabled/>
                                     </div>
                                 </div>

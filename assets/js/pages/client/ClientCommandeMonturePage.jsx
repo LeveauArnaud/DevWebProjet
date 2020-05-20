@@ -104,7 +104,7 @@ console.log(commandeMonture);
             setMontures(dataMontures);
 
         }catch (e) {
-            toast.error("Impossible de charger la liste des prescripteurs");
+            toast.error("Impossible de charger la liste des montures");
             history.replace("/client/"+idClient);
         }
 
@@ -161,13 +161,13 @@ console.log(commandeMonture);
                 <form onSubmit={handleSubmit}>
                     <div className="col-md-12">
                         <div className="row">
-                            <div className="col-md-2"><label>Code : </label></div>
-                            <div className="col-md-2"><label>Marque : </label></div>
-                            <div className="col-md-2"><label>Model: </label></div>
-                            <div className="col-md-2"><label>Couleur: </label></div>
-                            <div className="col-md-2"><label>Taille : </label></div>
+                            <div className="col-md-2"><label><h6>Code : </h6></label></div>
+                            <div className="col-md-2"><label><h6>Marque : </h6></label></div>
+                            <div className="col-md-2"><label><h6>Model: </h6></label></div>
+                            <div className="col-md-2"><label><h6>Couleur: </h6></label></div>
+                            <div className="col-md-2"><label><h6>Taille : </h6></label></div>
                             <div className="col-md-2">
-                                <label>Prix : </label>
+                                <label><h6>Prix : </h6></label>
                             </div>
 
                         </div>
@@ -212,8 +212,8 @@ console.log(commandeMonture);
                         </div>
                         <div className="row">
                             <div className="col-md-12">
-                                <label>Commentaire : </label>
                                 <Textarea
+                                    label="Commentaire : "
                                     name="commentaire"
                                     placeHolder="Commentaire ..."
                                     type="textArea"

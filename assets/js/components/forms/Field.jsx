@@ -10,10 +10,11 @@ const Field = ({
                    type = "text",
                    error="",
                    step="0.01",
-                   list=""
+                   list="",
+                   disabled
                 }) =>(
         <div className="form-group">
-            <label htmlFor={name}>{label}</label>
+            {label && <label htmlFor={name}><h6>{label}</h6></label>}
             <input
                 list={list}
                 value={value}

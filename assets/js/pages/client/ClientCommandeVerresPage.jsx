@@ -165,7 +165,7 @@ const ClientCommandeVerresPage = ({match, history}) => {
                             <div className="col-md-5"></div>
                             <div className="col-md-5"></div>
                             <div className="col-md-2">
-                                <label>Prix : </label>
+                                <label><h6>Prix :</h6></label>
                             </div>
 
                         </div>
@@ -322,7 +322,7 @@ const ClientCommandeVerresPage = ({match, history}) => {
                         </div>
                         <div className="row">
                             <div className="col-md-12">
-                                <label>Commentaire : </label>
+                                <label><h6>Commentaire : </h6></label>
                                 <Textarea
                                     name="commentaire"
                                     placeHolder="Commentaire ..."
