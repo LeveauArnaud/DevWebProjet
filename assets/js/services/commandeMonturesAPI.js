@@ -2,7 +2,7 @@ import axios from "axios";
 import {API_URL} from "../config.js";
 
 function findAll() {
-    return axios.get(API_URL+"prescripteurs")
+    return axios.get(API_URL+"commande_montures")
         .then(response => response.data["hydra:member"])
 };
 

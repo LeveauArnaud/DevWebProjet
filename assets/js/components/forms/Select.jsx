@@ -11,7 +11,7 @@ const Select = ({
                }) =>(
 
     <div className="form-group">
-
+        {label && <label htmlFor={name}><h6>{label}</h6></label>}
         <select
             value={value}
             onChange={onChange}

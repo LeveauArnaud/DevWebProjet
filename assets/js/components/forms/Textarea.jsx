@@ -11,7 +11,7 @@ const Textarea = ({
                    error=""
                }) =>(
     <div className="form-group">
-        <label htmlFor={name}>{label}</label>
+        {label && <label htmlFor={name}><h6>{label}</h6></label>}
         <textarea
             value={value}
             onChange={onChange}

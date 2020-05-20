@@ -208,16 +208,16 @@ const ClientCorrectionPage = ({match, history}) => {
                                             <div className="col-md-10">
                                                 <div className="row justify-content-end">
                                                     <div className="col-md-3">
-                                                        <label>Sph:</label>
+                                                        <label><h6>Sph:</h6></label>
                                                     </div>
                                                     <div className="col-md-3">
-                                                        <label>Cyl:</label>
+                                                        <label><h6>Cyl:</h6></label>
                                                     </div>
                                                     <div className="col-md-3">
-                                                        <label>Ax:</label>
+                                                        <label><h6>Ax:</h6></label>
                                                     </div>
                                                     <div className="col-md-3">
-                                                        <label>PD:</label>
+                                                        <label><h6>PD:</h6></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -225,7 +225,7 @@ const ClientCorrectionPage = ({match, history}) => {
                                         <div className="row">
                                             <div className="col-md-2 ">
                                                 <div className="row justify-content-end">
-                                                    <label>Loin:</label>
+                                                    <label><h6>Loin:</h6></label>
                                                 </div>
                                             </div>
                                             <div className="col-md-10">
@@ -280,7 +280,7 @@ const ClientCorrectionPage = ({match, history}) => {
                                                     <div className="col-md-3">
                                                         <div className="row justify-content-end">
                                                             <div className="col">
-                                                                <label>Add</label>
+                                                                <label><h6>Add</h6></label>
                                                             </div>
                                                         </div>
 
@@ -297,7 +297,7 @@ const ClientCorrectionPage = ({match, history}) => {
                                                     <div className="col-md-3">
                                                         <div className="row justify-content-end">
                                                             <div className="col">
-                                                                <label>Add-l</label>
+                                                                <label><h6>Add-l</h6></label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -316,7 +316,7 @@ const ClientCorrectionPage = ({match, history}) => {
                                         <div className="row">
                                             <div className="col-md-2 ">
                                                 <div className="row justify-content-end">
-                                                    <label>Près</label>
+                                                    <label><h6>Près</h6></label>
                                                 </div>
                                             </div>
                                             <div className="col-md-10">
@@ -379,16 +379,16 @@ const ClientCorrectionPage = ({match, history}) => {
                                             <div className="col-md-10">
                                                 <div className="row justify-content-end">
                                                     <div className="col-md-3">
-                                                        <label>Sph:</label>
+                                                        <label><h6>Sph:</h6></label>
                                                     </div>
                                                     <div className="col-md-3">
-                                                        <label>Cyl:</label>
+                                                        <label><h6>Cyl:</h6></label>
                                                     </div>
                                                     <div className="col-md-3">
-                                                        <label>Ax:</label>
+                                                        <label><h6>Ax:</h6></label>
                                                     </div>
                                                     <div className="col-md-3">
-                                                        <label>PD:</label>
+                                                        <label><h6>PD:</h6></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -396,7 +396,7 @@ const ClientCorrectionPage = ({match, history}) => {
                                         <div className="row">
                                             <div className="col-md-2 ">
                                                 <div className="row justify-content-end">
-                                                    <label>Loin:</label>
+                                                    <label><h6>Loin:</h6></label>
                                                 </div>
                                             </div>
                                             <div className="col-md-10">
@@ -451,7 +451,7 @@ const ClientCorrectionPage = ({match, history}) => {
                                                     <div className="col-md-3">
                                                         <div className="row justify-content-end">
                                                             <div className="col">
-                                                                <label>Add</label>
+                                                                <label><h6>Add</h6></label>
                                                             </div>
                                                         </div>
 
@@ -468,7 +468,7 @@ const ClientCorrectionPage = ({match, history}) => {
                                                     <div className="col-md-3">
                                                         <div className="row justify-content-end">
                                                             <div className="col">
-                                                                <label>Add-l</label>
+                                                                <label><h6>Add-l</h6></label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -487,7 +487,7 @@ const ClientCorrectionPage = ({match, history}) => {
                                         <div className="row">
                                             <div className="col-md-2 ">
                                                 <div className="row justify-content-end">
-                                                    <label>Près</label>
+                                                    <label><h6>Près</h6></label>
                                                 </div>
                                             </div>
                                             <div className="col-md-10">

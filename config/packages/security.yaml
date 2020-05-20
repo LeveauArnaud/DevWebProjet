@@ -56,15 +56,17 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
-        - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/clients, roles: IS_AUTHENTICATED_FULLY }
-        - { path: ^/api/commande_montures, roles: IS_AUTHENTICATED_FULLY }
-        - { path: ^/api/commande_verres, roles: IS_AUTHENTICATED_FULLY }
-        - { path: ^/api/corrections, roles: IS_AUTHENTICATED_FULLY }
-        - { path: ^/api/etat_commandes, roles: IS_AUTHENTICATED_FULLY }
-        - { path: ^/api/magasins, roles: IS_AUTHENTICATED_FULLY }
-        - { path: ^/api/montures, roles: IS_AUTHENTICATED_FULLY }
-        - { path: ^/api/prescripteurs, roles: IS_AUTHENTICATED_FULLY }
-        - { path: ^/api/stocks, roles: IS_AUTHENTICATED_FULLY}
-        - { path: ^/api/verres, roles: IS_AUTHENTICATED_FULLY }
-        - { path: ^/api/users, roles: IS_AUTHENTICATED_FULLY , methods:[POST,GET, PUT, DELETE]}
+        - { path: '^/', roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY , requires_channel: https}
+        - { path: ^/api/clients, roles: IS_AUTHENTICATED_FULLY , requires_channel: https}
+        - { path: ^/api/commande_montures, roles: IS_AUTHENTICATED_FULLY , requires_channel: https}
+        - { path: ^/api/commande_verres, roles: IS_AUTHENTICATED_FULLY, requires_channel: https }
+        - { path: ^/api/corrections, roles: IS_AUTHENTICATED_FULLY , requires_channel: https}
+        - { path: ^/api/etat_commandes, roles: IS_AUTHENTICATED_FULLY , requires_channel: https}
+        - { path: ^/api/magasins, roles: IS_AUTHENTICATED_FULLY , requires_channel: https}
+        - { path: ^/api/montures, roles: IS_AUTHENTICATED_FULLY , requires_channel: https}
+        - { path: ^/api/prescripteurs, roles: IS_AUTHENTICATED_FULLY , requires_channel: https}
+        - { path: ^/api/stocks, roles: IS_AUTHENTICATED_FULLY, requires_channel: https}
+        - { path: ^/api/verres, roles: IS_AUTHENTICATED_FULLY , requires_channel: https}
+        - { path: ^/api/users, roles: IS_AUTHENTICATED_FULLY , methods:[POST,GET, PUT, DELETE], requires_channel: https}
+
