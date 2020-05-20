@@ -24,7 +24,7 @@ const ClientCommandeMonturePage = ({match, history}) => {
     const [client, setClient] = useState([]);
     const [commandeMonture, setCommandeMonture] = useState({
         date: dateFormat(),
-        etat: "/api/etat_commandes/31"
+        etat: "/api/etat_commandes/1"
     });
     const [montures, setMontures] = useState([]);
     const [montureSelected, setMontureSelected] = useState([]);
