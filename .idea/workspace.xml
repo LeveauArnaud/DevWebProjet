@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="99a787a9-4342-4f37-9820-58dc11fc7958" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/assets/js/components/Pagination.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/Pagination.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/pages/ClientsPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/ClientsPage.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,11 +25,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/js/pages/ClientsPage.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="126" column="14" selection-start-line="126" selection-start-column="14" selection-end-line="126" selection-end-column="14" />
+            <state relative-caret-position="172">
+              <caret line="97" column="37" selection-start-line="97" selection-start-column="37" selection-end-line="97" selection-end-column="37" />
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
               </folding>
@@ -36,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/components/Pagination.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="573">
-              <caret line="43" column="26" lean-forward="true" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
+            <state relative-caret-position="285">
+              <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -152,8 +153,8 @@
         <option value="$PROJECT_DIR$/assets/js/pages/client/ClientCommandeVerresPage.jsx" />
         <option value="$PROJECT_DIR$/assets/js/pages/client/ClientCommandeMonturePage.jsx" />
         <option value="$PROJECT_DIR$/config/packages/security.yaml" />
-        <option value="$PROJECT_DIR$/assets/js/pages/ClientsPage.jsx" />
         <option value="$PROJECT_DIR$/assets/js/components/Pagination.jsx" />
+        <option value="$PROJECT_DIR$/assets/js/pages/ClientsPage.jsx" />
       </list>
     </option>
   </component>
@@ -445,12 +446,12 @@
       <workItem from="1589447938539" duration="34943000" />
       <workItem from="1589791165607" duration="13245000" />
       <workItem from="1589908214736" duration="17065000" />
-      <workItem from="1589983273010" duration="4567000" />
+      <workItem from="1589983273010" duration="4786000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="327347000" />
+    <option name="totallyTimeSpent" value="327566000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -807,20 +808,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/pages/ClientsPage.jsx">
+    <entry file="file://$PROJECT_DIR$/assets/js/components/Pagination.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="126" column="14" selection-start-line="126" selection-start-column="14" selection-end-line="126" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="285">
+          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/components/Pagination.jsx">
+    <entry file="file://$PROJECT_DIR$/assets/js/pages/ClientsPage.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="573">
-          <caret line="43" column="26" lean-forward="true" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
+        <state relative-caret-position="172">
+          <caret line="97" column="37" selection-start-line="97" selection-start-column="37" selection-end-line="97" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -95,7 +95,7 @@ const ClientsPage = (props) => {
                     </tr>
                 </thead>
                 {!loading &&<tbody>
-                {paginatedClients.map(client => <tr key={client.id} >
+                {paginatedClients && paginatedClients.map(client => <tr key={client.id} >
                     <th className="text-center"><img className="c-img" src={client.photo} /></th>
                     <td className="text-center">{client.nCli}</td>
                     <td className="text-center">{client.nom}</td>
