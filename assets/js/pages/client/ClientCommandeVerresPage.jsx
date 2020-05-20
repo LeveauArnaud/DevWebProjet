@@ -30,7 +30,7 @@ const ClientCommandeVerresPage = ({match, history}) => {
     //infos commande verres
     const [commandeVerres, setCommandeVerres] = useState({
         date: dateFormat(),
-        etat: "/api/etat_commandes/31"
+        etat: "/api/etat_commandes/1"
     });
     //erreur liste
     const [errors, setErrors] = useState([]);
