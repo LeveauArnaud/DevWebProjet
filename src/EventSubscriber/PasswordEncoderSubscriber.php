@@ -10,8 +10,8 @@ use Symfony\Component\HttpKernel\Event\ViewEvent;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 
-class PasswordEncoderSubcriber implements EventSubscriberInterface{
-
+class PasswordEncoderSubscriber implements EventSubscriberInterface{
+    
     /** @var UserPasswordEncoderInterface */
     private $encoder;
 
