@@ -34,7 +34,7 @@ const ClientsPage = (props) => {
     },[])
 
 
-
+console.log(clients);
     // gestion changement de page
     const handlePageChange = page => {
         setCurrentPage(page);
