@@ -17,7 +17,7 @@ const Pagination = ({currentPage, itemsPerPage, length, onPageChanged}) => {
                 <li className={"page-item " + ( currentPage === 1 && "disabled")}>
                     <button className="page-link" onClick={() => onPageChanged(page - 1 )}>&laquo;</button>
                 </li>
-                {pages && pages.map(page =>(
+                {pages.map(page =>(
                     <li key={page} className={"page-item " + (currentPage === page && "active")}>
                         <button className="page-link"
                                 onClick={() => onPageChanged(page)}
@@ -37,7 +37,7 @@ const Pagination = ({currentPage, itemsPerPage, length, onPageChanged}) => {
 Pagination.getData = (items, currentPage, itemsPerPage) =>{
     // d'où on part (start) pendant combien ( itemsPerPage)
     const start = currentPage * itemsPerPage - itemsPerPage;
-    return items && items.slice(start, start + itemsPerPage);
+    return items.slice(start, start + itemsPerPage);
 
 }
 
