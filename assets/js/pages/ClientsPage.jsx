@@ -65,7 +65,7 @@ console.log(clients);
     };
 
     // filtrage des montures en stock en fonction de la recherche
-    const filteredClients = clients && clients.filter( c =>
+    const filteredClients = clients.filter( c =>
         c.nCli.toString().toLowerCase().includes(search.toLowerCase()) ||
         c.prenom.toLowerCase().includes(search.toLowerCase()) ||
         c.nom.toLowerCase().includes(search.toLowerCase()) ||
@@ -134,7 +134,7 @@ console.log(clients);
             </table>
 
 
-            {!loading && filteredClients &&
+            {filteredClients &&
             itemsPerPage < filteredClients.length &&( <Pagination
                 currentPage={currentPage}
                 itemsPerPage={itemsPerPage}
