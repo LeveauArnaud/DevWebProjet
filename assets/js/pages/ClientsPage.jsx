@@ -5,11 +5,28 @@ import { Link } from "react-router-dom";
 import {toast} from "react-toastify";
 import TableLoader from "../components/loarders/TableLoader";
 
-const ClientsPage = (props) => {
+const ClientsPage = () => {
 
 
 
-    const [clients, setClients] = useState([]);
+    const [clients, setClients] = useState([{
+        "id": 0,
+        "nom": "",
+        "prenom": "",
+        "dateNaissance": "",
+        "rue": "",
+        "ville": "",
+        "pays": "",
+        "phone": 0,
+        "email": "",
+        "sexe": "",
+        "photo": "",
+        "codePostale": 0,
+        "corrections": [],
+        "commandeMontures": [],
+        "commandeVerres": [],
+        "nCli": 0
+    }]);
     const [currentPage, setCurrentPage] = useState(1);
     const [search, setSearch] = useState("");
     const [loading, setLoading] = useState(true);
@@ -20,7 +37,7 @@ const ClientsPage = (props) => {
     const fetchClients = async () => {
         try {
             const data = await ClientsAPI.findAll()
-            setClients(data);
+            setClients({...data, [id]: id});
             console.log(data);
             setLoading(false);
         } catch (error) {
