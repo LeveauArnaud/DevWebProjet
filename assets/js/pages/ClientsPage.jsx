@@ -37,7 +37,7 @@ const ClientsPage = () => {
     const fetchClients = async () => {
         try {
             const data = await ClientsAPI.findAll()
-            setClients({...data, [id]: id});
+            setClients(data);
             console.log(data);
             setLoading(false);
         } catch (error) {
