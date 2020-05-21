@@ -21,6 +21,7 @@ const ClientsPage = (props) => {
         try {
             const data = await ClientsAPI.findAll()
             setClients(data);
+            console.log(data);
             setLoading(false);
         } catch (error) {
             toast.error("Impossible de charger les clients");
