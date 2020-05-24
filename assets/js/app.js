@@ -34,8 +34,8 @@ const App = () =>{
     const [isAuthenticated, setIsAuthenticated] = useState(AuthAPI.isAuthenticated());
     const NavbarWithRouter = withRouter(Navbar);
 
-
     return (
+
       <AuthContext.Provider value={{
           isAuthenticated,
           setIsAuthenticated

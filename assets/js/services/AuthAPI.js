@@ -8,6 +8,7 @@ import {API_URL} from "../config.js";
  *
  */
 function logout(){
+    window.localStorage.removeItem("user");
     window.localStorage.removeItem("authToken");
     delete axios.defaults.headers["Authorization"];
 }
@@ -31,7 +32,8 @@ function authenticate(credentials){
         .then(response => response.data.token)
         .then(token => {
             //stockage du token dans le localStorage
-            window.localStorage.setItem("authToken", token)
+            window.localStorage.setItem("user", credentials.username);
+            window.localStorage.setItem("authToken", token);
             // on prévient axios qu'on a un header par défault pour toutes les futures requêtess HTTP
             setAxiosToken(token);
         });

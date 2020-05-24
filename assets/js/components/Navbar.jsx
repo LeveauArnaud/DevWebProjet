@@ -4,7 +4,9 @@ import {NavLink} from "react-router-dom";
 import AuthContext from "../contexts/AuthContexts";
 import {toast} from "react-toastify";
 
+
 const Navbar = ({history}) => {
+
 
     const { isAuthenticated, setIsAuthenticated} = useContext(AuthContext);
 

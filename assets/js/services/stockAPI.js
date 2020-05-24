@@ -6,7 +6,17 @@ function findAll() {
         .then(response => response.data["hydra:member"])
 };
 
+function get(idMonture) {
+    return axios.get(API_URL+"stocks/"+idMonture)
+        .then(response => response.data["hydra:member"])
+};
+
+function update(idMonture, quantite) {
+    return axios.patch(API_URL+"stocks/"+idMonture, { quantite: quantite })
+};
 
 export default{
-    findAll
+    findAll,
+    update,
+    get
 };

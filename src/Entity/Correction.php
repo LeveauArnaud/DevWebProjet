@@ -73,55 +73,55 @@ class Correction
     private $sphOdL;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      * @groups({"corrections_read","corrections_subresource","clients_read"})
      */
     private $cylOdL;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      * @groups({"corrections_read","corrections_subresource","clients_read"})
      */
     private $axOdL;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      * @groups({"corrections_read","corrections_subresource","clients_read"})
      */
     private $pdOdL;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      * @groups({"corrections_read","corrections_subresource","clients_read"})
      */
     private $addOd;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      * @groups({"corrections_read","corrections_subresource","clients_read"})
      */
     private $addLOd;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      * @groups({"corrections_read","corrections_subresource","clients_read"})
      */
     private $sphOdP;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      * @groups({"corrections_read","corrections_subresource","clients_read"})
      */
     private $cylOdP;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      * @groups({"corrections_read","corrections_subresource","clients_read"})
      */
     private $axOdP;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      * @groups({"corrections_read","corrections_subresource","clients_read"})
      */
     private $pdOdP;
@@ -130,61 +130,61 @@ class Correction
     //
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      * @groups({"corrections_read","corrections_subresource","clients_read"})
      */
     private $sphOgL;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      * @groups({"corrections_read","corrections_subresource","clients_read"})
      */
     private $cylOgL;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      * @groups({"corrections_read","corrections_subresource","clients_read"})
      */
     private $axOgL;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      * @groups({"corrections_read","corrections_subresource","clients_read"})
      */
     private $pdOgL;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      * @groups({"corrections_read","corrections_subresource","clients_read"})
      */
     private $addOg;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      * @groups({"corrections_read","corrections_subresource","clients_read"})
      */
     private $addLOg;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      * @groups({"corrections_read","corrections_subresource","clients_read"})
      */
     private $sphOgP;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      * @groups({"corrections_read","corrections_subresource","clients_read"})
      */
     private $cylOgP;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      * @groups({"corrections_read","corrections_subresource","clients_read"})
      */
     private $axOgP;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      * @groups({"corrections_read","corrections_subresource","clients_read"})
      */
     private $pdOgP;

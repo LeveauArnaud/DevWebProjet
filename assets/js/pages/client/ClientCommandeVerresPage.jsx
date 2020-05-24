@@ -188,6 +188,20 @@ const ClientCommandeVerresPage = ({match, history}) => {
                                         </Select>
                                     </div>
                                 </div>
+                                <div className="row justify-content-end">
+                                    <div className="col-md-4">
+                                        <h6 className="text-right">Reduction</h6>
+                                    </div>
+                                    <div className="col-md-8">
+                                        <Field
+                                            name="reduction"
+                                            placeHolder="reduction en %"
+                                            value={commandeVerres.reduction}
+                                            onChange={handleChange}
+                                            error={errors.reduction}
+                                        />
+                                    </div>
+                                </div>
                             </div>
                             <div className="col-md-5">
                                 <div className="row justify-content-end">
