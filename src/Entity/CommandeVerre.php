@@ -142,6 +142,12 @@ class CommandeVerre
      */
     private $etat;
 
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     * @groups({"commandeVerres_read","commandeVerres_subresource","clients_read"})
+     */
+    private $reduction;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -347,6 +353,18 @@ class CommandeVerre
     public function setEtat(?EtatCommande $etat): self
     {
         $this->etat = $etat;
+
+        return $this;
+    }
+
+    public function getReduction(): ?float
+    {
+        return $this->reduction;
+    }
+
+    public function setReduction(?float $reduction): self
+    {
+        $this->reduction = $reduction;
 
         return $this;
     }

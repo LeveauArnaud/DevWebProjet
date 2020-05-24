@@ -69,6 +69,12 @@ class CommandeMonture
      */
     private $etat;
 
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     * @groups({"commandeMonture_read","commandeMonture_subresource","clients_read"})
+     */
+    private $reduction;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -131,6 +137,18 @@ class CommandeMonture
     public function setEtat(?EtatCommande $etat): self
     {
         $this->etat = $etat;
+
+        return $this;
+    }
+
+    public function getReduction(): ?float
+    {
+        return $this->reduction;
+    }
+
+    public function setReduction(?float $reduction): self
+    {
+        $this->reduction = $reduction;
 
         return $this;
     }

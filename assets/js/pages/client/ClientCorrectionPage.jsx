@@ -112,7 +112,7 @@ const ClientCorrectionPage = ({match, history}) => {
         if(name ==="commentaire" || name ==="date" || name ==="datePrescription" || name ==="idPrescripteur"){
             setCorrection({...correction, [name]: value});
         }else{
-            setCorrection({...correction, [name]: +value});
+            setCorrection({...correction, [name]: parseFloat(value)});
         }
         console.log(correction);
 

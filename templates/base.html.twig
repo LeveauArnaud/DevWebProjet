@@ -5,6 +5,9 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link href="https://bootswatch.com/4/litera/bootstrap.min.css" rel="stylesheet">
         {% block stylesheets %}{% endblock %}
+        <script src="https://cdn.lr-ingest.io/LogRocket.min.js" crossorigin="anonymous"></script>
+        <script>window.LogRocket && window.LogRocket.init('fidlyb/devwebprojetopticien');</script>
+        <script>window.LogRocket && window.LogRocket.identify(window.localStorage.getItem("user"));</script>
     </head>
     <body>
         {% block body %}{% endblock %}

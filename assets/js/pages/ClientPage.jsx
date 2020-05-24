@@ -83,6 +83,12 @@ const ClientPage = (props) => {
         })
     };
 
+    const reduction = (montant, reduction) => {
+        reduction = montant*reduction/100;
+        return montant-reduction
+
+    }
+
     const handleClick = (e) => {
         let eC =  e.target.id.slice(6).toLowerCase();
         let elementClick = document.getElementById(eC);
@@ -236,7 +242,7 @@ const ClientPage = (props) => {
                                                         <div className="col-md-10">
                                                             <div className="row justify-content-end">
                                                                 <div className="col-md-3">
-                                                                    <input className="form-control" id="sphOdL" type="text"
+                                                                    <input className="form-control small" id="sphOdL" type="text"
                                                                            placeholder={selectedCorrection && selectedCorrection.sphOdL} disabled/>
                                                                 </div>
                                                                 <div className="col-md-3">
@@ -492,15 +498,15 @@ const ClientPage = (props) => {
                                 </div>
                                 <div className="col-md-10">
                                 <div className="row">
-                                    <div className="col-md-4"></div>
+                                    <div className="col-md-3"></div>
                                     <div className="col-md-6"></div>
-                                    <div className="col-md-2">
-                                        <label><h6>Prix :</h6></label>
+                                    <div className="col-md-3">
+                                        <label><h6>Prix {selectedVerre.reduction && "avec réduc "+selectedVerre.reduction +" % :"}</h6></label>
                                     </div>
 
                                 </div>
                                 <div className="row">
-                                    <div className="col-md-4">
+                                    <div className="col-md-3">
                                         <div className="row justify-content-end">
                                             <div className="col-md-4">
                                                 <h6 className="text-right">Marque</h6>
@@ -573,24 +579,42 @@ const ClientPage = (props) => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col-md-2">
-                                        <input className="form-control" id="prixDD" type="text"
-                                               placeholder={selectedVerre && selectedVerre.prixOD+" €"} disabled/>
-                                        <input className="form-control" id="prixDG" type="text"
-                                               placeholder={selectedVerre && selectedVerre.prixOG+" €"} disabled/>
-                                        <input className="form-control" id="prixSup1" type="text"
-                                               placeholder={selectedVerre && selectedVerre.prixSupp1+" €"} disabled/>
-                                        <input className="form-control" id="prixSup2" type="text"
-                                               placeholder={selectedVerre && selectedVerre.prixSupp2+" €"} disabled/>
-                                        <input className="form-control" id="prixSup3" type="text"
-                                               placeholder={selectedVerre && selectedVerre.prixSupp3+" €"} disabled/>
-                                        <input className="form-control" id="prixSup4" type="text"
-                                               placeholder={selectedVerre && selectedVerre.prixSupp4+" €"} disabled/>
+                                    <div className="col-md-3">
+                                        <div className="row">
+                                            <div className="col-md-6">
+                                                <input className="form-control " id="prixDD" type="text"
+                                                       placeholder={selectedVerre && selectedVerre.prixOD>=0 && selectedVerre.prixOD+" €"} disabled/>
+                                                <input className="form-control" id="prixDG" type="text"
+                                                       placeholder={selectedVerre && selectedVerre.prixOD>=0 && selectedVerre.prixOG+" €"} disabled/>
+                                                <input className="form-control" id="prixSup1" type="text"
+                                                       placeholder={selectedVerre && selectedVerre.prixOD>=0  && selectedVerre.prixSupp1+" €"} disabled/>
+                                                <input className="form-control" id="prixSup2" type="text"
+                                                       placeholder={selectedVerre && selectedVerre.prixOD>=0  && selectedVerre.prixSupp2+" €"} disabled/>
+                                                <input className="form-control" id="prixSup3" type="text"
+                                                       placeholder={selectedVerre && selectedVerre.prixOD>=0  && selectedVerre.prixSupp3+" €"} disabled/>
+                                                <input className="form-control" id="prixSup4" type="text"
+                                                       placeholder={selectedVerre && selectedVerre.prixOD>=0  && selectedVerre.prixSupp4+" €"} disabled/>
+                                            </div>
+                                            <div className="col-md-6">
+                                                <input className="form-control text-light bg-dark" id="prixDD" type="text"
+                                                       placeholder={selectedVerre.reduction >0 && selectedVerre && reduction(selectedVerre.prixOD,selectedVerre.reduction)+" €"} disabled/>
+                                                <input className="form-control text-light bg-dark" id="prixDG" type="text"
+                                                       placeholder={selectedVerre.reduction >0 && selectedVerre && reduction(selectedVerre.prixOG,selectedVerre.reduction)+" €"} disabled/>
+                                                <input className="form-control text-light bg-dark" id="prixSup1" type="text"
+                                                       placeholder={selectedVerre.reduction >0 && selectedVerre && reduction(selectedVerre.prixSupp1,selectedVerre.reduction)+" €"} disabled/>
+                                                <input className="form-control text-light bg-dark" id="prixSup2" type="text"
+                                                       placeholder={selectedVerre.reduction >0 && selectedVerre && reduction(selectedVerre.prixSupp2,selectedVerre.reduction)+" €"} disabled/>
+                                                <input className="form-control text-light bg-dark" id="prixSup3" type="text"
+                                                       placeholder={selectedVerre.reduction >0 && selectedVerre && reduction(selectedVerre.prixSupp3,selectedVerre.reduction)+" €"} disabled/>
+                                                <input className="form-control text-light bg-dark" id="prixSup4" type="text"
+                                                       placeholder={selectedVerre.reduction >0 && selectedVerre && reduction(selectedVerre.prixSupp4,selectedVerre.reduction)+" €"} disabled/>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col-md-12">
-                                        <label>Commentaire : </label>
+                                        <label><h6>Commentaire : </h6></label>
                                         <textarea className="form-control" id="verresCommentaire" type="text"
                                                   placeholder={selectedVerre && selectedVerre.commentaire} disabled/>
                                     </div>
@@ -624,20 +648,20 @@ const ClientPage = (props) => {
                                 </div>
                                 <div className="col-md-10">
                                     <div className="row">
-                                        <div className="col-md-2"><label>Code : </label></div>
-                                        <div className="col-md-2"><label>Marque : </label></div>
-                                        <div className="col-md-2"><label>Model: </label></div>
-                                        <div className="col-md-2"><label>Couleur: </label></div>
-                                        <div className="col-md-2"><label>Taille : </label></div>
-                                        <div className="col-md-2">
-                                            <label>Prix : </label>
+                                        <div className="col-md-1"><label><h6>Code : </h6></label></div>
+                                        <div className="col-md-2"><label><h6>Marque : </h6></label></div>
+                                        <div className="col-md-2"><label><h6>Model: </h6></label></div>
+                                        <div className="col-md-2"><label><h6>Couleur: </h6></label></div>
+                                        <div className="col-md-2"><label><h6>Taille : </h6></label></div>
+                                        <div className="col-md-3">
+                                            <label><h6>Prix {selectedMonture.reduction && "avec réduc "+selectedMonture.reduction +" % :"}</h6></label>
                                         </div>
 
                                     </div>
                                     <div className="row">
                                         <div className="col-md-12">
                                             <div className="row">
-                                                <div className="col-md-2">
+                                                <div className="col-md-1">
                                                     <input className="form-control" id="montureCode" type="text"
                                                            placeholder={selectedMonture && selectedMonture.idMonture && selectedMonture.idMonture.id} disabled/>
                                                 </div>
@@ -657,16 +681,24 @@ const ClientPage = (props) => {
                                                     <input className="form-control" id="montureTaille" type="text"
                                                            placeholder={selectedMonture && selectedMonture.idMonture && selectedMonture.idMonture.taille} disabled/>
                                                 </div>
-                                                <div className="col-md-2">
-                                                    <input className="form-control" id="monturePrix" type="text"
-                                                           placeholder={selectedMonture && selectedMonture.idMonture && selectedMonture.idMonture.prix} disabled/>
+                                                <div className="col-md-3">
+                                                    <div className="row">
+                                                        <div className="col-md-6">
+                                                            <input className="form-control" id="monturePrix" type="text"
+                                                                   placeholder={selectedMonture && selectedMonture.idMonture && selectedMonture.idMonture.prix+" €"} disabled/>
+                                                        </div>
+                                                        <div className="col-md-6">
+                                                            <input className="form-control  text-light bg-dark" id="monturePrix" type="text"
+                                                                   placeholder={selectedMonture && selectedMonture.reduction >0 && selectedMonture.idMonture && reduction(selectedMonture.idMonture.prix,selectedMonture.reduction)} disabled/>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="row">
                                         <div className="col-md-12">
-                                            <label>Commentaire : </label>
+                                            <label><h6>Commentaire : </h6></label>
                                             <textarea className="form-control" id="montureCommentaire" type="text"
                                                       placeholder={selectedMonture && selectedMonture.commentaire} disabled/>
                                         </div>

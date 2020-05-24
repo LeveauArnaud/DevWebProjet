@@ -60,7 +60,7 @@ console.log(commandeMonture);
     // Gestion des changements des inputs dans le formulaire
     const handleChange = ({currentTarget}) =>{
         const { name, value} = currentTarget;
-        if(name ==="id" || name ==="prix"){
+        if(name ==="id" || name ==="prix"|| name ==="reduction"){
             setCommandeMonture({...commandeMonture, [name]: parseFloat(value)});
         }else {
             setCommandeMonture({...commandeMonture, [name]: value});
@@ -133,6 +133,7 @@ console.log(commandeMonture);
                 history.replace("/client/"+idClient);
             }
 
+
             // response === error.response
         }catch ({ response }) {
 
@@ -161,6 +162,41 @@ console.log(commandeMonture);
                 <form onSubmit={handleSubmit}>
                     <div className="col-md-12">
                         <div className="row">
+                            <div className="col-md-6"><label><h6>Selection une monture : </h6></label></div>
+                            <div className="col-md-6">
+                                <label><h6>Reduction : </h6></label>
+                            </div>
+
+                        </div>
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="row">
+                                    <div className="col-md-6">
+                                        <Select
+                                        value={commandeMonture.idMonture && commandeMonture.idMonture}
+                                        name="idMonture"
+                                        onChange={handleChange}
+                                        error={errors.idMonture}
+                                        >
+
+                                        {!editing && <option >Selectionner une monture</option>}
+                                        {montures.map(m => <option key={m.id} value={m.id}>{m.id +" - "+m.marque+" - "+m.model+" - "+m.couleur+" - "+m.taille+" - "+m.prix}</option>)}
+                                        </Select>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <Field
+                                            name="reduction"
+                                            placeHolder="reduction reduction en %"
+                                            value={commandeMonture.reduction}
+                                            onChange={handleChange}
+                                            error={errors.reduction}
+                                        />
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row">
                             <div className="col-md-2"><label><h6>Code : </h6></label></div>
                             <div className="col-md-2"><label><h6>Marque : </h6></label></div>
                             <div className="col-md-2"><label><h6>Model: </h6></label></div>
@@ -175,16 +211,8 @@ console.log(commandeMonture);
                             <div className="col-md-12">
                                 <div className="row">
                                     <div className="col-md-2">
-                                        <Select
-                                        value={commandeMonture.idMonture && commandeMonture.idMonture}
-                                        name="idMonture"
-                                        onChange={handleChange}
-                                        error={errors.idMonture}
-                                        >
-
-                                        {!editing && <option >Selectionner une monture</option>}
-                                        {montures.map(m => <option key={m.id} value={m.id}>{m.id +" - "+m.marque+" - "+m.model+" - "+m.couleur+" - "+m.taille+" - "+m.prix}</option>)}
-                                        </Select>
+                                        <input className="form-control" id="montureMarque" type="text"
+                                               placeholder={commandeMonture.idMonture && montureSelected.id} disabled/>
                                     </div>
                                     <div className="col-md-2">
                                         <input className="form-control" id="montureMarque" type="text"
