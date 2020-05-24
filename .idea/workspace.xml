@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="99a787a9-4342-4f37-9820-58dc11fc7958" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/Navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/pages/ClientPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/ClientPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/pages/client/ClientCommandeMonturePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/client/ClientCommandeMonturePage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/pages/client/ClientCommandeVerresPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/client/ClientCommandeVerresPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/pages/client/ClientCorrectionPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/client/ClientCorrectionPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/services/AuthAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/services/AuthAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/services/stockAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/services/stockAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/prod/webpack_encore.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/prod/webpack_encore.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/CommandeMonture.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/CommandeMonture.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/CommandeVerre.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/CommandeVerre.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Correction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Correction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/log/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/log/dev.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +19,7 @@
         <entry file="file://$PROJECT_DIR$/assets/js/services/AuthAPI.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="529">
-              <caret line="64" column="59" lean-forward="true" selection-start-line="64" selection-start-column="59" selection-end-line="64" selection-end-column="59" />
+              <caret line="64" column="59" selection-start-line="64" selection-start-column="59" selection-end-line="64" selection-end-column="59" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -395,12 +381,12 @@
       <workItem from="1589791165607" duration="13245000" />
       <workItem from="1589908214736" duration="17065000" />
       <workItem from="1589983273010" duration="16932000" />
-      <workItem from="1590155677735" duration="3015000" />
+      <workItem from="1590155677735" duration="3250000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="342727000" />
+    <option name="totallyTimeSpent" value="342962000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -415,11 +401,11 @@
     <frame x="50" y="70" width="2318" height="1027" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.0953427" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0953427" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32831" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3272727" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32893288" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -428,7 +414,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.1764706" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.1764706" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32893288" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -769,7 +755,7 @@
     <entry file="file://$PROJECT_DIR$/assets/js/services/AuthAPI.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="529">
-          <caret line="64" column="59" lean-forward="true" selection-start-line="64" selection-start-column="59" selection-end-line="64" selection-end-column="59" />
+          <caret line="64" column="59" selection-start-line="64" selection-start-column="59" selection-end-line="64" selection-end-column="59" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
