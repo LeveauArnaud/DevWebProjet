@@ -131,7 +131,7 @@ const ClientCommandeVerresPage = ({match, history}) => {
             }else {
                 await CommandeVerresAPI.create(idClient, commandeVerres);
                 toast.success("Commande créée avec succès ");
-                history.replace("/clients");
+                history.replace("/clients/"+idClient);
             }
 
             // response === error.response
