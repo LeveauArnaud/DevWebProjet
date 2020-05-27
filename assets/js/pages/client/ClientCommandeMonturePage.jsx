@@ -32,7 +32,6 @@ const ClientCommandeMonturePage = ({match, history}) => {
 
     const [editing, setEditing ] = useState(false);
 
-console.log(commandeMonture);
     // Récupération de la commande en fonction de son id
     const fetchCommandeMonture = async idCommandeMonture =>{
         try{
@@ -48,6 +47,7 @@ console.log(commandeMonture);
         }
 
     }
+
     // Chargement du client si besoin au chargement du composant ou au chargement de l'id ( à chaque changement de l'id)
     useEffect(() =>{
         if(idCommandeMonture !== "new") {
@@ -110,7 +110,7 @@ console.log(commandeMonture);
 
     }
 
-    // Chargement liste des verres
+    // Chargement liste des montures
     useEffect(() =>{
         fetchMontures();
 

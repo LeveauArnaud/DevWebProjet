@@ -501,7 +501,7 @@ const ClientPage = (props) => {
                                     <div className="col-md-3"></div>
                                     <div className="col-md-6"></div>
                                     <div className="col-md-3">
-                                        <label><h6>Prix {selectedVerre.reduction && "avec réduc "+selectedVerre.reduction +" % :"}</h6></label>
+                                        <label><h6>Prix {selectedVerre && (selectedVerre.reduction && "avec réduc "+selectedVerre.reduction +" % :")}</h6></label>
                                     </div>
 
                                 </div>
@@ -597,17 +597,17 @@ const ClientPage = (props) => {
                                             </div>
                                             <div className="col-md-6">
                                                 <input className="form-control text-light bg-dark" id="prixDD" type="text"
-                                                       placeholder={selectedVerre.reduction >0 && selectedVerre && reduction(selectedVerre.prixOD,selectedVerre.reduction)+" €"} disabled/>
+                                                       placeholder={selectedVerre && (selectedVerre.reduction >0 && selectedVerre && reduction(selectedVerre.prixOD,selectedVerre.reduction)+" €")} disabled/>
                                                 <input className="form-control text-light bg-dark" id="prixDG" type="text"
-                                                       placeholder={selectedVerre.reduction >0 && selectedVerre && reduction(selectedVerre.prixOG,selectedVerre.reduction)+" €"} disabled/>
+                                                       placeholder={selectedVerre && (selectedVerre.reduction >0 && selectedVerre && reduction(selectedVerre.prixOG,selectedVerre.reduction)+" €")} disabled/>
                                                 <input className="form-control text-light bg-dark" id="prixSup1" type="text"
-                                                       placeholder={selectedVerre.reduction >0 && selectedVerre && reduction(selectedVerre.prixSupp1,selectedVerre.reduction)+" €"} disabled/>
+                                                       placeholder={selectedVerre && (selectedVerre.reduction >0 && selectedVerre && reduction(selectedVerre.prixSupp1,selectedVerre.reduction)+" €")} disabled/>
                                                 <input className="form-control text-light bg-dark" id="prixSup2" type="text"
-                                                       placeholder={selectedVerre.reduction >0 && selectedVerre && reduction(selectedVerre.prixSupp2,selectedVerre.reduction)+" €"} disabled/>
+                                                       placeholder={selectedVerre && (selectedVerre.reduction >0 && selectedVerre && reduction(selectedVerre.prixSupp2,selectedVerre.reduction)+" €")} disabled/>
                                                 <input className="form-control text-light bg-dark" id="prixSup3" type="text"
-                                                       placeholder={selectedVerre.reduction >0 && selectedVerre && reduction(selectedVerre.prixSupp3,selectedVerre.reduction)+" €"} disabled/>
+                                                       placeholder={selectedVerre && (selectedVerre.reduction >0 && selectedVerre && reduction(selectedVerre.prixSupp3,selectedVerre.reduction)+" €")} disabled/>
                                                 <input className="form-control text-light bg-dark" id="prixSup4" type="text"
-                                                       placeholder={selectedVerre.reduction >0 && selectedVerre && reduction(selectedVerre.prixSupp4,selectedVerre.reduction)+" €"} disabled/>
+                                                       placeholder={selectedVerre && (selectedVerre.reduction >0 && selectedVerre && reduction(selectedVerre.prixSupp4,selectedVerre.reduction)+" €")} disabled/>
                                             </div>
                                         </div>
                                     </div>
@@ -654,7 +654,7 @@ const ClientPage = (props) => {
                                         <div className="col-md-2"><label><h6>Couleur: </h6></label></div>
                                         <div className="col-md-2"><label><h6>Taille : </h6></label></div>
                                         <div className="col-md-3">
-                                            <label><h6>Prix {selectedMonture.reduction && "avec réduc "+selectedMonture.reduction +" % :"}</h6></label>
+                                            <label><h6>Prix {selectedVerre && (selectedMonture.reduction && "avec réduc "+selectedMonture.reduction +" % :")}</h6></label>
                                         </div>
 
                                     </div>

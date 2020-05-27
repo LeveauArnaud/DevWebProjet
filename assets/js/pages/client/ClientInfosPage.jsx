@@ -18,8 +18,13 @@ const ClientInfosPage = ({match, history}) => {
 
     const { id = "new"} = match.params;
 
+    const getRndInteger = (min, max) => {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+
     const [client, setClient] = useState({
-        nCli:0,
+        nCli:getRndInteger(7550,8000),
         nom:"",
         prenom:"",
         sexe:"",
