@@ -29,7 +29,7 @@ class PasswordEncoderSubscriber implements EventSubscriberInterface{
 
     public function onKernelView(ViewEvent $event){
         $result = $event->getControllerResult();
-        dump($result);
+        
 
         $method = $event->getRequest()->getMethod();
 
