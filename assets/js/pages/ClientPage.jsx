@@ -85,7 +85,7 @@ const ClientPage = (props) => {
 
     const reduction = (montant, reduction) => {
         reduction = montant*reduction/100;
-        return montant-reduction
+        return (montant-reduction).toFixed(1)
 
     }
 
@@ -596,17 +596,17 @@ const ClientPage = (props) => {
                                                        placeholder={selectedVerre && selectedVerre.prixOD>=0  && selectedVerre.prixSupp4+" €"} disabled/>
                                             </div>
                                             <div className="col-md-6">
-                                                <input className="form-control text-light bg-dark" id="prixDD" type="text"
+                                                <input className="form-control text-light bg-dark" id="prixDDRed" type="text"
                                                        placeholder={selectedVerre && (selectedVerre.reduction >0 && selectedVerre && reduction(selectedVerre.prixOD,selectedVerre.reduction)+" €")} disabled/>
-                                                <input className="form-control text-light bg-dark" id="prixDG" type="text"
+                                                <input className="form-control text-light bg-dark" id="prixDGRed" type="text"
                                                        placeholder={selectedVerre && (selectedVerre.reduction >0 && selectedVerre && reduction(selectedVerre.prixOG,selectedVerre.reduction)+" €")} disabled/>
-                                                <input className="form-control text-light bg-dark" id="prixSup1" type="text"
+                                                <input className="form-control text-light bg-dark" id="prixSup1Red" type="text"
                                                        placeholder={selectedVerre && (selectedVerre.reduction >0 && selectedVerre && reduction(selectedVerre.prixSupp1,selectedVerre.reduction)+" €")} disabled/>
-                                                <input className="form-control text-light bg-dark" id="prixSup2" type="text"
+                                                <input className="form-control text-light bg-dark" id="prixSup2Red" type="text"
                                                        placeholder={selectedVerre && (selectedVerre.reduction >0 && selectedVerre && reduction(selectedVerre.prixSupp2,selectedVerre.reduction)+" €")} disabled/>
-                                                <input className="form-control text-light bg-dark" id="prixSup3" type="text"
+                                                <input className="form-control text-light bg-dark" id="prixSup3Red" type="text"
                                                        placeholder={selectedVerre && (selectedVerre.reduction >0 && selectedVerre && reduction(selectedVerre.prixSupp3,selectedVerre.reduction)+" €")} disabled/>
-                                                <input className="form-control text-light bg-dark" id="prixSup4" type="text"
+                                                <input className="form-control text-light bg-dark" id="prixSup4Red" type="text"
                                                        placeholder={selectedVerre && (selectedVerre.reduction >0 && selectedVerre && reduction(selectedVerre.prixSupp4,selectedVerre.reduction)+" €")} disabled/>
                                             </div>
                                         </div>
@@ -688,8 +688,8 @@ const ClientPage = (props) => {
                                                                    placeholder={selectedMonture && selectedMonture.idMonture && selectedMonture.idMonture.prix+" €"} disabled/>
                                                         </div>
                                                         <div className="col-md-6">
-                                                            <input className="form-control  text-light bg-dark" id="monturePrix" type="text"
-                                                                   placeholder={selectedMonture && selectedMonture.reduction >0 && selectedMonture.idMonture && reduction(selectedMonture.idMonture.prix,selectedMonture.reduction)} disabled/>
+                                                            <input className="form-control  text-light bg-dark" id="monturePrixRed" type="text"
+                                                                   placeholder={selectedMonture && selectedMonture.reduction >0 && selectedMonture.idMonture && reduction(selectedMonture.idMonture.prix,selectedMonture.reduction)+" €"} disabled/>
                                                         </div>
                                                     </div>
                                                 </div>
