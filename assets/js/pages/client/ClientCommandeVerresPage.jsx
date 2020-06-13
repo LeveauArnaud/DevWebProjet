@@ -110,8 +110,10 @@ const ClientCommandeVerresPage = ({match, history}) => {
         const { name, value } = currentTarget;
         if(name ==="commentaire" || name ==="supp1" || name ==="supp2" || name ==="supp3" || name ==="supp4"){
             setCommandeVerres({...commandeVerres, [name]: value});
-        }else{
+        }else if( value !== null){
             setCommandeVerres({...commandeVerres, [name]: parseFloat(value)});
+        }else{
+            setCommandeVerres({...commandeVerres, [name]: null});
         }
         console.log({...commandeVerres, [name]: value});
 
@@ -199,6 +201,7 @@ const ClientCommandeVerresPage = ({match, history}) => {
                                             value={commandeVerres.reduction}
                                             onChange={handleChange}
                                             error={errors.reduction}
+                                            type = "number"
                                         />
                                     </div>
                                 </div>
@@ -215,6 +218,7 @@ const ClientCommandeVerresPage = ({match, history}) => {
                                             value={commandeVerres.diamD}
                                             onChange={handleChange}
                                             error={errors.diamD}
+                                            type = "number"
                                         />
                                     </div>
                                 </div>
@@ -229,6 +233,7 @@ const ClientCommandeVerresPage = ({match, history}) => {
                                             value={commandeVerres.diamG}
                                             onChange={handleChange}
                                             error={errors.diamG}
+                                            type = "number"
                                         />
                                     </div>
                                 </div>
@@ -296,6 +301,7 @@ const ClientCommandeVerresPage = ({match, history}) => {
                                     value={commandeVerres.prixOD}
                                     onChange={handleChange}
                                     error={errors.prixOD}
+                                    type = "number"
                                 />
                                 <Field
                                     name="prixOG"
@@ -303,6 +309,7 @@ const ClientCommandeVerresPage = ({match, history}) => {
                                     value={commandeVerres.prixOG}
                                     onChange={handleChange}
                                     error={errors.prixOG}
+                                    type = "number"
                                 />
                                 <Field
                                     name="prixSupp1"
@@ -310,6 +317,7 @@ const ClientCommandeVerresPage = ({match, history}) => {
                                     value={commandeVerres.prixSupp1}
                                     onChange={handleChange}
                                     error={errors.prixSupp1}
+                                    type = "number"
                                 />
                                 <Field
                                     name="prixSupp2"
@@ -317,6 +325,7 @@ const ClientCommandeVerresPage = ({match, history}) => {
                                     value={commandeVerres.prixSupp2}
                                     onChange={handleChange}
                                     error={errors.prixSupp2}
+                                    type = "number"
                                 />
                                 <Field
                                     name="prixSupp3"
@@ -324,6 +333,7 @@ const ClientCommandeVerresPage = ({match, history}) => {
                                     value={commandeVerres.prixSupp3}
                                     onChange={handleChange}
                                     error={errors.prixSupp3}
+                                    type = "number"
                                 />
                                 <Field
                                     name="prixSupp4"
@@ -331,6 +341,7 @@ const ClientCommandeVerresPage = ({match, history}) => {
                                     value={commandeVerres.prixSupp4}
                                     onChange={handleChange}
                                     error={errors.prixSupp4}
+                                    type = "number"
                                 />
                             </div>
                         </div>

@@ -62,9 +62,13 @@ const ClientCommandeMonturePage = ({match, history}) => {
         const { name, value} = currentTarget;
         if(name ==="id" || name ==="prix"|| name ==="reduction"){
             setCommandeMonture({...commandeMonture, [name]: parseFloat(value)});
-        }else {
-            setCommandeMonture({...commandeMonture, [name]: value});
+        }else if( value !== null){
+            setCommandeMonture({...commandeMonture, [name]: parseFloat(value)});
+        }else{
+            setCommandeMonture({...commandeMonture, [name]: null});
         }
+
+
         if (name ==="idMonture"){
             setMontureSelected(montures.map(m => m).filter(m => m.id === parseInt(value))[0]);
             console.log(montures.map(m => m).filter(m => m.id === parseInt(value)));
@@ -190,6 +194,7 @@ console.log(commandeMonture);
                                             value={commandeMonture.reduction}
                                             onChange={handleChange}
                                             error={errors.reduction}
+                                            type = "number"
                                         />
                                     </div>
 

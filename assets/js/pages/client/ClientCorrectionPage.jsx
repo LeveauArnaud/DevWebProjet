@@ -111,8 +111,10 @@ const ClientCorrectionPage = ({match, history}) => {
         const { name, value } = currentTarget;
         if(name ==="commentaire" || name ==="date" || name ==="datePrescription" || name ==="idPrescripteur"){
             setCorrection({...correction, [name]: value});
-        }else{
+        }else if( value !== null){
             setCorrection({...correction, [name]: parseFloat(value)});
+        }else{
+            setCorrection({...correction, [name]: null});
         }
         console.log(correction);
 
