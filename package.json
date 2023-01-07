@@ -1,6 +1,6 @@
 {
     "engines": {
-    "node": "18.13"
+    "node": "12.18"
   },
     "devDependencies": {
         "@babel/preset-react": "^7.0.0",
