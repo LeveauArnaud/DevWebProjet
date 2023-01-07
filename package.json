@@ -1,6 +1,7 @@
 {
     "engines": {
-    "node": "12.18"
+    "node": "12.18",
+    "php":"8.1.12"
   },
     "devDependencies": {
         "@babel/preset-react": "^7.0.0",
